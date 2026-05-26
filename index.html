@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOZA Racing - Global Dealer Social Monitor</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a28;
+    --surface3: #22223a;
+    --border: #2a2a44;
+    --text: #e0e0f0;
+    --text2: #8888aa;
+    --accent: #e8102a;
+    --accent2: #ff3044;
+    --green: #00e676;
+    --yellow: #ffd600;
+    --instagram: #e1306c;
+    --youtube: #ff0000;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  html { font-size: 14px; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0d0d18 0%, #1a0a0a 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.3rem; font-weight: 800; letter-spacing: 1px;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.1rem; color: white;
+  }
+  .logo span { color: var(--text); }
+  .logo .accent { color: var(--accent); }
+  .header-badge {
+    background: var(--accent); color: white;
+    padding: 2px 10px; border-radius: 12px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .header-right { display: flex; align-items: center; gap: 20px; }
+  .status-dot {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; color: var(--text2);
+  }
+  .status-dot::before {
+    content: ''; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .last-update { font-size: 0.75rem; color: var(--text2); }
+
+  /* Container */
+  .container { max-width: 1440px; margin: 0 auto; padding: 20px 24px; }
+
+  /* Stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .stat-card:nth-child(1)::after { background: var(--accent); }
+  .stat-card:nth-child(2)::after { background: var(--instagram); }
+  .stat-card:nth-child(3)::after { background: var(--youtube); }
+  .stat-card:nth-child(4)::after { background: var(--green); }
+  .stat-label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .stat-value { font-size: 1.8rem; font-weight: 800; }
+  .stat-sub { font-size: 0.75rem; color: var(--text2); margin-top: 4px; }
+  .stat-card .trend-up { color: var(--green); }
+  .stat-card .trend-down { color: var(--accent); }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 10px 22px;
+    border: none;
+    background: transparent;
+    color: var(--text2);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: var(--font);
+  }
+  .tab:hover { color: var(--text); background: var(--surface2); }
+  .tab.active {
+    background: var(--accent);
+    color: white;
+  }
+  .tab .count {
+    background: var(--surface3);
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    margin-left: 6px;
+  }
+  .tab.active .count { background: rgba(255,255,255,0.2); }
+
+  /* Controls bar */
+  .controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    flex: 1;
+    max-width: 320px;
+  }
+  .search-box input {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+    width: 100%;
+    font-family: var(--font);
+  }
+  .search-box input::placeholder { color: var(--text2); }
+  .search-box svg { width: 16px; height: 16px; fill: var(--text2); flex-shrink: 0; }
+
+  .filter-select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+
+  .refresh-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: var(--font);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .refresh-btn:hover { background: var(--surface2); border-color: var(--accent); }
+  .refresh-btn.spinning svg { animation: spin 0.8s linear infinite; }
+
+  .moza-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: var(--text2);
+    user-select: none;
+  }
+  .moza-toggle input { display: none; }
+  .moza-toggle .toggle-label {
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+  .moza-toggle input:checked + .toggle-label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Dealer Grid */
+  .dealer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .dealer-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .dealer-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(232,16,42,0.1);
+  }
+  .dealer-card .card-header {
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dealer-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--surface3);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.1rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .dealer-card.instagram .dealer-avatar { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); color: white; }
+  .dealer-card.youtube .dealer-avatar { background: var(--youtube); color: white; }
+  .dealer-card.both .dealer-avatar { background: linear-gradient(135deg, var(--youtube), var(--instagram)); color: white; }
+  .dealer-info { flex: 1; min-width: 0; }
+  .dealer-name { font-size: 0.95rem; font-weight: 700; }
+  .dealer-platforms { display: flex; gap: 4px; margin-top: 3px; }
+  .platform-tag {
+    font-size: 0.6rem;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .platform-tag.ig { background: rgba(225,48,108,0.2); color: var(--instagram); }
+  .platform-tag.yt { background: rgba(255,0,0,0.2); color: var(--youtube); }
+  .dealer-location {
+    font-size: 0.7rem;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+  .card-body { padding: 14px 18px; }
+  .post-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .post-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .post-thumb {
+    width: 52px; height: 52px;
+    border-radius: 6px;
+    background: var(--surface3);
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .post-content { flex: 1; min-width: 0; }
+  .post-text {
+    font-size: 0.8rem;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+  .post-text { cursor: pointer; transition: color 0.2s; }
+  .post-text:hover { color: var(--accent); }
+  .post-text .mention { color: var(--accent); font-weight: 600; }
+  .post-text a { color: inherit; text-decoration: none; display: block; }
+  .post-text a:hover { color: var(--accent); }
+  .feed-text { cursor: pointer; }
+  .feed-text:hover { color: var(--accent); }
+  .feed-text a { color: inherit; text-decoration: none; display: block; }
+  .feed-text a:hover { color: var(--accent); }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  .post-time { font-size: 0.65rem; color: var(--text2); }
+  .post-engagement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.65rem;
+    color: var(--text2);
+  }
+  .post-engagement svg {
+    width: 12px; height: 12px;
+    fill: var(--text2);
+    vertical-align: middle;
+    margin-right: 2px;
+  }
+  .card-footer {
+    padding: 10px 18px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-footer .handle {
+    font-size: 0.75rem;
+    color: var(--text2);
+  }
+  .card-footer .handle a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .card-footer .handle a:hover { text-decoration: underline; }
+  .card-footer .post-count {
+    font-size: 0.7rem;
+    color: var(--text2);
+  }
+
+  /* No posts state */
+  .no-posts {
+    text-align: center;
+    padding: 24px;
+    color: var(--text2);
+    font-size: 0.85rem;
+  }
+  .no-posts svg {
+    width: 40px; height: 40px;
+    fill: var(--text2);
+    opacity: 0.3;
+    margin-bottom: 8px;
+  }
+
+  /* Activity Feed */
+  /* Loading */
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .loading-overlay.active { display: flex; }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  .loading-text { color: var(--text2); font-size: 0.85rem; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 250;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px; right: 24px;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    background: none;
+    border: none;
+    font-family: var(--font);
+  }
+  .lightbox-close:hover { opacity: 1; }
+
+  .feed-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .feed-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .feed-header .badge {
+    background: var(--accent);
+    color: white;
+    padding: 1px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+  .feed-list { max-height: 320px; overflow-y: auto; }
+  .feed-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-item:hover { background: var(--surface2); }
+  .feed-item.new {
+    animation: highlight 2s ease-out;
+  }
+  @keyframes highlight {
+    0% { background: rgba(232,16,42,0.12); }
+    100% { background: transparent; }
+  }
+  .feed-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+  }
+  .feed-icon.ig { background: rgba(225,48,108,0.15); color: var(--instagram); }
+  .feed-icon.yt { background: rgba(255,0,0,0.15); color: var(--youtube); }
+  .feed-body { flex: 1; min-width: 0; }
+  .feed-dealer { font-size: 0.8rem; font-weight: 600; }
+  .feed-text { font-size: 0.75rem; color: var(--text2); margin-top: 1px; }
+  .feed-text .mention { color: var(--accent); font-weight: 600; }
+  .feed-time { font-size: 0.65rem; color: var(--text2); white-space: nowrap; flex-shrink: 0; }
+
+  /* View all empty state */
+  .view-all-empty {
+    text-align: center;
+    padding: 32px;
+    color: var(--text2);
+  }
+  .view-all-empty svg {
+    width: 48px; height: 48px;
+    fill: var(--text2);
+    opacity: 0.2;
+    margin-bottom: 12px;
+  }
+  .view-all-empty h3 { color: var(--text); font-size: 1rem; margin-bottom: 6px; }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 28px;
+  }
+  .modal h2 { font-size: 1.1rem; margin-bottom: 16px; color: var(--accent); }
+  .modal p { color: var(--text2); font-size: 0.85rem; line-height: 1.6; margin-bottom: 12px; }
+  .modal ul { list-style: none; padding: 0; margin-bottom: 16px; }
+  .modal ul li {
+    padding: 8px 12px;
+    background: var(--surface2);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal ul li .tag {
+    font-size: 0.6rem;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  .modal ul li .tag.us { background: rgba(0,118,255,0.2); color: #0076ff; }
+  .modal ul li .tag.ca { background: rgba(255,50,50,0.2); color: #ff3232; }
+  .modal-close {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--font);
+  }
+  .modal-close:hover { background: var(--accent2); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text2);
+    font-size: 0.7rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+    .header-left { width: 100%; }
+    .header-right { width: 100%; justify-content: space-between; }
+    .container { padding: 12px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .dealer-grid { grid-template-columns: 1fr; }
+    .controls-bar { flex-direction: column; align-items: stretch; }
+    .search-box { max-width: none; }
+    .modal { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo">
+      <div class="logo-icon">M</div>
+      <div><span>MOZA</span> <span class="accent">RACING</span></div>
+      <span class="header-badge">MONITOR</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="status-dot">Monitoring Live</div>
+    <div class="last-update" id="lastUpdate">Last updated: --</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Dealers Monitored</div>
+      <div class="stat-value" id="statDealers">0</div>
+      <div class="stat-sub">North America + AU + BR</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Instagram Posts</div>
+      <div class="stat-value" id="statIgPosts">0</div>
+      <div class="stat-sub">Last 7 days <span class="trend-up">↑</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">YouTube Videos</div>
+      <div class="stat-value" id="statYtVideos">0</div>
+      <div class="stat-sub">Last 7 days <span class="trend-up">↑</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Today's Activity</div>
+      <div class="stat-value" id="statToday">0</div>
+      <div class="stat-sub"><span class="trend-up">↑</span> vs yesterday +<span id="statTrend">0</span></div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-filter="all">All Dealers <span class="count" id="countAll">0</span></button>
+    <button class="tab" data-filter="instagram">Instagram <span class="count" id="countIg">0</span></button>
+    <button class="tab" data-filter="youtube">YouTube <span class="count" id="countYt">0</span></button>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls-bar">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="searchInput" placeholder="Search dealers or location..." />
+    </div>
+    <label class="moza-toggle">
+      <input type="checkbox" id="mozaOnly" />
+      <span class="toggle-label">MOZA only</span>
+    </label>
+    <button class="refresh-btn" id="refreshBtn">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+      Refresh Data
+    </button>
+  </div>
+
+  <!-- Dealer Grid -->
+  <div class="dealer-grid" id="dealerGrid"></div>
+
+  <!-- Activity Feed -->
+  <div class="feed-section">
+    <div class="feed-header">
+      <span>Latest Activity</span>
+      <span class="badge" id="feedBadge">0</span>
+    </div>
+    <div class="feed-list" id="feedList"></div>
+  </div>
+
+</div>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Fetching latest data...</div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="dealerModal">
+  <div class="modal">
+    <h2>🏎️ Monitored Global Dealers</h2>
+    <p>Official MOZA Racing authorized dealer/retailer social media accounts across North America, Australia, and South America. Only dealer accounts are included — no individual users or influencers.</p>
+    <ul id="dealerListModal"></ul>
+    <button class="modal-close" onclick="closeModal()">Got it</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  MOZA Racing Global Dealer Social Media Monitor &middot; NA · AU · BR &middot; Data from Apify Instagram Scraper &middot; Refreshes every 12h
+</div>
+
+<script>
+const DEALERS = [
+  { id: 1, name: 'Sim-Motion', handle: '@simmotion_us', location: 'US (nationwide shipping)', country: 'US', instagram: 'simmotion_us', youtube: null, platforms: ['instagram'] },
+  { id: 2, name: 'Ricmotech', handle: '@ricmotech', location: 'US (Florida)', country: 'US', instagram: 'ricmotech', youtube: 'Ricmotech', platforms: ['instagram', 'youtube'] },
+  { id: 3, name: 'Focus Sim Racing', handle: '@focussimracing', location: 'US (Santa Clarita, CA)', country: 'US', instagram: 'focussimracing', youtube: null, platforms: ['instagram'] },
+  { id: 4, name: 'Apex Sim Racing', handle: '@apexsimracing', location: 'US (North America shipping)', country: 'US', instagram: 'apexsimracing', youtube: null, platforms: ['instagram'] },
+  { id: 5, name: 'GO Motorsports', handle: '@gomotorsports', location: 'US (nationwide shipping)', country: 'US', instagram: 'gomotorsportsshop', youtube: null, platforms: ['instagram'] },
+  { id: 6, name: 'TracksVR', handle: '@tracksvr', location: 'US (nationwide shipping)', country: 'US', instagram: 'tracksvr', youtube: null, platforms: ['instagram'] },
+  { id: 7, name: 'NOX Gaming', handle: '@noxgaming', location: 'Canada (Quebec)', country: 'CA', instagram: 'noxgamingca', youtube: null, platforms: ['instagram'] },
+  // { id: 8, name: 'RA Motorsports Canada', handle: '@ramotorsports', location: 'Canada (nationwide shipping)', country: 'CA', instagram: 'ramotorsportscanada', youtube: null, platforms: ['instagram'] }, // handle not found on Instagram
+  { id: 9, name: 'VI PC Builder & Games', handle: '@vipcbuilder', location: 'Canada (Vancouver Island)', country: 'CA', instagram: 'vipcbuildergames', youtube: null, platforms: ['instagram'] },
+  { id: 10, name: 'Pit Lane Sim Racing', handle: '@pitlanesimracing', location: 'US (nationwide shipping)', country: 'US', instagram: 'pitlanesimracing', youtube: null, platforms: ['instagram'] },
+  { id: 11, name: 'Micro Center', handle: '@microcenter', location: 'US (nationwide stores)', country: 'US', instagram: 'microcenter', youtube: null, platforms: ['instagram'] },
+  { id: 12, name: 'B&H Photo Video', handle: '@bhphoto', location: 'US (New York)', country: 'US', instagram: 'bhphoto', youtube: null, platforms: ['instagram'] },
+  // Australia (verified: most handles not found — need correct handles for AU dealers)
+  { id: 13, name: 'KFire Racing', handle: '@kfireracing', location: 'Brazil (nationwide shipping)', country: 'BR', instagram: 'kfireracing', youtube: null, platforms: ['instagram'] },
+];
+
+// ===========================
+// STATE
+// ===========================
+let currentFilter = 'all';
+let searchQuery = '';
+let mozaOnly = false;
+let liveData = null;
+
+// ===========================
+// UTILITY
+// ===========================
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  const now = new Date();
+  const d = new Date(dateStr);
+  const diffMs = now - d;
+  const diffMin = Math.floor(diffMs / 60000);
+  if (diffMin < 1) return 'just now';
+  if (diffMin < 60) return diffMin + 'm ago';
+  const diffH = Math.floor(diffMin / 60);
+  if (diffH < 24) return diffH + 'h ago';
+  const diffD = Math.floor(diffH / 24);
+  if (diffD < 30) return diffD + 'd ago';
+  return Math.floor(diffD / 30) + 'mo ago';
+}
+
+function getDealerPosts(dealer) {
+  if (!liveData || !liveData.posts) return [];
+  const posts = liveData.posts[dealer.instagram];
+  if (!posts || posts.length === 0) return [];
+  const seen = new Set();
+  return posts.filter(p => {
+    const key = p.shortCode || p.url;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+// ===========================
+// RENDER
+// ===========================
+function render() {
+  const grid = document.getElementById('dealerGrid');
+  const feedList = document.getElementById('feedList');
+  const feedBadge = document.getElementById('feedBadge');
+
+  const filtered = DEALERS.filter(d => {
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (!d.name.toLowerCase().includes(q) && !d.location.toLowerCase().includes(q)) return false;
+    }
+    if (mozaOnly) {
+      const posts = getDealerPosts(d);
+      if (!posts.some(p => (p.text || '').toLowerCase().includes('moza'))) return false;
+    }
+    if (currentFilter === 'all') return true;
+    return d.platforms.includes(currentFilter);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1;">
+        <div class="view-all-empty">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <h3>No results found</h3>
+          <p>No dealers match your criteria.</p>
+        </div>
+      </div>`;
+  } else {
+    grid.innerHTML = filtered.map(d => {
+      const hasIg = d.platforms.includes('instagram');
+      const hasYt = d.platforms.includes('youtube');
+      const cardClass = hasIg && hasYt ? 'both' : hasIg ? 'instagram' : 'youtube';
+      const initials = d.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+
+      const posts = getDealerPosts(d);
+      const displayPosts = posts.slice(0, 2);
+      const lastPostTime = displayPosts.length > 0 ? timeAgo(displayPosts[0].timestamp) : '-';
+
+      return `
+        <div class="dealer-card ${cardClass}">
+          <div class="card-header">
+            <div class="dealer-avatar">${initials}</div>
+            <div class="dealer-info">
+              <div class="dealer-name">${d.name}</div>
+              <div class="dealer-platforms">
+                ${hasIg ? '<span class="platform-tag ig">IG</span>' : ''}
+                ${hasYt ? '<span class="platform-tag yt">YT</span>' : ''}
+              </div>
+              <div class="dealer-location">${d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : '🌍'} ${d.location}</div>
+            </div>
+          </div>
+          <div class="card-body">
+            ${displayPosts.map(p => {
+              const thumbIcon = p.type === 'video' ? '▶️' : p.type === 'carousel' ? '📑' : '📷';
+              const isMoza = (p.text || '').toLowerCase().includes('moza');
+              const eng = `<span>❤️ ${p.likes}</span><span>💬 ${p.comments}</span>`;
+              return `
+                <div class="post-item">
+                  ${p.displayUrl
+                    ? `<div class="post-thumb" onclick="openLightbox('${p.displayUrl}')" style="cursor:pointer;position:relative;">
+                        <img src="${p.displayUrl}" style="width:52px;height:52px;object-fit:cover;border-radius:6px;" alt=""/>
+                        ${p.type === 'video' ? '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(0,0,0,0.3);border-radius:6px;">▶️</span>' : ''}
+                      </div>`
+                    : `<div class="post-thumb">${thumbIcon}</div>`}
+                  <div class="post-content">
+                    <div class="post-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)').replace(/MOZA/gi, '<span class="mention">MOZA</span>')}</a></div>
+                    <div class="post-meta">
+                      <span class="post-time">${timeAgo(p.timestamp)}${isMoza ? ' 🔥' : ''}</span>
+                      <div class="post-engagement">${eng}</div>
+                    </div>
+                  </div>
+                </div>`;
+            }).join('')}
+            ${displayPosts.length === 0 ? '<div class="no-posts"><p>No recent posts</p></div>' : ''}
+          </div>
+          <div class="card-footer">
+            <span class="handle"><a href="https://instagram.com/${d.instagram}" target="_blank" rel="noopener">${d.handle}</a></span>
+            <span class="post-count">Latest: ${lastPostTime}</span>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  const allPosts = [];
+  DEALERS.forEach(d => {
+    const posts = getDealerPosts(d);
+    posts.forEach(p => {
+      allPosts.push({ ...p, dealerName: d.name, dealerHandle: d.handle, instagram: d.instagram });
+    });
+  });
+  allPosts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+  feedList.innerHTML = allPosts.slice(0, 15).map(p => {
+    return `
+      <div class="feed-item">
+        <div class="feed-icon ig">📸</div>
+        <div class="feed-body">
+          <div class="feed-dealer">${p.dealerName} <span style="color:var(--text2);font-weight:400;">${p.dealerHandle}</span></div>
+          <div class="feed-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)').replace(/MOZA/gi, '<span class="mention">MOZA</span>')}</a></div>
+        </div>
+        <span class="feed-time">${timeAgo(p.timestamp)}</span>
+      </div>`;
+  }).join('');
+
+  feedBadge.textContent = allPosts.length;
+
+  document.getElementById('countAll').textContent = DEALERS.length;
+  document.getElementById('countIg').textContent = DEALERS.filter(d => d.platforms.includes('instagram')).length;
+  document.getElementById('countYt').textContent = DEALERS.filter(d => d.platforms.includes('youtube')).length;
+}
+
+function updateStats() {
+  let totalPosts = 0, mozaPosts = 0;
+  DEALERS.forEach(d => {
+    const posts = getDealerPosts(d);
+    totalPosts += posts.length;
+    mozaPosts += posts.filter(p => (p.text || '').toLowerCase().includes('moza')).length;
+  });
+  document.getElementById('statDealers').textContent = DEALERS.length;
+  document.getElementById('statIgPosts').textContent = totalPosts;
+  document.getElementById('statYtVideos').textContent = mozaPosts;
+  document.getElementById('statToday').textContent = mozaPosts;
+  document.getElementById('statTrend').textContent = totalPosts;
+  document.querySelector('.stat-card:nth-child(2) .stat-sub').innerHTML = 'Scraped posts';
+  document.querySelector('.stat-card:nth-child(3) .stat-label').textContent = 'MOZA Mentions';
+  document.querySelector('.stat-card:nth-child(3) .stat-sub').innerHTML = '🔥 MOZA-related';
+  document.querySelector('.stat-card:nth-child(4) .stat-label').textContent = 'Total Activity';
+  document.querySelector('.stat-card:nth-child(4) .stat-sub').innerHTML = 'All dealer posts';
+  if (liveData && liveData.lastUpdated) {
+    document.getElementById('lastUpdate').textContent = `Last updated: ${new Date(liveData.lastUpdated).toLocaleTimeString('en-US', { hour12: false })}`;
+  }
+}
+
+// ===========================
+// MODAL
+// ===========================
+function openModal() {
+  const list = document.getElementById('dealerListModal');
+  list.innerHTML = DEALERS.map(d => {
+    const flag = d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : '🌍';
+    const platforms = d.platforms.map(p => p === 'instagram' ? '📸 IG' : '🎬 YT').join(' ');
+    return `<li><span>${flag}</span> <strong>${d.name}</strong> — ${d.location} <span style="margin-left:auto;font-size:0.7rem;color:var(--text2)">${platforms}</span></li>`;
+  }).join('');
+  document.getElementById('dealerModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('dealerModal').classList.remove('open');
+}
+
+// ===========================
+// LIGHTBOX
+// ===========================
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+// ===========================
+// LOADING
+// ===========================
+let loadingTimer = null;
+
+function showLoading() {
+  document.getElementById('loadingOverlay').classList.add('active');
+}
+
+function hideLoading() {
+  document.getElementById('loadingOverlay').classList.remove('active');
+}
+
+// ===========================
+// EVENTS
+// ===========================
+async function fetchData() {
+  try {
+    const res = await fetch('data.json?_=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    liveData = await res.json();
+  } catch (e) {
+    console.warn('Could not fetch live data:', e);
+    liveData = null;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  showLoading();
+  await fetchData();
+  hideLoading();
+  render();
+  updateStats();
+
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentFilter = tab.dataset.filter;
+      render();
+    });
+  });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    render();
+  });
+
+  document.getElementById('mozaOnly').addEventListener('change', (e) => {
+    mozaOnly = e.target.checked;
+    render();
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('spinning');
+    showLoading();
+    await fetchData();
+    hideLoading();
+    render();
+    updateStats();
+    btn.classList.remove('spinning');
+  });
+
+  setInterval(async () => {
+    await fetchData();
+    render();
+    updateStats();
+  }, 43200000);
+
+  document.querySelector('.stat-card:first-child').style.cursor = 'pointer';
+  document.querySelector('.stat-card:first-child').addEventListener('click', openModal);
+
+  document.getElementById('dealerModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeLightbox();
+  });
+});
+</script>
+</body>
+</html>
