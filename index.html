@@ -282,6 +282,14 @@
     margin-bottom: 24px;
   }
 
+  .continent-section { margin-bottom: 24px; }
+  .continent-header {
+    font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;
+    padding: 8px 0 4px 0; border-bottom: 2px solid var(--border);
+    color: var(--text1); letter-spacing: 0.3px;
+  }
+  .continent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+
   .dealer-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -590,6 +598,11 @@
     border-radius: 4px;
     font-weight: 700;
   }
+  .modal ul li.modal-continent-header {
+    background: transparent; font-weight: 700; font-size: 0.9rem;
+    padding: 12px 12px 4px; margin-top: 8px; margin-bottom: 2px; border-bottom: none;
+  }
+  .modal ul li.modal-continent-header:first-child { margin-top: 0; }
   .modal ul li .tag.us { background: rgba(0,118,255,0.2); color: #0076ff; }
   .modal ul li .tag.ca { background: rgba(255,50,50,0.2); color: #ff3232; }
   .modal-close {
@@ -731,7 +744,7 @@
 
 <!-- Footer -->
 <div class="footer">
-  Sim Racing Dealer Brand Monitor &middot; NA · UK · EU · AU · IN · BR &middot; MOZA · Fanatec · Logitech G · Simucube · Thrustmaster · Simagic · Turtle Beach · PXN &middot; Data from Apify Instagram Scraper
+  Sim Racing Dealer Brand Monitor &middot; North America · South America · Europe · Asia · Oceania &middot; MOZA · Fanatec · Logitech G · Simucube · Thrustmaster · Simagic · Turtle Beach · PXN &middot; Data from Apify Instagram Scraper
 </div>
 
 <script>
@@ -746,6 +759,18 @@ const BRAND_CONFIG = {
   turtlebeach: { name: 'Turtle Beach', color: '#e8a000' },
   pxn: { name: 'PXN', color: '#666' },
 };
+
+const CONTINENTS = [
+  { key: 'north_america', label: 'North America', flag: '🌎', countries: ['US', 'CA'] },
+  { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR'] },
+  { key: 'europe', label: 'Europe', flag: '🌍', countries: ['GB', 'ES'] },
+  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN'] },
+  { key: 'oceania', label: 'Oceania', flag: '🌏', countries: ['AU'] },
+];
+function getContinent(country) {
+  for (const c of CONTINENTS) { if (c.countries.includes(country)) return c; }
+  return null;
+}
 
 const DEALERS = [
   { id: 1, name: 'Sim-Motion', handle: '@simmotionus', location: 'US (nationwide shipping)', country: 'US', instagram: 'simmotionus', youtube: null, platforms: ['instagram'] },
@@ -842,59 +867,73 @@ function render() {
         </div>
       </div>`;
   } else {
-    grid.innerHTML = filtered.map(d => {
-      const hasIg = d.platforms.includes('instagram');
-      const hasYt = d.platforms.includes('youtube');
-      const cardClass = hasIg && hasYt ? 'both' : hasIg ? 'instagram' : 'youtube';
-      const initials = d.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+    const groups = {};
+    CONTINENTS.forEach(c => groups[c.key] = []);
+    filtered.forEach(d => {
+      const c = getContinent(d.country);
+      if (c) groups[c.key].push(d); else groups['north_america'].push(d);
+    });
 
-      const posts = getDealerPosts(d);
-      const displayPosts = posts.slice(0, 2);
-      const lastPostTime = displayPosts.length > 0 ? timeAgo(displayPosts[0].timestamp) : '-';
+    let html = '';
+    CONTINENTS.forEach(c => {
+      const dealers = groups[c.key];
+      if (dealers.length === 0) return;
+      html += `<div class="continent-section"><div class="continent-header">${c.flag} ${c.label}</div><div class="continent-grid">`;
+      dealers.forEach(d => {
+        const hasIg = d.platforms.includes('instagram');
+        const hasYt = d.platforms.includes('youtube');
+        const cardClass = hasIg && hasYt ? 'both' : hasIg ? 'instagram' : 'youtube';
+        const initials = d.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+        const posts = getDealerPosts(d);
+        const displayPosts = posts.slice(0, 2);
+        const lastPostTime = displayPosts.length > 0 ? timeAgo(displayPosts[0].timestamp) : '-';
 
-      return `
-        <div class="dealer-card ${cardClass}">
-          <div class="card-header">
-            <div class="dealer-avatar">${initials}</div>
-            <div class="dealer-info">
-              <div class="dealer-name">${d.name}</div>
-              <div class="dealer-platforms">
-                ${hasIg ? '<span class="platform-tag ig">IG</span>' : ''}
-                ${hasYt ? '<span class="platform-tag yt">YT</span>' : ''}
+        html += `
+          <div class="dealer-card ${cardClass}">
+            <div class="card-header">
+              <div class="dealer-avatar">${initials}</div>
+              <div class="dealer-info">
+                <div class="dealer-name">${d.name}</div>
+                <div class="dealer-platforms">
+                  ${hasIg ? '<span class="platform-tag ig">IG</span>' : ''}
+                  ${hasYt ? '<span class="platform-tag yt">YT</span>' : ''}
+                </div>
+                <div class="dealer-location">${d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍'} ${d.location}</div>
               </div>
-              <div class="dealer-location">${d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍'} ${d.location}</div>
             </div>
-          </div>
-          <div class="card-body">
-            ${displayPosts.map(p => {
-              const thumbIcon = p.type === 'video' ? '▶️' : p.type === 'carousel' ? '📑' : '📷';
-              const brandTags = (p.brands || []).map(b => `<span class="brand-tag ${b}">${BRAND_CONFIG[b]?.name || b}</span>`).join('');
-              const eng = `<span>❤️ ${p.likes}</span><span>💬 ${p.comments}</span>`;
-              return `
-                <div class="post-item">
-                  ${p.displayUrl
-                    ? `<div class="post-thumb" onclick="openLightbox('${p.displayUrl}')" style="cursor:pointer;position:relative;">
-                        <img src="${p.displayUrl}" style="width:52px;height:52px;object-fit:cover;border-radius:6px;" alt=""/>
-                        ${p.type === 'video' ? '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(0,0,0,0.3);border-radius:6px;">▶️</span>' : ''}
-                      </div>`
-                    : `<div class="post-thumb">${thumbIcon}</div>`}
-                  <div class="post-content">
-                    <div class="post-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)')}</a></div>
-                    <div class="post-meta">
-                      <span class="post-time">${timeAgo(p.timestamp)} ${brandTags}</span>
-                      <div class="post-engagement">${eng}</div>
+            <div class="card-body">
+              ${displayPosts.map(p => {
+                const thumbIcon = p.type === 'video' ? '▶️' : p.type === 'carousel' ? '📑' : '📷';
+                const brandTags = (p.brands || []).map(b => `<span class="brand-tag ${b}">${BRAND_CONFIG[b]?.name || b}</span>`).join('');
+                const eng = `<span>❤️ ${p.likes}</span><span>💬 ${p.comments}</span>`;
+                return `
+                  <div class="post-item">
+                    ${p.displayUrl
+                      ? `<div class="post-thumb" onclick="openLightbox('${p.displayUrl}')" style="cursor:pointer;position:relative;">
+                          <img src="${p.displayUrl}" style="width:52px;height:52px;object-fit:cover;border-radius:6px;" alt=""/>
+                          ${p.type === 'video' ? '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(0,0,0,0.3);border-radius:6px;">▶️</span>' : ''}
+                        </div>`
+                      : `<div class="post-thumb">${thumbIcon}</div>`}
+                    <div class="post-content">
+                      <div class="post-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)')}</a></div>
+                      <div class="post-meta">
+                        <span class="post-time">${timeAgo(p.timestamp)} ${brandTags}</span>
+                        <div class="post-engagement">${eng}</div>
+                      </div>
                     </div>
-                  </div>
-                </div>`;
-            }).join('')}
-            ${displayPosts.length === 0 ? '<div class="no-posts"><p>No recent posts</p></div>' : ''}
-          </div>
-          <div class="card-footer">
-            <span class="handle"><a href="https://instagram.com/${d.instagram}" target="_blank" rel="noopener">${d.handle}</a></span>
-            <span class="post-count">Latest: ${lastPostTime}</span>
-          </div>
-        </div>`;
-    }).join('');
+                  </div>`;
+              }).join('')}
+              ${displayPosts.length === 0 ? '<div class="no-posts"><p>No recent posts</p></div>' : ''}
+            </div>
+            <div class="card-footer">
+              <span class="handle"><a href="https://instagram.com/${d.instagram}" target="_blank" rel="noopener">${d.handle}</a></span>
+              <span class="post-count">Latest: ${lastPostTime}</span>
+            </div>
+          </div>`;
+      });
+      html += `</div></div>`;
+    });
+    grid.innerHTML = html;
   }
 
   const allPosts = [];
@@ -974,11 +1013,18 @@ function updateStats() {
 // ===========================
 function openModal() {
   const list = document.getElementById('dealerListModal');
-  list.innerHTML = DEALERS.map(d => {
-    const flag = d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍';
-    const platforms = d.platforms.map(p => p === 'instagram' ? '📸 IG' : '🎬 YT').join(' ');
-    return `<li><span>${flag}</span> <strong>${d.name}</strong> — ${d.location} <span style="margin-left:auto;font-size:0.7rem;color:var(--text2)">${platforms}</span></li>`;
-  }).join('');
+  let html = '';
+  CONTINENTS.forEach(c => {
+    const dealers = DEALERS.filter(d => getContinent(d.country)?.key === c.key);
+    if (dealers.length === 0) return;
+    html += `<li class="modal-continent-header">${c.flag} ${c.label}</li>`;
+    html += dealers.map(d => {
+      const flag = d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍';
+      const platforms = d.platforms.map(p => p === 'instagram' ? '📸 IG' : '🎬 YT').join(' ');
+      return `<li><span>${flag}</span> <strong>${d.name}</strong> — ${d.location} <span style="margin-left:auto;font-size:0.7rem;color:var(--text2)">${platforms}</span></li>`;
+    }).join('');
+  });
+  list.innerHTML = html;
   document.getElementById('dealerModal').classList.add('open');
 }
 
