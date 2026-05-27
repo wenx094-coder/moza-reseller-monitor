@@ -26,4 +26,5 @@ jobs:
           git config user.email "bot@moza-reseller-monitor"
           git add data.json
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-refresh data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
