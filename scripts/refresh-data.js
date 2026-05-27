@@ -20,6 +20,14 @@ const DEALER_INSTAGRAM_HANDLES = {
   // Australia (handles TBD — none of the provisional handles were found on Instagram)
   // South America — Brazil
   kfireracing: { name: 'KFire Racing', location: 'Brazil (nationwide shipping)', country: 'BR' },
+  // Europe
+  gtomegaracing: { name: 'GT Omega', location: 'UK (nationwide shipping)', country: 'GB' },
+  abruzziuk: { name: 'Abruzzi', location: 'UK (nationwide shipping)', country: 'GB' },
+  simufy: { name: 'Simufy', location: 'Spain (nationwide shipping)', country: 'ES' },
+  // Australia
+  pagnianadvancedsimulation: { name: 'Pagnian Advanced Simulation', location: 'Australia (nationwide shipping)', country: 'AU' },
+  // India
+  virtualracinghub: { name: 'Virtual Racing Hub', location: 'India (nationwide shipping)', country: 'IN' },
 };
 
 const BRANDS = {

@@ -723,7 +723,7 @@
 <div class="modal-overlay" id="dealerModal">
   <div class="modal">
     <h2>🏎️ Monitored Global Dealers</h2>
-    <p>Official MOZA Racing authorized dealer/retailer social media accounts across North America, Australia, and South America. Only dealer accounts are included — no individual users or influencers.</p>
+    <p>Official MOZA Racing authorized dealer/retailer social media accounts across North America, UK, Europe, Australia, India, and South America. Only dealer accounts are included — no individual users or influencers.</p>
     <ul id="dealerListModal"></ul>
     <button class="modal-close" onclick="closeModal()">Got it</button>
   </div>
@@ -731,7 +731,7 @@
 
 <!-- Footer -->
 <div class="footer">
-  Sim Racing Dealer Brand Monitor &middot; NA · AU · BR &middot; MOZA · Fanatec · Logitech G · Simucube · Thrustmaster · Simagic · Turtle Beach · PXN &middot; Data from Apify Instagram Scraper
+  Sim Racing Dealer Brand Monitor &middot; NA · UK · EU · AU · IN · BR &middot; MOZA · Fanatec · Logitech G · Simucube · Thrustmaster · Simagic · Turtle Beach · PXN &middot; Data from Apify Instagram Scraper
 </div>
 
 <script>
@@ -762,6 +762,14 @@ const DEALERS = [
   { id: 12, name: 'B&H Photo Video', handle: '@bhphoto', location: 'US (New York)', country: 'US', instagram: 'bhphoto', youtube: null, platforms: ['instagram'] },
   // Australia (verified: most handles not found — need correct handles for AU dealers)
   { id: 13, name: 'KFire Racing', handle: '@kfireracing', location: 'Brazil (nationwide shipping)', country: 'BR', instagram: 'kfireracing', youtube: null, platforms: ['instagram'] },
+  // Europe
+  { id: 14, name: 'GT Omega', handle: '@gtomegaracing', location: 'UK (nationwide shipping)', country: 'GB', instagram: 'gtomegaracing', youtube: null, platforms: ['instagram'] },
+  { id: 15, name: 'Abruzzi', handle: '@abruzziuk', location: 'UK (nationwide shipping)', country: 'GB', instagram: 'abruzziuk', youtube: null, platforms: ['instagram'] },
+  { id: 16, name: 'Simufy', handle: '@simufy', location: 'Spain (nationwide shipping)', country: 'ES', instagram: 'simufy', youtube: null, platforms: ['instagram'] },
+  // Australia
+  { id: 17, name: 'Pagnian', handle: '@pagnianadvancedsimulation', location: 'Australia (nationwide shipping)', country: 'AU', instagram: 'pagnianadvancedsimulation', youtube: null, platforms: ['instagram'] },
+  // India
+  { id: 18, name: 'Virtual Racing Hub', handle: '@virtualracinghub', location: 'India (nationwide shipping)', country: 'IN', instagram: 'virtualracinghub', youtube: null, platforms: ['instagram'] },
 ];
 
 // ===========================
@@ -854,7 +862,7 @@ function render() {
                 ${hasIg ? '<span class="platform-tag ig">IG</span>' : ''}
                 ${hasYt ? '<span class="platform-tag yt">YT</span>' : ''}
               </div>
-              <div class="dealer-location">${d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : '🌍'} ${d.location}</div>
+              <div class="dealer-location">${d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍'} ${d.location}</div>
             </div>
           </div>
           <div class="card-body">
@@ -967,7 +975,7 @@ function updateStats() {
 function openModal() {
   const list = document.getElementById('dealerListModal');
   list.innerHTML = DEALERS.map(d => {
-    const flag = d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : '🌍';
+    const flag = d.country === 'US' ? '🇺🇸' : d.country === 'CA' ? '🇨🇦' : d.country === 'AU' ? '🇦🇺' : d.country === 'BR' ? '🇧🇷' : d.country === 'GB' ? '🇬🇧' : d.country === 'ES' ? '🇪🇸' : d.country === 'IN' ? '🇮🇳' : '🌍';
     const platforms = d.platforms.map(p => p === 'instagram' ? '📸 IG' : '🎬 YT').join(' ');
     return `<li><span>${flag}</span> <strong>${d.name}</strong> — ${d.location} <span style="margin-left:auto;font-size:0.7rem;color:var(--text2)">${platforms}</span></li>`;
   }).join('');
