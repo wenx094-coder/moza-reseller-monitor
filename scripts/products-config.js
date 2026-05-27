@@ -80,4 +80,32 @@ function buildUrlEntries() {
   return entries;
 }
 
-module.exports = { PRODUCTS, RETAILERS, PRODUCT_URLS, buildUrlEntries };
+// MSRP in USD from MOZA official store (mozaracing.com)
+const MSRP_MAP = {
+  'r3-bundle':    349,
+  'r5-bundle':    599,
+  'r9-bundle':    799,
+  'r9-v3-base':   499,
+  'r12-base':     499,
+  'r16-base':     659,
+  'r21-base':     999,
+  'es-wheel':     99,
+  'esx-wheel':    149,
+  'ks-wheel':     199,
+  'ks-pro-wheel': 349,
+  'cs-wheel':     249,
+  'cs-pro-wheel': 349,
+  'gs-v2p-wheel': 399,
+  'rs-wheel':     399,
+  'fsr2-wheel':   599,
+  'vision-gs':    699,
+  'srp-lite':     79,
+  'srp-pedals':   199,
+  'crp-pedals':   349,
+  'crp2-pedals':  399,
+  'hgp-shifter':  159,
+  'handbrake':    109,
+  'table-clamp':  49,
+};
+
+module.exports = { PRODUCTS, RETAILERS, PRODUCT_URLS, MSRP_MAP, buildUrlEntries };

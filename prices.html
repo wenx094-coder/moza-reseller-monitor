@@ -225,6 +225,22 @@
     border-collapse: collapse;
     font-size: 0.85rem;
   }
+  .alert-banner {
+    background: #fff3e0;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .alert-banner.show { display: flex; }
+  .alert-banner .icon { font-size: 1.2rem; }
+  .alert-banner .count { color: var(--accent); }
+
   .price-table th {
     text-align: left;
     padding: 10px 18px;
@@ -329,6 +345,8 @@
     </div>
   </div>
 
+  <div class="alert-banner" id="alertBanner"></div>
+
   <div class="controls-bar">
     <div class="search-box">
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -431,9 +449,19 @@ function renderRetailerFilters() {
   container.innerHTML = html;
 }
 
+function convertToUsd(price, currency) {
+  if (currency === 'USD') return price;
+  if (currency === 'EUR') return price * 1.08;
+  if (currency === 'GBP') return price * 1.27;
+  if (currency === 'CAD') return price * 0.73;
+  if (currency === 'AUD') return price * 0.66;
+  return price;
+}
+
 function render() {
   if (!data) return;
   var grid = document.getElementById('productGrid');
+  var banner = document.getElementById('alertBanner');
   var productPrices = getProductPrices();
   var search = document.getElementById('searchInput').value.toLowerCase().trim();
 
@@ -444,6 +472,7 @@ function render() {
   var productIds = Object.keys(data.prices);
   document.getElementById('statProducts').textContent = productIds.length;
 
+  var alertCount = 0;
   var html = '';
   for (var pi = 0; pi < productIds.length; pi++) {
     var pid = productIds[pi];
@@ -457,27 +486,26 @@ function render() {
     records += filtered.length;
     for (var fi = 0; fi < filtered.length; fi++) retailerSet[filtered[fi].retailerId] = true;
 
+    var msrp = (data.msrp && data.msrp[pid]) ? data.msrp[pid] : null;
     var lowestPrice = lowest.info.price;
-    var avgPrice = 0;
-    var validPrices = filtered.filter(function(e) { return e.info.price > 0; });
-    if (validPrices.length > 0) {
-      avgPrice = validPrices.reduce(function(s, e) { return s + e.info.price; }, 0) / validPrices.length;
-    }
-    var isLow = lowestPrice > 0 && lowestPrice < avgPrice * 0.85;
+    var lowestUsd = convertToUsd(lowestPrice, lowest.info.currency);
 
-    if (isLow) alerts++;
+    var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+
+    // Check MSRP violation
+    var isBelowMsrp = msrp && lowestPrice > 0 && lowestUsd < msrp * 0.95;
+    if (isBelowMsrp) alertCount++;
 
     var sym = lowest.info.currency === 'EUR' ? '\u20AC' : lowest.info.currency === 'GBP' ? '\u00A3' : '$';
     var lowestClass = 'good';
-    if (isLow) lowestClass = 'warn';
+    if (isBelowMsrp) lowestClass = 'warn';
     if (lowestPrice === 0) lowestClass = 'bad';
-
-    var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
 
     html += '<div class="product-row">';
     html += '<div class="product-header" onclick="toggleRow(this)">';
     html += '<div style="display:flex;align-items:center;gap:10px">';
     html += '<span class="product-name">' + productName + '</span>';
+    if (msrp) html += '<span style="font-size:0.75rem;color:var(--text2)">MSRP: $' + msrp + '</span>';
     html += '</div>';
     html += '<div class="product-summary">';
     html += '<span class="count">' + filtered.length + ' retailer(s)</span>';
@@ -488,20 +516,34 @@ function render() {
 
     html += '<div class="price-table">';
     html += '<table>';
-    html += '<tr><th>Retailer</th><th>Price</th><th>Currency</th><th>Status</th><th>Checked</th><th></th></tr>';
+    html += '<tr><th>Retailer</th><th>Price</th><th>vs MSRP</th><th>Status</th><th>Checked</th><th></th></tr>';
     for (var ei = 0; ei < filtered.length; ei++) {
       var e = filtered[ei];
       var r = RETAILERS[e.retailerId] || { name: e.retailerId, country: '', currency: 'USD' };
       var sym2 = e.info.currency === 'EUR' ? '\u20AC' : e.info.currency === 'GBP' ? '\u00A3' : '$';
-      var diff = e.info.price > 0 && lowestPrice > 0 ? ((e.info.price - lowestPrice) / lowestPrice * 100).toFixed(0) : 0;
+
+      var priceUsd = convertToUsd(e.info.price, e.info.currency);
+      var msrpDiff = null;
+      if (msrp && e.info.price > 0) {
+        msrpDiff = ((priceUsd - msrp) / msrp * 100).toFixed(1);
+      }
+
       var dotClass = 'green';
       if (e.info.price === 0) dotClass = 'gray';
-      else if (diff > 10) dotClass = 'yellow';
+      else if (msrpDiff && parseFloat(msrpDiff) < -5) dotClass = 'red';
+      else if (msrpDiff && parseFloat(msrpDiff) < 0) dotClass = 'yellow';
 
       html += '<tr>';
       html += '<td><span class="retailer-name">' + r.name + '</span><span class="retailer-country">' + r.country + '</span></td>';
       html += '<td><span class="price-flag"><span class="dot ' + dotClass + '"></span>' + sym2 + (e.info.price > 0 ? e.info.price.toFixed(2) : 'N/A') + '</span></td>';
-      html += '<td>' + e.info.currency + '</td>';
+      html += '<td style="font-size:0.85rem;font-weight:600;';
+      if (msrpDiff && parseFloat(msrpDiff) < -5) html += 'color:var(--accent)';
+      else if (msrpDiff && parseFloat(msrpDiff) < 0) html += 'color:var(--orange)';
+      else html += 'color:var(--green)';
+      html += '">';
+      if (msrpDiff) html += (parseFloat(msrpDiff) > 0 ? '+' : '') + msrpDiff + '%';
+      else html += '-';
+      html += '</td>';
       html += '<td><span class="status-badge ' + (e.info.inStock ? 'in-stock' : 'out-of-stock') + '">' + (e.info.inStock ? 'In Stock' : 'Out of Stock') + '</span></td>';
       html += '<td style="font-size:0.75rem;color:var(--text2)">' + timeAgo(e.info.checkedAt) + '</td>';
       html += '<td><a class="product-link" href="' + e.info.url + '" target="_blank">View &#8599;</a></td>';
@@ -515,7 +557,14 @@ function render() {
   grid.innerHTML = html;
   document.getElementById('statRetailers').textContent = Object.keys(retailerSet).length;
   document.getElementById('statRecords').textContent = records;
-  document.getElementById('statAlerts').textContent = alerts;
+  document.getElementById('statAlerts').textContent = alertCount;
+
+  if (alertCount > 0) {
+    banner.classList.add('show');
+    banner.innerHTML = '<span class="icon">&#9888;</span> <span class="count">' + alertCount + '</span> product(s) priced below MSRP &mdash; possible MAP violation';
+  } else {
+    banner.classList.remove('show');
+  }
 }
 
 function toggleRow(header) {

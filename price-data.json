@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27T10:14:16.913Z",
+  "lastUpdated": "2026-05-27T10:20:32.120Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -8,7 +8,7 @@
         "url": "https://eu.sim-motion.com/moza-r9-v3-wheel-base",
         "name": "MOZA R9 V3 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:13:47.276Z"
+        "checkedAt": "2026-05-27T10:19:38.717Z"
       }
     },
     "ks-pro-wheel": {
@@ -18,7 +18,7 @@
         "url": "https://eu.sim-motion.com/moza-ks-pro-steering-wheel",
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:13:53.997Z"
+        "checkedAt": "2026-05-27T10:19:44.876Z"
       }
     },
     "gs-v2p-wheel": {
@@ -28,7 +28,7 @@
         "url": "https://eu.sim-motion.com/moza-gs-v2p-steering-wheel",
         "name": "MOZA GS V2P Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:13:57.936Z"
+        "checkedAt": "2026-05-27T10:19:51.208Z"
       }
     },
     "cs-pro-wheel": {
@@ -38,7 +38,7 @@
         "url": "https://eu.sim-motion.com/MOZA-CS-Pro-Lenkrad",
         "name": "MOZA CS Pro Lenkrad",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:01.803Z"
+        "checkedAt": "2026-05-27T10:19:57.753Z"
       },
       "tracksvr": {
         "price": 599.95,
@@ -46,7 +46,7 @@
         "url": "https://tracksvr.com/products/moza-cs-pro-steering-wheel",
         "name": "Moza CS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:16.912Z"
+        "checkedAt": "2026-05-27T10:20:32.120Z"
       }
     },
     "crp2-pedals": {
@@ -56,7 +56,7 @@
         "url": "https://eu.sim-motion.com/moza-crp2-load-cell-pedals",
         "name": "MOZA CRP2 Load Cell Pedals",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:05.048Z"
+        "checkedAt": "2026-05-27T10:20:04.725Z"
       }
     },
     "hgp-shifter": {
@@ -66,7 +66,7 @@
         "url": "https://eu.sim-motion.com/moza-hgp-shifter",
         "name": "MOZA HGP Shifter",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:07.801Z"
+        "checkedAt": "2026-05-27T10:20:11.661Z"
       }
     },
     "handbrake": {
@@ -76,7 +76,7 @@
         "url": "https://eu.sim-motion.com/moza-hbp-handbrake",
         "name": "MOZA HBP Handbrake",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:10.572Z"
+        "checkedAt": "2026-05-27T10:20:20.701Z"
       }
     },
     "r16-base": {
@@ -86,7 +86,7 @@
         "url": "https://tracksvr.com/products/moza-r16-v2-wheel-base",
         "name": "Moza R16 V2 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:15.605Z"
+        "checkedAt": "2026-05-27T10:20:29.887Z"
       }
     },
     "r21-base": {
@@ -96,9 +96,34 @@
         "url": "https://tracksvr.com/collections/new-sim-racing-hardware/products/moza-r21-wheel-base-ultra",
         "name": "Moza R21 Ultra Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:14:16.445Z"
+        "checkedAt": "2026-05-27T10:20:31.318Z"
       }
     }
   },
-  "msrp": {}
+  "msrp": {
+    "r3-bundle": 349,
+    "r5-bundle": 599,
+    "r9-bundle": 799,
+    "r9-v3-base": 499,
+    "r12-base": 499,
+    "r16-base": 659,
+    "r21-base": 999,
+    "es-wheel": 99,
+    "esx-wheel": 149,
+    "ks-wheel": 199,
+    "ks-pro-wheel": 349,
+    "cs-wheel": 249,
+    "cs-pro-wheel": 349,
+    "gs-v2p-wheel": 399,
+    "rs-wheel": 399,
+    "fsr2-wheel": 599,
+    "vision-gs": 699,
+    "srp-lite": 79,
+    "srp-pedals": 199,
+    "crp-pedals": 349,
+    "crp2-pedals": 399,
+    "hgp-shifter": 159,
+    "handbrake": 109,
+    "table-clamp": 49
+  }
 }

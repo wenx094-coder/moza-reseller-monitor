@@ -3,7 +3,7 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 const cheerio = require('cheerio');
-const { PRODUCTS, RETAILERS, buildUrlEntries } = require('./products-config');
+const { PRODUCTS, RETAILERS, MSRP_MAP, buildUrlEntries } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
 const TIMEOUT = 30000;
@@ -170,19 +170,91 @@ async function main() {
     }
   }
 
+  // Save MSRP reference
+  data.msrp = {};
+  for (var pid2 in MSRP_MAP) {
+    data.msrp[pid2] = MSRP_MAP[pid2];
+  }
+
   saveData(data);
   console.log('\nDone. ' + success + '/' + entries.length + ' pages.');
 
-  for (var pid in data.prices) {
-    var p = PRODUCTS.find(function(x) { return x.id === pid; });
-    var name = p ? p.name : pid;
-    for (var rid in data.prices[pid]) {
-      var r = RETAILERS.find(function(x) { return x.id === rid; });
-      var rname = r ? r.name : rid;
-      var info = data.prices[pid][rid];
-      var sym = info.currency === 'EUR' ? '\u20AC' : info.currency === 'GBP' ? '\u00A3' : '$';
-      console.log('  ' + name + ': ' + sym + info.price + ' @ ' + rname);
+  // Check for below-MSRP prices and build alerts
+  var alerts = [];
+  var lines = ['## MOZA Price Alert - Below MSRP Detected', ''];
+  for (var pid3 in data.prices) {
+    var p3 = PRODUCTS.find(function(x) { return x.id === pid3; });
+    var name3 = p3 ? p3.name : pid3;
+    var msrp = MSRP_MAP[pid3];
+    var msrpLine = msrp ? ' (MSRP: $' + msrp + ')' : '';
+    for (var rid2 in data.prices[pid3]) {
+      var r2 = RETAILERS.find(function(x) { return x.id === rid2; });
+      var rname2 = r2 ? r2.name : rid2;
+      var info2 = data.prices[pid3][rid2];
+      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : '$';
+      console.log('  ' + name3 + ': ' + sym2 + info2.price + ' @ ' + rname2 + msrpLine);
+
+      if (msrp && info2.price > 0) {
+        var msrpUsd = msrp;
+        var priceUsd = info2.price;
+        // Rough currency conversion for comparison
+        if (info2.currency === 'EUR') priceUsd = info2.price * 1.08;
+        else if (info2.currency === 'GBP') priceUsd = info2.price * 1.27;
+
+        if (priceUsd < msrpUsd * 0.95) {
+          var pct = ((msrpUsd - priceUsd) / msrpUsd * 100).toFixed(1);
+          alerts.push({ product: name3, retailer: rname2, price: info2.price, currency: info2.currency, msrp: msrpUsd, pct: pct });
+          lines.push('### ' + name3 + ' @ ' + rname2);
+          lines.push('- Listed: ' + sym2 + info2.price + ' vs MSRP: $' + msrpUsd + ' (' + pct + '% below)');
+          lines.push('- URL: ' + info2.url);
+          lines.push('');
+        }
+      }
     }
+  }
+
+  if (alerts.length > 0) {
+    var msg = lines.join('\n');
+    console.log('\n!! PRICE ALERTS: ' + alerts.length + ' product(s) below MSRP');
+    console.log(msg);
+
+    // Send DingTalk notification
+    var webhookUrl = process.env.DINGTALK_WEBHOOK_URL;
+    var secret = process.env.DINGTALK_WEBHOOK_SECRET;
+    if (webhookUrl) {
+      var crypto = require('crypto');
+      var timestamp = Date.now();
+      var fullUrl = webhookUrl;
+      if (secret) {
+        var stringToSign = timestamp + '\n' + secret;
+        var hmac = crypto.createHmac('sha256', secret);
+        hmac.update(stringToSign);
+        var sign = hmac.digest('base64');
+        fullUrl += (webhookUrl.indexOf('?') >= 0 ? '&' : '?') + 'timestamp=' + timestamp + '&sign=' + encodeURIComponent(sign);
+      }
+      var payload = JSON.stringify({
+        msgtype: 'markdown',
+        markdown: { title: 'MOZA Price Alert', text: msg },
+      });
+      var parsed = new URL(fullUrl);
+      var httpMod = parsed.protocol === 'https:' ? https : http;
+      var options = {
+        hostname: parsed.hostname,
+        path: parsed.pathname + parsed.search,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload) },
+      };
+      var req = httpMod.request(options, function(res) {
+        var body = '';
+        res.on('data', function(c) { body += c; });
+        res.on('end', function() { console.log('DingTalk alert sent:', body); });
+      });
+      req.on('error', function(e) { console.error('DingTalk error:', e.message); });
+      req.write(payload);
+      req.end();
+    }
+  } else {
+    console.log('\nNo below-MSRP alerts.');
   }
 }
 

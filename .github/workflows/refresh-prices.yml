@@ -17,6 +17,8 @@ jobs:
       - run: node scripts/refresh-prices.js
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
+          DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
+          DINGTALK_WEBHOOK_SECRET: ${{ secrets.DINGTALK_WEBHOOK_SECRET }}
       - name: Commit updated prices
         run: |
           git config user.name "price-bot"
