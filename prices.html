@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOZA Price Monitor</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #f5f5f8;
+    --surface: #ffffff;
+    --surface2: #eeeff4;
+    --surface3: #e2e3ec;
+    --border: #d8d9e4;
+    --text: #1a1a2e;
+    --text2: #8888aa;
+    --accent: #e8102a;
+    --green: #00c853;
+    --yellow: #ffc107;
+    --orange: #ff6d00;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  html { font-size: 14px; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .header {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f8 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.3rem; font-weight: 800; letter-spacing: 1px;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.1rem; color: white;
+  }
+  .logo span { color: var(--text); }
+  .logo .accent { color: var(--accent); }
+  .nav-link {
+    background: var(--surface2);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-link:hover { background: var(--accent); color: white; }
+  .nav-link.active { background: var(--accent); color: white; }
+  .header-right { display: flex; align-items: center; gap: 14px; }
+  .last-update { font-size: 0.75rem; color: var(--text2); }
+
+  .container { max-width: 1440px; margin: 0 auto; padding: 20px 24px; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .stat-card:nth-child(1)::after { background: var(--accent); }
+  .stat-card:nth-child(2)::after { background: var(--green); }
+  .stat-card:nth-child(3)::after { background: #2196f3; }
+  .stat-card:nth-child(4)::after { background: var(--orange); }
+  .stat-label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .stat-value { font-size: 1.8rem; font-weight: 800; }
+  .stat-sub { font-size: 0.75rem; color: var(--text2); margin-top: 4px; }
+
+  .controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    flex: 1;
+    max-width: 320px;
+  }
+  .search-box input {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+    width: 100%;
+    font-family: var(--font);
+  }
+  .search-box input::placeholder { color: var(--text2); }
+
+  .retailer-filter {
+    display: flex;
+    gap: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    overflow-x: auto;
+  }
+  .retailer-pill {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--text2);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: var(--font);
+    transition: all 0.2s;
+  }
+  .retailer-pill:hover { color: var(--text); background: var(--surface2); }
+  .retailer-pill.active { background: var(--accent); color: white; }
+
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .product-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .product-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .product-header:hover { background: var(--surface2); }
+  .product-name { font-size: 0.95rem; font-weight: 700; }
+  .product-category {
+    font-size: 0.7rem;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--surface3);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .product-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.8rem;
+  }
+  .product-summary .count { color: var(--text2); }
+  .product-summary .lowest {
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+  }
+  .lowest.good { background: #e8f5e9; color: #2e7d32; }
+  .lowest.warn { background: #fff3e0; color: #e65100; }
+  .lowest.bad { background: #ffebee; color: #c62828; }
+  .expand-icon {
+    width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s;
+    color: var(--text2);
+  }
+  .expand-icon.open { transform: rotate(180deg); }
+
+  .price-table {
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+  .price-table.open { max-height: 2000px; }
+  .price-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .price-table th {
+    text-align: left;
+    padding: 10px 18px;
+    font-size: 0.72rem;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .price-table td {
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--surface2);
+  }
+  .price-table tr:last-child td { border-bottom: none; }
+  .price-table tr:hover td { background: var(--surface2); }
+  .price-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+  }
+  .price-flag .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.green { background: var(--green); }
+  .dot.yellow { background: var(--yellow); }
+  .dot.red { background: var(--accent); }
+  .dot.gray { background: var(--text2); }
+  .retailer-name { font-weight: 600; }
+  .retailer-country {
+    font-size: 0.7rem;
+    color: var(--text2);
+    margin-left: 4px;
+  }
+  .product-link {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.75rem;
+  }
+  .product-link:hover { color: var(--accent); text-decoration: underline; }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .status-badge.in-stock { background: #e8f5e9; color: #2e7d32; }
+  .status-badge.out-of-stock { background: #ffebee; color: #c62828; }
+
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text2);
+    font-size: 0.78rem;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .price-table td, .price-table th { padding: 8px 12px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">
+      <div class="logo-icon">M</div>
+      <span><span class="accent">MOZA</span> Price Monitor</span>
+    </div>
+    <a href="index.html" class="nav-link">&#8592; Brand Monitor</a>
+  </div>
+  <div class="header-right">
+    <span class="last-update" id="lastUpdate">Loading...</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Products Tracked</div>
+      <div class="stat-value" id="statProducts">-</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Retailers</div>
+      <div class="stat-value" id="statRetailers">-</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Price Records</div>
+      <div class="stat-value" id="statRecords">-</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Lowest Price Alerts</div>
+      <div class="stat-value" id="statAlerts">-</div>
+    </div>
+  </div>
+
+  <div class="controls-bar">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products..." oninput="render()">
+    </div>
+    <div class="retailer-filter" id="retailerFilter"></div>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+
+  <div class="footer">
+    Prices checked via direct scraping. Last full update via GitHub Actions.
+  </div>
+</div>
+
+<script>
+var RETAILERS = {
+  microcenter: { name: 'Micro Center', country: 'US', currency: 'USD' },
+  'simmotion-eu': { name: 'Sim-Motion EU', country: 'DE', currency: 'EUR' },
+  tracksvr: { name: 'TracksVR', country: 'IE', currency: 'USD' },
+  apexsim: { name: 'Apex Sim Racing', country: 'US', currency: 'USD' },
+  ricmotech: { name: 'Ricmotech', country: 'US', currency: 'USD' },
+  gtomega: { name: 'GT Omega', country: 'GB', currency: 'GBP' },
+  pagnian: { name: 'Pagnian', country: 'AU', currency: 'AUD' },
+};
+
+var PRODUCTS = {};
+var data = null;
+var selectedRetailer = 'all';
+
+function currencySymbol(currency) {
+  if (currency === 'EUR') return '\u20AC';
+  if (currency === 'GBP') return '\u00A3';
+  return '$';
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  var diff = Date.now() - new Date(dateStr).getTime();
+  var min = Math.floor(diff / 60000);
+  if (min < 1) return 'just now';
+  if (min < 60) return min + 'm ago';
+  var h = Math.floor(min / 60);
+  if (h < 24) return h + 'h ago';
+  var d = Math.floor(h / 24);
+  return d + 'd ago';
+}
+
+function loadData(cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'price-data.json?' + Date.now(), true);
+  xhr.onload = function() {
+    try {
+      data = JSON.parse(xhr.responseText);
+      cb();
+    } catch (e) { cb(); }
+  };
+  xhr.onerror = function() { cb(); };
+  xhr.send();
+}
+
+function getProductPrices() {
+  var map = {};
+  if (!data || !data.prices) return map;
+  for (var pid in data.prices) {
+    var retailers = data.prices[pid];
+    var entries = [];
+    for (var rid in retailers) {
+      entries.push({ retailerId: rid, info: retailers[rid] });
+    }
+    entries.sort(function(a, b) { return a.info.price - b.info.price; });
+    map[pid] = entries;
+  }
+  return map;
+}
+
+function getLowestPrice(entries) {
+  if (!entries || entries.length === 0) return null;
+  var lowest = entries[0];
+  // Skip $0 prices
+  for (var i = 0; i < entries.length; i++) {
+    if (entries[i].info.price > 0) { lowest = entries[i]; break; }
+  }
+  return lowest;
+}
+
+function renderRetailerFilters() {
+  var container = document.getElementById('retailerFilter');
+  var html = '<button class="retailer-pill ' + (selectedRetailer === 'all' ? 'active' : '') + '" onclick="selectedRetailer=\'all\';render()">All</button>';
+  var seen = {};
+  for (var pid in (data ? data.prices : {})) {
+    for (var rid in data.prices[pid]) {
+      if (!seen[rid]) {
+        seen[rid] = true;
+        var r = RETAILERS[rid] || { name: rid, country: '' };
+        html += '<button class="retailer-pill ' + (selectedRetailer === rid ? 'active' : '') + '" onclick="selectedRetailer=\'' + rid + '\';render()">' + r.name + '</button>';
+      }
+    }
+  }
+  container.innerHTML = html;
+}
+
+function render() {
+  if (!data) return;
+  var grid = document.getElementById('productGrid');
+  var productPrices = getProductPrices();
+  var search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+  var records = 0;
+  var alerts = 0;
+  var retailerSet = {};
+
+  var productIds = Object.keys(data.prices);
+  document.getElementById('statProducts').textContent = productIds.length;
+
+  var html = '';
+  for (var pi = 0; pi < productIds.length; pi++) {
+    var pid = productIds[pi];
+    var entries = productPrices[pid] || [];
+    var filtered = selectedRetailer === 'all' ? entries : entries.filter(function(e) { return e.retailerId === selectedRetailer; });
+
+    if (filtered.length === 0) continue;
+
+    var lowest = getLowestPrice(filtered);
+    if (!lowest) continue;
+    records += filtered.length;
+    for (var fi = 0; fi < filtered.length; fi++) retailerSet[filtered[fi].retailerId] = true;
+
+    var lowestPrice = lowest.info.price;
+    var avgPrice = 0;
+    var validPrices = filtered.filter(function(e) { return e.info.price > 0; });
+    if (validPrices.length > 0) {
+      avgPrice = validPrices.reduce(function(s, e) { return s + e.info.price; }, 0) / validPrices.length;
+    }
+    var isLow = lowestPrice > 0 && lowestPrice < avgPrice * 0.85;
+
+    if (isLow) alerts++;
+
+    var sym = lowest.info.currency === 'EUR' ? '\u20AC' : lowest.info.currency === 'GBP' ? '\u00A3' : '$';
+    var lowestClass = 'good';
+    if (isLow) lowestClass = 'warn';
+    if (lowestPrice === 0) lowestClass = 'bad';
+
+    var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+
+    html += '<div class="product-row">';
+    html += '<div class="product-header" onclick="toggleRow(this)">';
+    html += '<div style="display:flex;align-items:center;gap:10px">';
+    html += '<span class="product-name">' + productName + '</span>';
+    html += '</div>';
+    html += '<div class="product-summary">';
+    html += '<span class="count">' + filtered.length + ' retailer(s)</span>';
+    html += '<span class="lowest ' + lowestClass + '">From ' + sym + lowestPrice.toFixed(2) + '</span>';
+    html += '<span class="expand-icon">&#9660;</span>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="price-table">';
+    html += '<table>';
+    html += '<tr><th>Retailer</th><th>Price</th><th>Currency</th><th>Status</th><th>Checked</th><th></th></tr>';
+    for (var ei = 0; ei < filtered.length; ei++) {
+      var e = filtered[ei];
+      var r = RETAILERS[e.retailerId] || { name: e.retailerId, country: '', currency: 'USD' };
+      var sym2 = e.info.currency === 'EUR' ? '\u20AC' : e.info.currency === 'GBP' ? '\u00A3' : '$';
+      var diff = e.info.price > 0 && lowestPrice > 0 ? ((e.info.price - lowestPrice) / lowestPrice * 100).toFixed(0) : 0;
+      var dotClass = 'green';
+      if (e.info.price === 0) dotClass = 'gray';
+      else if (diff > 10) dotClass = 'yellow';
+
+      html += '<tr>';
+      html += '<td><span class="retailer-name">' + r.name + '</span><span class="retailer-country">' + r.country + '</span></td>';
+      html += '<td><span class="price-flag"><span class="dot ' + dotClass + '"></span>' + sym2 + (e.info.price > 0 ? e.info.price.toFixed(2) : 'N/A') + '</span></td>';
+      html += '<td>' + e.info.currency + '</td>';
+      html += '<td><span class="status-badge ' + (e.info.inStock ? 'in-stock' : 'out-of-stock') + '">' + (e.info.inStock ? 'In Stock' : 'Out of Stock') + '</span></td>';
+      html += '<td style="font-size:0.75rem;color:var(--text2)">' + timeAgo(e.info.checkedAt) + '</td>';
+      html += '<td><a class="product-link" href="' + e.info.url + '" target="_blank">View &#8599;</a></td>';
+      html += '</tr>';
+    }
+    html += '</table>';
+    html += '</div>';
+    html += '</div>';
+  }
+
+  grid.innerHTML = html;
+  document.getElementById('statRetailers').textContent = Object.keys(retailerSet).length;
+  document.getElementById('statRecords').textContent = records;
+  document.getElementById('statAlerts').textContent = alerts;
+}
+
+function toggleRow(header) {
+  var row = header.parentElement;
+  var table = row.querySelector('.price-table');
+  var icon = row.querySelector('.expand-icon');
+  table.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+loadData(function() {
+  if (data && data.lastUpdated) {
+    document.getElementById('lastUpdate').textContent = 'Last updated: ' + timeAgo(data.lastUpdated) + ' (' + new Date(data.lastUpdated).toLocaleString() + ')';
+  }
+  renderRetailerFilters();
+  render();
+});
+</script>
+</body>
+</html>

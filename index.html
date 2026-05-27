@@ -81,6 +81,17 @@
     50% { opacity: 0.3; }
   }
   .last-update { font-size: 0.75rem; color: var(--text2); }
+  .nav-link {
+    background: var(--surface2);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-link:hover { background: var(--accent); color: white; }
 
   /* Container */
   .container { max-width: 1440px; margin: 0 auto; padding: 20px 24px; }
@@ -655,6 +666,7 @@
   <div class="header-right">
     <div class="status-dot">Monitoring Live</div>
     <div class="last-update" id="lastUpdate">Last updated: --</div>
+    <a href="prices.html" class="nav-link">Price Monitor</a>
   </div>
 </header>
 

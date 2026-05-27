@@ -1,0 +1,27 @@
+name: Refresh Prices
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --omit=dev
+      - run: node scripts/refresh-prices.js
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
+      - name: Commit updated prices
+        run: |
+          git config user.name "price-bot"
+          git config user.email "price-bot@users.noreply.github.com"
+          git add price-data.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: refresh prices $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push
