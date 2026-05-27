@@ -108,7 +108,7 @@ async function run() {
   const run = await client.actor(ACTOR_ID).start({
     directUrls,
     resultsLimit: 3,
-    proxy: { useApifyProxy: false },
+    proxy: { useApifyProxy: true },
   });
 
   console.log(`[refresh-data] Run started: ${run.id} (dataset: ${run.defaultDatasetId})`);
