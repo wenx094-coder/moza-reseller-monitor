@@ -23,7 +23,7 @@ const DEALER_INSTAGRAM_HANDLES = {
   // Europe
   gtomegaracing: { name: 'GT Omega', location: 'UK (nationwide shipping)', country: 'GB' },
   abruzziuk: { name: 'Abruzzi', location: 'UK (nationwide shipping)', country: 'GB' },
-  simufy: { name: 'Simufy', location: 'Spain (nationwide shipping)', country: 'ES' },
+  'simu.fy': { name: 'Simufy', location: 'Spain (nationwide shipping)', country: 'ES' },
   // Australia
   pagnianadvancedsimulation: { name: 'Pagnian Advanced Simulation', location: 'Australia (nationwide shipping)', country: 'AU' },
   // India
