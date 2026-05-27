@@ -22,12 +22,28 @@ const DEALER_INSTAGRAM_HANDLES = {
   kfireracing: { name: 'KFire Racing', location: 'Brazil (nationwide shipping)', country: 'BR' },
 };
 
+const BRANDS = {
+  moza:      { name: 'MOZA',          keywords: ['moza'] },
+  fanatec:   { name: 'Fanatec',       keywords: ['fanatec'] },
+  logitech:  { name: 'Logitech G',    keywords: ['logitech'] },
+  simucube:  { name: 'Simucube',      keywords: ['simucube'] },
+  thrustmaster: { name: 'Thrustmaster', keywords: ['thrustmaster'] },
+  simagic:   { name: 'Simagic',       keywords: ['simagic'] },
+  turtlebeach: { name: 'Turtle Beach', keywords: ['turtle beach', 'turtlebeach'] },
+  pxn:       { name: 'PXN',           keywords: ['pxn'] },
+};
+
 const client = new ApifyClient({ token: TOKEN });
 
-function isMozaPost(post) {
-  const text = (post.text || post.caption || '').toLowerCase();
-  const image = (post.displayUrl || '').toLowerCase();
-  return text.includes('moza') || image.includes('moza');
+function detectBrands(post) {
+  const text = ((post.text || post.caption || '') + ' ' + (post.displayUrl || '')).toLowerCase();
+  const found = [];
+  for (const [id, brand] of Object.entries(BRANDS)) {
+    for (const kw of brand.keywords) {
+      if (text.includes(kw)) { found.push(id); break; }
+    }
+  }
+  return found;
 }
 
 function formatPost(item) {
@@ -49,6 +65,7 @@ function formatPost(item) {
     videoUrl: item.videoUrl || '',
     ownerUsername,
     shortCode: item.shortCode || '',
+    brands: detectBrands(item),
   };
 }
 
@@ -126,11 +143,18 @@ async function run() {
   };
 
   for (const [username, posts] of Object.entries(grouped)) {
-    const mozaPosts = posts.filter(isMozaPost);
-    if (mozaPosts.length > 0) {
-      result.posts[username] = mozaPosts;
+    result.posts[username] = posts;
+  }
+
+  const brandCounts = {};
+  for (const posts of Object.values(result.posts)) {
+    for (const p of posts) {
+      for (const b of p.brands) {
+        brandCounts[b] = (brandCounts[b] || 0) + 1;
+      }
     }
   }
+  console.log('[refresh-data] Brand mentions:', brandCounts);
 
   const outputPath = path.join(__dirname, '..', 'data.json');
   fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));

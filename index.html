@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOZA Racing - Global Dealer Social Monitor</title>
+<title>Sim Racing Dealer Brand Monitor</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -109,7 +109,7 @@
   }
   .stat-card:nth-child(1)::after { background: var(--accent); }
   .stat-card:nth-child(2)::after { background: var(--instagram); }
-  .stat-card:nth-child(3)::after { background: var(--youtube); }
+  .stat-card:nth-child(3)::after { background: var(--stat-accent, var(--youtube)); }
   .stat-card:nth-child(4)::after { background: var(--green); }
   .stat-label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
   .stat-value { font-size: 1.8rem; font-weight: 800; }
@@ -216,30 +216,63 @@
   .refresh-btn:hover { background: var(--surface2); border-color: var(--accent); }
   .refresh-btn.spinning svg { animation: spin 0.8s linear infinite; }
 
-  .moza-toggle {
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Brand Pills */
+  .brand-bar {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 0.82rem;
-    color: var(--text2);
-    user-select: none;
+    gap: 6px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    padding: 4px 0;
   }
-  .moza-toggle input { display: none; }
-  .moza-toggle .toggle-label {
-    padding: 6px 14px;
-    border-radius: 8px;
-    background: var(--surface);
+  .brand-pill {
+    padding: 5px 14px;
     border: 1px solid var(--border);
-    transition: all 0.2s;
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--text2);
+    font-size: 0.78rem;
     font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-family: var(--font);
+    flex-shrink: 0;
   }
-  .moza-toggle input:checked + .toggle-label {
-    background: var(--accent);
-    border-color: var(--accent);
+  .brand-pill:hover { border-color: var(--text); color: var(--text); }
+  .brand-pill.active {
+    color: white;
+    border-color: transparent;
+  }
+  .brand-pill.active.all { background: var(--text); }
+  .brand-pill.active.moza { background: #e8102a; }
+  .brand-pill.active.fanatec { background: #1a6fb5; }
+  .brand-pill.active.logitech { background: #00b33c; }
+  .brand-pill.active.simucube { background: #ff6600; }
+  .brand-pill.active.thrustmaster { background: #6b3fa0; }
+  .brand-pill.active.simagic { background: #00b5b8; }
+  .brand-pill.active.turtlebeach { background: #e8a000; }
+  .brand-pill.active.pxn { background: #666; }
+
+  .brand-tag {
+    display: inline-block;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-right: 3px;
+    letter-spacing: 0.3px;
     color: white;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .brand-tag.moza { background: #e8102a; }
+  .brand-tag.fanatec { background: #1a6fb5; }
+  .brand-tag.logitech { background: #00b33c; }
+  .brand-tag.simucube { background: #ff6600; }
+  .brand-tag.thrustmaster { background: #6b3fa0; }
+  .brand-tag.simagic { background: #00b5b8; }
+  .brand-tag.turtlebeach { background: #e8a000; }
+  .brand-tag.pxn { background: #666; }
 
   /* Dealer Grid */
   .dealer-grid {
@@ -602,8 +635,8 @@
   <div class="header-left">
     <div class="logo">
       <div class="logo-icon">M</div>
-      <div><span>MOZA</span> <span class="accent">RACING</span></div>
-      <span class="header-badge">MONITOR</span>
+      <div><span>Sim Racing</span> <span class="accent">Brand Monitor</span></div>
+      <span class="header-badge">DEALERS</span>
     </div>
   </div>
   <div class="header-right">
@@ -651,15 +684,14 @@
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
       <input type="text" id="searchInput" placeholder="Search dealers or location..." />
     </div>
-    <label class="moza-toggle">
-      <input type="checkbox" id="mozaOnly" />
-      <span class="toggle-label">MOZA only</span>
-    </label>
     <button class="refresh-btn" id="refreshBtn">
       <svg viewBox="0 0 24 24" width="16" height="16"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
       Refresh Data
     </button>
   </div>
+
+  <!-- Brand Pills -->
+  <div class="brand-bar" id="brandBar"></div>
 
   <!-- Dealer Grid -->
   <div class="dealer-grid" id="dealerGrid"></div>
@@ -699,10 +731,22 @@
 
 <!-- Footer -->
 <div class="footer">
-  MOZA Racing Global Dealer Social Media Monitor &middot; NA · AU · BR &middot; Data from Apify Instagram Scraper &middot; Refreshes every 12h
+  Sim Racing Dealer Brand Monitor &middot; NA · AU · BR &middot; MOZA · Fanatec · Logitech G · Simucube · Thrustmaster · Simagic · Turtle Beach · PXN &middot; Data from Apify Instagram Scraper
 </div>
 
 <script>
+const BRAND_CONFIG = {
+  all: { name: 'All Brands', color: '#333' },
+  moza: { name: 'MOZA', color: '#e8102a' },
+  fanatec: { name: 'Fanatec', color: '#1a6fb5' },
+  logitech: { name: 'Logitech G', color: '#00b33c' },
+  simucube: { name: 'Simucube', color: '#ff6600' },
+  thrustmaster: { name: 'Thrustmaster', color: '#6b3fa0' },
+  simagic: { name: 'Simagic', color: '#00b5b8' },
+  turtlebeach: { name: 'Turtle Beach', color: '#e8a000' },
+  pxn: { name: 'PXN', color: '#666' },
+};
+
 const DEALERS = [
   { id: 1, name: 'Sim-Motion', handle: '@simmotionus', location: 'US (nationwide shipping)', country: 'US', instagram: 'simmotionus', youtube: null, platforms: ['instagram'] },
   { id: 2, name: 'Ricmotech', handle: '@ricmotech', location: 'US (Florida)', country: 'US', instagram: 'ricmotech', youtube: 'Ricmotech', platforms: ['instagram', 'youtube'] },
@@ -725,7 +769,7 @@ const DEALERS = [
 // ===========================
 let currentFilter = 'all';
 let searchQuery = '';
-let mozaOnly = false;
+let selectedBrand = 'moza';
 let liveData = null;
 
 // ===========================
@@ -772,9 +816,9 @@ function render() {
       const q = searchQuery.toLowerCase();
       if (!d.name.toLowerCase().includes(q) && !d.location.toLowerCase().includes(q)) return false;
     }
-    if (mozaOnly) {
+    if (selectedBrand !== 'all') {
       const posts = getDealerPosts(d);
-      if (!posts.some(p => (p.text || '').toLowerCase().includes('moza'))) return false;
+      if (!posts.some(p => p.brands && p.brands.includes(selectedBrand))) return false;
     }
     if (currentFilter === 'all') return true;
     return d.platforms.includes(currentFilter);
@@ -816,7 +860,7 @@ function render() {
           <div class="card-body">
             ${displayPosts.map(p => {
               const thumbIcon = p.type === 'video' ? '▶️' : p.type === 'carousel' ? '📑' : '📷';
-              const isMoza = (p.text || '').toLowerCase().includes('moza');
+              const brandTags = (p.brands || []).map(b => `<span class="brand-tag ${b}">${BRAND_CONFIG[b]?.name || b}</span>`).join('');
               const eng = `<span>❤️ ${p.likes}</span><span>💬 ${p.comments}</span>`;
               return `
                 <div class="post-item">
@@ -827,9 +871,9 @@ function render() {
                       </div>`
                     : `<div class="post-thumb">${thumbIcon}</div>`}
                   <div class="post-content">
-                    <div class="post-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)').replace(/MOZA/gi, '<span class="mention">MOZA</span>')}</a></div>
+                    <div class="post-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)')}</a></div>
                     <div class="post-meta">
-                      <span class="post-time">${timeAgo(p.timestamp)}${isMoza ? ' 🔥' : ''}</span>
+                      <span class="post-time">${timeAgo(p.timestamp)} ${brandTags}</span>
                       <div class="post-engagement">${eng}</div>
                     </div>
                   </div>
@@ -855,12 +899,13 @@ function render() {
   allPosts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
   feedList.innerHTML = allPosts.slice(0, 15).map(p => {
+    const brandTags = (p.brands || []).map(b => `<span class="brand-tag ${b}">${BRAND_CONFIG[b]?.name || b}</span>`).join('');
     return `
       <div class="feed-item">
         <div class="feed-icon ig">📸</div>
         <div class="feed-body">
-          <div class="feed-dealer">${p.dealerName} <span style="color:var(--text2);font-weight:400;">${p.dealerHandle}</span></div>
-          <div class="feed-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)').replace(/MOZA/gi, '<span class="mention">MOZA</span>')}</a></div>
+          <div class="feed-dealer">${p.dealerName} <span style="color:var(--text2);font-weight:400;">${p.dealerHandle}</span> ${brandTags}</div>
+          <div class="feed-text"><a href="${p.url}" target="_blank" rel="noopener">${(p.text || '(no caption)')}</a></div>
         </div>
         <span class="feed-time">${timeAgo(p.timestamp)}</span>
       </div>`;
@@ -873,23 +918,44 @@ function render() {
   document.getElementById('countYt').textContent = DEALERS.filter(d => d.platforms.includes('youtube')).length;
 }
 
+function renderBrandBar() {
+  const bar = document.getElementById('brandBar');
+  bar.innerHTML = Object.entries(BRAND_CONFIG).map(([id, cfg]) =>
+    `<button class="brand-pill ${id}${selectedBrand === id ? ' active' : ''}" data-brand="${id}">${cfg.name}</button>`
+  ).join('');
+}
+
 function updateStats() {
-  let totalPosts = 0, mozaPosts = 0;
+  let totalPosts = 0;
+  const brandCounts = {};
   DEALERS.forEach(d => {
     const posts = getDealerPosts(d);
     totalPosts += posts.length;
-    mozaPosts += posts.filter(p => (p.text || '').toLowerCase().includes('moza')).length;
+    for (const p of posts) {
+      for (const b of (p.brands || [])) {
+        brandCounts[b] = (brandCounts[b] || 0) + 1;
+      }
+    }
   });
   document.getElementById('statDealers').textContent = DEALERS.length;
   document.getElementById('statIgPosts').textContent = totalPosts;
-  document.getElementById('statYtVideos').textContent = mozaPosts;
-  document.getElementById('statToday').textContent = mozaPosts;
+  const brandCount = Object.keys(brandCounts).length;
+  if (selectedBrand === 'all') {
+    document.getElementById('statYtVideos').textContent = brandCount;
+    document.querySelector('.stat-card:nth-child(3) .stat-label').textContent = 'Brands Detected';
+  } else {
+    const brandLabel = BRAND_CONFIG[selectedBrand]?.name || selectedBrand;
+    document.getElementById('statYtVideos').textContent = brandCounts[selectedBrand] || 0;
+    document.querySelector('.stat-card:nth-child(3) .stat-label').textContent = brandLabel + ' Mentions';
+  }
+  document.getElementById('statToday').textContent = brandCount;
   document.getElementById('statTrend').textContent = totalPosts;
   document.querySelector('.stat-card:nth-child(2) .stat-sub').innerHTML = 'Scraped posts';
-  document.querySelector('.stat-card:nth-child(3) .stat-label').textContent = 'MOZA Mentions';
-  document.querySelector('.stat-card:nth-child(3) .stat-sub').innerHTML = '🔥 MOZA-related';
-  document.querySelector('.stat-card:nth-child(4) .stat-label').textContent = 'Total Activity';
-  document.querySelector('.stat-card:nth-child(4) .stat-sub').innerHTML = 'All dealer posts';
+  document.querySelector('.stat-card:nth-child(3) .stat-sub').innerHTML = brandCount > 0 ? Object.entries(brandCounts).map(([b, c]) => `${BRAND_CONFIG[b]?.name || b} ${c}`).join(' · ') : 'No brands found';
+  document.querySelector('.stat-card:nth-child(4) .stat-label').textContent = 'Total Posts';
+  document.querySelector('.stat-card:nth-child(4) .stat-sub').innerHTML = 'All scraped posts';
+  const brandColor = BRAND_CONFIG[selectedBrand]?.color || '#ff0000';
+  document.querySelector('.stat-card:nth-child(3)').style.setProperty('--stat-accent', brandColor);
   if (liveData && liveData.lastUpdated) {
     document.getElementById('lastUpdate').textContent = `Last updated: ${new Date(liveData.lastUpdated).toLocaleTimeString('en-US', { hour12: false })}`;
   }
@@ -956,6 +1022,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   showLoading();
   await fetchData();
   hideLoading();
+  renderBrandBar();
   render();
   updateStats();
 
@@ -973,9 +1040,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     render();
   });
 
-  document.getElementById('mozaOnly').addEventListener('change', (e) => {
-    mozaOnly = e.target.checked;
+  document.getElementById('brandBar').addEventListener('click', (e) => {
+    const pill = e.target.closest('.brand-pill');
+    if (!pill) return;
+    selectedBrand = pill.dataset.brand;
+    renderBrandBar();
     render();
+    updateStats();
   });
 
   document.getElementById('refreshBtn').addEventListener('click', async () => {
