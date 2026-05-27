@@ -10,12 +10,11 @@ const DEALER_INSTAGRAM_HANDLES = {
   bhphoto: { name: 'B&H Photo Video', location: 'US (New York)', country: 'US' },
   ricmotech: { name: 'Ricmotech', location: 'US (Florida)', country: 'US' },
   focussimracing: { name: 'Focus Sim Racing', location: 'US (Santa Clarita, CA)', country: 'US' },
-  simmotion_us: { name: 'Sim-Motion', location: 'US (nationwide shipping)', country: 'US' },
-  gomotorsportsshop: { name: 'GO Motorsports', location: 'US (nationwide shipping)', country: 'US' },
+  simmotionus: { name: 'Sim-Motion', location: 'US (nationwide shipping)', country: 'US' },
+  // gomotorsportsshop: { name: 'GO Motorsports', location: 'US (nationwide shipping)', country: 'US' }, // NO Instagram account found
   tracksvr: { name: 'TracksVR', location: 'US (nationwide shipping)', country: 'US' },
-  noxgamingca: { name: 'NOX Gaming', location: 'Canada (Quebec)', country: 'CA' },
-  // ramotorsportscanada: { name: 'RA Motorsports Canada', location: 'Canada (nationwide shipping)', country: 'CA' }, // NOT FOUND on Instagram, needs correct handle
-  vipcbuildergames: { name: 'VI PC Builder & Games', location: 'Canada (Vancouver Island)', country: 'CA' },
+  'noxgaming.ca': { name: 'NOX Gaming', location: 'Canada (Quebec)', country: 'CA' },
+  vipcbuilder: { name: 'VI PC Builder & Games', location: 'Canada (Vancouver Island)', country: 'CA' },
   pitlanesimracing: { name: 'Pit Lane Sim Racing', location: 'US (nationwide shipping)', country: 'US' },
   apexsimracing: { name: 'Apex Sim Racing', location: 'US (North America shipping)', country: 'US' },
   // Australia (handles TBD — none of the provisional handles were found on Instagram)
@@ -26,8 +25,9 @@ const DEALER_INSTAGRAM_HANDLES = {
 const client = new ApifyClient({ token: TOKEN });
 
 function isMozaPost(post) {
-  const caption = (post.caption || post.text || '').toLowerCase();
-  return caption.includes('moza');
+  const text = (post.text || post.caption || '').toLowerCase();
+  const image = (post.displayUrl || '').toLowerCase();
+  return text.includes('moza') || image.includes('moza');
 }
 
 function formatPost(item) {
@@ -126,8 +126,10 @@ async function run() {
   };
 
   for (const [username, posts] of Object.entries(grouped)) {
-    const mozaPosts = posts.filter(p => p.text.toLowerCase().includes('moza'));
-    result.posts[username] = mozaPosts.length > 0 ? mozaPosts : posts;
+    const mozaPosts = posts.filter(isMozaPost);
+    if (mozaPosts.length > 0) {
+      result.posts[username] = mozaPosts;
+    }
   }
 
   const outputPath = path.join(__dirname, '..', 'data.json');

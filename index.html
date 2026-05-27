@@ -7,17 +7,17 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface2: #1a1a28;
-    --surface3: #22223a;
-    --border: #2a2a44;
-    --text: #e0e0f0;
+    --bg: #f5f5f8;
+    --surface: #ffffff;
+    --surface2: #eeeff4;
+    --surface3: #e2e3ec;
+    --border: #d8d9e4;
+    --text: #1a1a2e;
     --text2: #8888aa;
     --accent: #e8102a;
     --accent2: #ff3044;
-    --green: #00e676;
-    --yellow: #ffd600;
+    --green: #00c853;
+    --yellow: #ffc107;
     --instagram: #e1306c;
     --youtube: #ff0000;
     --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -36,7 +36,7 @@
 
   /* Header */
   .header {
-    background: linear-gradient(135deg, #0d0d18 0%, #1a0a0a 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f8 100%);
     border-bottom: 2px solid var(--accent);
     padding: 16px 32px;
     display: flex;
@@ -394,7 +394,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(10,10,15,0.85);
+    background: rgba(245,245,248,0.92);
     backdrop-filter: blur(8px);
     z-index: 300;
     align-items: center;
@@ -704,15 +704,15 @@
 
 <script>
 const DEALERS = [
-  { id: 1, name: 'Sim-Motion', handle: '@simmotion_us', location: 'US (nationwide shipping)', country: 'US', instagram: 'simmotion_us', youtube: null, platforms: ['instagram'] },
+  { id: 1, name: 'Sim-Motion', handle: '@simmotionus', location: 'US (nationwide shipping)', country: 'US', instagram: 'simmotionus', youtube: null, platforms: ['instagram'] },
   { id: 2, name: 'Ricmotech', handle: '@ricmotech', location: 'US (Florida)', country: 'US', instagram: 'ricmotech', youtube: 'Ricmotech', platforms: ['instagram', 'youtube'] },
   { id: 3, name: 'Focus Sim Racing', handle: '@focussimracing', location: 'US (Santa Clarita, CA)', country: 'US', instagram: 'focussimracing', youtube: null, platforms: ['instagram'] },
   { id: 4, name: 'Apex Sim Racing', handle: '@apexsimracing', location: 'US (North America shipping)', country: 'US', instagram: 'apexsimracing', youtube: null, platforms: ['instagram'] },
-  { id: 5, name: 'GO Motorsports', handle: '@gomotorsports', location: 'US (nationwide shipping)', country: 'US', instagram: 'gomotorsportsshop', youtube: null, platforms: ['instagram'] },
+  // { id: 5, name: 'GO Motorsports', handle: '@gomotorsports', location: 'US (nationwide shipping)', country: 'US', instagram: 'gomotorsportsshop', youtube: null, platforms: ['instagram'] }, // no Instagram account found
   { id: 6, name: 'TracksVR', handle: '@tracksvr', location: 'US (nationwide shipping)', country: 'US', instagram: 'tracksvr', youtube: null, platforms: ['instagram'] },
-  { id: 7, name: 'NOX Gaming', handle: '@noxgaming', location: 'Canada (Quebec)', country: 'CA', instagram: 'noxgamingca', youtube: null, platforms: ['instagram'] },
+  { id: 7, name: 'NOX Gaming', handle: '@noxgaming.ca', location: 'Canada (Quebec)', country: 'CA', instagram: 'noxgaming.ca', youtube: null, platforms: ['instagram'] },
   // { id: 8, name: 'RA Motorsports Canada', handle: '@ramotorsports', location: 'Canada (nationwide shipping)', country: 'CA', instagram: 'ramotorsportscanada', youtube: null, platforms: ['instagram'] }, // handle not found on Instagram
-  { id: 9, name: 'VI PC Builder & Games', handle: '@vipcbuilder', location: 'Canada (Vancouver Island)', country: 'CA', instagram: 'vipcbuildergames', youtube: null, platforms: ['instagram'] },
+  { id: 9, name: 'VI PC Builder & Games', handle: '@vipcbuilder', location: 'Canada (Vancouver Island)', country: 'CA', instagram: 'vipcbuilder', youtube: null, platforms: ['instagram'] },
   { id: 10, name: 'Pit Lane Sim Racing', handle: '@pitlanesimracing', location: 'US (nationwide shipping)', country: 'US', instagram: 'pitlanesimracing', youtube: null, platforms: ['instagram'] },
   { id: 11, name: 'Micro Center', handle: '@microcenter', location: 'US (nationwide stores)', country: 'US', instagram: 'microcenter', youtube: null, platforms: ['instagram'] },
   { id: 12, name: 'B&H Photo Video', handle: '@bhphoto', location: 'US (New York)', country: 'US', instagram: 'bhphoto', youtube: null, platforms: ['instagram'] },
