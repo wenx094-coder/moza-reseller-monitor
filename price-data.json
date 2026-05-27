@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27T10:20:32.120Z",
+  "lastUpdated": "2026-05-27T10:38:16.749Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -8,7 +8,7 @@
         "url": "https://eu.sim-motion.com/moza-r9-v3-wheel-base",
         "name": "MOZA R9 V3 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:19:38.717Z"
+        "checkedAt": "2026-05-27T10:35:27.524Z"
       }
     },
     "ks-pro-wheel": {
@@ -18,7 +18,15 @@
         "url": "https://eu.sim-motion.com/moza-ks-pro-steering-wheel",
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:19:44.876Z"
+        "checkedAt": "2026-05-27T10:35:33.550Z"
+      },
+      "noxgaming": {
+        "price": 459,
+        "currency": "CAD",
+        "url": "https://www.noxgaming.ca/product/moza-ks-pro-steering-wheel/",
+        "name": "MOZA KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:40.640Z"
       }
     },
     "gs-v2p-wheel": {
@@ -28,7 +36,15 @@
         "url": "https://eu.sim-motion.com/moza-gs-v2p-steering-wheel",
         "name": "MOZA GS V2P Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:19:51.208Z"
+        "checkedAt": "2026-05-27T10:35:39.005Z"
+      },
+      "ricmotech": {
+        "price": 469,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/MOZA-GS-V2P-Steering-Wheel_p_652.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:20.754Z"
       }
     },
     "cs-pro-wheel": {
@@ -38,7 +54,7 @@
         "url": "https://eu.sim-motion.com/MOZA-CS-Pro-Lenkrad",
         "name": "MOZA CS Pro Lenkrad",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:19:57.753Z"
+        "checkedAt": "2026-05-27T10:35:48.061Z"
       },
       "tracksvr": {
         "price": 599.95,
@@ -46,7 +62,15 @@
         "url": "https://tracksvr.com/products/moza-cs-pro-steering-wheel",
         "name": "Moza CS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:32.120Z"
+        "checkedAt": "2026-05-27T10:36:40.448Z"
+      },
+      "noxgaming": {
+        "price": 459,
+        "currency": "CAD",
+        "url": "https://www.noxgaming.ca/product/moza-cs-pro-round-sim-racing-steering-wheel/",
+        "name": "MOZA CS Pro Round Sim Racing Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:38.602Z"
       }
     },
     "crp2-pedals": {
@@ -56,7 +80,23 @@
         "url": "https://eu.sim-motion.com/moza-crp2-load-cell-pedals",
         "name": "MOZA CRP2 Load Cell Pedals",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:04.725Z"
+        "checkedAt": "2026-05-27T10:35:57.095Z"
+      },
+      "simmotion-us": {
+        "price": 468,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-crp2-pedals",
+        "name": "Moza Racing CRP2 Load Cell Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:01.691Z"
+      },
+      "ricmotech": {
+        "price": 399,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/-MOZA-CRP2-Throttle-and-Brake-Pedals_p_715.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:28.475Z"
       }
     },
     "hgp-shifter": {
@@ -66,7 +106,15 @@
         "url": "https://eu.sim-motion.com/moza-hgp-shifter",
         "name": "MOZA HGP Shifter",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:11.661Z"
+        "checkedAt": "2026-05-27T10:36:08.964Z"
+      },
+      "simmotion-us": {
+        "price": 149,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-hgp-shifter",
+        "name": "Moza Racing HGP Shifter (Pre-Order)",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:07.529Z"
       }
     },
     "handbrake": {
@@ -76,7 +124,15 @@
         "url": "https://eu.sim-motion.com/moza-hbp-handbrake",
         "name": "MOZA HBP Handbrake",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:20.701Z"
+        "checkedAt": "2026-05-27T10:36:22.244Z"
+      },
+      "simmotion-us": {
+        "price": 99,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-hbp-handbrake",
+        "name": "Moza Racing HBP Handbrake (Pre Order)",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:10.474Z"
       }
     },
     "r16-base": {
@@ -86,7 +142,15 @@
         "url": "https://tracksvr.com/products/moza-r16-v2-wheel-base",
         "name": "Moza R16 V2 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:29.887Z"
+        "checkedAt": "2026-05-27T10:36:35.983Z"
+      },
+      "ricmotech": {
+        "price": 799,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-r16-direct-drive-wheel-base.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:14.999Z"
       }
     },
     "r21-base": {
@@ -96,7 +160,151 @@
         "url": "https://tracksvr.com/collections/new-sim-racing-hardware/products/moza-r21-wheel-base-ultra",
         "name": "Moza R21 Ultra Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:20:31.318Z"
+        "checkedAt": "2026-05-27T10:36:38.338Z"
+      },
+      "ricmotech": {
+        "price": 999,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/MOZA-R21-Direct-Drive-Wheelbase_p_613.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:16.988Z"
+      },
+      "noxgaming": {
+        "price": 1179,
+        "currency": "CAD",
+        "url": "https://www.noxgaming.ca/product/moza-r21-v2-direct-drive-wheelbase/",
+        "name": "MOZA R21 V2 Direct Drive Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:36.585Z"
+      }
+    },
+    "r3-bundle": {
+      "simmotion-us": {
+        "price": 339,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-r3-sim-racing-bundle",
+        "name": "Moza Racing R3 XBox Sim Racing Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:44.798Z"
+      },
+      "noxgaming": {
+        "price": 499,
+        "currency": "CAD",
+        "url": "https://www.noxgaming.ca/product/moza-r3-bundle-steering-wheel-pedals-wheelbase-xbox-pc/",
+        "name": "MOZA R3 Bundle Racing Wheel, Pedals and Wheelbase (X-box & PC)",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:32.299Z"
+      }
+    },
+    "r5-bundle": {
+      "simmotion-us": {
+        "price": 399,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-r5-sim-racing-bundle",
+        "name": "MOZA Racing R5 Direct Drive Sim Racing Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:47.839Z"
+      }
+    },
+    "r12-base": {
+      "simmotion-us": {
+        "price": 429,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-r12-v2-direct-drive-base",
+        "name": "Moza Racing R12 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:50.536Z"
+      },
+      "ricmotech": {
+        "price": 499,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-r12-.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:12.998Z"
+      },
+      "noxgaming": {
+        "price": 599,
+        "currency": "CAD",
+        "url": "https://www.noxgaming.ca/product/moza-r12-v2-wheelbase/",
+        "name": "MOZA R12 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:34.564Z"
+      }
+    },
+    "ks-wheel": {
+      "simmotion-us": {
+        "price": 229,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-ks-steering-wheel",
+        "name": "Moza Racing KS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:53.456Z"
+      },
+      "ricmotech": {
+        "price": 279,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-ks-steering-wheel.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:18.768Z"
+      }
+    },
+    "cs-wheel": {
+      "simmotion-us": {
+        "price": 229,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-cs-v2p-steering-wheel",
+        "name": "MOZA Racing CS V2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:56.126Z"
+      },
+      "ricmotech": {
+        "price": 259,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-cs-v2-steering-wheel.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:22.709Z"
+      }
+    },
+    "rs-wheel": {
+      "simmotion-us": {
+        "price": 369,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-rs-gt-wheel",
+        "name": "MOZA Racing RS V2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:36:58.892Z"
+      }
+    },
+    "srp-pedals": {
+      "simmotion-us": {
+        "price": 169,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-racing-srp-pedals",
+        "name": "Moza Racing SR-P Pedal Set",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:04.594Z"
+      },
+      "ricmotech": {
+        "price": 159,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-sr-p-pedal.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:26.436Z"
+      }
+    },
+    "fsr2-wheel": {
+      "ricmotech": {
+        "price": 649,
+        "currency": "USD",
+        "url": "https://www.ricmotech.com/moza-fsr-steering-wheel.html",
+        "name": "Ricmotech",
+        "inStock": true,
+        "checkedAt": "2026-05-27T10:37:24.490Z"
       }
     }
   },

@@ -49,25 +49,38 @@ function parsePrice(raw) {
   if (typeof raw === 'number') return raw;
   var s = String(raw).trim().replace(/\s+/g, ' ');
 
-  // Extract the first price-like segment
-  // European: optional €/$/£/¥ prefix, then digits, optionally with . as thousand sep and , as decimal
-  var euroMatch = s.match(/(?:€|EUR)?\s*([0-9]{1,3}(?:[.][0-9]{3})*(?:,[0-9]+))/);
-  if (euroMatch) {
-    var num = euroMatch[1].replace(/\./g, '').replace(',', '.');
-    return parseFloat(num);
+  // Try standard format first (with $ or £ prefix, comma as thousand sep)
+  var prefixMatch = s.match(/(?:\$|£|USD|CAD|AUD)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
+  if (prefixMatch) {
+    var rawNum = prefixMatch[1];
+    // Detect format: if last separator is comma followed by 1-2 digits, it's European
+    var lastComma = rawNum.lastIndexOf(',');
+    var lastDot = rawNum.lastIndexOf('.');
+    var usesEuroSep = false;
+    if (lastComma > lastDot) {
+      // Last separator is comma → European format (comma = decimal)
+      var afterComma = rawNum.substring(lastComma + 1);
+      if (afterComma.length <= 2) usesEuroSep = true;
+    }
+    if (usesEuroSep) {
+      var euroClean = rawNum.replace(/\./g, '').replace(',', '.');
+      return parseFloat(euroClean);
+    } else {
+      var stdClean = rawNum.replace(/,/g, '');
+      return parseFloat(stdClean);
+    }
   }
 
-  // Standard: $ or £ or nothing, then digits
-  var stdMatch = s.match(/(?:\$|£|USD)?\s*([0-9]+(?:[.,][0-9]+)?)/);
-  if (stdMatch) {
-    var cleaned = stdMatch[1].replace(/,/g, '');
-    return parseFloat(cleaned);
+  // European with EUR prefix, comma as decimal
+  var eurMatch = s.match(/EUR\s*([0-9]+(?:[.,][0-9]+)?)/);
+  if (eurMatch) {
+    return parseFloat(eurMatch[1].replace(',', '.'));
   }
 
   return null;
 }
 
-function extractPrice(html, preferredCurrency) {
+function extractPrice(html, preferredCurrency, retailerId) {
   var $ = cheerio.load(html);
 
   // JSON-LD
@@ -100,9 +113,9 @@ function extractPrice(html, preferredCurrency) {
   });
   if (best) return best;
 
-  // CSS selectors
   var title = $('h1').first().text().trim() || $('title').first().text().trim();
 
+  // Retailer-specific selectors
   var selectors = [
     '.special-price',
     '.current-price',
@@ -115,6 +128,18 @@ function extractPrice(html, preferredCurrency) {
     '.sale-price',
     '.price-item',
   ];
+
+  // Ricmotech: "Your Price:" followed by price
+  if (retailerId === 'ricmotech') {
+    var bodyText = $.root().text();
+    var rmMatch = bodyText.match(/Your\s*Price:\s*[:\s]*(\$[0-9,.]+)/);
+    if (rmMatch) {
+      var p = parsePrice(rmMatch[1]);
+      if (p != null && p > 0) {
+        return { name: title, price: p, currency: preferredCurrency || 'USD', inStock: true };
+      }
+    }
+  }
 
   for (var si = 0; si < selectors.length; si++) {
     var el = $(selectors[si]).first();
@@ -131,6 +156,10 @@ function extractPrice(html, preferredCurrency) {
   return null;
 }
 
+function delay(ms) {
+  return new Promise(function(resolve) { setTimeout(resolve, ms); });
+}
+
 async function main() {
   var data = loadData();
   var entries = buildUrlEntries();
@@ -143,12 +172,15 @@ async function main() {
     var retailerId = entries[e].retailerId;
     var productId = entries[e].productId;
 
+    // Rate limiting delay between requests
+    if (e > 0) await delay(1500);
+
     try {
       var html = await fetch(url);
       var retailer = RETAILERS.find(function(r) { return r.id === retailerId; });
       var currency = retailer ? retailer.currency : 'USD';
 
-      var result = extractPrice(html, currency);
+      var result = extractPrice(html, currency, retailerId);
       if (result) {
         if (!data.prices[productId]) data.prices[productId] = {};
         data.prices[productId][retailerId] = {
@@ -200,6 +232,8 @@ async function main() {
         // Rough currency conversion for comparison
         if (info2.currency === 'EUR') priceUsd = info2.price * 1.08;
         else if (info2.currency === 'GBP') priceUsd = info2.price * 1.27;
+        else if (info2.currency === 'CAD') priceUsd = info2.price * 0.73;
+        else if (info2.currency === 'AUD') priceUsd = info2.price * 0.66;
 
         if (priceUsd < msrpUsd * 0.95) {
           var pct = ((msrpUsd - priceUsd) / msrpUsd * 100).toFixed(1);
