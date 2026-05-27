@@ -1,0 +1,29 @@
+name: Refresh Data
+
+on:
+  schedule:
+    - cron: '0 */24 * * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --omit=dev
+        working-directory: .
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      - run: node scripts/refresh-data.js
+        working-directory: .
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      - run: |
+          git config user.name "moza-monitor-bot"
+          git config user.email "bot@moza-reseller-monitor"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-refresh data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
