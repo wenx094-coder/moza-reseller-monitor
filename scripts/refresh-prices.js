@@ -50,7 +50,7 @@ function parsePrice(raw) {
   var s = String(raw).trim().replace(/\s+/g, ' ');
 
   // Try standard format first (with $ or £ prefix, comma as thousand sep)
-  var prefixMatch = s.match(/(?:\$|£|USD|CAD|AUD)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
+  var prefixMatch = s.match(/(?:\$|£|zł|R|kr|₩|₪|RM|NT\$|HK\$|S\$|MX\$|CLP\$|NZ\$|A\$|USD|CAD|AUD|NZD|SGD|HKD)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
   if (prefixMatch) {
     var rawNum = prefixMatch[1];
     // Detect format: if last separator is comma followed by 1-2 digits, it's European
@@ -300,7 +300,7 @@ async function main() {
           checkedAt: new Date().toISOString(),
         };
         var c = result.currency || currency;
-        var sym = c === 'EUR' ? '\u20AC' : c === 'GBP' ? '\u00A3' : c === 'INR' ? '\u20B9' : c === 'BRL' ? 'R$' : c === 'AUD' || c === 'CAD' ? 'A$' : '$';
+        var sym = c === 'EUR' ? '\u20AC' : c === 'GBP' ? '\u00A3' : c === 'INR' ? '\u20B9' : c === 'BRL' ? 'R$' : c === 'AUD' || c === 'CAD' ? 'A$' : c === 'SEK' ? 'kr' : c === 'DKK' ? 'kr' : c === 'NZD' ? 'NZ$' : c === 'PLN' ? 'zł' : c === 'SGD' ? 'S$' : c === 'HKD' ? 'HK$' : c === 'TWD' ? 'NT$' : c === 'KRW' ? '₩' : c === 'ILS' ? '₪' : c === 'MYR' ? 'RM' : c === 'MXN' ? 'MX$' : c === 'CLP' ? 'CLP$' : c === 'ZAR' ? 'R' : '$';
         console.log('  OK ' + result.name + ': ' + sym + result.price + ' @ ' + retailerId);
         success++;
       } else {
@@ -361,7 +361,7 @@ async function main() {
       var r2 = RETAILERS.find(function(x) { return x.id === rid2; });
       var rname2 = r2 ? r2.name : rid2;
       var info2 = data.prices[pid3][rid2];
-      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : info2.currency === 'SEK' ? 'kr' : '$';
+        var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : info2.currency === 'SEK' ? 'kr' : info2.currency === 'DKK' ? 'kr' : info2.currency === 'NZD' ? 'NZ$' : info2.currency === 'PLN' ? 'zł' : info2.currency === 'SGD' ? 'S$' : info2.currency === 'HKD' ? 'HK$' : info2.currency === 'TWD' ? 'NT$' : info2.currency === 'KRW' ? '₩' : info2.currency === 'ILS' ? '₪' : info2.currency === 'MYR' ? 'RM' : info2.currency === 'MXN' ? 'MX$' : info2.currency === 'CLP' ? 'CLP$' : info2.currency === 'ZAR' ? 'R' : '$';
       console.log('  ' + name3 + ': ' + sym2 + info2.price + ' @ ' + rname2 + msrpLine);
 
       if (msrp && info2.price > 0) {
@@ -375,6 +375,18 @@ async function main() {
         else if (info2.currency === 'INR') priceUsd = info2.price * 0.012;
         else if (info2.currency === 'BRL') priceUsd = info2.price * 0.19;
         else if (info2.currency === 'SEK') priceUsd = info2.price * 0.093;
+        else if (info2.currency === 'DKK') priceUsd = info2.price * 0.145;
+        else if (info2.currency === 'NZD') priceUsd = info2.price * 0.61;
+        else if (info2.currency === 'PLN') priceUsd = info2.price * 0.25;
+        else if (info2.currency === 'SGD') priceUsd = info2.price * 0.74;
+        else if (info2.currency === 'HKD') priceUsd = info2.price * 0.128;
+        else if (info2.currency === 'TWD') priceUsd = info2.price * 0.031;
+        else if (info2.currency === 'KRW') priceUsd = info2.price * 0.00072;
+        else if (info2.currency === 'ILS') priceUsd = info2.price * 0.27;
+        else if (info2.currency === 'MYR') priceUsd = info2.price * 0.21;
+        else if (info2.currency === 'MXN') priceUsd = info2.price * 0.055;
+        else if (info2.currency === 'CLP') priceUsd = info2.price * 0.0011;
+        else if (info2.currency === 'ZAR') priceUsd = info2.price * 0.055;
 
         if (priceUsd < msrpUsd * 0.95) {
           var pct = ((msrpUsd - priceUsd) / msrpUsd * 100).toFixed(1);

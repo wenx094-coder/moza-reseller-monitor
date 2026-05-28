@@ -47,6 +47,19 @@ const DEALER_INSTAGRAM_HANDLES = {
   pagnianadvancedsimulation: { name: 'Pagnian Advanced Simulation', location: 'Australia (nationwide shipping)', country: 'AU' },
   // India
   virtualracinghub: { name: 'Virtual Racing Hub', location: 'India (nationwide shipping)', country: 'IN' },
+  // Batch 2: High-value dealers (May 2026)
+  overclockersuk: { name: 'Overclockers UK', location: 'UK (nationwide shipping)', country: 'GB' },
+  's5.tech': { name: 'S5 Technology', location: 'Singapore (nationwide shipping)', country: 'SG' },
+  simsolution_ltd: { name: 'SimSolution', location: 'Israel (nationwide shipping)', country: 'IL' },
+  simracingstore_cl: { name: 'SimRacing Store', location: 'Chile (nationwide shipping)', country: 'CL' },
+  befastracing: { name: 'Be Fast Racing', location: 'Mexico (nationwide shipping)', country: 'MX' },
+  simking_eu: { name: 'SimKing', location: 'France (EU shipping)', country: 'FR' },
+  simhub_pro: { name: 'SIMHUB.PRO', location: 'Poland (EU shipping)', country: 'PL' },
+  mozaracingkorea: { name: 'MOZA Korea', location: 'South Korea (nationwide shipping)', country: 'KR' },
+  sdealgaming: { name: 'SDeal Gaming', location: 'Malaysia (nationwide shipping)', country: 'MY' },
+  yohohongkong: { name: 'YOHO 友和', location: 'Hong Kong', country: 'HK' },
+  pchome24h: { name: 'PChome 24h', location: 'Taiwan (nationwide shipping)', country: 'TW' },
+  delenordic: { name: 'DELE Nordic', location: 'Denmark (Nordic shipping)', country: 'DK' },
 };
 
 const BRANDS = {
