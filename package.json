@@ -2,6 +2,7 @@
   "dependencies": {
     "apify-client": "^2.23.3",
     "cheerio": "^1.2.0",
+    "playwright": "^1.60.0",
     "surge": "^0.27.4"
   }
 }

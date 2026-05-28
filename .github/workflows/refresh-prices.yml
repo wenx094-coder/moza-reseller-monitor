@@ -13,12 +13,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci --omit=dev
+      - run: npm ci
       - run: node scripts/refresh-prices.js
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules
           DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
           DINGTALK_WEBHOOK_SECRET: ${{ secrets.DINGTALK_WEBHOOK_SECRET }}
+      - name: Install Chromium for headless scraper
+        run: npx playwright install chromium --with-deps
+      - run: node scripts/refresh-prices-headless.js
       - name: Commit updated prices
         run: |
           git config user.name "price-bot"
