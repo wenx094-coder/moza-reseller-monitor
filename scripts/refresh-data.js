@@ -17,13 +17,32 @@ const DEALER_INSTAGRAM_HANDLES = {
   vipcbuilder: { name: 'VI PC Builder & Games', location: 'Canada (Vancouver Island)', country: 'CA' },
   pitlanesimracing: { name: 'Pit Lane Sim Racing', location: 'US (nationwide shipping)', country: 'US' },
   apexsimracing: { name: 'Apex Sim Racing', location: 'US (North America shipping)', country: 'US' },
-  // Australia (handles TBD — none of the provisional handles were found on Instagram)
   // South America — Brazil
   kfireracing: { name: 'KFire Racing', location: 'Brazil (nationwide shipping)', country: 'BR' },
   // Europe
   gtomegaracing: { name: 'GT Omega', location: 'UK (nationwide shipping)', country: 'GB' },
   abruzziuk: { name: 'Abruzzi', location: 'UK (nationwide shipping)', country: 'GB' },
   'simu.fy': { name: 'Simufy', location: 'Spain (nationwide shipping)', country: 'ES' },
+  racegeareu: { name: 'RaceGear', location: 'Netherlands (EU shipping)', country: 'NL' },
+  // UK
+  demontweeksmotorsport: { name: 'Demon Tweeks', location: 'UK (nationwide shipping)', country: 'GB' },
+  // Canada
+  advancedsimracing: { name: 'Advanced Sim Racing', location: 'Canada (nationwide shipping)', country: 'CA' },
+  // Sweden/Nordic
+  wearemaxgaming: { name: 'MaxGaming', location: 'Sweden (Nordic shipping)', country: 'SE' },
+  // Poland
+  'simline.gt': { name: 'Simline', location: 'Poland (EU shipping)', country: 'PL' },
+  // Netherlands
+  sim_race_webshop: { name: 'SimRace Webshop', location: 'Netherlands (EU shipping)', country: 'NL' },
+  // Australia
+  gamer_gear_direct: { name: 'Gamer Gear Direct', location: 'Australia (nationwide shipping)', country: 'AU' },
+  player1_sim_gear: { name: 'Player1 Sim Gear', location: 'Australia (nationwide shipping)', country: 'AU' },
+  thegamesmenau: { name: 'The Gamesmen', location: 'Australia (nationwide shipping)', country: 'AU' },
+  jbhifi: { name: 'JB Hi-Fi', location: 'Australia (nationwide shipping)', country: 'AU' },
+  // Germany
+  alternate_de: { name: 'Alternate', location: 'Germany (EU shipping)', country: 'DE' },
+  // Sweden
+  kjell_company: { name: 'Kjell & Company', location: 'Sweden (nationwide shipping)', country: 'SE' },
   // Australia
   pagnianadvancedsimulation: { name: 'Pagnian Advanced Simulation', location: 'Australia (nationwide shipping)', country: 'AU' },
   // India

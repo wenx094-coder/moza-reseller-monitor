@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28T06:11:20.788Z",
+  "lastUpdated": "2026-05-28T09:23:35.531Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -49,6 +49,70 @@
         "name": "MOZA RACING R9 V3",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:39.660Z"
+      },
+      "advancedsimracing": {
+        "price": 539.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-r9-direct-drive-wheel-base",
+        "name": "MOZA Racing R9 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:34.344Z"
+      },
+      "maxgaming": {
+        "price": 4099,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/r9-v3-direct-drive-wheelbase-svart-servomotor-rattbas",
+        "name": "Moza Racing R9 V3 Direct Drive Wheelbase - Svart Servomotor Rattbas - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:01.713Z"
+      },
+      "simline": {
+        "price": 1210.57,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-direct-drive-bases/moza-r9-v3",
+        "name": "Moza R9 v3 Direct Drive Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:25.036Z"
+      },
+      "simracewebshop": {
+        "price": 342,
+        "currency": "EUR",
+        "url": "https://www.simracewebshop.com/products/moza-racing-r9-direct-drive-wheel-base-v3",
+        "name": "Moza Racing R9 Direct Drive Wheel Base - V3",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:05.972Z"
+      },
+      "gamergeardirect": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-r9-v3-wheelbase",
+        "name": "MOZA R9 V3 Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:13.829Z"
+      },
+      "player1simgear": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-racing-r9-v3-direct-drive-wheel-base",
+        "name": "Moza Racing R9 V3 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:27.490Z"
+      },
+      "jbhifi": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-r9-v3-direct-drive-wheel-base",
+        "name": "Moza R9 V3 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:46.813Z"
+      },
+      "alternate": {
+        "price": 349,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/R9-V3-Wheel-Base-Lenkradbasis/html/product/100121863",
+        "name": "MOZA R9 V3 Wheel Base, Lenkradbasis schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:02.153Z"
       }
     },
     "ks-pro-wheel": {
@@ -107,6 +171,54 @@
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:52.567Z"
+      },
+      "advancedsimracing": {
+        "price": 479.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-ks-pro-steering-wheel",
+        "name": "MOZA Racing KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:41.514Z"
+      },
+      "maxgaming": {
+        "price": 4099,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/moza-racing-ks-pro-racing-ratt",
+        "name": "Moza Racing KS Pro Racing Ratt - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:05.929Z"
+      },
+      "simline": {
+        "price": 1210.57,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-ks-pro",
+        "name": "MOZA KS Pro Wheel - 300mm Carbon GT Rim | Simline.eu",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:36.394Z"
+      },
+      "player1simgear": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-ks-pro-steering-wheel",
+        "name": "MOZA KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:32.746Z"
+      },
+      "jbhifi": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-ks-pro-steering-wheel",
+        "name": "Moza KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:52.428Z"
+      },
+      "alternate": {
+        "price": 349,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/KS-Pro-Steering-Wheel-Austausch-Lenkrad/html/product/100177838",
+        "name": "MOZA KS Pro Steering Wheel, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:10.320Z"
       }
     },
     "gs-v2p-wheel": {
@@ -157,6 +269,30 @@
         "name": "MOZA RACING GS V2P WHEEL",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:58.101Z"
+      },
+      "advancedsimracing": {
+        "price": 549.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-gs-gt-wheel",
+        "name": "MOZA Racing GS V2 GT Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:44.343Z"
+      },
+      "simline": {
+        "price": 1215.54,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-gs-v2p",
+        "name": "Moza GS v2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:42.193Z"
+      },
+      "alternate": {
+        "price": 399,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/GS-V2P-GT-Wheel-Microfiber-Leather-Austausch-Lenkrad/html/product/100032058",
+        "name": "MOZA GS V2P GT Wheel Microfiber Leather, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:16.385Z"
       }
     },
     "cs-pro-wheel": {
@@ -223,6 +359,38 @@
         "name": "MOZA CS Pro Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:56.259Z"
+      },
+      "simline": {
+        "price": 1210.57,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-cs-pro",
+        "name": "MOZA CS Pro Wheel - 325mm Racing Wheel with HD Display | Simline",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:40.184Z"
+      },
+      "player1simgear": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-cs-pro-steering-wheel",
+        "name": "MOZA CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:35.629Z"
+      },
+      "jbhifi": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-cs-pro-steering-wheel",
+        "name": "Moza CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:53.851Z"
+      },
+      "alternate": {
+        "price": 349,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/CS-Pro-Steering-Wheel-Austausch-Lenkrad/html/product/100177828",
+        "name": "MOZA CS Pro Steering Wheel, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:14.417Z"
       }
     },
     "crp2-pedals": {
@@ -289,6 +457,54 @@
         "name": "MOZA RACING CRP2 PEDALS",
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:04.239Z"
+      },
+      "advancedsimracing": {
+        "price": 579.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-crp-2-pedals",
+        "name": "MOZA Racing CRP2 Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:53.723Z"
+      },
+      "maxgaming": {
+        "price": 4599,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/moza-crp2-load-cell-pedals",
+        "name": "Moza Racing CRP2 Load-Cell Pedaler med Lastcellstrycksensorer - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:15.655Z"
+      },
+      "simline": {
+        "price": 1381.3,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-pedals/moza-crp2",
+        "name": "Moza CRP2 Load Cell Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:53.954Z"
+      },
+      "gamergeardirect": {
+        "price": 649,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-crp2-load-cell-pedals",
+        "name": "MOZA CRP2 Load Cell Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:19.768Z"
+      },
+      "player1simgear": {
+        "price": 649,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-crp2-pedals",
+        "name": "Moza CRP2 Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:40.207Z"
+      },
+      "alternate": {
+        "price": 399,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/CRP2-Load-Cell-Gaspedal-plus-Bremse-Pedale/html/product/100077820",
+        "name": "MOZA CRP2 Load Cell (Gaspedal + Bremse), Pedale schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:29.222Z"
       }
     },
     "hgp-shifter": {
@@ -339,6 +555,62 @@
         "name": "MOZA RACING HGP SHIFTER",
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:06.010Z"
+      },
+      "advancedsimracing": {
+        "price": 239.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-hgp-shifter",
+        "name": "MOZA HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:55.159Z"
+      },
+      "maxgaming": {
+        "price": 1689,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/hgp-h-shifter-vaxelspak",
+        "name": "Moza Racing HGP H-Shifter - Växelspak - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:17.034Z"
+      },
+      "simline": {
+        "price": 552.03,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-handbrakes-shifters/moza-hgp-h-shifter",
+        "name": "MOZA HGP H-Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:55.795Z"
+      },
+      "gamergeardirect": {
+        "price": 299,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-hgp-shifter",
+        "name": "MOZA HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:21.301Z"
+      },
+      "player1simgear": {
+        "price": 299,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-hgp-shifter",
+        "name": "Moza HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:41.622Z"
+      },
+      "jbhifi": {
+        "price": 299,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-hgp-shifter",
+        "name": "Moza HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:55.346Z"
+      },
+      "alternate": {
+        "price": 159,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/HGP-Shifter-Schalthebel/html/product/1912700",
+        "name": "MOZA HGP Shifter, Schalthebel schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:31.276Z"
       }
     },
     "handbrake": {
@@ -389,6 +661,62 @@
         "name": "MOZA RACING HBP HANDBRAKE",
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:07.819Z"
+      },
+      "advancedsimracing": {
+        "price": 164.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-hbp-handbrake",
+        "name": "MOZA Racing HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:56.543Z"
+      },
+      "maxgaming": {
+        "price": 1189,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/hbp-handbroms-pc-rattbas",
+        "name": "Moza Racing HBP Handbroms - PC/Rattbas - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:18.434Z"
+      },
+      "simline": {
+        "price": 381.3,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/simracing-shifters/moza-hbp-handbrake",
+        "name": "MOZA HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:59.570Z"
+      },
+      "gamergeardirect": {
+        "price": 199,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-hbp-handbrake",
+        "name": "MOZA HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:22.707Z"
+      },
+      "player1simgear": {
+        "price": 189,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-hbp-handbrake",
+        "name": "Moza HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:43.018Z"
+      },
+      "jbhifi": {
+        "price": 199,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-hbp-handbrake",
+        "name": "Moza HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:56.714Z"
+      },
+      "alternate": {
+        "price": 109,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/HBP-Handbrake-Handbremse/html/product/1912696",
+        "name": "MOZA HBP Handbrake, Handbremse schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:33.289Z"
       }
     },
     "r16-base": {
@@ -423,6 +751,14 @@
         "name": "MOZA R16 V2 Direct Drive Wheel Base",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:45.014Z"
+      },
+      "advancedsimracing": {
+        "price": 1049.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-r16-direct-drive-wheel-base",
+        "name": "MOZA Racing R16 V2 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:37.208Z"
       }
     },
     "r21-base": {
@@ -489,6 +825,46 @@
         "name": "Moza R21 Ultra",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:46.886Z"
+      },
+      "advancedsimracing": {
+        "price": 1099,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-r21-ultra-wheel-base",
+        "name": "MOZA Racing R21 Ultra DD Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:38.653Z"
+      },
+      "simline": {
+        "price": 2763.41,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-direct-drive-bases/moza-r21",
+        "name": "MOZA R21 Ultra – Direct Drive 21Nm Base | Simline.eu",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:31.448Z"
+      },
+      "player1simgear": {
+        "price": 1299,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-r21-ultra-true-torque-direct-drive-wheel-base",
+        "name": "Moza R21 Ultra True Torque Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:30.225Z"
+      },
+      "jbhifi": {
+        "price": 1299,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-r21-ultra-direct-drive-wheel-base",
+        "name": "Moza R21 Ultra Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:49.535Z"
+      },
+      "alternate": {
+        "price": 799,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/R21-Ultra-DD-Lenkradbasis/html/product/100167208",
+        "name": "MOZA R21 Ultra DD, Lenkradbasis schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:06.320Z"
       }
     },
     "r3-bundle": {
@@ -531,6 +907,14 @@
         "name": "MOZA RACING R3 BUNDLE FOR XBOX AND PC",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:35.882Z"
+      },
+      "player1simgear": {
+        "price": 509,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-r3-direct-drive-racing-bundle-pc",
+        "name": "MOZA R3 Bundle for PC",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:26.158Z"
       }
     },
     "r5-bundle": {
@@ -573,6 +957,62 @@
         "name": "MOZA RACING R5 BUNDLE",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:37.653Z"
+      },
+      "advancedsimracing": {
+        "price": 579.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-r5-racing-simulator-bundle",
+        "name": "MOZA Racing R5 Racing Simulator Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:33.071Z"
+      },
+      "maxgaming": {
+        "price": 4489,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/r5-racing-simulator-r5-wheel-base-es-steering-wheel-sr-p-lite-pedals-bundle",
+        "name": "Moza Racing R5 Racing Simulator Bundle - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:00.276Z"
+      },
+      "simline": {
+        "price": 1446.34,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/simracing-bundles/moza-r5-bundle",
+        "name": "MOZA R5 bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:23.193Z"
+      },
+      "simracewebshop": {
+        "price": 391,
+        "currency": "EUR",
+        "url": "https://www.simracewebshop.com/products/moza-racing-r5-direct-drive-simulator-bundle",
+        "name": "Moza Racing R5 Direct Drive Simulator Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:04.606Z"
+      },
+      "gamergeardirect": {
+        "price": 729,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-racing-r5-bundle",
+        "name": "MOZA R5 Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:12.183Z"
+      },
+      "jbhifi": {
+        "price": 729,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-r5-racing-bundle-for-pc",
+        "name": "Moza R5 Racing Bundle for PC",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:45.444Z"
+      },
+      "alternate": {
+        "price": 419,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/R5-Bundle-Lenkrad/html/product/1912680",
+        "name": "MOZA R5 Bundle, Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:59.908Z"
       }
     },
     "r12-base": {
@@ -639,6 +1079,70 @@
         "name": "MOZA RACING R12V2",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:41.417Z"
+      },
+      "advancedsimracing": {
+        "price": 619.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-r12-direct-drive-wheel-base",
+        "name": "MOZA Racing R12 V2 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:35.778Z"
+      },
+      "maxgaming": {
+        "price": 4990,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/r12-v2-direct-drive-wheelbase-svart-servomotor-rattbas",
+        "name": "Moza Racing R12 V2 Direct Drive Wheelbase - Svart Servomotor Rattbas - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:03.131Z"
+      },
+      "simline": {
+        "price": 1584.55,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-direct-drive-bases/moza-r12-v2",
+        "name": "Moza R12 v2 Direct Drive Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:26.923Z"
+      },
+      "simracewebshop": {
+        "price": 440,
+        "currency": "EUR",
+        "url": "https://www.simracewebshop.com/products/moza-racing-r12-direct-drive-wheel-base-v2",
+        "name": "Moza Racing R12 Direct Drive Wheel Base - V2",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:07.358Z"
+      },
+      "gamergeardirect": {
+        "price": 789,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-r12-v2-wheelbase",
+        "name": "MOZA R12 V2 Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:15.290Z"
+      },
+      "player1simgear": {
+        "price": 789,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-r12-v2-wheel-base",
+        "name": "Moza R12 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:28.810Z"
+      },
+      "jbhifi": {
+        "price": 789,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-r12-v2-direct-drive-wheel-base",
+        "name": "Moza R12 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:48.164Z"
+      },
+      "alternate": {
+        "price": 459,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/R12-V2-Wheel-Base-Lenkradbasis/html/product/100121864",
+        "name": "MOZA R12 V2 Wheel Base, Lenkradbasis schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:04.248Z"
       }
     },
     "ks-wheel": {
@@ -689,6 +1193,70 @@
         "name": "MOZA RACING KS STEERING WHEEL",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:50.719Z"
+      },
+      "advancedsimracing": {
+        "price": 349.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-ks-steering-wheel",
+        "name": "MOZA Racing KS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:39.939Z"
+      },
+      "maxgaming": {
+        "price": 2890,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/ks-steering-wheel-300mm-butterfly-style-gt-wheel-ratt-for-racing",
+        "name": "Moza Racing KS Steering Wheel - 300mm Butterfly Style GT Wheel - Ratt för Racing - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:04.525Z"
+      },
+      "simline": {
+        "price": 860.98,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-ks",
+        "name": "Moza KS",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:34.367Z"
+      },
+      "simracewebshop": {
+        "price": 235,
+        "currency": "EUR",
+        "url": "https://www.simracewebshop.com/products/moza-racing-ks-steering-wheel",
+        "name": "Moza Racing KS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:08.723Z"
+      },
+      "gamergeardirect": {
+        "price": 449,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-ks-formula-racing-wheel",
+        "name": "MOZA KS Formula Racing Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:16.831Z"
+      },
+      "player1simgear": {
+        "price": 439,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-ks-steering-wheel",
+        "name": "Moza Racing KS Formula Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:31.486Z"
+      },
+      "jbhifi": {
+        "price": 449,
+        "currency": "AUD",
+        "url": "https://www.jbhifi.com.au/products/moza-ks-steering-wheel",
+        "name": "Moza KS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:50.930Z"
+      },
+      "alternate": {
+        "price": 249,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/KS-Steering-Wheel-Austausch-Lenkrad/html/product/100003165",
+        "name": "MOZA KS Steering Wheel, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:08.314Z"
       }
     },
     "cs-wheel": {
@@ -739,6 +1307,46 @@
         "name": "MOZA RACING CS V2P STEERING WHEEL",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:54.413Z"
+      },
+      "advancedsimracing": {
+        "price": 369.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-cs-steering-wheel",
+        "name": "MOZA Racing CS V2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:42.862Z"
+      },
+      "maxgaming": {
+        "price": 2999,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/cs-v2p-leather-steering-wheel-33cm-ratt-for-racing",
+        "name": "Moza Racing CS V2P Leather Steering Wheel - 33cm Ratt för Racing - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:07.328Z"
+      },
+      "simline": {
+        "price": 860.98,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-cs-v2p",
+        "name": "Moza CS v2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:37.956Z"
+      },
+      "player1simgear": {
+        "price": 449,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-cs-steering-wheel",
+        "name": "Moza CS V2P Racing Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:34.044Z"
+      },
+      "alternate": {
+        "price": 249,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/CS-V2P-Steering-Wheel-Austausch-Lenkrad/html/product/100032059",
+        "name": "MOZA CS V2P Steering Wheel, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:12.320Z"
       }
     },
     "rs-wheel": {
@@ -789,6 +1397,38 @@
         "name": "MOZA RACING RS V2 STEERING WHEEL",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:59.938Z"
+      },
+      "advancedsimracing": {
+        "price": 559.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-rs-wheel",
+        "name": "MOZA Racing RS V2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:45.895Z"
+      },
+      "maxgaming": {
+        "price": 4599,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/rs-v2-steering-wheel-round-leather-33cm-ratt-for-racing",
+        "name": "Moza Racing RS v2 Steering Wheel Round Leather - (33cm) Ratt för Racing - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:08.717Z"
+      },
+      "simline": {
+        "price": 1381.3,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-rs-v2",
+        "name": "Moza RS v2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:44.404Z"
+      },
+      "alternate": {
+        "price": 389,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/RS-V2-Steering-Wheel-Austausch-Lenkrad/html/product/1912674",
+        "name": "MOZA RS V2 Steering Wheel, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:22.129Z"
       }
     },
     "srp-pedals": {
@@ -839,6 +1479,62 @@
         "name": "MOZA SRP Pedal Complete set",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:25.948Z"
+      },
+      "advancedsimracing": {
+        "price": 239.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-srp-pedals",
+        "name": "MOZA Racing SR-P Pedals (2-Pedal Set, Base Included)",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:52.132Z"
+      },
+      "maxgaming": {
+        "price": 1599,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/sr-p-two-pedals-throttle-and-brake-pedalsett-gas-broms",
+        "name": "Moza Racing SR-P Two Pedals (Throttle and Brake) - Pedalsett (Gas & Broms) - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:14.252Z"
+      },
+      "simline": {
+        "price": 552.03,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-pedals/moza-srp2",
+        "name": "MOZA SRP2 simline.eu",
+        "inStock": false,
+        "checkedAt": "2026-05-28T09:21:51.898Z"
+      },
+      "simracewebshop": {
+        "price": 137,
+        "currency": "EUR",
+        "url": "https://www.simracewebshop.com/products/moza-racing-sr-p-pedals",
+        "name": "Moza Racing SR-P Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:10.143Z"
+      },
+      "gamergeardirect": {
+        "price": 269,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-sr-p-pedals",
+        "name": "MOZA SR-P Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:18.272Z"
+      },
+      "player1simgear": {
+        "price": 429,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-srp-pedals",
+        "name": "Moza SRP Pedals Complete set",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:38.755Z"
+      },
+      "alternate": {
+        "price": 139,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/SR-P-Pedal-Set-of-2-Pedale/html/product/1912677",
+        "name": "MOZA SR-P Pedal Set of 2, Pedale schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:27.307Z"
       }
     },
     "fsr2-wheel": {
@@ -889,6 +1585,38 @@
         "name": "MOZA RACING FSR2 Formula Wheel",
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:02.401Z"
+      },
+      "advancedsimracing": {
+        "price": 929,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-fsr2-formula-wheel",
+        "name": "MOZA Racing FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:47.518Z"
+      },
+      "maxgaming": {
+        "price": 7499,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/moza-fsr2-formula-wheel",
+        "name": "Moza Racing FSR2 Formula Wheel - MaxGaming.se",
+        "inStock": false,
+        "checkedAt": "2026-05-28T09:21:10.089Z"
+      },
+      "simline": {
+        "price": 2438.21,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-fsr2",
+        "name": "Moza FSR2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:46.102Z"
+      },
+      "player1simgear": {
+        "price": 1099,
+        "currency": "AUD",
+        "url": "https://p1simgear.com.au/products/moza-fsr-v2-formula-wheel",
+        "name": "MOZA FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:36.915Z"
       }
     },
     "esx-wheel": {
@@ -931,6 +1659,38 @@
         "name": "Moza Racing ESX Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-28T03:13:48.832Z"
+      },
+      "advancedsimracing": {
+        "price": 239.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-esx-wheel-for-xbox",
+        "name": "MOZA Racing ESX Wheel for Xbox",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:50.650Z"
+      },
+      "maxgaming": {
+        "price": 1599,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/xbox-x-ratt/moza-racing-esx-steering-wheel",
+        "name": "Moza Racing ESX Steering Wheel for Xbox - Ratt för Racing - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:12.861Z"
+      },
+      "simline": {
+        "price": 478.86,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-esx",
+        "name": "Moza ESX simline.eu",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:49.989Z"
+      },
+      "alternate": {
+        "price": 134.9,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/ESX-Steering-Wheel-fuer-Xbox-Austausch-Lenkrad/html/product/100032057",
+        "name": "MOZA ESX Steering Wheel für Xbox, Austausch-Lenkrad schwarz",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:20.022Z"
       }
     },
     "table-clamp": {
@@ -965,6 +1725,46 @@
         "name": "MOZA RACING TABLE/FIXED CLAMP",
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:10.342Z"
+      },
+      "advancedsimracing": {
+        "price": 84.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-r5-r9-table-clamp",
+        "name": "MOZA Racing R5 & R9 Table Clamp",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:57.890Z"
+      },
+      "maxgaming": {
+        "price": 499,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/table-clamp-bordsklamma-till-rattbas-r9-r5",
+        "name": "Moza Racing Table Clamp - Bordsklämma till Rattbas R9/R5 - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:19.810Z"
+      },
+      "simline": {
+        "price": 154.47,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/accessories/moza-table-clamp",
+        "name": "MOZA Table Clamp for R5, R9, R12",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:02.797Z"
+      },
+      "gamergeardirect": {
+        "price": 89,
+        "currency": "AUD",
+        "url": "https://www.gamergeardirect.com.au/products/moza-table-clamp",
+        "name": "MOZA Table Clamp",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:22:24.024Z"
+      },
+      "alternate": {
+        "price": 45,
+        "currency": "EUR",
+        "url": "https://www.alternate.de/MOZA/Table-Clamp-Halterung/html/product/1912694",
+        "name": "MOZA Table Clamp, Halterung schwarz, MOZA R5, R9 und R12",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:23:35.531Z"
       }
     },
     "ab9-base": {
@@ -1041,6 +1841,32 @@
         "name": "MOZA AB6 Flight Simulator",
         "inStock": true,
         "checkedAt": "2026-05-28T06:11:15.666Z"
+      }
+    },
+    "vision-gs": {
+      "advancedsimracing": {
+        "price": 720.99,
+        "currency": "CAD",
+        "url": "https://www.advancedsimracing.com/products/moza-racing-vision-gs-steering-wheel",
+        "name": "MOZA Racing Vision GS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:20:49.082Z"
+      },
+      "maxgaming": {
+        "price": 5499,
+        "currency": "SEK",
+        "url": "https://www.maxgaming.se/sv/pc-rattar/moza-racing-vision-gs-wheel",
+        "name": "Moza Racing Vision GS Wheel - MaxGaming.se",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:11.479Z"
+      },
+      "simline": {
+        "price": 2673.98,
+        "currency": "PLN",
+        "url": "https://simline.eu/en/moza-wheels/moza-vision-gs",
+        "name": "MOZA VGS",
+        "inStock": true,
+        "checkedAt": "2026-05-28T09:21:48.051Z"
       }
     }
   },

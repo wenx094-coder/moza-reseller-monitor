@@ -361,7 +361,7 @@ async function main() {
       var r2 = RETAILERS.find(function(x) { return x.id === rid2; });
       var rname2 = r2 ? r2.name : rid2;
       var info2 = data.prices[pid3][rid2];
-      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : '$';
+      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : info2.currency === 'SEK' ? 'kr' : '$';
       console.log('  ' + name3 + ': ' + sym2 + info2.price + ' @ ' + rname2 + msrpLine);
 
       if (msrp && info2.price > 0) {
@@ -374,6 +374,7 @@ async function main() {
         else if (info2.currency === 'AUD') priceUsd = info2.price * 0.66;
         else if (info2.currency === 'INR') priceUsd = info2.price * 0.012;
         else if (info2.currency === 'BRL') priceUsd = info2.price * 0.19;
+        else if (info2.currency === 'SEK') priceUsd = info2.price * 0.093;
 
         if (priceUsd < msrpUsd * 0.95) {
           var pct = ((msrpUsd - priceUsd) / msrpUsd * 100).toFixed(1);
