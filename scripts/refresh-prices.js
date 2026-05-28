@@ -80,6 +80,38 @@ function parsePrice(raw) {
   return null;
 }
 
+function fetchJson(url) {
+  return new Promise(function(resolve) {
+    var jsonUrl;
+    // Handle Shopify /collections/.../products/... URLs
+    if (url.indexOf('/collections/') >= 0) {
+      var parts = url.split('/products/');
+      if (parts.length === 2) jsonUrl = parts[0] + '/products/' + parts[1] + '.json';
+      else resolve(null);
+    } else {
+      jsonUrl = url.replace(/\/$/, '') + '.json';
+    }
+    var mod = jsonUrl.indexOf('https') === 0 ? https : http;
+    var req = mod.get(jsonUrl, { timeout: 10000, headers: { 'User-Agent': 'Mozilla/5.0' } }, function(res) {
+      var d = '';
+      res.on('data', function(c) { d += c; });
+      res.on('end', function() {
+        if (res.statusCode === 200) {
+          try {
+            var j = JSON.parse(d);
+            if (j.product && j.product.variants && j.product.variants.length > 0) {
+              var v = j.product.variants[0];
+              resolve({ name: j.product.title, price: parseFloat(v.price), currency: (v.currency || null), inStock: v.available !== false });
+            } else resolve(null);
+          } catch(e) { resolve(null); }
+        } else resolve(null);
+      });
+    });
+    req.on('error', function() { resolve(null); });
+    req.setTimeout(10000, function() { req.destroy(); resolve(null); });
+  });
+}
+
 function extractPrice(html, preferredCurrency, retailerId) {
   var $ = cheerio.load(html);
 
@@ -89,15 +121,67 @@ function extractPrice(html, preferredCurrency, retailerId) {
     if (best) return;
     try {
       var json = JSON.parse($(this).text());
+      // Handle @graph (multiple entities in one JSON-LD block)
+      if (json['@graph']) json = json['@graph'];
       var items = Array.isArray(json) ? json : [json];
       for (var i = 0; i < items.length; i++) {
         var item = items[i];
+
+        // Handle Product variants (Shopify ProductGroup)
+        var variants = item['@type'] === 'ProductGroup' && item.hasVariant ? item.hasVariant : null;
+        if (variants) {
+          for (var vi = 0; vi < variants.length; vi++) {
+            if (best) return;
+            var v = variants[vi];
+            if (v.offers) {
+              var offers = Array.isArray(v.offers) ? v.offers : [v.offers];
+              for (var oj = 0; oj < offers.length; oj++) {
+                var offer = offers[oj];
+                // Some Shopify stores use priceSpecification array
+                var pSpecs = offer.priceSpecification;
+                if (pSpecs) {
+                  var specs = Array.isArray(pSpecs) ? pSpecs : [pSpecs];
+                  for (var si = 0; si < specs.length; si++) {
+                    if (best) return;
+                    var spec = specs[si];
+                    if (spec.price && spec.price > 0 && (!spec.priceType || spec.priceType.indexOf('Strikethrough') < 0)) {
+                      var p = parsePrice(spec.price);
+                      if (p != null) {
+                        best = {
+                          name: v.name || item.name,
+                          price: p,
+                          currency: spec.priceCurrency || preferredCurrency || 'USD',
+                          inStock: !offer.availability || offer.availability.toLowerCase().indexOf('instock') >= 0,
+                        };
+                        return;
+                      }
+                    }
+                  }
+                }
+                // Direct price on offer
+                var price = parsePrice(offer.price);
+                if (price != null && price > 0) {
+                  best = {
+                    name: v.name || item.name,
+                    price: price,
+                    currency: offer.priceCurrency || preferredCurrency || 'USD',
+                    inStock: !offer.availability || offer.availability.toLowerCase().indexOf('instock') >= 0,
+                  };
+                  return;
+                }
+              }
+            }
+          }
+        }
+
+        // Handle standard Product with offers
         if (item['@type'] === 'Product' && item.name && item.offers) {
           var offers = Array.isArray(item.offers) ? item.offers : [item.offers];
           for (var j = 0; j < offers.length; j++) {
+            if (best) return;
             var offer = offers[j];
             var price = parsePrice(offer.price);
-            if (price != null) {
+            if (price != null && price > 0) {
               best = {
                 name: item.name,
                 price: price,
@@ -176,11 +260,35 @@ async function main() {
     if (e > 0) await delay(1500);
 
     try {
-      var html = await fetch(url);
       var retailer = RETAILERS.find(function(r) { return r.id === retailerId; });
       var currency = retailer ? retailer.currency : 'USD';
+      var result = null;
 
-      var result = extractPrice(html, currency, retailerId);
+      // For Shopify stores, try .json endpoint first (most reliable)
+      if (url.indexOf('/products/') >= 0) {
+        for (var ri = 0; ri < 3; ri++) {
+          if (ri > 0) await delay(2000);
+          var jsonResult = await fetchJson(url);
+          if (jsonResult) {
+            result = jsonResult;
+            break;
+          }
+        }
+      }
+
+      // Fallback to HTML extraction if .json failed or not a Shopify URL
+      if (!result) {
+        var html = await fetch(url);
+        result = extractPrice(html, currency, retailerId);
+
+        // Retry HTML extraction once if no price found
+        if (!result) {
+          await delay(2000);
+          html = await fetch(url);
+          result = extractPrice(html, currency, retailerId);
+        }
+      }
+
       if (result) {
         if (!data.prices[productId]) data.prices[productId] = {};
         data.prices[productId][retailerId] = {
@@ -191,14 +299,41 @@ async function main() {
           inStock: result.inStock !== false,
           checkedAt: new Date().toISOString(),
         };
-        var sym = result.currency === 'EUR' ? '\u20AC' : result.currency === 'GBP' ? '\u00A3' : '$';
+        var c = result.currency || currency;
+        var sym = c === 'EUR' ? '\u20AC' : c === 'GBP' ? '\u00A3' : c === 'INR' ? '\u20B9' : c === 'BRL' ? 'R$' : c === 'AUD' || c === 'CAD' ? 'A$' : '$';
         console.log('  OK ' + result.name + ': ' + sym + result.price + ' @ ' + retailerId);
         success++;
       } else {
         console.log('  -- No price for ' + productId + ' @ ' + retailerId);
       }
     } catch (e) {
-      console.log('  XX ' + productId + ' @ ' + retailerId + ': ' + e.message);
+      // If initial fetch fails, try Shopify .json endpoint as fallback (with retry)
+      if (url.indexOf('/products/') >= 0) {
+        var jsonResult = null;
+        for (var ri = 0; ri < 3; ri++) {
+          if (ri > 0) await delay(2000);
+          jsonResult = await fetchJson(url);
+          if (jsonResult) break;
+        }
+        if (jsonResult && jsonResult.price > 0) {
+          if (!data.prices[productId]) data.prices[productId] = {};
+          data.prices[productId][retailerId] = {
+            price: jsonResult.price,
+            currency: jsonResult.currency || 'USD',
+            url: url,
+            name: jsonResult.name,
+            inStock: jsonResult.inStock !== false,
+            checkedAt: new Date().toISOString(),
+          };
+          var sym = jsonResult.currency === 'EUR' ? '\u20AC' : jsonResult.currency === 'GBP' ? '\u00A3' : '$';
+          console.log('  OK ' + jsonResult.name + ': ' + sym + jsonResult.price + ' @ ' + retailerId + ' (via .json)');
+          success++;
+        } else {
+          console.log('  XX ' + productId + ' @ ' + retailerId + ': ' + e.message + ' (.json also failed)');
+        }
+      } else {
+        console.log('  XX ' + productId + ' @ ' + retailerId + ': ' + e.message);
+      }
     }
   }
 
@@ -223,7 +358,7 @@ async function main() {
       var r2 = RETAILERS.find(function(x) { return x.id === rid2; });
       var rname2 = r2 ? r2.name : rid2;
       var info2 = data.prices[pid3][rid2];
-      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : '$';
+      var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : '$';
       console.log('  ' + name3 + ': ' + sym2 + info2.price + ' @ ' + rname2 + msrpLine);
 
       if (msrp && info2.price > 0) {
@@ -234,6 +369,8 @@ async function main() {
         else if (info2.currency === 'GBP') priceUsd = info2.price * 1.27;
         else if (info2.currency === 'CAD') priceUsd = info2.price * 0.73;
         else if (info2.currency === 'AUD') priceUsd = info2.price * 0.66;
+        else if (info2.currency === 'INR') priceUsd = info2.price * 0.012;
+        else if (info2.currency === 'BRL') priceUsd = info2.price * 0.19;
 
         if (priceUsd < msrpUsd * 0.95) {
           var pct = ((msrpUsd - priceUsd) / msrpUsd * 100).toFixed(1);

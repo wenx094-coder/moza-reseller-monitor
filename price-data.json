@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27T10:38:16.749Z",
+  "lastUpdated": "2026-05-28T03:14:10.342Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -8,7 +8,47 @@
         "url": "https://eu.sim-motion.com/moza-r9-v3-wheel-base",
         "name": "MOZA R9 V3 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:35:27.524Z"
+        "checkedAt": "2026-05-28T03:09:21.332Z"
+      },
+      "apexsim": {
+        "price": 329,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-r9-v3-wheel-base-9nm",
+        "name": "Moza Racing R9 V3 Wheel Base 9NM",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:22.363Z"
+      },
+      "abruzzi": {
+        "price": 319,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheelbases/moza-r9-v3-direct-drive-wheelbase/",
+        "name": "Moza R9 V3 Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:10.075Z"
+      },
+      "gtomega": {
+        "price": 307.95,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-r9-wheel-base",
+        "name": "MOZA RACING R9 V3 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:47.954Z"
+      },
+      "pagnian": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-r9-v3-direct-drive-wheel-base",
+        "name": "MOZA R9 V3 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:02.599Z"
+      },
+      "vr-hub": {
+        "price": 49999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-racing-r9-v3",
+        "name": "MOZA RACING R9 V3",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:39.660Z"
       }
     },
     "ks-pro-wheel": {
@@ -18,7 +58,7 @@
         "url": "https://eu.sim-motion.com/moza-ks-pro-steering-wheel",
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:35:33.550Z"
+        "checkedAt": "2026-05-28T03:09:25.921Z"
       },
       "noxgaming": {
         "price": 459,
@@ -26,7 +66,47 @@
         "url": "https://www.noxgaming.ca/product/moza-ks-pro-steering-wheel/",
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:40.640Z"
+        "checkedAt": "2026-05-28T03:11:02.772Z"
+      },
+      "apexsim": {
+        "price": 329,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/collections/moza-racing-steering-wheels/products/moza-ks-pro-steering-wheel",
+        "name": "Moza KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:30.053Z"
+      },
+      "abruzzi": {
+        "price": 319,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-ks-pro-wheel/",
+        "name": "Moza KS Pro Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:20.249Z"
+      },
+      "gtomega": {
+        "price": 318.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-ks-pro-wheel",
+        "name": "MOZA RACING KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:58.097Z"
+      },
+      "pagnian": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-ks-pro-steering-wheel",
+        "name": "MOZA KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:13.777Z"
+      },
+      "vr-hub": {
+        "price": 49999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-ks-pro-steering-wheel",
+        "name": "MOZA KS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:52.567Z"
       }
     },
     "gs-v2p-wheel": {
@@ -36,7 +116,7 @@
         "url": "https://eu.sim-motion.com/moza-gs-v2p-steering-wheel",
         "name": "MOZA GS V2P Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:35:39.005Z"
+        "checkedAt": "2026-05-28T03:09:29.855Z"
       },
       "ricmotech": {
         "price": 469,
@@ -44,7 +124,39 @@
         "url": "https://www.ricmotech.com/MOZA-GS-V2P-Steering-Wheel_p_652.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:20.754Z"
+        "checkedAt": "2026-05-28T03:10:43.606Z"
+      },
+      "abruzzi": {
+        "price": 359,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-gs-v2p-steering-wheel/",
+        "name": "Moza GS V2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:26.429Z"
+      },
+      "gtomega": {
+        "price": 358.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-gs-v2p-gt-wheel",
+        "name": "MOZA RACING GS V2P GT Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:04.024Z"
+      },
+      "pagnian": {
+        "price": 599,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-gs-v2p-steering-wheel-microfiber-leather-version",
+        "name": "Moza GS V2P Steering Wheel - Microfiber Leather version",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:20.216Z"
+      },
+      "vr-hub": {
+        "price": 49499,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-racing-gs-wheel-india",
+        "name": "MOZA RACING GS V2P WHEEL",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:58.101Z"
       }
     },
     "cs-pro-wheel": {
@@ -54,15 +166,15 @@
         "url": "https://eu.sim-motion.com/MOZA-CS-Pro-Lenkrad",
         "name": "MOZA CS Pro Lenkrad",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:35:48.061Z"
+        "checkedAt": "2026-05-28T03:09:35.296Z"
       },
       "tracksvr": {
         "price": 599.95,
-        "currency": "CAD",
+        "currency": "USD",
         "url": "https://tracksvr.com/products/moza-cs-pro-steering-wheel",
         "name": "Moza CS Pro Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:40.448Z"
+        "checkedAt": "2026-05-28T03:10:13.272Z"
       },
       "noxgaming": {
         "price": 459,
@@ -70,17 +182,57 @@
         "url": "https://www.noxgaming.ca/product/moza-cs-pro-round-sim-racing-steering-wheel/",
         "name": "MOZA CS Pro Round Sim Racing Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:38.602Z"
+        "checkedAt": "2026-05-28T03:11:00.752Z"
+      },
+      "apexsim": {
+        "price": 329,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-cs-pro-steering-wheel",
+        "name": "Moza CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:28.259Z"
+      },
+      "abruzzi": {
+        "price": 319,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-cs-pro-wheel/",
+        "name": "Moza CS Pro Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:24.239Z"
+      },
+      "gtomega": {
+        "price": 318.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-cs-pro-wheel",
+        "name": "MOZA RACING CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:01.988Z"
+      },
+      "pagnian": {
+        "price": 589,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-cs-pro-steering-wheel",
+        "name": "MOZA CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:18.386Z"
+      },
+      "vr-hub": {
+        "price": 49999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-cs-pro-steering-wheel",
+        "name": "MOZA CS Pro Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:56.259Z"
       }
     },
     "crp2-pedals": {
       "simmotion-eu": {
-        "price": 449,
+        "price": 249,
         "currency": "EUR",
         "url": "https://eu.sim-motion.com/moza-crp2-load-cell-pedals",
         "name": "MOZA CRP2 Load Cell Pedals",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:35:57.095Z"
+        "checkedAt": "2026-05-28T03:09:41.236Z"
       },
       "simmotion-us": {
         "price": 468,
@@ -88,7 +240,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-crp2-pedals",
         "name": "Moza Racing CRP2 Load Cell Pedals",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:01.691Z"
+        "checkedAt": "2026-05-28T03:10:26.832Z"
       },
       "ricmotech": {
         "price": 399,
@@ -96,17 +248,57 @@
         "url": "https://www.ricmotech.com/-MOZA-CRP2-Throttle-and-Brake-Pedals_p_715.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:28.475Z"
+        "checkedAt": "2026-05-28T03:10:51.263Z"
+      },
+      "apexsim": {
+        "price": 369,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-crp2-load-cell-pedals",
+        "name": "Moza Racing CRP2 Loadcell Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:31.843Z"
+      },
+      "abruzzi": {
+        "price": 359,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-pedals/moza-crp2-pedals/",
+        "name": "MOZA CRP2 Pedals (Throttle & Brake)",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:35.414Z"
+      },
+      "gtomega": {
+        "price": 349.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-crp2-pedals",
+        "name": "MOZA RACING CRP2 Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:12.159Z"
+      },
+      "pagnian": {
+        "price": 649,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-crp2-pedals-throttle-brake",
+        "name": "Moza CRP2 Pedals (Throttle+Brake)",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:27.785Z"
+      },
+      "vr-hub": {
+        "price": 48000,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-crp2-pedals",
+        "name": "MOZA RACING CRP2 PEDALS",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:14:04.239Z"
       }
     },
     "hgp-shifter": {
       "simmotion-eu": {
-        "price": 159,
+        "price": 499,
         "currency": "EUR",
         "url": "https://eu.sim-motion.com/moza-hgp-shifter",
         "name": "MOZA HGP Shifter",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:08.964Z"
+        "checkedAt": "2026-05-28T03:09:48.169Z"
       },
       "simmotion-us": {
         "price": 149,
@@ -114,17 +306,49 @@
         "url": "https://us.sim-motion.com/products/moza-racing-hgp-shifter",
         "name": "Moza Racing HGP Shifter (Pre-Order)",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:07.529Z"
+        "checkedAt": "2026-05-28T03:10:30.827Z"
+      },
+      "abruzzi": {
+        "price": 138.9,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/sim-racing-accessories/moza-hgp-h-pattern-shifter/",
+        "name": "Moza HGP H Pattern Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:37.387Z"
+      },
+      "gtomega": {
+        "price": 138.85,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-hgp-shifter",
+        "name": "MOZA RACING HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:14.262Z"
+      },
+      "pagnian": {
+        "price": 299,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-hgp-shifter",
+        "name": "Moza HGP Shifter",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:29.556Z"
+      },
+      "vr-hub": {
+        "price": 17999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-hgp-shifter-india",
+        "name": "MOZA RACING HGP SHIFTER",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:14:06.010Z"
       }
     },
     "handbrake": {
       "simmotion-eu": {
-        "price": 109,
+        "price": 139,
         "currency": "EUR",
         "url": "https://eu.sim-motion.com/moza-hbp-handbrake",
         "name": "MOZA HBP Handbrake",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:22.244Z"
+        "checkedAt": "2026-05-28T03:09:56.641Z"
       },
       "simmotion-us": {
         "price": 99,
@@ -132,17 +356,49 @@
         "url": "https://us.sim-motion.com/products/moza-racing-hbp-handbrake",
         "name": "Moza Racing HBP Handbrake (Pre Order)",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:10.474Z"
+        "checkedAt": "2026-05-28T03:10:32.602Z"
+      },
+      "abruzzi": {
+        "price": 94.95,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/sim-racing-accessories/mozahbphandbrake/",
+        "name": "Moza HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:39.504Z"
+      },
+      "gtomega": {
+        "price": 89.95,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-hbp-handbrake",
+        "name": "MOZA RACING HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:16.313Z"
+      },
+      "pagnian": {
+        "price": 179,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-hbp-handbrake",
+        "name": "Moza HBP Handbrake",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:31.326Z"
+      },
+      "vr-hub": {
+        "price": 11499,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-hbp-handbrake-india",
+        "name": "MOZA RACING HBP HANDBRAKE",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:14:07.819Z"
       }
     },
     "r16-base": {
       "tracksvr": {
         "price": 1099.95,
-        "currency": "CAD",
+        "currency": "USD",
         "url": "https://tracksvr.com/products/moza-r16-v2-wheel-base",
         "name": "Moza R16 V2 Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:35.983Z"
+        "checkedAt": "2026-05-28T03:10:09.739Z"
       },
       "ricmotech": {
         "price": 799,
@@ -150,17 +406,33 @@
         "url": "https://www.ricmotech.com/moza-r16-direct-drive-wheel-base.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:14.999Z"
+        "checkedAt": "2026-05-28T03:10:37.743Z"
+      },
+      "pagnian": {
+        "price": 1199,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-r16-v2-direct-drive-wheel-base",
+        "name": "MOZA R16 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:06.280Z"
+      },
+      "vr-hub": {
+        "price": 99000,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-r16-v2-direct-drive-wheel-base",
+        "name": "MOZA R16 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:45.014Z"
       }
     },
     "r21-base": {
       "tracksvr": {
         "price": 1099.95,
-        "currency": "CAD",
+        "currency": "USD",
         "url": "https://tracksvr.com/collections/new-sim-racing-hardware/products/moza-r21-wheel-base-ultra",
         "name": "Moza R21 Ultra Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:38.338Z"
+        "checkedAt": "2026-05-28T03:10:11.507Z"
       },
       "ricmotech": {
         "price": 999,
@@ -168,7 +440,7 @@
         "url": "https://www.ricmotech.com/MOZA-R21-Direct-Drive-Wheelbase_p_613.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:16.988Z"
+        "checkedAt": "2026-05-28T03:10:39.844Z"
       },
       "noxgaming": {
         "price": 1179,
@@ -176,7 +448,47 @@
         "url": "https://www.noxgaming.ca/product/moza-r21-v2-direct-drive-wheelbase/",
         "name": "MOZA R21 V2 Direct Drive Wheelbase",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:36.585Z"
+        "checkedAt": "2026-05-28T03:10:58.668Z"
+      },
+      "apexsim": {
+        "price": 699,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/collections/sim-racing-direct-drive-wheel-bases/products/moza-racing-r21-ultra-wheelbase-21nm",
+        "name": "Moza Racing R21 Ultra Wheelbase 21NM",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:25.983Z"
+      },
+      "abruzzi": {
+        "price": 699,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheelbases/moza-r21-ultra-wheelbase/",
+        "name": "Moza R21 Ultra Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:14.122Z"
+      },
+      "gtomega": {
+        "price": 697.45,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-r21-ultra",
+        "name": "MOZA RACING R21 ULTRA Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:51.979Z"
+      },
+      "pagnian": {
+        "price": 1099,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-r21-v2-direct-drive-wheel-base",
+        "name": "MOZA R21 V2 Direct Drive Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:08.070Z"
+      },
+      "vr-hub": {
+        "price": 108000,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-r21-ultra",
+        "name": "Moza R21 Ultra",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:46.886Z"
       }
     },
     "r3-bundle": {
@@ -186,7 +498,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-r3-sim-racing-bundle",
         "name": "Moza Racing R3 XBox Sim Racing Bundle",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:44.798Z"
+        "checkedAt": "2026-05-28T03:10:15.673Z"
       },
       "noxgaming": {
         "price": 499,
@@ -194,7 +506,31 @@
         "url": "https://www.noxgaming.ca/product/moza-r3-bundle-steering-wheel-pedals-wheelbase-xbox-pc/",
         "name": "MOZA R3 Bundle Racing Wheel, Pedals and Wheelbase (X-box & PC)",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:32.299Z"
+        "checkedAt": "2026-05-28T03:10:54.402Z"
+      },
+      "gtomega": {
+        "price": 328.5,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-r3-bundle",
+        "name": "MOZA RACING R3 Racing Wheel and Pedals for Xbox & PC",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:44.237Z"
+      },
+      "pagnian": {
+        "price": 499,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-r3-bundle-for-pc",
+        "name": "MOZA R3 Bundle for PC",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:59.007Z"
+      },
+      "vr-hub": {
+        "price": 40999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-r3-bundle",
+        "name": "MOZA RACING R3 BUNDLE FOR XBOX AND PC",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:35.882Z"
       }
     },
     "r5-bundle": {
@@ -204,7 +540,39 @@
         "url": "https://us.sim-motion.com/products/moza-racing-r5-sim-racing-bundle",
         "name": "MOZA Racing R5 Direct Drive Sim Racing Bundle",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:47.839Z"
+        "checkedAt": "2026-05-28T03:10:17.678Z"
+      },
+      "abruzzi": {
+        "price": 389,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-bundles/moza-r5-bundle-dd-r5-wheelbase-es-steering-wheel-sr-p-lite-pedals-r5-table-clamp/",
+        "name": "Moza R5 Bundle",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:07.776Z"
+      },
+      "gtomega": {
+        "price": 388.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-r5-bundle-kit",
+        "name": "MOZA RACING R5 Bundle Kit",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:46.099Z"
+      },
+      "pagnian": {
+        "price": 729,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-steering-wheel-r5",
+        "name": "MOZA Steering Wheel Bundle R5",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:00.799Z"
+      },
+      "vr-hub": {
+        "price": 52000,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-r5-bundle-in-india",
+        "name": "MOZA RACING R5 BUNDLE",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:37.653Z"
       }
     },
     "r12-base": {
@@ -214,7 +582,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-r12-v2-direct-drive-base",
         "name": "Moza Racing R12 V2 Direct Drive Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:50.536Z"
+        "checkedAt": "2026-05-28T03:10:19.732Z"
       },
       "ricmotech": {
         "price": 499,
@@ -222,7 +590,7 @@
         "url": "https://www.ricmotech.com/moza-r12-.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:12.998Z"
+        "checkedAt": "2026-05-28T03:10:35.704Z"
       },
       "noxgaming": {
         "price": 599,
@@ -230,7 +598,47 @@
         "url": "https://www.noxgaming.ca/product/moza-r12-v2-wheelbase/",
         "name": "MOZA R12 V2 Direct Drive Wheel Base",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:34.564Z"
+        "checkedAt": "2026-05-28T03:10:56.646Z"
+      },
+      "apexsim": {
+        "price": 429,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-r12-wheel-base-12nm",
+        "name": "Moza Racing R12 V2 Wheel Base 12NM",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:24.172Z"
+      },
+      "abruzzi": {
+        "price": 398.99,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheelbases/moza-r12-v2-wheelbase/",
+        "name": "Moza R12 V2 Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:12.140Z"
+      },
+      "gtomega": {
+        "price": 397.95,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-r12-wheel-base",
+        "name": "MOZA RACING R12 V2 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:49.928Z"
+      },
+      "pagnian": {
+        "price": 729,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-r12-v2-direct-drive-wheelbase",
+        "name": "MOZA R12 V2 Direct Drive Wheelbase",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:04.435Z"
+      },
+      "vr-hub": {
+        "price": 63500,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-racing-r12v2",
+        "name": "MOZA RACING R12V2",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:41.417Z"
       }
     },
     "ks-wheel": {
@@ -240,7 +648,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-ks-steering-wheel",
         "name": "Moza Racing KS Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:53.456Z"
+        "checkedAt": "2026-05-28T03:10:21.520Z"
       },
       "ricmotech": {
         "price": 279,
@@ -248,7 +656,39 @@
         "url": "https://www.ricmotech.com/moza-ks-steering-wheel.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:18.768Z"
+        "checkedAt": "2026-05-28T03:10:41.605Z"
+      },
+      "abruzzi": {
+        "price": 219,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/ks-wheel/",
+        "name": "Moza KS Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:18.253Z"
+      },
+      "gtomega": {
+        "price": 208.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-ks-steering-wheel",
+        "name": "MOZA RACING KS Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:56.130Z"
+      },
+      "pagnian": {
+        "price": 449,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-ks-steering-wheel",
+        "name": "Moza KS Sim Racing Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:11.708Z"
+      },
+      "vr-hub": {
+        "price": 32999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-racing-ks-wheel-india",
+        "name": "MOZA RACING KS STEERING WHEEL",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:50.719Z"
       }
     },
     "cs-wheel": {
@@ -258,7 +698,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-cs-v2p-steering-wheel",
         "name": "MOZA Racing CS V2P Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:56.126Z"
+        "checkedAt": "2026-05-28T03:10:23.296Z"
       },
       "ricmotech": {
         "price": 259,
@@ -266,7 +706,39 @@
         "url": "https://www.ricmotech.com/moza-cs-v2-steering-wheel.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:22.709Z"
+        "checkedAt": "2026-05-28T03:10:45.381Z"
+      },
+      "abruzzi": {
+        "price": 219,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-cs-v2p-round-wheel/",
+        "name": "Moza CS V2P Round Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:22.250Z"
+      },
+      "gtomega": {
+        "price": 218.45,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-cs-wheel-v2p",
+        "name": "MOZA RACING CS V2P Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:00.100Z"
+      },
+      "pagnian": {
+        "price": 449,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-cs-v2p-steering-wheel",
+        "name": "Moza CS V2P Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:15.705Z"
+      },
+      "vr-hub": {
+        "price": 29999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-racing-cs-steering-wheel",
+        "name": "MOZA RACING CS V2P STEERING WHEEL",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:54.413Z"
       }
     },
     "rs-wheel": {
@@ -276,7 +748,47 @@
         "url": "https://us.sim-motion.com/products/moza-racing-rs-gt-wheel",
         "name": "MOZA Racing RS V2 Steering Wheel",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:36:58.892Z"
+        "checkedAt": "2026-05-28T03:10:25.064Z"
+      },
+      "apexsim": {
+        "price": 369,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-rs-v2-steering-wheel",
+        "name": "MOZA Racing RS V2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:37.786Z"
+      },
+      "abruzzi": {
+        "price": 359,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-rs-v2-sterring-wheel/",
+        "name": "Moza RS V2 Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:29.218Z"
+      },
+      "gtomega": {
+        "price": 449,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-rs-wheel",
+        "name": "MOZA RACING RS Wheels",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:06.131Z"
+      },
+      "pagnian": {
+        "price": 649,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-rs-racing-wheel-round-leather",
+        "name": "MOZA RS Racing Wheel Round Leather V2",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:22.058Z"
+      },
+      "vr-hub": {
+        "price": 50499,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/rs-v2-steering-wheel-india",
+        "name": "MOZA RACING RS V2 STEERING WHEEL",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:59.938Z"
       }
     },
     "srp-pedals": {
@@ -286,7 +798,7 @@
         "url": "https://us.sim-motion.com/products/moza-racing-srp-pedals",
         "name": "Moza Racing SR-P Pedal Set",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:04.594Z"
+        "checkedAt": "2026-05-28T03:10:28.847Z"
       },
       "ricmotech": {
         "price": 159,
@@ -294,7 +806,39 @@
         "url": "https://www.ricmotech.com/moza-sr-p-pedal.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:26.436Z"
+        "checkedAt": "2026-05-28T03:10:49.399Z"
+      },
+      "simmotion-eu": {
+        "price": 139,
+        "currency": "EUR",
+        "url": "https://eu.sim-motion.com/moza-srp-2-pedal-set",
+        "name": "MOZA SRP 2-Pedal - Set",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:10:07.389Z"
+      },
+      "abruzzi": {
+        "price": 139,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-pedals/srp2-load-cell-pedals/",
+        "name": "Moza SRP-2 Pedals",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:33.408Z"
+      },
+      "gtomega": {
+        "price": 124.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-srp-two-pedals",
+        "name": "MOZA RACING SR-P Two Pedal Set",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:10.247Z"
+      },
+      "pagnian": {
+        "price": 369,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-srp-pedal",
+        "name": "MOZA SRP Pedal Complete set",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:25.948Z"
       }
     },
     "fsr2-wheel": {
@@ -304,7 +848,123 @@
         "url": "https://www.ricmotech.com/moza-fsr-steering-wheel.html",
         "name": "Ricmotech",
         "inStock": true,
-        "checkedAt": "2026-05-27T10:37:24.490Z"
+        "checkedAt": "2026-05-28T03:10:47.342Z"
+      },
+      "apexsim": {
+        "price": 649,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-fsr2-formula-wheel",
+        "name": "MOZA Racing FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:33.844Z"
+      },
+      "abruzzi": {
+        "price": 648.9,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-fsr2-wheel/",
+        "name": "Moza FSR2 Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:31.262Z"
+      },
+      "gtomega": {
+        "price": 648.85,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-fsr2-wheel",
+        "name": "MOZA RACING FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:08.022Z"
+      },
+      "pagnian": {
+        "price": 999,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-fsr2-formula-wheel",
+        "name": "MOZA FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:23.831Z"
+      },
+      "vr-hub": {
+        "price": 74999,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-fsr2-formula-wheel",
+        "name": "MOZA RACING FSR2 Formula Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:14:02.401Z"
+      }
+    },
+    "esx-wheel": {
+      "apexsim": {
+        "price": 129,
+        "currency": "USD",
+        "url": "https://www.apexsimracing.com/products/moza-racing-esx-steering-wheel",
+        "name": "Moza Racing ESX Steering Wheel For XBOX",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:35.986Z"
+      },
+      "abruzzi": {
+        "price": 129,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/moza-wheels/moza-esx-steering-wheel-for-xbox/",
+        "name": "Moza ESX Steering Wheel For XBOX",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:16.102Z"
+      },
+      "gtomega": {
+        "price": 128.45,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-racing-esx-steering-wheel-for-pc-xbox",
+        "name": "MOZA RACING ESX Steering Wheel for PC & Xbox",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:53.996Z"
+      },
+      "pagnian": {
+        "price": 239,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-esx",
+        "name": "Moza ESX Steering Wheel for Xbox",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:09.844Z"
+      },
+      "vr-hub": {
+        "price": 16499,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/es-steering-wheel-india",
+        "name": "Moza Racing ESX Steering Wheel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:48.832Z"
+      }
+    },
+    "table-clamp": {
+      "abruzzi": {
+        "price": 39,
+        "currency": "GBP",
+        "url": "https://www.abruzzi-official.co.uk/shop/sim-racing/sim-racing-accessories/moza-r9-r12-r16-r21-table-mounting-bracket/",
+        "name": "Moza R9 / R12 / R16 / R21 Table Mounting Bracket",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:11:41.589Z"
+      },
+      "gtomega": {
+        "price": 38.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/r9-table-clamp",
+        "name": "MOZA RACING Table Clamp",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:12:18.358Z"
+      },
+      "pagnian": {
+        "price": 69,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-table-clamp-for-r9-wheel-base",
+        "name": "Moza Table Clamp for R9 Wheel Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:13:33.120Z"
+      },
+      "vr-hub": {
+        "price": 7500,
+        "currency": "INR",
+        "url": "https://www.virtualracinghub.com/products/moza-table-fixed-clamp-india",
+        "name": "MOZA RACING TABLE/FIXED CLAMP",
+        "inStock": true,
+        "checkedAt": "2026-05-28T03:14:10.342Z"
       }
     }
   },
