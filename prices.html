@@ -315,8 +315,8 @@
 <div class="header">
   <div class="header-left">
     <div class="logo">
-      <div class="logo-icon">M</div>
-      <span><span class="accent">MOZA</span> Price Monitor</span>
+      <div class="logo-icon">P</div>
+      <span><span class="accent">Price</span> Monitor</span>
     </div>
     <a href="index.html" class="nav-link">&#8592; Brand Monitor</a>
   </div>
@@ -352,6 +352,7 @@
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
       <input type="text" id="searchInput" placeholder="Search products..." oninput="render()">
     </div>
+    <div class="retailer-filter" id="brandFilter"></div>
     <div class="retailer-filter" id="retailerFilter"></div>
   </div>
 
@@ -366,16 +367,46 @@
 var RETAILERS = {
   microcenter: { name: 'Micro Center', country: 'US', currency: 'USD' },
   'simmotion-eu': { name: 'Sim-Motion EU', country: 'DE', currency: 'EUR' },
+  'simmotion-us': { name: 'Sim-Motion US', country: 'US', currency: 'USD' },
   tracksvr: { name: 'TracksVR', country: 'IE', currency: 'USD' },
   apexsim: { name: 'Apex Sim Racing', country: 'US', currency: 'USD' },
   ricmotech: { name: 'Ricmotech', country: 'US', currency: 'USD' },
   gtomega: { name: 'GT Omega', country: 'GB', currency: 'GBP' },
   pagnian: { name: 'Pagnian', country: 'AU', currency: 'AUD' },
+  abruzzi: { name: 'Abruzzi', country: 'GB', currency: 'GBP' },
+  'vr-hub': { name: 'Virtual Racing Hub', country: 'IN', currency: 'INR' },
+  noxgaming: { name: 'NOX Gaming', country: 'CA', currency: 'CAD' },
+  kfire: { name: 'KFire Racing', country: 'BR', currency: 'BRL' },
+  bhphoto: { name: 'B&H Photo', country: 'US', currency: 'USD' },
 };
+
+var BRAND_MAP = {
+  // MOZA Racing
+  'r3-bundle': 'MOZA', 'r5-bundle': 'MOZA', 'r9-bundle': 'MOZA',
+  'r3-base': 'MOZA', 'r5-base': 'MOZA', 'r7-base': 'MOZA',
+  'r9-base': 'MOZA', 'r9-v3-base': 'MOZA', 'r11-base': 'MOZA',
+  'r12-base': 'MOZA', 'r16-base': 'MOZA', 'r21-base': 'MOZA',
+  'es-wheel': 'MOZA', 'esx-wheel': 'MOZA', 'ks-wheel': 'MOZA',
+  'ks-pro-wheel': 'MOZA', 'cs-wheel': 'MOZA', 'cs-pro-wheel': 'MOZA',
+  'gs-wheel': 'MOZA', 'gs-v2p-wheel': 'MOZA', 'rs-wheel': 'MOZA',
+  'fsr2-wheel': 'MOZA', 'vision-gs': 'MOZA',
+  'srp-pedals': 'MOZA', 'srp-lite': 'MOZA', 'crp-pedals': 'MOZA',
+  'crp2-pedals': 'MOZA', 'hgp-shifter': 'MOZA', 'handbrake': 'MOZA',
+  'table-clamp': 'MOZA',
+  // MOZA Flight (飞模)
+  'ab6-bundle': '飞模', 'ab9-base': '飞模', 'mhg-stick': '飞模',
+  'mh16-stick': '飞模', 'ma3x-stick': '飞模', 'ay210-yoke': '飞模',
+  'mtq-throttle': '飞模', 'mtp-throttle': '飞模', 'mtlp-panel': '飞模',
+  'mrp-pedals': '飞模',
+};
+
+var BRAND_ORDER = ['MOZA', '飞模'];
+var BRAND_COLORS = { 'MOZA': '#e8102a', '飞模': '#1565c0' };
 
 var PRODUCTS = {};
 var data = null;
 var selectedRetailer = 'all';
+var selectedBrand = 'all';
 
 function currencySymbol(currency) {
   if (currency === 'EUR') return '\u20AC';
@@ -433,6 +464,16 @@ function getLowestPrice(entries) {
   return lowest;
 }
 
+function renderBrandFilters() {
+  var container = document.getElementById('brandFilter');
+  var html = '<button class="retailer-pill ' + (selectedBrand === 'all' ? 'active' : '') + '" onclick="selectedBrand=\'all\';render()">All Brands</button>';
+  for (var bi = 0; bi < BRAND_ORDER.length; bi++) {
+    var b = BRAND_ORDER[bi];
+    html += '<button class="retailer-pill ' + (selectedBrand === b ? 'active' : '') + '" onclick="selectedBrand=\'' + b + '\';render()" style="' + (selectedBrand === b ? 'background:' + BRAND_COLORS[b] + ';color:white;border-color:' + BRAND_COLORS[b] : '') + '">' + b + '</button>';
+  }
+  container.innerHTML = html;
+}
+
 function renderRetailerFilters() {
   var container = document.getElementById('retailerFilter');
   var html = '<button class="retailer-pill ' + (selectedRetailer === 'all' ? 'active' : '') + '" onclick="selectedRetailer=\'all\';render()">All</button>';
@@ -476,6 +517,11 @@ function render() {
   var html = '';
   for (var pi = 0; pi < productIds.length; pi++) {
     var pid = productIds[pi];
+
+    // Brand filter
+    var brand = BRAND_MAP[pid] || '';
+    if (selectedBrand !== 'all' && brand !== selectedBrand) continue;
+
     var entries = productPrices[pid] || [];
     var filtered = selectedRetailer === 'all' ? entries : entries.filter(function(e) { return e.retailerId === selectedRetailer; });
 
@@ -491,6 +537,7 @@ function render() {
     var lowestUsd = convertToUsd(lowestPrice, lowest.info.currency);
 
     var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+    var brandColor = BRAND_COLORS[brand] || '#888';
 
     // Check MSRP violation
     var isBelowMsrp = msrp && lowestPrice > 0 && lowestUsd < msrp * 0.95;
@@ -505,6 +552,7 @@ function render() {
     html += '<div class="product-header" onclick="toggleRow(this)">';
     html += '<div style="display:flex;align-items:center;gap:10px">';
     html += '<span class="product-name">' + productName + '</span>';
+    if (brand) html += '<span class="product-category" style="background:' + brandColor + ';color:white">' + brand + '</span>';
     if (msrp) html += '<span style="font-size:0.75rem;color:var(--text2)">MSRP: $' + msrp + '</span>';
     html += '</div>';
     html += '<div class="product-summary">';
@@ -579,6 +627,7 @@ loadData(function() {
   if (data && data.lastUpdated) {
     document.getElementById('lastUpdate').textContent = 'Last updated: ' + timeAgo(data.lastUpdated) + ' (' + new Date(data.lastUpdated).toLocaleString() + ')';
   }
+  renderBrandFilters();
   renderRetailerFilters();
   render();
 });

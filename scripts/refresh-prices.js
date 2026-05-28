@@ -337,10 +337,13 @@ async function main() {
     }
   }
 
-  // Save MSRP reference
+  // Save MSRP and brand references
   data.msrp = {};
-  for (var pid2 in MSRP_MAP) {
-    data.msrp[pid2] = MSRP_MAP[pid2];
+  data.brands = {};
+  for (var pi = 0; pi < PRODUCTS.length; pi++) {
+    var p = PRODUCTS[pi];
+    if (MSRP_MAP[p.id]) data.msrp[p.id] = MSRP_MAP[p.id];
+    if (p.brand) data.brands[p.id] = p.brand;
   }
 
   saveData(data);

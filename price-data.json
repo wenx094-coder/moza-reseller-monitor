@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28T03:14:10.342Z",
+  "lastUpdated": "2026-05-28T06:11:20.788Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -966,6 +966,82 @@
         "inStock": true,
         "checkedAt": "2026-05-28T03:14:10.342Z"
       }
+    },
+    "ab9-base": {
+      "gtomega": {
+        "price": 478.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-flight-ab9-base",
+        "name": "MOZA FLIGHT AB9 FFB Yoke Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:03.199Z"
+      },
+      "simmotion-us": {
+        "price": 499,
+        "currency": "USD",
+        "url": "https://us.sim-motion.com/products/moza-flight-ab9-base",
+        "name": "Moza Flight AB9 Base",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:20.788Z"
+      }
+    },
+    "mh16-stick": {
+      "gtomega": {
+        "price": 138.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-flight-mh16-flightstick",
+        "name": "MOZA FLIGHT MH16 Flightstick",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:05.836Z"
+      },
+      "pagnian": {
+        "price": 279,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-mh16-flightstick",
+        "name": "MOZA MH16 Flightstick",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:17.516Z"
+      }
+    },
+    "mtp-throttle": {
+      "gtomega": {
+        "price": 328.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-flight-mtp-throttle-panel",
+        "name": "MOZA FLIGHT MTP Throttle Panel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:08.708Z"
+      }
+    },
+    "mtq-throttle": {
+      "gtomega": {
+        "price": 198.8,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-mtq-throttle-panel",
+        "name": "MOZA FLIGHT MTQ Throttle Panel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:10.783Z"
+      }
+    },
+    "mtlp-panel": {
+      "gtomega": {
+        "price": 148.9,
+        "currency": "GBP",
+        "url": "https://www.gtomega.co.uk/products/moza-flight-mtp-take-off-panel",
+        "name": "MOZA FLIGHT MTLP Take Off Panel",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:12.804Z"
+      }
+    },
+    "ab6-bundle": {
+      "pagnian": {
+        "price": 649,
+        "currency": "AUD",
+        "url": "https://pagnianimports.com.au/products/moza-ab6-flight-simulator",
+        "name": "MOZA AB6 Flight Simulator",
+        "inStock": true,
+        "checkedAt": "2026-05-28T06:11:15.666Z"
+      }
     }
   },
   "msrp": {
@@ -992,6 +1068,28 @@
     "crp2-pedals": 399,
     "hgp-shifter": 159,
     "handbrake": 109,
-    "table-clamp": 49
+    "table-clamp": 49,
+    "ab6-bundle": 399,
+    "ab9-base": 549,
+    "mhg-stick": 99,
+    "mh16-stick": 169,
+    "ma3x-stick": 79,
+    "ay210-yoke": 848,
+    "mtq-throttle": 199,
+    "mtp-throttle": 329,
+    "mtlp-panel": 149,
+    "mrp-pedals": 349
+  },
+  "brands": {
+    "ab6-bundle": "飞模",
+    "ab9-base": "飞模",
+    "mhg-stick": "飞模",
+    "mh16-stick": "飞模",
+    "ma3x-stick": "飞模",
+    "ay210-yoke": "飞模",
+    "mtq-throttle": "飞模",
+    "mtp-throttle": "飞模",
+    "mtlp-panel": "飞模",
+    "mrp-pedals": "飞模"
   }
 }

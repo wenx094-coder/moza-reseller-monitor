@@ -1,34 +1,46 @@
 const PRODUCTS = [
-  { id: 'r3-bundle',    name: 'R3 Bundle' },
-  { id: 'r5-bundle',    name: 'R5 Bundle' },
-  { id: 'r9-bundle',    name: 'R9 Bundle' },
-  { id: 'r3-base',      name: 'R3 Wheel Base' },
-  { id: 'r5-base',      name: 'R5 Wheel Base' },
-  { id: 'r7-base',      name: 'R7 Wheel Base' },
-  { id: 'r9-base',      name: 'R9 Wheel Base' },
-  { id: 'r9-v3-base',   name: 'R9 V3 Wheel Base' },
-  { id: 'r11-base',     name: 'R11 Wheel Base' },
-  { id: 'r12-base',     name: 'R12 Wheel Base' },
-  { id: 'r16-base',     name: 'R16 Wheel Base' },
-  { id: 'r21-base',     name: 'R21 Wheel Base' },
-  { id: 'es-wheel',     name: 'ES Steering Wheel' },
-  { id: 'esx-wheel',    name: 'ESX Steering Wheel' },
-  { id: 'ks-wheel',     name: 'KS Steering Wheel' },
-  { id: 'ks-pro-wheel', name: 'KS Pro Steering Wheel' },
-  { id: 'cs-wheel',     name: 'CS Steering Wheel' },
-  { id: 'cs-pro-wheel', name: 'CS Pro Steering Wheel' },
-  { id: 'gs-wheel',     name: 'GS Steering Wheel' },
-  { id: 'gs-v2p-wheel', name: 'GS V2P Steering Wheel' },
-  { id: 'rs-wheel',     name: 'RS Steering Wheel' },
-  { id: 'fsr2-wheel',   name: 'FSR2 Formula Wheel' },
-  { id: 'vision-gs',    name: 'Vision GS Wheel' },
-  { id: 'srp-pedals',   name: 'SR-P Pedals' },
-  { id: 'srp-lite',     name: 'SR-P Lite Pedals' },
-  { id: 'crp-pedals',   name: 'CRP Pedals' },
-  { id: 'crp2-pedals',  name: 'CRP2 Pedals' },
-  { id: 'hgp-shifter',  name: 'HGP Shifter' },
-  { id: 'handbrake',    name: 'Handbrake' },
-  { id: 'table-clamp',  name: 'Table Clamp' },
+  // MOZA Racing products
+  { id: 'r3-bundle',    name: 'R3 Bundle',            brand: 'MOZA' },
+  { id: 'r5-bundle',    name: 'R5 Bundle',            brand: 'MOZA' },
+  { id: 'r9-bundle',    name: 'R9 Bundle',            brand: 'MOZA' },
+  { id: 'r3-base',      name: 'R3 Wheel Base',        brand: 'MOZA' },
+  { id: 'r5-base',      name: 'R5 Wheel Base',        brand: 'MOZA' },
+  { id: 'r7-base',      name: 'R7 Wheel Base',        brand: 'MOZA' },
+  { id: 'r9-base',      name: 'R9 Wheel Base',        brand: 'MOZA' },
+  { id: 'r9-v3-base',   name: 'R9 V3 Wheel Base',     brand: 'MOZA' },
+  { id: 'r11-base',     name: 'R11 Wheel Base',       brand: 'MOZA' },
+  { id: 'r12-base',     name: 'R12 Wheel Base',       brand: 'MOZA' },
+  { id: 'r16-base',     name: 'R16 Wheel Base',       brand: 'MOZA' },
+  { id: 'r21-base',     name: 'R21 Wheel Base',       brand: 'MOZA' },
+  { id: 'es-wheel',     name: 'ES Steering Wheel',    brand: 'MOZA' },
+  { id: 'esx-wheel',    name: 'ESX Steering Wheel',   brand: 'MOZA' },
+  { id: 'ks-wheel',     name: 'KS Steering Wheel',    brand: 'MOZA' },
+  { id: 'ks-pro-wheel', name: 'KS Pro Steering Wheel',brand: 'MOZA' },
+  { id: 'cs-wheel',     name: 'CS Steering Wheel',    brand: 'MOZA' },
+  { id: 'cs-pro-wheel', name: 'CS Pro Steering Wheel',brand: 'MOZA' },
+  { id: 'gs-wheel',     name: 'GS Steering Wheel',    brand: 'MOZA' },
+  { id: 'gs-v2p-wheel', name: 'GS V2P Steering Wheel',brand: 'MOZA' },
+  { id: 'rs-wheel',     name: 'RS Steering Wheel',    brand: 'MOZA' },
+  { id: 'fsr2-wheel',   name: 'FSR2 Formula Wheel',   brand: 'MOZA' },
+  { id: 'vision-gs',    name: 'Vision GS Wheel',      brand: 'MOZA' },
+  { id: 'srp-pedals',   name: 'SR-P Pedals',          brand: 'MOZA' },
+  { id: 'srp-lite',     name: 'SR-P Lite Pedals',     brand: 'MOZA' },
+  { id: 'crp-pedals',   name: 'CRP Pedals',           brand: 'MOZA' },
+  { id: 'crp2-pedals',  name: 'CRP2 Pedals',          brand: 'MOZA' },
+  { id: 'hgp-shifter',  name: 'HGP Shifter',          brand: 'MOZA' },
+  { id: 'handbrake',    name: 'Handbrake',            brand: 'MOZA' },
+  { id: 'table-clamp',  name: 'Table Clamp',          brand: 'MOZA' },
+  // MOZA Flight (飞模) products
+  { id: 'ab6-bundle',   name: 'AB6 Flight Simulator', brand: '飞模' },
+  { id: 'ab9-base',     name: 'AB9 FFB Base',         brand: '飞模' },
+  { id: 'mhg-stick',    name: 'MHG Flightstick',      brand: '飞模' },
+  { id: 'mh16-stick',   name: 'MH16 Flightstick',     brand: '飞模' },
+  { id: 'ma3x-stick',   name: 'MA3X Side Stick',      brand: '飞模' },
+  { id: 'ay210-yoke',   name: 'AY210 FFB Yoke Bundle',brand: '飞模' },
+  { id: 'mtq-throttle', name: 'MTQ Throttle Quadrant',brand: '飞模' },
+  { id: 'mtp-throttle', name: 'MTP Throttle',         brand: '飞模' },
+  { id: 'mtlp-panel',   name: 'MTLP Panel',           brand: '飞模' },
+  { id: 'mrp-pedals',   name: 'MRP Rudder Pedals',    brand: '飞模' },
 ];
 
 const RETAILERS = [
@@ -199,6 +211,21 @@ const PRODUCT_URLS = {
     'handbrake': 'https://www.virtualracinghub.com/products/moza-hbp-handbrake-india',
     'table-clamp': 'https://www.virtualracinghub.com/products/moza-table-fixed-clamp-india',
   },
+  // MOZA Flight (飞模) product URLs
+  gtomega: {
+    'ab9-base':     'https://www.gtomega.co.uk/products/moza-flight-ab9-base',
+    'mh16-stick':   'https://www.gtomega.co.uk/products/moza-flight-mh16-flightstick',
+    'mtp-throttle': 'https://www.gtomega.co.uk/products/moza-flight-mtp-throttle-panel',
+    'mtq-throttle': 'https://www.gtomega.co.uk/products/moza-mtq-throttle-panel',
+    'mtlp-panel':   'https://www.gtomega.co.uk/products/moza-flight-mtp-take-off-panel',
+  },
+  pagnian: {
+    'ab6-bundle':   'https://pagnianimports.com.au/products/moza-ab6-flight-simulator',
+    'mh16-stick':   'https://pagnianimports.com.au/products/moza-mh16-flightstick',
+  },
+  'simmotion-us': {
+    'ab9-base':     'https://us.sim-motion.com/products/moza-flight-ab9-base',
+  },
 };
 
 function buildUrlEntries() {
@@ -214,6 +241,7 @@ function buildUrlEntries() {
 
 // MSRP in USD from MOZA official store (mozaracing.com)
 const MSRP_MAP = {
+  // MOZA Racing
   'r3-bundle':    349,
   'r5-bundle':    599,
   'r9-bundle':    799,
@@ -238,6 +266,17 @@ const MSRP_MAP = {
   'hgp-shifter':  159,
   'handbrake':    109,
   'table-clamp':  49,
+  // MOZA Flight (飞模)
+  'ab6-bundle':   399,
+  'ab9-base':     549,
+  'mhg-stick':    99,
+  'mh16-stick':   169,
+  'ma3x-stick':   79,
+  'ay210-yoke':   848,
+  'mtq-throttle': 199,
+  'mtp-throttle': 329,
+  'mtlp-panel':   149,
+  'mrp-pedals':   349,
 };
 
 module.exports = { PRODUCTS, RETAILERS, PRODUCT_URLS, MSRP_MAP, buildUrlEntries };
