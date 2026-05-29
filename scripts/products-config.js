@@ -106,6 +106,8 @@ const RETAILERS = [
   { id: 'ggksimracing',    name: 'GGK Simracing',          url: 'https://guidegamingkits.com',                 country: 'TH', currency: 'THB' },
   { id: 'simracingstore',  name: 'SimRacing Store',        url: 'https://www.simracingstore.cl',               country: 'CL', currency: 'CLP' },
   { id: 'megabikeplus',    name: 'Megabike Plus',          url: 'https://www.megabikeplus.cz',                 country: 'CZ', currency: 'CZK' },
+  // Batch 7: SE Asia expansion (May 2026)
+  { id: 'simplesimracing',  name: 'Simple Sim Racing',     url: 'https://simplesim.racing',                    country: 'TH', currency: 'THB' },
 ];
 
 const PRODUCT_URLS = {
@@ -780,6 +782,32 @@ const PRODUCT_URLS = {
     // MOZA Flight
     'ab9-base':     'https://guidegamingkits.com/product/moza-ab9-base/',
     'mh16-stick':   'https://guidegamingkits.com/product/moza-mh16-flightstick-flight-sim-grip-%e0%b9%82%e0%b8%a5%e0%b8%ab%e0%b8%b0-27-%e0%b8%9b%e0%b8%b8%e0%b9%88%e0%b8%a1-%e0%b9%81%e0%b8%ae%e0%b8%97-8%e2%80%91%e0%b8%97%e0%b8%b4%e0%b8%a8-alumi/',
+  },
+  // Batch 7: SE Asia expansion (May 2026) — Simple Sim Racing (PHP CMS, THB)
+  simplesimracing: {
+    'r3-bundle':   'https://simplesim.racing/products-detail.php?id=456',
+    'r3-xbox':     'https://simplesim.racing/products-detail.php?id=457',
+    'r5-bundle':   'https://simplesim.racing/products-detail.php?id=458',
+    'r5-truck':    'https://simplesim.racing/products-detail.php?id=460',
+    'r9-v3-base':  'https://simplesim.racing/products-detail.php?id=462',
+    'r12-base':    'https://simplesim.racing/products-detail.php?id=464',
+    'r21-ultra':   'https://simplesim.racing/products-detail.php?id=466',
+    'r25-ultra':   'https://simplesim.racing/products-detail.php?id=468',
+    'esx-wheel':   'https://simplesim.racing/products-detail.php?id=469',
+    'cs-v2p':      'https://simplesim.racing/products-detail.php?id=470',
+    'ks-wheel':    'https://simplesim.racing/products-detail.php?id=471',
+    'tsw-wheel':   'https://simplesim.racing/products-detail.php?id=472',
+    'rs-wheel':    'https://simplesim.racing/products-detail.php?id=473',
+    'gs-v2p-wheel':'https://simplesim.racing/products-detail.php?id=474',
+    'fsr2-wheel':  'https://simplesim.racing/products-detail.php?id=475',
+    'vision-gs':   'https://simplesim.racing/products-detail.php?id=476',
+    'srp-pedals':  'https://simplesim.racing/products-detail.php?id=478',
+    'crp2-pedals': 'https://simplesim.racing/products-detail.php?id=480',
+    'hgp-shifter': 'https://simplesim.racing/products-detail.php?id=486',
+    'sgp-shifter': 'https://simplesim.racing/products-detail.php?id=487',
+    'handbrake':   'https://simplesim.racing/products-detail.php?id=488',
+    'table-clamp': 'https://simplesim.racing/products-detail.php?id=489',
+    'quick-release':'https://simplesim.racing/products-detail.php?id=492',
   },
   overclockersuk: {
     'r16-base':     'https://www.overclockers.co.uk/moza-racing-r16-v2-direct-drive-wheel-base-gam-moz-04850.html',
