@@ -613,6 +613,9 @@ function convertToUsd(price, currency) {
 
 function render() {
   if (!data) return;
+  renderContinentFilters();
+  renderBrandFilters();
+  renderRetailerFilters();
   var grid = document.getElementById('productGrid');
   var banner = document.getElementById('alertBanner');
   var productPrices = getProductPrices();
@@ -790,9 +793,6 @@ loadData(function() {
   if (data && data.lastUpdated) {
     document.getElementById('lastUpdate').textContent = 'Last updated: ' + timeAgo(data.lastUpdated) + ' (' + new Date(data.lastUpdated).toLocaleString() + ')';
   }
-  renderContinentFilters();
-  renderBrandFilters();
-  renderRetailerFilters();
   render();
 });
 </script>
