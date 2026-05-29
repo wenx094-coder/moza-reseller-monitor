@@ -71,6 +71,9 @@ const DEALER_INSTAGRAM_HANDLES = {
    'caseking.de': { name: 'Caseking', location: 'Germany (EU shipping)', country: 'DE' },
    // Batch 5: Philippine expansion (May 2026)
    gameoneph: { name: 'Game One PH', location: 'Philippines (nationwide shipping)', country: 'PH' },
+   // Batch 6: Global expansion (May 2026)
+   thinkofsim: { name: 'Think of Sim', location: 'Thailand (nationwide shipping)', country: 'TH' },
+   simracingstore: { name: 'SimRacing Store', location: 'Chile (nationwide shipping)', country: 'CL' },
 };
 
 const BRANDS = {

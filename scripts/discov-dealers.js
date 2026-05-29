@@ -23,31 +23,62 @@ const { chromium } = require('playwright');
   });
   game1.forEach(i => console.log(`  ${i.href}`));
 
-  // === Simple Sim Racing - find all product IDs ===
-  console.log('\n=== Simple Sim Racing products ===');
-  await page.goto('https://simplesim.racing/brand.php?bid=4', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  // === GGK Simracing Thailand (WooCommerce, THB) ===
+  console.log('\n=== GGK Simracing Thailand ===');
+  await page.goto('https://guidegamingkits.com/product_brand/moza-racing/', { waitUntil: 'domcontentloaded', timeout: 20000 });
   await page.waitForTimeout(3000);
-  const ssr1 = await page.evaluate(() => {
-    const links = document.querySelectorAll('a[href*="products-detail"]');
-    return Array.from(links).map(a => ({ href: a.href, text: a.textContent.trim().substring(0, 50) }));
+  const ggk = await page.evaluate(() => {
+    const items = document.querySelectorAll('.product-title a, h2.woocommerce-loop-product__title, .product-name a');
+    return Array.from(items).map(a => ({ href: a.href || '', text: (a.textContent || '').trim().substring(0, 60), price: '' }));
   });
-  ssr1.forEach(i => console.log(`  ${i.href.replace('https://www.simplesim.racing/', '').replace('https://simplesim.racing/', '')}  ${i.text}`));
+  const ggkPrices = await page.evaluate(() => {
+    const prices = document.querySelectorAll('.price .amount, .price .woocommerce-Price-amount');
+    return Array.from(prices).map(p => p.textContent.trim());
+  });
+  ggk.forEach((i, idx) => {
+    const price = ggkPrices[idx] || '';
+    console.log(`  ${i.href.replace('https://guidegamingkits.com/', '')}  ${i.text}  ${price}`);
+  });
 
-  // === Datablitz search ===
-  console.log('\n=== DataBlitz MOZA products ===');
-  await page.goto('https://ecommerce.datablitz.com.ph/catalogsearch/result/?q=moza+racing', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  // === SimRacing Store Chile (WooCommerce, CLP) ===
+  console.log('\n=== SimRacing Store Chile ===');
+  await page.goto('https://www.simracingstore.cl/marca/moza/', { waitUntil: 'domcontentloaded', timeout: 20000 });
   await page.waitForTimeout(3000);
-  const db = await page.evaluate(() => {
-    const links = document.querySelectorAll('a.product-item-link');
-    return Array.from(links).map(a => ({ href: a.href, text: a.textContent.trim().substring(0, 50) }));
+  const src = await page.evaluate(() => {
+    const items = document.querySelectorAll('.product-title a, h2.woocommerce-loop-product__title, .product-name a');
+    return Array.from(items).map(a => ({ href: a.href || '', text: (a.textContent || '').trim().substring(0, 60), price: '' }));
   });
-  if (db.length) {
-    db.forEach(i => console.log(`  ${i.href.replace('https://ecommerce.datablitz.com.ph/', '')}  ${i.text}`));
-  } else {
-    console.log('  No products found on first page');
-    const url = page.url();
-    console.log('  Current URL:', url);
-  }
+  const srcPrices = await page.evaluate(() => {
+    const prices = document.querySelectorAll('.price .amount, .price .woocommerce-Price-amount, .price ins .amount');
+    return Array.from(prices).map(p => p.textContent.trim());
+  });
+  src.forEach((i, idx) => {
+    const price = srcPrices[idx] || '';
+    console.log(`  ${i.href}  ${i.text}  ${price}`);
+  });
+
+  // === Megabike Plus Czech (WooCommerce, CZK) ===
+  console.log('\n=== Megabike Plus Czech ===');
+  await page.goto('https://www.megabikeplus.cz/znacka/moza-racing/', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  await page.waitForTimeout(3000);
+  const mbp = await page.evaluate(() => {
+    const items = document.querySelectorAll('a[href*="moza"], h2 a, .product-title a');
+    return Array.from(items).map(a => ({ href: a.href || '', text: (a.textContent || '').trim().substring(0, 60) }));
+  });
+  mbp.forEach(i => console.log(`  ${i.text}  ${i.href}`));
+
+  // === Think of Sim Thailand (Shopify) ===
+  console.log('\n=== Think of Sim Thailand ===');
+  await page.goto('https://www.thinkofsim.com/collections/moza', { waitUntil: 'domcontentloaded', timeout: 20000 });
+  await page.waitForTimeout(3000);
+  const tos = await page.evaluate(() => {
+    const links = document.querySelectorAll('a[href*="/products/"]');
+    return Array.from(links).map(a => ({ href: a.href, text: (a.textContent || '').trim().substring(0, 60) }));
+  });
+  const unique = [];
+  const seen = new Set();
+  tos.forEach(i => { if (!seen.has(i.href)) { seen.add(i.href); unique.push(i); } });
+  unique.forEach(i => console.log(`  ${i.href}  ${i.text}`));
 
   await browser.close();
 })();
