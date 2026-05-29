@@ -272,6 +272,7 @@
   .dot.yellow { background: var(--yellow); }
   .dot.red { background: var(--accent); }
   .dot.gray { background: var(--text2); }
+  .continent-header-row td { background: var(--surface2); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; color: var(--text2); border-top: 2px solid var(--border); }
   .retailer-name { font-weight: 600; }
   .retailer-country {
     font-size: 0.7rem;
@@ -365,6 +366,7 @@
 
 <script>
 var RETAILERS = {
+  bhphoto: { name: 'B&H Photo', country: 'US', currency: 'USD' },
   microcenter: { name: 'Micro Center', country: 'US', currency: 'USD' },
   'simmotion-eu': { name: 'Sim-Motion EU', country: 'DE', currency: 'EUR' },
   'simmotion-us': { name: 'Sim-Motion US', country: 'US', currency: 'USD' },
@@ -377,12 +379,54 @@ var RETAILERS = {
   'vr-hub': { name: 'Virtual Racing Hub', country: 'IN', currency: 'INR' },
   noxgaming: { name: 'NOX Gaming', country: 'CA', currency: 'CAD' },
   kfire: { name: 'KFire Racing', country: 'BR', currency: 'BRL' },
-  bhphoto: { name: 'B&H Photo', country: 'US', currency: 'USD' },
   simufy: { name: 'Simufy', country: 'ES', currency: 'EUR' },
   'son-video': { name: 'Son-Video', country: 'FR', currency: 'EUR' },
   caseking: { name: 'Caseking', country: 'DE', currency: 'EUR' },
   gomotorsports: { name: 'GO Motorsports', country: 'US', currency: 'USD' },
   simracingpros: { name: 'Sim Racing Pros', country: 'US', currency: 'USD' },
+  racegear: { name: 'RaceGear', country: 'NL', currency: 'EUR' },
+  electronicscrazy: { name: 'ElectronicsCrazy', country: 'SG', currency: 'SGD' },
+  demontweeks: { name: 'Demon Tweeks', country: 'GB', currency: 'GBP' },
+  advancedsimracing: { name: 'Advanced Sim Racing', country: 'CA', currency: 'CAD' },
+  maxgaming: { name: 'MaxGaming', country: 'SE', currency: 'EUR' },
+  simline: { name: 'Simline', country: 'PL', currency: 'EUR' },
+  simracewebshop: { name: 'SimRace Webshop', country: 'NL', currency: 'EUR' },
+  gamergeardirect: { name: 'Gamer Gear Direct', country: 'AU', currency: 'AUD' },
+  player1simgear: { name: 'Player1 Sim Gear', country: 'AU', currency: 'AUD' },
+  thegamesmen: { name: 'The Gamesmen', country: 'AU', currency: 'AUD' },
+  jbhifi: { name: 'JB Hi-Fi', country: 'AU', currency: 'AUD' },
+  alternate: { name: 'Alternate', country: 'DE', currency: 'EUR' },
+  kjellcompany: { name: 'Kjell & Company', country: 'SE', currency: 'SEK' },
+  overclockersuk: { name: 'Overclockers UK', country: 'GB', currency: 'GBP' },
+  s5tech: { name: 'S5 Technology', country: 'SG', currency: 'SGD' },
+  simsolution: { name: 'SimSolution', country: 'IL', currency: 'ILS' },
+  simracingstore: { name: 'SimRacing Store', country: 'CL', currency: 'CLP' },
+  speednation: { name: 'Speednation', country: 'NZ', currency: 'NZD' },
+  befastracing: { name: 'Be Fast Racing', country: 'MX', currency: 'USD' },
+  simking: { name: 'SimKing', country: 'FR', currency: 'EUR' },
+  simhubpro: { name: 'SIMHUB.PRO', country: 'PL', currency: 'PLN' },
+  milestone: { name: 'Milestone Japan', country: 'JP', currency: 'JPY' },
+  mozakorea: { name: 'MOZA Korea', country: 'KR', currency: 'KRW' },
+  simulatorcave: { name: 'Simulator Cave', country: 'ZA', currency: 'ZAR' },
+  sdeal: { name: 'SDeal', country: 'MY', currency: 'MYR' },
+  yoho: { name: 'YOHO 友和', country: 'HK', currency: 'HKD' },
+  pchome: { name: 'PChome 24h', country: 'TW', currency: 'TWD' },
+  delenordic: { name: 'DELE Nordic', country: 'DK', currency: 'DKK' },
+  simracer: { name: 'SimRacer Austria', country: 'AT', currency: 'EUR' },
+  simultimate: { name: 'SimUltimate', country: 'CH', currency: 'CHF' },
+  arcteam: { name: 'ARC-Team Italy', country: 'IT', currency: 'EUR' },
+  focussimracing: { name: 'Focus Sim Racing', country: 'US', currency: 'USD' },
+  vipcbuilder: { name: 'VI PC Builder & Games', country: 'CA', currency: 'CAD' },
+  pitlanesimracing: { name: 'Pit Lane Sim Racing', country: 'CA', currency: 'CAD' },
+  gameone: { name: 'Game One PH', country: 'PH', currency: 'PHP' },
+  thinkofsim: { name: 'Think of Sim', country: 'TH', currency: 'THB' },
+  ggksimracing: { name: 'GGK Simracing', country: 'TH', currency: 'THB' },
+  megabikeplus: { name: 'Megabike Plus', country: 'CZ', currency: 'CZK' },
+  simplesimracing: { name: 'Simple Sim Racing', country: 'TH', currency: 'THB' },
+  computerlounge: { name: 'Computer Lounge', country: 'NZ', currency: 'NZD' },
+  gameshopmy: { name: 'GameShop Malaysia', country: 'MY', currency: 'MYR' },
+  plecomau: { name: 'PLE Computers', country: 'AU', currency: 'AUD' },
+  simpanzee: { name: 'Simpanzee', country: 'AE', currency: 'AED' },
 };
 
 var BRAND_MAP = {
@@ -407,6 +451,33 @@ var BRAND_MAP = {
 
 var BRAND_ORDER = ['Moza RS21', 'Moza AS23'];
 var BRAND_COLORS = { 'Moza RS21': '#e8102a', 'Moza AS23': '#1565c0' };
+
+var CONTINENTS = [
+  { key: 'north_america', label: 'North America', flag: '🌎', countries: ['US', 'CA', 'MX'] },
+  { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR', 'CL'] },
+  { key: 'europe', label: 'Europe', flag: '🌍', countries: ['GB', 'DE', 'IE', 'ES', 'FR', 'NL', 'SE', 'PL', 'AT', 'CH', 'IT', 'CZ', 'DK'] },
+  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN', 'SG', 'IL', 'JP', 'KR', 'MY', 'PH', 'TH', 'AE', 'HK', 'TW'] },
+  { key: 'oceania', label: 'Oceania', flag: '🌏', countries: ['AU', 'NZ'] },
+  { key: 'africa', label: 'Africa', flag: '🌍', countries: ['ZA'] },
+];
+function getContinent(country) {
+  for (var ci = 0; ci < CONTINENTS.length; ci++) { if (CONTINENTS[ci].countries.indexOf(country) !== -1) return CONTINENTS[ci]; }
+  return null;
+}
+function countryFlag(code) {
+  if (code === 'US') return '🇺🇸'; if (code === 'CA') return '🇨🇦'; if (code === 'MX') return '🇲🇽';
+  if (code === 'GB') return '🇬🇧'; if (code === 'DE') return '🇩🇪'; if (code === 'IE') return '🇮🇪';
+  if (code === 'ES') return '🇪🇸'; if (code === 'FR') return '🇫🇷'; if (code === 'NL') return '🇳🇱';
+  if (code === 'SE') return '🇸🇪'; if (code === 'PL') return '🇵🇱'; if (code === 'AT') return '🇦🇹';
+  if (code === 'CH') return '🇨🇭'; if (code === 'IT') return '🇮🇹'; if (code === 'CZ') return '🇨🇿';
+  if (code === 'DK') return '🇩🇰'; if (code === 'BR') return '🇧🇷'; if (code === 'CL') return '🇨🇱';
+  if (code === 'AU') return '🇦🇺'; if (code === 'NZ') return '🇳🇿'; if (code === 'IN') return '🇮🇳';
+  if (code === 'SG') return '🇸🇬'; if (code === 'IL') return '🇮🇱'; if (code === 'JP') return '🇯🇵';
+  if (code === 'KR') return '🇰🇷'; if (code === 'MY') return '🇲🇾'; if (code === 'PH') return '🇵🇭';
+  if (code === 'TH') return '🇹🇭'; if (code === 'AE') return '🇦🇪'; if (code === 'HK') return '🇭🇰';
+  if (code === 'TW') return '🇹🇼'; if (code === 'ZA') return '🇿🇦';
+  return '';
+}
 
 var PRODUCTS = {};
 var data = null;
@@ -570,37 +641,52 @@ function render() {
     html += '<div class="price-table">';
     html += '<table>';
     html += '<tr><th>Retailer</th><th>Price</th><th>vs MSRP</th><th>Status</th><th>Checked</th><th></th></tr>';
+
+    // Group retailers by continent
+    var continentGroups = {};
     for (var ei = 0; ei < filtered.length; ei++) {
-      var e = filtered[ei];
-      var r = RETAILERS[e.retailerId] || { name: e.retailerId, country: '', currency: 'USD' };
-      var sym2 = e.info.currency === 'EUR' ? '\u20AC' : e.info.currency === 'GBP' ? '\u00A3' : '$';
+      var er = RETAILERS[filtered[ei].retailerId] || { country: '' };
+      var cont = getContinent(er.country);
+      var ckey = cont ? cont.key : 'other';
+      if (!continentGroups[ckey]) continentGroups[ckey] = [];
+      continentGroups[ckey].push(filtered[ei]);
+    }
+    for (var ci = 0; ci < CONTINENTS.length; ci++) {
+      var group = continentGroups[CONTINENTS[ci].key];
+      if (!group || group.length === 0) continue;
+      html += '<tr class="continent-header-row"><td colspan="6">' + CONTINENTS[ci].flag + ' ' + CONTINENTS[ci].label + '</td></tr>';
+      for (var ei = 0; ei < group.length; ei++) {
+        var e = group[ei];
+        var r = RETAILERS[e.retailerId] || { name: e.retailerId, country: '', currency: 'USD' };
+        var sym2 = e.info.currency === 'EUR' ? '\u20AC' : e.info.currency === 'GBP' ? '\u00A3' : '$';
 
-      var priceUsd = convertToUsd(e.info.price, e.info.currency);
-      var msrpDiff = null;
-      if (msrp && e.info.price > 0) {
-        msrpDiff = ((priceUsd - msrp) / msrp * 100).toFixed(1);
+        var priceUsd = convertToUsd(e.info.price, e.info.currency);
+        var msrpDiff = null;
+        if (msrp && e.info.price > 0) {
+          msrpDiff = ((priceUsd - msrp) / msrp * 100).toFixed(1);
+        }
+
+        var dotClass = 'green';
+        if (e.info.price === 0) dotClass = 'gray';
+        else if (msrpDiff && parseFloat(msrpDiff) < -5) dotClass = 'red';
+        else if (msrpDiff && parseFloat(msrpDiff) < 0) dotClass = 'yellow';
+
+        html += '<tr>';
+        html += '<td><span class="retailer-name">' + r.name + '</span><span class="retailer-country">' + countryFlag(r.country) + ' ' + r.country + '</span></td>';
+        html += '<td><span class="price-flag"><span class="dot ' + dotClass + '"></span>' + sym2 + (e.info.price > 0 ? e.info.price.toFixed(2) : 'N/A') + '</span></td>';
+        html += '<td style="font-size:0.85rem;font-weight:600;';
+        if (msrpDiff && parseFloat(msrpDiff) < -5) html += 'color:var(--accent)';
+        else if (msrpDiff && parseFloat(msrpDiff) < 0) html += 'color:var(--orange)';
+        else html += 'color:var(--green)';
+        html += '">';
+        if (msrpDiff) html += (parseFloat(msrpDiff) > 0 ? '+' : '') + msrpDiff + '%';
+        else html += '-';
+        html += '</td>';
+        html += '<td><span class="status-badge ' + (e.info.inStock ? 'in-stock' : 'out-of-stock') + '">' + (e.info.inStock ? 'In Stock' : 'Out of Stock') + '</span></td>';
+        html += '<td style="font-size:0.75rem;color:var(--text2)">' + timeAgo(e.info.checkedAt) + '</td>';
+        html += '<td><a class="product-link" href="' + e.info.url + '" target="_blank">View &#8599;</a></td>';
+        html += '</tr>';
       }
-
-      var dotClass = 'green';
-      if (e.info.price === 0) dotClass = 'gray';
-      else if (msrpDiff && parseFloat(msrpDiff) < -5) dotClass = 'red';
-      else if (msrpDiff && parseFloat(msrpDiff) < 0) dotClass = 'yellow';
-
-      html += '<tr>';
-      html += '<td><span class="retailer-name">' + r.name + '</span><span class="retailer-country">' + r.country + '</span></td>';
-      html += '<td><span class="price-flag"><span class="dot ' + dotClass + '"></span>' + sym2 + (e.info.price > 0 ? e.info.price.toFixed(2) : 'N/A') + '</span></td>';
-      html += '<td style="font-size:0.85rem;font-weight:600;';
-      if (msrpDiff && parseFloat(msrpDiff) < -5) html += 'color:var(--accent)';
-      else if (msrpDiff && parseFloat(msrpDiff) < 0) html += 'color:var(--orange)';
-      else html += 'color:var(--green)';
-      html += '">';
-      if (msrpDiff) html += (parseFloat(msrpDiff) > 0 ? '+' : '') + msrpDiff + '%';
-      else html += '-';
-      html += '</td>';
-      html += '<td><span class="status-badge ' + (e.info.inStock ? 'in-stock' : 'out-of-stock') + '">' + (e.info.inStock ? 'In Stock' : 'Out of Stock') + '</span></td>';
-      html += '<td style="font-size:0.75rem;color:var(--text2)">' + timeAgo(e.info.checkedAt) + '</td>';
-      html += '<td><a class="product-link" href="' + e.info.url + '" target="_blank">View &#8599;</a></td>';
-      html += '</tr>';
     }
     html += '</table>';
     html += '</div>';

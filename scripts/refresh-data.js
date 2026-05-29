@@ -72,8 +72,10 @@ const DEALER_INSTAGRAM_HANDLES = {
    // Batch 5: Philippine expansion (May 2026)
    gameoneph: { name: 'Game One PH', location: 'Philippines (nationwide shipping)', country: 'PH' },
    // Batch 6: Global expansion (May 2026)
-   thinkofsim: { name: 'Think of Sim', location: 'Thailand (nationwide shipping)', country: 'TH' },
-   simracingstore: { name: 'SimRacing Store', location: 'Chile (nationwide shipping)', country: 'CL' },
+    thinkofsim: { name: 'Think of Sim', location: 'Thailand (nationwide shipping)', country: 'TH' },
+    // Batch 8: New dealer expansion (May 2026)
+   computerlounge: { name: 'Computer Lounge', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
+   gameshopmy: { name: 'GameShop Malaysia', location: 'Malaysia (nationwide shipping)', country: 'MY' },
 };
 
 const BRANDS = {
