@@ -156,7 +156,8 @@
     transition: all 0.2s;
   }
   .retailer-pill:hover { color: var(--text); background: var(--surface2); }
-  .retailer-pill.active { background: var(--accent); color: white; }
+  .retailer-pill.active { background: var(--accent); color: white; box-shadow: 0 0 0 2px rgba(232,16,42,0.25); }
+  .retailer-pill.continent-active { background: #0d6efd; color: white; box-shadow: 0 0 0 2px rgba(13,110,253,0.25); }
 
   .product-grid {
     display: flex;
@@ -544,10 +545,10 @@ function getLowestPrice(entries) {
 
 function renderContinentFilters() {
   var container = document.getElementById('continentFilter');
-  var html = '<button class="retailer-pill ' + (selectedContinent === 'all' ? 'active' : '') + '" onclick="selectedContinent=\'all\';selectedRetailer=\'all\';render()">All Continents</button>';
+  var html = '<button class="retailer-pill' + (selectedContinent === 'all' ? ' continent-active' : '') + '" onclick="selectedContinent=\'all\';selectedRetailer=\'all\';render()">All Continents</button>';
   for (var ci = 0; ci < CONTINENTS.length; ci++) {
     var c = CONTINENTS[ci];
-    html += '<button class="retailer-pill ' + (selectedContinent === c.key ? 'active' : '') + '" onclick="selectedContinent=\'' + c.key + '\';selectedRetailer=\'all\';render()">' + c.flag + ' ' + c.label + '</button>';
+    html += '<button class="retailer-pill' + (selectedContinent === c.key ? ' continent-active' : '') + '" onclick="selectedContinent=\'' + c.key + '\';selectedRetailer=\'all\';render()">' + c.flag + ' ' + c.label + '</button>';
   }
   container.innerHTML = html;
 }
