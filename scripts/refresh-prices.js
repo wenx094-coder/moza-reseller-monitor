@@ -260,6 +260,9 @@ async function main() {
   var data = loadData();
   var entries = buildUrlEntries();
 
+  // Deep clone old prices for change detection
+  var oldPrices = JSON.parse(JSON.stringify(data.prices || {}));
+
   console.log('Fetching ' + entries.length + ' product pages...');
   var success = 0;
 
@@ -360,6 +363,70 @@ async function main() {
 
   saveData(data);
   console.log('\nDone. ' + success + '/' + entries.length + ' pages.');
+
+  // Detect price changes and send DingTalk notification
+  var changeLines = ['## MOZA Price Change Report', '', '| Product | Retailer | Old | New | Change |'];
+  changeLines.push('|---|---|---|---|---|');
+  var changeCount = 0;
+  for (var pid4 in data.prices) {
+    var p4 = PRODUCTS.find(function(x) { return x.id === pid4; });
+    var name4 = p4 ? p4.name : pid4;
+    for (var rid3 in data.prices[pid4]) {
+      var oldEntry = oldPrices[pid4] && oldPrices[pid4][rid3];
+      var newEntry = data.prices[pid4][rid3];
+      if (!newEntry || !newEntry.price) continue;
+      if (oldEntry && oldEntry.price === newEntry.price) continue;
+      var r3 = RETAILERS.find(function(x) { return x.id === rid3; });
+      var rname3 = r3 ? r3.name : rid3;
+      var oldP = oldEntry ? oldEntry.price : '-';
+      var newP = newEntry.price;
+      var sym3 = newEntry.currency === 'EUR' ? '\u20AC' : newEntry.currency === 'GBP' ? '\u00A3' : newEntry.currency === 'INR' ? '\u20B9' : newEntry.currency === 'BRL' ? 'R$' : newEntry.currency === 'AUD' || newEntry.currency === 'CAD' ? 'A$' : newEntry.currency === 'SEK' || newEntry.currency === 'DKK' ? 'kr' : newEntry.currency === 'NZD' ? 'NZ$' : newEntry.currency === 'PLN' ? 'z\u0142' : newEntry.currency === 'SGD' ? 'S$' : newEntry.currency === 'HKD' ? 'HK$' : newEntry.currency === 'TWD' ? 'NT$' : newEntry.currency === 'KRW' ? '\u20A9' : newEntry.currency === 'ILS' ? '\u20AA' : newEntry.currency === 'MYR' ? 'RM' : newEntry.currency === 'MXN' ? 'MX$' : newEntry.currency === 'CLP' ? 'CLP$' : newEntry.currency === 'ZAR' ? 'R' : newEntry.currency === 'CHF' ? 'CHF' : newEntry.currency === 'PHP' ? '\u20B1' : newEntry.currency === 'THB' ? '\u0E3F' : newEntry.currency === 'CZK' ? 'K\u010D' : newEntry.currency === 'AED' ? 'AED' : '$';
+      var changeStr = oldEntry ? (newP > oldP ? '+$' + (newP - oldP).toFixed(2) : '-$' + (oldP - newP).toFixed(2)) : 'NEW';
+      changeLines.push('| ' + name4 + ' | ' + rname3 + ' | ' + (oldEntry ? sym3 + oldP : '-') + ' | ' + sym3 + newP + ' | ' + changeStr + ' |');
+      changeCount++;
+    }
+  }
+  if (changeCount > 0) {
+    var changeMsg = changeLines.join('\n');
+    console.log('\n!! PRICE CHANGES: ' + changeCount + ' change(s) detected');
+    // Send DingTalk for price changes
+    var webhookUrl2 = process.env.DINGTALK_WEBHOOK_URL;
+    var secret2 = process.env.DINGTALK_WEBHOOK_SECRET;
+    if (webhookUrl2) {
+      var crypto2 = require('crypto');
+      var timestamp2 = Date.now();
+      var fullUrl2 = webhookUrl2;
+      if (secret2) {
+        var stringToSign2 = timestamp2 + '\n' + secret2;
+        var hmac2 = crypto2.createHmac('sha256', secret2);
+        hmac2.update(stringToSign2);
+        var sign2 = hmac2.digest('base64');
+        fullUrl2 += (webhookUrl2.indexOf('?') >= 0 ? '&' : '?') + 'timestamp=' + timestamp2 + '&sign=' + encodeURIComponent(sign2);
+      }
+      var payload2 = JSON.stringify({
+        msgtype: 'markdown',
+        markdown: { title: 'MOZA Price Changes', text: changeMsg },
+      });
+      var parsed2 = new URL(fullUrl2);
+      var httpMod2 = parsed2.protocol === 'https:' ? https : http;
+      var options2 = {
+        hostname: parsed2.hostname,
+        path: parsed2.pathname + parsed2.search,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(payload2) },
+      };
+      var req2 = httpMod2.request(options2, function(res) {
+        var body2 = '';
+        res.on('data', function(c) { body2 += c; });
+        res.on('end', function() { console.log('DingTalk price change sent:', body2); });
+      });
+      req2.on('error', function(e) { console.error('DingTalk price change error:', e.message); });
+      req2.write(payload2);
+      req2.end();
+    }
+  } else {
+    console.log('No price changes detected.');
+  }
 
   // Check for below-MSRP prices and build alerts
   var alerts = [];
