@@ -353,6 +353,7 @@
       <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
       <input type="text" id="searchInput" placeholder="Search products..." oninput="render()">
     </div>
+    <div class="retailer-filter" id="continentFilter"></div>
     <div class="retailer-filter" id="brandFilter"></div>
     <div class="retailer-filter" id="retailerFilter"></div>
   </div>
@@ -483,6 +484,7 @@ var PRODUCTS = {};
 var data = null;
 var selectedRetailer = 'all';
 var selectedBrand = 'all';
+var selectedContinent = 'all';
 
 function currencySymbol(currency) {
   if (currency === 'EUR') return '\u20AC';
@@ -540,6 +542,16 @@ function getLowestPrice(entries) {
   return lowest;
 }
 
+function renderContinentFilters() {
+  var container = document.getElementById('continentFilter');
+  var html = '<button class="retailer-pill ' + (selectedContinent === 'all' ? 'active' : '') + '" onclick="selectedContinent=\'all\';selectedRetailer=\'all\';render()">All Continents</button>';
+  for (var ci = 0; ci < CONTINENTS.length; ci++) {
+    var c = CONTINENTS[ci];
+    html += '<button class="retailer-pill ' + (selectedContinent === c.key ? 'active' : '') + '" onclick="selectedContinent=\'' + c.key + '\';selectedRetailer=\'all\';render()">' + c.flag + ' ' + c.label + '</button>';
+  }
+  container.innerHTML = html;
+}
+
 function renderBrandFilters() {
   var container = document.getElementById('brandFilter');
   var html = '<button class="retailer-pill ' + (selectedBrand === 'all' ? 'active' : '') + '" onclick="selectedBrand=\'all\';render()">All Brands</button>';
@@ -558,6 +570,11 @@ function renderRetailerFilters() {
     for (var rid in data.prices[pid]) {
       if (!seen[rid]) {
         seen[rid] = true;
+        if (selectedContinent !== 'all') {
+          var rc = RETAILERS[rid] || {};
+          var cont = getContinent(rc.country);
+          if (!cont || cont.key !== selectedContinent) continue;
+        }
         var r = RETAILERS[rid] || { name: rid, country: '' };
         html += '<button class="retailer-pill ' + (selectedRetailer === rid ? 'active' : '') + '" onclick="selectedRetailer=\'' + rid + '\';render()">' + r.name + '</button>';
       }
@@ -599,7 +616,15 @@ function render() {
     if (selectedBrand !== 'all' && brand !== selectedBrand) continue;
 
     var entries = productPrices[pid] || [];
-    var filtered = selectedRetailer === 'all' ? entries : entries.filter(function(e) { return e.retailerId === selectedRetailer; });
+    var filtered = entries.filter(function(e) {
+      if (selectedRetailer !== 'all' && e.retailerId !== selectedRetailer) return false;
+      if (selectedContinent !== 'all') {
+        var rc = RETAILERS[e.retailerId] || {};
+        var cont = getContinent(rc.country);
+        if (!cont || cont.key !== selectedContinent) return false;
+      }
+      return true;
+    });
 
     if (filtered.length === 0) continue;
 
@@ -718,6 +743,7 @@ loadData(function() {
   if (data && data.lastUpdated) {
     document.getElementById('lastUpdate').textContent = 'Last updated: ' + timeAgo(data.lastUpdated) + ' (' + new Date(data.lastUpdated).toLocaleString() + ')';
   }
+  renderContinentFilters();
   renderBrandFilters();
   renderRetailerFilters();
   render();
