@@ -144,9 +144,9 @@
   }
   .retailer-pill {
     padding: 5px 12px;
-    border: none;
+    border: 1px solid var(--border);
     border-radius: 5px;
-    background: transparent;
+    background: var(--surface);
     color: var(--text2);
     font-size: 0.78rem;
     font-weight: 600;
@@ -155,9 +155,9 @@
     font-family: var(--font);
     transition: all 0.2s;
   }
-  .retailer-pill:hover { color: var(--text); background: var(--surface2); }
-  .retailer-pill.active { background: var(--accent); color: white; box-shadow: 0 0 0 2px rgba(232,16,42,0.25); }
-  .retailer-pill.continent-active { background: #0d6efd; color: white; box-shadow: 0 0 0 2px rgba(13,110,253,0.25); }
+  .retailer-pill:hover { color: var(--text); background: var(--surface2); border-color: var(--text2); }
+  .retailer-pill.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .retailer-pill.continent-active { background: #0d6efd; color: white; border-color: #0d6efd; }
 
   .product-grid {
     display: flex;
