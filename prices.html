@@ -274,6 +274,7 @@
   .dot.red { background: var(--accent); }
   .dot.gray { background: var(--text2); }
   .continent-header-row td { background: var(--surface2); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; color: var(--text2); border-top: 2px solid var(--border); }
+  .subcat-header { padding: 10px 14px; margin-top: 4px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text2); border-bottom: 1px solid var(--border); }
   .retailer-name { font-weight: 600; }
   .retailer-country {
     font-size: 0.7rem;
@@ -454,6 +455,23 @@ var BRAND_MAP = {
 var BRAND_ORDER = ['Moza RS21', 'Moza AS23'];
 var BRAND_COLORS = { 'Moza RS21': '#e8102a', 'Moza AS23': '#1565c0' };
 
+var SUBCATEGORY_ORDER = ['bundle', 'wheelbase', 'wheel', 'pedal', 'accessories'];
+var SUBCATEGORY_LABELS = { bundle: 'Bundles', wheelbase: 'Wheel Bases', wheel: 'Steering Wheels', pedal: 'Pedals', accessories: 'Accessories' };
+var SUBCATEGORY_MAP = {
+  'r3-bundle': 'bundle', 'r3-xbox': 'bundle', 'r5-bundle': 'bundle', 'r9-bundle': 'bundle', 'r5-truck': 'bundle',
+  'r3-base': 'wheelbase', 'r5-base': 'wheelbase', 'r7-base': 'wheelbase', 'r9-base': 'wheelbase', 'r9-v3-base': 'wheelbase',
+  'r11-base': 'wheelbase', 'r12-base': 'wheelbase', 'r16-base': 'wheelbase', 'r21-base': 'wheelbase', 'r21-ultra': 'wheelbase', 'r25-ultra': 'wheelbase',
+  'es-wheel': 'wheel', 'esx-wheel': 'wheel', 'ks-wheel': 'wheel', 'ks-pro-wheel': 'wheel',
+  'cs-wheel': 'wheel', 'cs-pro-wheel': 'wheel', 'gs-wheel': 'wheel', 'gs-v2p-wheel': 'wheel',
+  'rs-wheel': 'wheel', 'fsr2-wheel': 'wheel', 'vision-gs': 'wheel', 'tsw-wheel': 'wheel',
+  'cs-v2p': 'wheel', 'lambo-revuelto': 'wheel', 'es-formula-mod': 'wheel',
+  'srp-pedals': 'pedal', 'srp-lite': 'pedal', 'crp-pedals': 'pedal', 'crp2-pedals': 'pedal', 'srp2-pedals': 'pedal',
+  'table-clamp': 'accessories', 'hgp-shifter': 'accessories', 'handbrake': 'accessories',
+  'sgp-shifter': 'accessories', 'universal-hub': 'accessories', 'cm2-dash': 'accessories',
+  'quick-release': 'accessories', 'multi-stalks': 'accessories', 'z-axis': 'accessories',
+  'extension-rod': 'accessories', 'clamp-truck': 'accessories',
+};
+
 var CONTINENTS = [
   { key: 'north_america', label: 'North America', flag: '🌎', countries: ['US', 'CA', 'MX'] },
   { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR', 'CL'] },
@@ -608,13 +626,16 @@ function render() {
   document.getElementById('statProducts').textContent = productIds.length;
 
   var alertCount = 0;
-  var html = '';
+  // Collect valid products with all computed data
+  var toRender = [];
   for (var pi = 0; pi < productIds.length; pi++) {
     var pid = productIds[pi];
 
-    // Brand filter
     var brand = BRAND_MAP[pid] || '';
     if (selectedBrand !== 'all' && brand !== selectedBrand) continue;
+
+    var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+    if (search && productName.toLowerCase().indexOf(search) === -1) continue;
 
     var entries = productPrices[pid] || [];
     var filtered = entries.filter(function(e) {
@@ -628,7 +649,6 @@ function render() {
     });
 
     if (filtered.length === 0) continue;
-
     var lowest = getLowestPrice(filtered);
     if (!lowest) continue;
     records += filtered.length;
@@ -637,11 +657,6 @@ function render() {
     var msrp = (data.msrp && data.msrp[pid]) ? data.msrp[pid] : null;
     var lowestPrice = lowest.info.price;
     var lowestUsd = convertToUsd(lowestPrice, lowest.info.currency);
-
-    var productName = PRODUCTS[pid] || pid.replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
-    var brandColor = BRAND_COLORS[brand] || '#888';
-
-    // Check MSRP violation
     var isBelowMsrp = msrp && lowestPrice > 0 && lowestUsd < msrp * 0.95;
     if (isBelowMsrp) alertCount++;
 
@@ -650,16 +665,47 @@ function render() {
     if (isBelowMsrp) lowestClass = 'warn';
     if (lowestPrice === 0) lowestClass = 'bad';
 
+    toRender.push({
+      pid: pid, brand: brand, subcat: (brand === 'Moza RS21' && SUBCATEGORY_MAP[pid]) || '',
+      productName: productName, brandColor: BRAND_COLORS[brand] || '#888',
+      msrp: msrp, lowestPrice: lowestPrice, sym: sym, lowestClass: lowestClass,
+      isBelowMsrp: isBelowMsrp, filtered: filtered
+    });
+  }
+
+  // Sort: brand order → sub-category order → product name
+  toRender.sort(function(a, b) {
+    var biA = BRAND_ORDER.indexOf(a.brand); if (biA === -1) biA = 999;
+    var biB = BRAND_ORDER.indexOf(b.brand); if (biB === -1) biB = 999;
+    if (biA !== biB) return biA - biB;
+    var siA = a.subcat ? SUBCATEGORY_ORDER.indexOf(a.subcat) : -1; if (siA === -1) siA = 999;
+    var siB = b.subcat ? SUBCATEGORY_ORDER.indexOf(b.subcat) : -1; if (siB === -1) siB = 999;
+    if (siA !== siB) return siA - siB;
+    return a.productName < b.productName ? -1 : a.productName > b.productName ? 1 : 0;
+  });
+
+  // Render with sub-category headers
+  var html = '';
+  var lastSubcat = null;
+  for (var ri = 0; ri < toRender.length; ri++) {
+    var item = toRender[ri];
+
+    // Sub-category header for RS21
+    if (item.brand === 'Moza RS21' && item.subcat && item.subcat !== lastSubcat) {
+      lastSubcat = item.subcat;
+      html += '<div class="subcat-header">' + (SUBCATEGORY_LABELS[item.subcat] || item.subcat) + '</div>';
+    }
+
     html += '<div class="product-row">';
     html += '<div class="product-header" onclick="toggleRow(this)">';
     html += '<div style="display:flex;align-items:center;gap:10px">';
-    html += '<span class="product-name">' + productName + '</span>';
-    if (brand) html += '<span class="product-category" style="background:' + brandColor + ';color:white">' + brand + '</span>';
-    if (msrp) html += '<span style="font-size:0.75rem;color:var(--text2)">MSRP: $' + msrp + '</span>';
+    html += '<span class="product-name">' + item.productName + '</span>';
+    if (item.brand) html += '<span class="product-category" style="background:' + item.brandColor + ';color:white">' + item.brand + '</span>';
+    if (item.msrp) html += '<span style="font-size:0.75rem;color:var(--text2)">MSRP: $' + item.msrp + '</span>';
     html += '</div>';
     html += '<div class="product-summary">';
-    html += '<span class="count">' + filtered.length + ' retailer(s)</span>';
-    html += '<span class="lowest ' + lowestClass + '">From ' + sym + lowestPrice.toFixed(2) + '</span>';
+    html += '<span class="count">' + item.filtered.length + ' retailer(s)</span>';
+    html += '<span class="lowest ' + item.lowestClass + '">From ' + item.sym + item.lowestPrice.toFixed(2) + '</span>';
     html += '<span class="expand-icon">&#9660;</span>';
     html += '</div>';
     html += '</div>';
@@ -670,12 +716,12 @@ function render() {
 
     // Group retailers by continent
     var continentGroups = {};
-    for (var ei = 0; ei < filtered.length; ei++) {
-      var er = RETAILERS[filtered[ei].retailerId] || { country: '' };
+    for (var ei = 0; ei < item.filtered.length; ei++) {
+      var er = RETAILERS[item.filtered[ei].retailerId] || { country: '' };
       var cont = getContinent(er.country);
       var ckey = cont ? cont.key : 'other';
       if (!continentGroups[ckey]) continentGroups[ckey] = [];
-      continentGroups[ckey].push(filtered[ei]);
+      continentGroups[ckey].push(item.filtered[ei]);
     }
     for (var ci = 0; ci < CONTINENTS.length; ci++) {
       var group = continentGroups[CONTINENTS[ci].key];
@@ -688,8 +734,8 @@ function render() {
 
         var priceUsd = convertToUsd(e.info.price, e.info.currency);
         var msrpDiff = null;
-        if (msrp && e.info.price > 0) {
-          msrpDiff = ((priceUsd - msrp) / msrp * 100).toFixed(1);
+        if (item.msrp && e.info.price > 0) {
+          msrpDiff = ((priceUsd - item.msrp) / item.msrp * 100).toFixed(1);
         }
 
         var dotClass = 'green';
