@@ -99,6 +99,8 @@ const RETAILERS = [
   { id: 'focussimracing',  name: 'Focus Sim Racing',       url: 'https://focussimracing.com',                  country: 'US', currency: 'USD' },
   { id: 'vipcbuilder',     name: 'VI PC Builder & Games',  url: 'https://vipcbuilder.ca',                      country: 'CA', currency: 'CAD' },
   { id: 'pitlanesimracing',name: 'Pit Lane Sim Racing',    url: 'https://pitlanesimracing.com',                country: 'CA', currency: 'CAD' },
+  // Batch 5: Philippine expansion (May 2026)
+  { id: 'gameone',         name: 'Game One PH',            url: 'https://gameone.ph',                          country: 'PH', currency: 'PHP' },
 ];
 
 const PRODUCT_URLS = {
@@ -680,6 +682,24 @@ const PRODUCT_URLS = {
     'handbrake':    'https://pitlanesimracing.com/products/moza-racing-hbp-handbrake',
     'esx-wheel':    'https://pitlanesimracing.com/products/moza-racing-esx-steering-wheel',
     'table-clamp':  'https://pitlanesimracing.com/products/moza-racing-r9-wheel-table-clamp',
+  },
+  // Batch 5: Philippine expansion (May 2026) — Game One PH (Magento, PHP)
+  gameone: {
+    'r3-bundle':    'https://gameone.ph/moza-racing-r3-racing-wheel-and-pedals-for-pc-rs074.html',
+    'r3-xbox':      'https://gameone.ph/moza-racing-r3-racing-wheel-and-pedals-for-xbox-series-x-s-xbox-one-windows-10-11-rs053.html',
+    'r5-bundle':    'https://gameone.ph/moza-r5-racing-simulator-set-r5-dd-wheelbase-es-wheel-sr-p-lite-pedals-table-mount-rs20.html',
+    'r5-truck':     'https://gameone.ph/moza-racing-r5-truck-driving-simulator-set-for-pc-rs071.html',
+    'r9-v3-base':   'https://gameone.ph/moza-racing-r9-v3-direct-drive-wheel-base-rs080.html',
+    'r12-base':     'https://gameone.ph/moza-racing-r12-v2-direct-drive-sim-racing-wheelbase.html',
+    'cs-pro-wheel': 'https://gameone.ph/moza-racing-cs-pro-steering-wheel-rs093.html',
+    'ks-pro-wheel': 'https://gameone.ph/moza-racing-ks-pro-steering-wheel-rs095.html',
+    'ks-wheel':     'https://gameone.ph/moza-racing-ks-formula-steering-wheel-rs047.html',
+    'rs-wheel':     'https://gameone.ph/moza-racing-rs-v2-steering-wheel-leather-rs25.html',
+    'srp-pedals':   'https://gameone.ph/moza-racing-sr-p-racing-pedals-with-base-rs11.html',
+    'crp2-pedals':  'https://gameone.ph/moza-crp2-racing-pedal-for-sim-racing-driving-video-games-rs066.html',
+    'hgp-shifter':  'https://gameone.ph/moza-racing-hgp-shifter-rs039.html',
+    'handbrake':    'https://gameone.ph/moza-racing-hbp-handbrake-rs31.html',
+    'table-clamp':  'https://gameone.ph/moza-racing-table-mounting-bracket-rs12.html',
   },
   befastracing: {
     'r5-bundle':    'https://www.befastracing.com/products/r5-bundle-moza',

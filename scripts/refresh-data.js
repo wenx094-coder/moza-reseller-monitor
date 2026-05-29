@@ -69,6 +69,8 @@ const DEALER_INSTAGRAM_HANDLES = {
    simmotiongmbh: { name: 'Sim-Motion EU', location: 'Germany (EU shipping)', country: 'DE' },
    sonvideofrance: { name: 'Son-Video', location: 'France (EU shipping)', country: 'FR' },
    'caseking.de': { name: 'Caseking', location: 'Germany (EU shipping)', country: 'DE' },
+   // Batch 5: Philippine expansion (May 2026)
+   gameoneph: { name: 'Game One PH', location: 'Philippines (nationwide shipping)', country: 'PH' },
 };
 
 const BRANDS = {
