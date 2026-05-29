@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -99,6 +99,17 @@ async function scrapeUrl(browser, url, retailerId) {
     // Fallback: regex-based HTML price extraction
     if (!price) {
       price = extractPriceFromHtml(html);
+    }
+
+    // Retailer-specific price selectors (headless-only sites)
+    if (!price && retailerId === 'demontweeks') {
+      var dtMatch = html.match(/c-product-detail__price--now[^>]*>[\s\S]{0,100}?£\s*([0-9,.]+)/);
+      if (dtMatch) price = parseFloat(dtMatch[1].replace(/,/g, ''));
+    }
+
+    if (!price && retailerId === 'overclockersuk') {
+      var ocMatch = html.match(/price--pdp[^>]*>[\s\S]{0,200}?£\s*([0-9,.]+)/);
+      if (ocMatch) price = parseFloat(ocMatch[1].replace(/,/g, ''));
     }
 
     await context.close();

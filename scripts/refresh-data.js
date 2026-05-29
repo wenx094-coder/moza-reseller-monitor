@@ -60,6 +60,15 @@ const DEALER_INSTAGRAM_HANDLES = {
   yohohongkong: { name: 'YOHO 友和', location: 'Hong Kong', country: 'HK' },
   pchome24h: { name: 'PChome 24h', location: 'Taiwan (nationwide shipping)', country: 'TW' },
   delenordic: { name: 'DELE Nordic', location: 'Denmark (Nordic shipping)', country: 'DK' },
+  // Batch 3: New dealers (May 2026)
+  'simracer.at': { name: 'SimRacer Austria', location: 'Austria (EU shipping)', country: 'AT' },
+  'simultimate.ch': { name: 'SimUltimate', location: 'Switzerland (EU shipping)', country: 'CH' },
+  arcteamsim: { name: 'ARC-Team Italy', location: 'Italy (EU shipping)', country: 'IT' },
+   simracingpros: { name: 'Sim Racing Pros', location: 'US/Canada (nationwide shipping)', country: 'US' },
+   // Batch 4: New Instagram finds (May 2026)
+   simmotiongmbh: { name: 'Sim-Motion EU', location: 'Germany (EU shipping)', country: 'DE' },
+   sonvideofrance: { name: 'Son-Video', location: 'France (EU shipping)', country: 'FR' },
+   'caseking.de': { name: 'Caseking', location: 'Germany (EU shipping)', country: 'DE' },
 };
 
 const BRANDS = {
