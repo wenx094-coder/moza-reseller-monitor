@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-31T12:16:28.435Z",
+  "lastUpdated": "2026-05-31T16:06:10.448Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -278,9 +278,9 @@
         "price": 319,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-r9-v3-direct-drive-wheel-base-mzars080/",
-        "name": "Moza R9 V3 Wheel Base",
+        "name": "Buy Moza R9 V3 Wheel Base - RS080 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:01.482Z"
+        "checkedAt": "2026-05-31T16:03:53.398Z"
       }
     },
     "ks-pro-wheel": {
@@ -451,6 +451,14 @@
         "name": "MOZA KS Pro Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-31T12:14:37.487Z"
+      },
+      "demontweeks": {
+        "price": 319,
+        "currency": "GBP",
+        "url": "https://www.demon-tweeks.com/uk/moza-ks-pro-steering-wheel-mzars095/",
+        "name": "Buy Moza KS Pro Steering Wheel - RS095 | Demon Tweeks",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:04:27.419Z"
       }
     },
     "gs-v2p-wheel": {
@@ -839,6 +847,14 @@
         "name": "MOZA CS Pro Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-31T12:14:40.725Z"
+      },
+      "demontweeks": {
+        "price": 319,
+        "currency": "GBP",
+        "url": "https://www.demon-tweeks.com/uk/moza-cs-pro-steering-wheel-mzars093/",
+        "name": "Buy Moza CS Pro Steering Wheel - RS093 | Demon Tweeks",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:04:18.943Z"
       }
     },
     "crp2-pedals": {
@@ -1123,12 +1139,12 @@
         "checkedAt": "2026-05-31T12:15:54.821Z"
       },
       "demontweeks": {
-        "price": 319,
+        "price": 359,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-crp2-load-cell-sim-racing-pedals-mzars066/",
-        "name": "Moza CRP2 Load Cell Pedals",
+        "name": "Buy Moza CRP2 Load Cell Sim Racing Pedals - RS066 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:20.519Z"
+        "checkedAt": "2026-05-31T16:04:36.121Z"
       }
     },
     "hgp-shifter": {
@@ -1405,12 +1421,12 @@
         "checkedAt": "2026-05-31T12:16:17.369Z"
       },
       "demontweeks": {
-        "price": 39.9,
+        "price": 139,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-hgp-shifter-mzars039/",
-        "name": "Moza HGP Shifter",
+        "name": "Buy Moza HGP Shifter - RS039 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:23.066Z"
+        "checkedAt": "2026-05-31T16:04:44.610Z"
       }
     },
     "handbrake": {
@@ -1679,12 +1695,12 @@
         "checkedAt": "2026-05-31T12:16:18.949Z"
       },
       "demontweeks": {
-        "price": 319,
+        "price": 95,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-hpb-handbrake-mzars31/",
-        "name": "Moza HBP Handbrake",
+        "name": "Buy Moza HBP Handbrake - RS31 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:25.545Z"
+        "checkedAt": "2026-05-31T16:04:53.044Z"
       }
     },
     "r16-base": {
@@ -1783,6 +1799,14 @@
         "name": "MOZA E-Stop Switch",
         "inStock": true,
         "checkedAt": "2026-05-31T12:15:44.406Z"
+      },
+      "overclockersuk": {
+        "price": 656.99,
+        "currency": "GBP",
+        "url": "https://www.overclockers.co.uk/moza-racing-r16-v2-direct-drive-wheel-base-gam-moz-04850.html",
+        "name": "MOZA Racing R16 V2 Direct Drive Wheel Base | OcUK",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:05:04.900Z"
       }
     },
     "r21-base": {
@@ -1993,6 +2017,14 @@
         "name": "MOZA Quick Release Adapter",
         "inStock": true,
         "checkedAt": "2026-05-31T12:15:46.898Z"
+      },
+      "overclockersuk": {
+        "price": 848.99,
+        "currency": "GBP",
+        "url": "https://www.overclockers.co.uk/moza-racing-r21-v2-direct-drive-wheel-base-gam-moz-04851.html",
+        "name": "MOZA Racing R21 V2 Direct Drive Wheel Base | OcUK",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:05:15.970Z"
       }
     },
     "r3-bundle": {
@@ -2157,12 +2189,12 @@
         "checkedAt": "2026-05-31T12:14:21.324Z"
       },
       "demontweeks": {
-        "price": 39.9,
+        "price": 269,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-r3-racing-wheel-and-pedal-for-pc-mzars074/",
-        "name": "Moza R3 Racing Wheel And Pedal For PC",
+        "name": "Buy Moza R3 Racing Wheel And Pedal For PC - RS074 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:08:59.007Z"
+        "checkedAt": "2026-05-31T16:03:44.930Z"
       }
     },
     "r5-bundle": {
@@ -2445,6 +2477,14 @@
         "name": "MOZA R5 Racing Simulator Bundle - 5.5Nm Direct Drive Wheel & Pedals",
         "inStock": true,
         "checkedAt": "2026-05-31T12:15:36.062Z"
+      },
+      "microcenter": {
+        "price": 37,
+        "currency": "USD",
+        "url": "https://www.microcenter.com/product/682583/moza-r5-direct-drive-sim-racing-bundle",
+        "name": "Moza R5 Direct Drive Sim Racing Bundle - Micro Center",
+        "inStock": true,
+        "checkedAt": "2026-05-31T15:58:05.603Z"
       }
     },
     "r12-base": {
@@ -2745,12 +2785,12 @@
         "checkedAt": "2026-05-31T12:15:41.670Z"
       },
       "demontweeks": {
-        "price": 699,
+        "price": 409,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-r12-v2-direct-drive-wheel-base-mzars081/",
-        "name": "Moza R12 V2 Wheel Base",
+        "name": "Buy Moza R12 V2 Wheel Base - RS081 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:06.021Z"
+        "checkedAt": "2026-05-31T16:04:02.033Z"
       }
     },
     "ks-wheel": {
@@ -3237,12 +3277,12 @@
         "checkedAt": "2026-05-31T12:16:11.032Z"
       },
       "demontweeks": {
-        "price": 359,
+        "price": 219,
         "currency": "GBP",
         "url": "https://www.demon-tweeks.com/uk/moza-cs-v2p-sim-racing-steering-wheel-mzars057/",
-        "name": "Moza CS V2P Steering Wheel",
+        "name": "Buy Moza CS V2P Steering Wheel - RS057 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-05-31T12:09:08.679Z"
+        "checkedAt": "2026-05-31T16:04:10.526Z"
       }
     },
     "rs-wheel": {
@@ -3429,6 +3469,14 @@
         "name": "MOZA Racing RS V2 Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-05-31T12:14:43.925Z"
+      },
+      "overclockersuk": {
+        "price": 358.99,
+        "currency": "GBP",
+        "url": "https://www.overclockers.co.uk/moza-racing-rs-v2-steering-wheel-round-leather-33-cm-rs25-gc-00t-mr.html",
+        "name": "MOZA Racing RS V2 Steering Wheel, Round - Leather 33 cm (RS25) | OcUK",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:05:25.661Z"
       }
     },
     "srp-pedals": {
@@ -4851,6 +4899,14 @@
         "name": "MOZA GS VISION WHEEL",
         "inStock": true,
         "checkedAt": "2026-05-31T12:16:14.199Z"
+      },
+      "overclockersuk": {
+        "price": 698.99,
+        "currency": "GBP",
+        "url": "https://www.overclockers.co.uk/moza-racing-vision-gs-steering-wheel-rs064-gam-moz-02864.html",
+        "name": "MOZA Racing Vision GS Steering Wheel (RS064) | OcUK",
+        "inStock": true,
+        "checkedAt": "2026-05-31T16:06:10.411Z"
       }
     },
     "r9-bundle": {
@@ -5687,6 +5743,8 @@
     "r12-base": 499,
     "r16-base": 659,
     "r21-base": 999,
+    "r21-ultra": 1599,
+    "r25-ultra": 1799,
     "es-wheel": 99,
     "esx-wheel": 149,
     "ks-wheel": 199,
@@ -5697,13 +5755,23 @@
     "rs-wheel": 399,
     "fsr2-wheel": 599,
     "vision-gs": 699,
-    "srp-pedals": 199,
     "srp-lite": 79,
+    "srp-pedals": 199,
     "crp-pedals": 349,
     "crp2-pedals": 399,
     "hgp-shifter": 159,
     "handbrake": 109,
     "table-clamp": 49,
+    "cm2-dash": 199,
+    "quick-release": 59,
+    "universal-hub": 49,
+    "multi-stalks": 149,
+    "sgp-shifter": 129,
+    "tsw-wheel": 299,
+    "z-axis": 79,
+    "extension-rod": 49,
+    "clamp-truck": 59,
+    "srp2-pedals": 249,
     "ab6-bundle": 399,
     "ab9-base": 549,
     "mhg-stick": 99,
@@ -5714,19 +5782,7 @@
     "mtp-throttle": 329,
     "mtlp-panel": 149,
     "mrp-pedals": 349,
-    "mfy-yoke": 149,
-    "r21-ultra": 1599,
-    "r25-ultra": 1799,
-    "srp2-pedals": 249,
-    "sgp-shifter": 129,
-    "tsw-wheel": 299,
-    "universal-hub": 49,
-    "cm2-dash": 199,
-    "quick-release": 59,
-    "multi-stalks": 149,
-    "z-axis": 79,
-    "extension-rod": 49,
-    "clamp-truck": 59
+    "mfy-yoke": 149
   },
   "brands": {
     "r3-bundle": "Moza RS21",
