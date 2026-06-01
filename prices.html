@@ -508,6 +508,28 @@ var selectedContinent = 'all';
 function currencySymbol(currency) {
   if (currency === 'EUR') return '\u20AC';
   if (currency === 'GBP') return '\u00A3';
+  if (currency === 'PLN') return 'z\u0142';
+  if (currency === 'INR') return '\u20B9';
+  if (currency === 'BRL') return 'R$';
+  if (currency === 'SEK' || currency === 'DKK') return 'kr';
+  if (currency === 'NZD') return 'NZ$';
+  if (currency === 'SGD') return 'S$';
+  if (currency === 'HKD') return 'HK$';
+  if (currency === 'TWD') return 'NT$';
+  if (currency === 'KRW') return '\u20A9';
+  if (currency === 'ILS') return '\u20AA';
+  if (currency === 'MYR') return 'RM';
+  if (currency === 'MXN') return 'MX$';
+  if (currency === 'CLP') return 'CLP$';
+  if (currency === 'ZAR') return 'R';
+  if (currency === 'CHF') return 'CHF';
+  if (currency === 'PHP') return '\u20B1';
+  if (currency === 'THB') return '\u0E3F';
+  if (currency === 'CZK') return 'K\u010D';
+  if (currency === 'AED') return 'AED';
+  if (currency === 'JPY') return '\u00A5';
+  if (currency === 'CAD') return 'C$';
+  if (currency === 'AUD') return 'A$';
   return '$';
 }
 
@@ -608,6 +630,27 @@ function convertToUsd(price, currency) {
   if (currency === 'GBP') return price * 1.27;
   if (currency === 'CAD') return price * 0.73;
   if (currency === 'AUD') return price * 0.66;
+  if (currency === 'PLN') return price * 0.25;
+  if (currency === 'INR') return price * 0.012;
+  if (currency === 'BRL') return price * 0.18;
+  if (currency === 'SEK') return price * 0.095;
+  if (currency === 'DKK') return price * 0.15;
+  if (currency === 'NZD') return price * 0.61;
+  if (currency === 'SGD') return price * 0.74;
+  if (currency === 'HKD') return price * 0.13;
+  if (currency === 'TWD') return price * 0.031;
+  if (currency === 'KRW') return price * 0.00072;
+  if (currency === 'ILS') return price * 0.27;
+  if (currency === 'MYR') return price * 0.21;
+  if (currency === 'MXN') return price * 0.054;
+  if (currency === 'CLP') return price * 0.0011;
+  if (currency === 'ZAR') return price * 0.055;
+  if (currency === 'CHF') return price * 1.12;
+  if (currency === 'PHP') return price * 0.017;
+  if (currency === 'THB') return price * 0.028;
+  if (currency === 'CZK') return price * 0.043;
+  if (currency === 'AED') return price * 0.27;
+  if (currency === 'JPY') return price * 0.0069;
   return price;
 }
 
@@ -663,7 +706,7 @@ function render() {
     var isBelowMsrp = msrp && lowestPrice > 0 && lowestUsd < msrp * 0.95;
     if (isBelowMsrp) alertCount++;
 
-    var sym = lowest.info.currency === 'EUR' ? '\u20AC' : lowest.info.currency === 'GBP' ? '\u00A3' : '$';
+    var sym = currencySymbol(lowest.info.currency);
     var lowestClass = 'good';
     if (isBelowMsrp) lowestClass = 'warn';
     if (lowestPrice === 0) lowestClass = 'bad';
@@ -733,7 +776,7 @@ function render() {
       for (var ei = 0; ei < group.length; ei++) {
         var e = group[ei];
         var r = RETAILERS[e.retailerId] || { name: e.retailerId, country: '', currency: 'USD' };
-        var sym2 = e.info.currency === 'EUR' ? '\u20AC' : e.info.currency === 'GBP' ? '\u00A3' : '$';
+        var sym2 = currencySymbol(e.info.currency);
 
         var priceUsd = convertToUsd(e.info.price, e.info.currency);
         var msrpDiff = null;
