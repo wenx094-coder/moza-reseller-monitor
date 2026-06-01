@@ -143,6 +143,9 @@ const RETAILERS = [
   { id: 'mediak',           name: 'Mediak',                 url: 'https://mediak.pl',                          country: 'PL', currency: 'PLN' },
   // Batch 10: Argentina expansion (Jun 2026)
   { id: 'simustop',         name: 'SIMUSTOP',               url: 'https://simustop.com.ar',                       country: 'AR', currency: 'USD' },
+  // Batch 11: Philippines + Greece expansion (Jun 2026)
+  { id: 'gameline',        name: 'GAMELINE',              url: 'https://gameline.ph',                           country: 'PH', currency: 'PHP' },
+  { id: 'simgear',         name: 'SIM Gear Greece',       url: 'https://simgear.gr',                           country: 'GR', currency: 'EUR' },
 ];
 
 const PRODUCT_URLS = {
@@ -1111,6 +1114,47 @@ const PRODUCT_URLS = {
     'hgp-shifter':  'https://simustop.com.ar/productos/palanca-moza-hgp-mf46a/',
     'handbrake':    'https://simustop.com.ar/productos/freno-de-mano-moza-hbp/',
     'table-clamp':  'https://simustop.com.ar/productos/moza-table-clamp/',
+  },
+  // Batch 11: Philippines expansion (Jun 2026) — GAMELINE (Shopify, PHP)
+  gameline: {
+    'ks-pro-wheel': 'https://gameline.ph/products/moza-ks-pro-rs095',
+    'cs-pro-wheel': 'https://gameline.ph/products/moza-cs-pro-rs093',
+    'ay210-yoke':   'https://gameline.ph/products/moza-ay210-yoke-base',
+    'mrp-pedals':   'https://gameline.ph/products/moza-mrp-rudder-pedals-as019',
+    'tqa':          'https://gameline.ph/products/moza-tqa-throttle-module-as016',
+    'mtq-throttle': 'https://gameline.ph/products/moza-mtq-throttle-panel-as014',
+    'ab6-bundle':   'https://gameline.ph/products/moza-ab6-flight-simulator-as017',
+    'mtp-throttle': 'https://gameline.ph/products/moza-mtp-take-off-landing-panel-as009',
+  },
+  // Batch 11: Greece expansion (Jun 2026) — SIM Gear Greece (OpenCart, EUR)
+  simgear: {
+    'r3-xbox':      'https://simgear.gr/moza-r3-bundle-pc-xbox',
+    'r5-bundle':    'https://simgear.gr/moza-r5-bundle-pc',
+    'r5-base':      'https://simgear.gr/moza-r5-direct-drive-wheel-base',
+    'r9-v3-base':   'https://simgear.gr/moza-r9-v3-wheelbase',
+    'r12-base':     'https://simgear.gr/moza-r12-wheel-base',
+    'r5-truck':     'https://simgear.gr/moza-trucking-bundle',
+    'es-wheel':     'https://simgear.gr/moza-es-steering-wheel',
+    'es-formula-mod':'https://simgear.gr/moza-racing-es-formula-wheel',
+    'cs-v2p':       'https://simgear.gr/moza-cs-v2p-steering-wheel',
+    'rs-wheel':     'https://simgear.gr/moza-rs-v2-steering-wheel',
+    'fsr2-wheel':   'https://simgear.gr/moza-fsr2-formula-wheel',
+    'tsw-wheel':    'https://simgear.gr/moza-tsw-truck-wheel',
+    'srp-pedals':   'https://simgear.gr/moza-sr-p-pedals-2-set-no-clutch',
+    'crp-pedals':   'https://simgear.gr/moza-crp-pedals-2-set-no-clutch',
+    'crp2-pedals':  'https://simgear.gr/moza-crp2-pedals',
+    'hgp-shifter':  'https://simgear.gr/moza-racing-hgp-shifter',
+    'sgp-shifter':  'https://simgear.gr/moza-sgp-sequential-shifter',
+    'table-clamp':  'https://simgear.gr/moza-table-clamp',
+    'universal-hub':'https://simgear.gr/moza-racing-universal-hub',
+    'cm2-dash':     'https://simgear.gr/moza-cm2-hd-racing-dash',
+    'quick-release':'https://simgear.gr/moza-racing-quick-release-adapter',
+    'multi-stalks': 'https://simgear.gr/moza-multi-function-stalks',
+    'extension-rod':'https://simgear.gr/moza-racing-extension-rod-200mm',
+    'clamp-truck':  'https://simgear.gr/moza-racing-handbrake-shifter-clamp',
+    // MOZA Flight
+    'ma3x-stick':   'https://simgear.gr/moza-ma3x-side-stick',
+    'mh16-stick':   'https://simgear.gr/moza-mh16-flightstick',
   },
 };
 

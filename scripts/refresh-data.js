@@ -80,6 +80,9 @@ const DEALER_INSTAGRAM_HANDLES = {
     'mediak.pl': { name: 'Mediak', location: 'Poland (Warsaw)', country: 'PL' },
     // Batch 10: Argentina expansion (Jun 2026)
     simustop: { name: 'SIMUSTOP', location: 'Argentina (nationwide shipping)', country: 'AR' },
+    // Batch 11: Philippines + Greece expansion (Jun 2026)
+    'gameline.ph': { name: 'GAMELINE', location: 'Philippines (nationwide shipping)', country: 'PH' },
+    'simgear.bg': { name: 'SIM Gear Greece', location: 'Greece (EU shipping)', country: 'GR' },
 };
 
 const BRANDS = {
