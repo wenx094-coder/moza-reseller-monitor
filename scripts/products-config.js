@@ -258,17 +258,7 @@ const PRODUCT_URLS = {
     'handbrake': 'https://www.gtomega.co.uk/products/moza-racing-hbp-handbrake',
     'table-clamp': 'https://www.gtomega.co.uk/products/r9-table-clamp',
   },
-  apexsim: {
-    'r9-v3-base': 'https://www.apexsimracing.com/products/moza-racing-r9-v3-wheel-base-9nm',
-    'r12-base': 'https://www.apexsimracing.com/products/moza-racing-r12-wheel-base-12nm',
-    'r21-base': 'https://www.apexsimracing.com/collections/sim-racing-direct-drive-wheel-bases/products/moza-racing-r21-ultra-wheelbase-21nm',
-    'cs-pro-wheel': 'https://www.apexsimracing.com/products/moza-cs-pro-steering-wheel',
-    'ks-pro-wheel': 'https://www.apexsimracing.com/collections/moza-racing-steering-wheels/products/moza-ks-pro-steering-wheel',
-    'crp2-pedals': 'https://www.apexsimracing.com/products/moza-racing-crp2-load-cell-pedals',
-    'fsr2-wheel': 'https://www.apexsimracing.com/products/moza-racing-fsr2-formula-wheel',
-    'esx-wheel': 'https://www.apexsimracing.com/products/moza-racing-esx-steering-wheel',
-    'rs-wheel': 'https://www.apexsimracing.com/products/moza-racing-rs-v2-steering-wheel',
-  },
+  // apexsim skipped: no real MOZA products (bundle builder only)
   kfire: {
     'r9-v3-base': 'https://www.kfireracing.com.br/base-moza-r9-v2/p',
     'r12-base': 'https://www.kfireracing.com.br/base-moza-r12/p',
