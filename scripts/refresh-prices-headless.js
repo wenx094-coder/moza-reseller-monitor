@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -110,6 +110,24 @@ async function scrapeUrl(browser, url, retailerId) {
     if (!price && retailerId === 'overclockersuk') {
       var ocMatch = html.match(/price--pdp[^>]*>[\s\S]{0,200}?£\s*([0-9,.]+)/);
       if (ocMatch) price = parseFloat(ocMatch[1].replace(/,/g, ''));
+    }
+
+    // Best Buy: price in structured data + <span> with data-price or similar
+    if (!price && retailerId === 'bestbuy') {
+      // Try Best Buy's JSON-LD product schema
+      var bbJson = html.match(/"price"\s*:\s*"([0-9.]+)"/);
+      if (bbJson) price = parseFloat(bbJson[1]);
+      // Fallback: look for price in the product page HTML
+      if (!price) {
+        var bbMatch = html.match(/class="priceView-customer-price"[^>]*>[\s\S]{0,200}?\$\s*([0-9,.]+)/);
+        if (bbMatch) price = parseFloat(bbMatch[1].replace(/,/g, ''));
+      }
+    }
+
+    // Central Computers: Magento price in <span class="price">
+    if (!price && retailerId === 'centralcomputer') {
+      var ccMatch = html.match(/<span[^>]*class="[^"]*price[^"]*"[^>]*>\s*\$?([0-9,.]+)/);
+      if (ccMatch) price = parseFloat(ccMatch[1].replace(/,/g, ''));
     }
 
     await context.close();

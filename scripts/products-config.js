@@ -136,6 +136,9 @@ const RETAILERS = [
   { id: 'gameshopmy',       name: 'GameShop Malaysia',      url: 'https://www.gameshop.my',                    country: 'MY', currency: 'MYR' },
   { id: 'plecomau',         name: 'PLE Computers',          url: 'https://www.ple.com.au',                     country: 'AU', currency: 'AUD' },
   { id: 'simpanzee',        name: 'Simpanzee',              url: 'https://simpanzee.com',                      country: 'AE', currency: 'AED' },
+  // Batch 9: US major retailers (Jun 2026)
+  { id: 'bestbuy',          name: 'Best Buy',               url: 'https://www.bestbuy.com',                    country: 'US', currency: 'USD' },
+  { id: 'centralcomputer',  name: 'Central Computers',      url: 'https://www.centralcomputer.com',             country: 'US', currency: 'USD' },
 ];
 
 const PRODUCT_URLS = {
@@ -1039,6 +1042,19 @@ const PRODUCT_URLS = {
     'universal-hub':'https://simpanzee.com/product/moza-universal-mounting-plate/',
     'clamp-truck':  'https://simpanzee.com/product/moza-clamp-for-trucking-wheel/',
     'multi-stalks': 'https://simpanzee.com/product/multi-function-stalks-adapter-plate/',
+  },
+  // Batch 9: US major retailers (Jun 2026) — Best Buy (anti-bot, uses headless)
+  bestbuy: {
+    'r3-bundle':    'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-of-force-for-windows-pedals-wheelbase-wheel-black/J3R84PHW67',
+    'r3-xbox':      'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-force-for-xbox-one-xbox-series-xs-and-pc-pedals-wheelbase-wheel-black/J3R84PHTFH',
+    'r5-bundle':    'https://www.bestbuy.com/product/moza-racing-r5-direct-drive-sim-racing-bundle-with-5-5nm-of-force-for-windows-pedals-wheelbase-steering-wheel-black/J3R84PHT5S',
+    'ks-wheel':     'https://www.bestbuy.com/product/moza-racing-ks-sim-racing-gt-style-steering-wheel-for-windows-black/J3R84PHTK7',
+    'hgp-shifter':  'https://www.bestbuy.com/product/moza-racing-hgp-sim-racing-stick-shifter-for-windows/J3R84PHWCQ',
+  },
+  // Batch 9: Central Computers US (Magento, USD) — Jun 2026
+  centralcomputer: {
+    'r3-bundle':    'https://www.centralcomputer.com/moza-rs053-r3-racing-wheel-and-pedals-black.html',
+    'r5-bundle':    'https://www.centralcomputer.com/moza-rs20-r5-bundle-racing-simulator.html',
   },
 };
 
