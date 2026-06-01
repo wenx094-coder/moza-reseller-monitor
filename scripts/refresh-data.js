@@ -83,6 +83,9 @@ const DEALER_INSTAGRAM_HANDLES = {
     // Batch 11: Philippines + Greece expansion (Jun 2026)
     'gameline.ph': { name: 'GAMELINE', location: 'Philippines (nationwide shipping)', country: 'PH' },
     'simgear.bg': { name: 'SIM Gear Greece', location: 'Greece (EU shipping)', country: 'GR' },
+    // Batch 12: Vietnam + Colombia expansion (Jun 2026)
+    'apshop.vn': { name: 'APSHOP.VN', location: 'Vietnam (nationwide shipping)', country: 'VN' },
+    'nobaracingstore': { name: 'Noba Racing Store', location: 'Colombia (nationwide shipping)', country: 'CO' },
 };
 
 const BRANDS = {

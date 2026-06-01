@@ -146,6 +146,9 @@ const RETAILERS = [
   // Batch 11: Philippines + Greece expansion (Jun 2026)
   { id: 'gameline',        name: 'GAMELINE',              url: 'https://gameline.ph',                           country: 'PH', currency: 'PHP' },
   { id: 'simgear',         name: 'SIM Gear Greece',       url: 'https://simgear.gr',                           country: 'GR', currency: 'EUR' },
+  // Batch 12: Vietnam + Colombia expansion (Jun 2026)
+  { id: 'apshop',          name: 'APSHOP.VN',             url: 'https://apshop.vn',                            country: 'VN', currency: 'VND' },
+  { id: 'noba',            name: 'Noba Racing Store',     url: 'https://nobaracingstore.com',                  country: 'CO', currency: 'COP' },
 ];
 
 const PRODUCT_URLS = {
@@ -1155,6 +1158,90 @@ const PRODUCT_URLS = {
     // MOZA Flight
     'ma3x-stick':   'https://simgear.gr/moza-ma3x-side-stick',
     'mh16-stick':   'https://simgear.gr/moza-mh16-flightstick',
+  },
+  // Batch 12: Vietnam — APSHOP (Haravan platform, VND)
+  apshop: {
+    // Wheel Bases & Bundles
+    'r3-bundle':    'https://apshop.vn/products/vo-lang-moza-r3-racing-wheel-and-pedals-for-pc',
+    'r5-bundle':    'https://apshop.vn/products/bo-vo-lang-moza-r5-bundle',
+    'r5-truck':     'https://apshop.vn/products/bo-vo-lang-moza-r5-trucking-bundle',
+    'r9-v3-base':   'https://apshop.vn/products/base-vo-lang-moza-r9-v3-direct-drive-9-nm',
+    'r12-base':     'https://apshop.vn/products/de-vo-lang-moza-r12-v2-wheel-base-12nm',
+    'r16-base':     'https://apshop.vn/products/bo-dong-co-gan-vo-lang-moza-r16-wheel-base',
+    'r21-base':     'https://apshop.vn/products/bo-dong-co-gan-vo-lang-moza-r21-wheel-base',
+    'r21-ultra':    'https://apshop.vn/products/de-vo-lang-moza-r21-ultra-21nm',
+    'r25-ultra':    'https://apshop.vn/products/de-vo-lang-moza-r25-ultra-true-torque-25nm',
+    // Steering Wheels
+    'es-wheel':     'https://apshop.vn/products/vo-lang-moza-standalone-es-steering-wheel',
+    'esx-wheel':    'https://apshop.vn/products/vo-lang-moza-esx-steering-wheel-for-xbox',
+    'ks-wheel':     'https://apshop.vn/products/vo-lang-moza-ks-steering-wheel',
+    'ks-pro-wheel': 'https://apshop.vn/products/vanh-vo-lang-moza-ks-pro-steering-wheel',
+    'cs-pro-wheel': 'https://apshop.vn/products/vanh-vo-lang-moza-cs-pro-steering-wheel',
+    'cs-v2p':       'https://apshop.vn/products/vo-lang-moza-cs-v2p-steering-wheel',
+    'gs-v2p-wheel': 'https://apshop.vn/products/vo-lang-moza-gs-v2p-gt-wheel',
+    'rs-wheel':     'https://apshop.vn/products/vo-lang-moza-rs-v2-steering-wheel',
+    'fsr2-wheel':   'https://apshop.vn/products/banh-lai-moza-fsr2-formula-wheel',
+    'vision-gs':    'https://apshop.vn/products/vo-lang-moza-vision-gs-wheel',
+    'tsw-wheel':    'https://apshop.vn/products/vo-lang-moza-tsw-truck-wheel',
+    'lambo-revuelto':'https://apshop.vn/products/vanh-vo-lang-moza-x-automobili-lamborghini-revuelto-rs096',
+    'es-formula-mod':'https://apshop.vn/products/vo-lang-moza-es-formula-wheel-mod',
+    // Pedals
+    'srp2-pedals':  'https://apshop.vn/products/bo-pedal-moza-srp2-pedals-rs098',
+    'crp-pedals':   'https://apshop.vn/products/pedals-vo-lang-moza-crp-pedals',
+    'crp2-pedals':  'https://apshop.vn/products/moza-crp2-pedals',
+    // Shifters & Handbrake
+    'hgp-shifter':  'https://apshop.vn/products/can-so-vo-lang-moza-hgp-shifter',
+    'sgp-shifter':  'https://apshop.vn/products/can-so-tuan-tu-moza-sgp-sequential-shifter',
+    'handbrake':    'https://apshop.vn/products/phanh-tay-vo-lang-moza-hbp-handbrake',
+    // Accessories
+    'table-clamp':  'https://apshop.vn/products/kep-ban-vo-lang-moza-table-clamp-su-dung-cho-r5-r9-r12',
+    'cm2-dash':     'https://apshop.vn/products/man-hinh-moza-cm2-hd-racing-dash',
+    'quick-release':'https://apshop.vn/products/bo-thao-lap-nhanh-moza-quick-release-adapter',
+    'universal-hub':'https://apshop.vn/products/bo-trung-tam-vo-lang-da-nang-moza-universal-hub-kit',
+    'multi-stalks': 'https://apshop.vn/products/moza-multi-function-stalks',
+    'z-axis':       'https://apshop.vn/products/moza-z-axis-module',
+    'extension-rod':'https://apshop.vn/products/moza-extension-rod',
+    'clamp-truck':  'https://apshop.vn/products/kep-vo-lang-moza-clamp-for-truck-wheel',
+    // MOZA Flight
+    'ab6-bundle':   'https://apshop.vn/products/bo-dieu-khien-moza-ab6-flight-simulator-as017',
+    'ab9-base':     'https://apshop.vn/products/de-can-lai-may-bay-moza-ab9-base',
+    'ma3x-stick':   'https://apshop.vn/products/can-lai-may-bay-moza-ma3x-side-stick',
+    'mh16-stick':   'https://apshop.vn/products/tay-cam-lai-may-bay-moza-mh16',
+    'mhg-stick':    'https://apshop.vn/products/can-dieu-khien-moza-mhg-flightstick-as018',
+    'mfy-yoke':     'https://apshop.vn/products/moza-mfy-yoke',
+    'ay210-yoke':   'https://apshop.vn/products/de-can-lai-may-bay-moza-ay210-yoke-base',
+    'flight-base-clamp':'https://apshop.vn/products/moza-flight-base-table-clamp',
+    'mtp-throttle': 'https://apshop.vn/products/buom-ga-moza-mtp-throttle',
+    'mtlp-panel':   'https://apshop.vn/products/bang-dieu-khien-moza-mtlp',
+  },
+  // Batch 12: Colombia — Noba Racing Store (Shopify, COP)
+  noba: {
+    'r3-bundle':    'https://nobaracingstore.com/products/combo-r3-pc',
+    'r5-bundle':    'https://nobaracingstore.com/products/combo-r5',
+    'r5-truck':     'https://nobaracingstore.com/products/combo-r5-camionero',
+    'r12-base':     'https://nobaracingstore.com/products/base-r12',
+    'r21-ultra':    'https://nobaracingstore.com/products/base-r21ultra',
+    'r25-ultra':    'https://nobaracingstore.com/products/base-r25-ultra',
+    'ks-wheel':     'https://nobaracingstore.com/products/ks',
+    'ks-pro-wheel': 'https://nobaracingstore.com/products/ks-pro',
+    'cs-pro-wheel': 'https://nobaracingstore.com/products/cs-pro',
+    'cs-v2p':       'https://nobaracingstore.com/products/cs-v2p',
+    'gs-v2p-wheel': 'https://nobaracingstore.com/products/gs-v2p',
+    'rs-wheel':     'https://nobaracingstore.com/products/rsv2',
+    'fsr2-wheel':   'https://nobaracingstore.com/products/fsr2',
+    'esx-wheel':    'https://nobaracingstore.com/products/esx',
+    'tsw-wheel':    'https://nobaracingstore.com/products/tsw',
+    'lambo-revuelto':'https://nobaracingstore.com/products/lamborghini-revuelto',
+    'es-formula-mod':'https://nobaracingstore.com/products/mod-formula-aro-es-esx',
+    'srp2-pedals':  'https://nobaracingstore.com/products/srp-2-pedales',
+    'crp2-pedals':  'https://nobaracingstore.com/products/pedales-crp-2',
+    'hgp-shifter':  'https://nobaracingstore.com/products/caja-en-h',
+    'sgp-shifter':  'https://nobaracingstore.com/products/secuencial-sgp',
+    'handbrake':    'https://nobaracingstore.com/products/freno-de-mano-hbp',
+    'table-clamp':  'https://nobaracingstore.com/products/table-clamp',
+    'cm2-dash':     'https://nobaracingstore.com/products/pantalla-tactil-cm2',
+    'multi-stalks': 'https://nobaracingstore.com/products/palancas-multifuncion',
+    'clamp-truck':  'https://nobaracingstore.com/products/abrazadera-para-camiones',
   },
 };
 

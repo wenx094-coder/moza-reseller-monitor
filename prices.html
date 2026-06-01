@@ -436,6 +436,9 @@ var RETAILERS = {
   simustop: { name: 'SIMUSTOP', country: 'AR', currency: 'USD' },
   gameline: { name: 'GAMELINE', country: 'PH', currency: 'PHP' },
   simgear: { name: 'SIM Gear Greece', country: 'GR', currency: 'EUR' },
+  // Batch 12: Vietnam + Colombia expansion (Jun 2026)
+  apshop: { name: 'APSHOP.VN', country: 'VN', currency: 'VND' },
+  noba: { name: 'Noba Racing Store', country: 'CO', currency: 'COP' },
 };
 
 var BRAND_MAP = {
@@ -534,6 +537,8 @@ function currencySymbol(currency) {
   if (currency === 'CZK') return 'K\u010D';
   if (currency === 'AED') return 'AED';
   if (currency === 'JPY') return '\u00A5';
+  if (currency === 'VND') return '\u20AB';
+  if (currency === 'COP') return 'COL$';
   if (currency === 'CAD') return 'C$';
   if (currency === 'AUD') return 'A$';
   return '$';
@@ -657,6 +662,8 @@ function convertToUsd(price, currency) {
   if (currency === 'CZK') return price * 0.043;
   if (currency === 'AED') return price * 0.27;
   if (currency === 'JPY') return price * 0.0069;
+  if (currency === 'VND') return price * 0.000041;
+  if (currency === 'COP') return price * 0.00024;
   return price;
 }
 
