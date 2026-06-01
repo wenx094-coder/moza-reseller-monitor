@@ -139,6 +139,10 @@ const RETAILERS = [
   // Batch 9: US major retailers (Jun 2026)
   { id: 'bestbuy',          name: 'Best Buy',               url: 'https://www.bestbuy.com',                    country: 'US', currency: 'USD' },
   { id: 'centralcomputer',  name: 'Central Computers',      url: 'https://www.centralcomputer.com',             country: 'US', currency: 'USD' },
+  // Batch 10: Poland expansion (Jun 2026)
+  { id: 'mediak',           name: 'Mediak',                 url: 'https://mediak.pl',                          country: 'PL', currency: 'PLN' },
+  // Batch 10: Argentina expansion (Jun 2026)
+  { id: 'simustop',         name: 'SIMUSTOP',               url: 'https://simustop.com.ar',                       country: 'AR', currency: 'USD' },
 ];
 
 const PRODUCT_URLS = {
@@ -1055,6 +1059,68 @@ const PRODUCT_URLS = {
   centralcomputer: {
     'r3-bundle':    'https://www.centralcomputer.com/moza-rs053-r3-racing-wheel-and-pedals-black.html',
     'r5-bundle':    'https://www.centralcomputer.com/moza-rs20-r5-bundle-racing-simulator.html',
+  },
+  // Batch 10: Mediak Poland (WooCommerce, PLN) — Jun 2026
+  mediak: {
+    'r9-v3-base':   'https://mediak.pl/p/baza-kierownicy-moza-racing-r9-v3-direct-drive-wheelbase-rs080/',
+    'r12-base':     'https://mediak.pl/p/baza-kierownicy-moza-r12-v2-direct-drive-wheelbase-rs081/',
+    'r16-base':     'https://mediak.pl/p/baza-kierownicy-moza-r16-v2-direct-drive-wheel-base-rs084/',
+    'r21-base':     'https://mediak.pl/p/baza-kierownicy-moza-racing-r21-direct-drive-rs033/',
+    'r21-ultra':    'https://mediak.pl/p/baza-kierownicy-moza-r21-ultra-direct-drive-rs090/',
+    'r25-ultra':    'https://mediak.pl/p/baza-kierownicy-moza-r25-ultra-direct-drive-rs091/',
+    'es-wheel':     'https://mediak.pl/p/obrecz-moza-es-steering-wheel-rs035-oem/',
+    'esx-wheel':    'https://mediak.pl/p/kierownica-moza-esx-rs052-do-xbox-pc/',
+    'ks-wheel':     'https://mediak.pl/p/obrecz-moza-racing-ks-wheel-rs047/',
+    'ks-pro-wheel': 'https://mediak.pl/p/kierownica-moza-ks-pro-gt-rs095/',
+    'cs-wheel':     'https://mediak.pl/p/obrecz-moza-cs-v2-p-steering-wheel-rs057/',
+    'cs-pro-wheel': 'https://mediak.pl/p/kierownica-moza-cs-pro-rs093/',
+    'gs-v2p-wheel': 'https://mediak.pl/p/kierownica-moza-gs-v2p-steering-wheel-rs056/',
+    'rs-wheel':     'https://mediak.pl/p/obrecz-moza-racing-rs-v2-kierownica-rs25/',
+    'fsr2-wheel':   'https://mediak.pl/p/kierownica-moza-racing-fsr2-formula-wheel-rs068/',
+    'vision-gs':    'https://mediak.pl/p/kierownica-moza-racing-vision-gs-rs064/',
+    'tsw-wheel':    'https://mediak.pl/p/kierownica-moza-tsw-truck-wheel-rs060/',
+    'lambo-revuelto':'https://mediak.pl/p/kierownica-moza-lamboghini-revuelto-rs096/',
+    'srp-pedals':   'https://mediak.pl/p/moza-sr-p-rs11-zestaw-dwupedalowy/',
+    'srp-lite':     'https://mediak.pl/p/moza-racing-pedal-sprzegla-sr-p-lite-rs19/',
+    'crp-pedals':   'https://mediak.pl/p/moza-crp-zestaw-pedalow-z-load-cell-rs04/',
+    'crp2-pedals':  'https://mediak.pl/p/moza-crp2-zestaw-2-pedalow-z-load-cell-rs066/',
+    'srp2-pedals':  'https://mediak.pl/p/moza-srp2-zestaw-dwupedalowy-rs098/',
+    'hgp-shifter':  'https://mediak.pl/p/moza-hgp-shifter-skrzynia-biegow-rs039/',
+    'sgp-shifter':  'https://mediak.pl/p/moza-racing-sgp-shifter-skrzynia-sekwencyjna-rs059/',
+    'handbrake':    'https://mediak.pl/p/moza-racing-hbp-handbrake-rs31-hamulec-reczny/',
+    'multi-stalks': 'https://mediak.pl/p/zestaw-manetek-kolumny-kierowniczej-moza-rs065/',
+    'universal-hub':'https://mediak.pl/p/uniwersalna-plyta-montazowa-moza-racing-universal-mounting-plate-rs089/',
+    'cm2-dash':     'https://mediak.pl/p/moza-cm2-hd-racing-dash-rs072-wyswietlacz-dotykowy/',
+    'es-formula-mod':'https://mediak.pl/p/obrecz-12-305mm-moza-racing-wheel-mod-rs046-do-obreczy-es/',
+    'z-axis':       'https://mediak.pl/p/modul-osi-z-drazka-sterowniczego-moza-flight-z-axis-module-as003/',
+    // MOZA Flight
+    'ab6-bundle':   'https://mediak.pl/p/symulator-lotu-moza-ab6-zestaw-as017-baza-6-nm-drazek-mhg/',
+    'ab9-base':     'https://mediak.pl/p/baza-steru-moza-flight-ab9-ffb-base/',
+    'mhg-stick':    'https://mediak.pl/p/drazek-sterowniczy-joystick-moza-mhg-flightstick-as018/',
+    'mh16-stick':   'https://mediak.pl/p/drazek-sterowniczy-joistick-moza-flight-mh16-flightstick/',
+    'ma3x-stick':   'https://mediak.pl/p/joystick-moza-ma3x-side-stick-as005/',
+    'ay210-yoke':   'https://mediak.pl/p/baza-lotnicza-moza-ay210-as011/',
+    'mfy-yoke':     'https://mediak.pl/p/wolant-moza-mfy-yoke-as012/',
+    'mtq-throttle': 'https://mediak.pl/p/przepustnica-moza-mtq-throttle-quadrant-as014/',
+    'mtp-throttle': 'https://mediak.pl/p/przepustnica-moza-mtp-as008/',
+    'mrp-pedals':   'https://mediak.pl/p/pedaly-moza-mrp-rudder-pedals-as019/',
+    'mrp-damper':   'https://mediak.pl/p/amortyzator-do-pedalow-moza-mrp-adjustable-damper-as020/',
+    'tqa':          'https://mediak.pl/p/modul-przepustnicy-moza-tqa-throttle-module-airbus-czarny-as016/',
+    'tqb':          'https://mediak.pl/p/modul-przepustnicy-moza-tqb-throttle-module-boeing-bialy-as015/',
+    'flight-base-clamp':'https://mediak.pl/p/adapter-montazowy-podstawy-lotu-moza-as006/',
+  },
+  // Batch 10: SIMUSTOP Argentina (Tiendanube, USD) — Jun 2026
+  simustop: {
+    'r3-bundle':    'https://simustop.com.ar/productos/moza-r3-bundle/',
+    'r5-bundle':    'https://simustop.com.ar/productos/moza-r5-bundle/',
+    'r9-v3-base':   'https://simustop.com.ar/productos/base-moza-r9-v3/',
+    'ks-wheel':     'https://simustop.com.ar/productos/volante-moza-ks/',
+    'cs-wheel':     'https://simustop.com.ar/productos/volante-moza-cs-v2p/',
+    'srp-pedals':   'https://simustop.com.ar/productos/pedales-moza-sr-p/',
+    'crp2-pedals':  'https://simustop.com.ar/productos/pedales-moza-crp2/',
+    'hgp-shifter':  'https://simustop.com.ar/productos/palanca-moza-hgp-mf46a/',
+    'handbrake':    'https://simustop.com.ar/productos/freno-de-mano-moza-hbp/',
+    'table-clamp':  'https://simustop.com.ar/productos/moza-table-clamp/',
   },
 };
 

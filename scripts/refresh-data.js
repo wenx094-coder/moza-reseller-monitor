@@ -76,6 +76,10 @@ const DEALER_INSTAGRAM_HANDLES = {
     // Batch 8: New dealer expansion (May 2026)
    computerlounge: { name: 'Computer Lounge', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
    gameshopmy: { name: 'GameShop Malaysia', location: 'Malaysia (nationwide shipping)', country: 'MY' },
+    // Batch 10: Poland expansion (Jun 2026)
+    'mediak.pl': { name: 'Mediak', location: 'Poland (Warsaw)', country: 'PL' },
+    // Batch 10: Argentina expansion (Jun 2026)
+    simustop: { name: 'SIMUSTOP', location: 'Argentina (nationwide shipping)', country: 'AR' },
 };
 
 const BRANDS = {
