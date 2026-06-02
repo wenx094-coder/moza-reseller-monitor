@@ -95,6 +95,8 @@ const DEALER_INSTAGRAM_HANDLES = {
     'speednation_': { name: 'Speednation', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
     'pbtechnz': { name: 'PB Tech', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
     'prosimtech': { name: 'ProSimTech', location: 'Portugal (EU shipping)', country: 'PT' },
+    // Batch 14b: More missing IG handles (Jun 2026)
+    'centralcomputers': { name: 'Central Computers', location: 'US (nationwide shipping)', country: 'US' },
 };
 
 const BRANDS = {
