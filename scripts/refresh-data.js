@@ -97,6 +97,7 @@ const DEALER_INSTAGRAM_HANDLES = {
     'prosimtech': { name: 'ProSimTech', location: 'Portugal (EU shipping)', country: 'PT' },
     // Batch 14b: More missing IG handles (Jun 2026)
     'centralcomputers': { name: 'Central Computers', location: 'US (nationwide shipping)', country: 'US' },
+    'bestbuy': { name: 'Best Buy', location: 'US (nationwide stores)', country: 'US' },
 };
 
 const BRANDS = {
