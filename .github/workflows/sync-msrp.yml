@@ -1,0 +1,35 @@
+name: Sync MSRP (Daily)
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-msrp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Sync MSRP from mozaracing.com
+        run: node scripts/sync-msrp.js
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet scripts/products-config.js price-data.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Commit & push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "moza-bot"
+          git config user.email "bot@moza-monitor"
+          git add scripts/products-config.js price-data.json
+          git commit -m "Auto-sync MSRP from mozaracing.com [skip ci]"
+          git push
