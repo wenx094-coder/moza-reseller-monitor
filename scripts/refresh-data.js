@@ -86,6 +86,15 @@ const DEALER_INSTAGRAM_HANDLES = {
     // Batch 12: Vietnam + Colombia expansion (Jun 2026)
     'apshop.vn': { name: 'APSHOP.VN', location: 'Vietnam (nationwide shipping)', country: 'VN' },
     'nobaracingstore': { name: 'Noba Racing Store', location: 'Colombia (nationwide shipping)', country: 'CO' },
+    // Batch 14: Missing IG handles + new dealers (Jun 2026)
+    'electronicscrazy.sg': { name: 'ElectronicsCrazy', location: 'Singapore (nationwide shipping)', country: 'SG' },
+    'plecomputers': { name: 'PLE Computers', location: 'Australia (nationwide shipping)', country: 'AU' },
+    'simpanzeeofficial': { name: 'Simpanzee', location: 'UAE (nationwide shipping)', country: 'AE' },
+    'ggksimracing': { name: 'GGK Simracing', location: 'Thailand (nationwide shipping)', country: 'TH' },
+    'simple.simracing_official': { name: 'Simple Sim Racing', location: 'Thailand (nationwide shipping)', country: 'TH' },
+    'speednation_': { name: 'Speednation', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
+    'pbtechnz': { name: 'PB Tech', location: 'New Zealand (nationwide shipping)', country: 'NZ' },
+    'prosimtech': { name: 'ProSimTech', location: 'Portugal (EU shipping)', country: 'PT' },
 };
 
 const BRANDS = {

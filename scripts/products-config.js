@@ -149,6 +149,9 @@ const RETAILERS = [
   // Batch 12: Vietnam + Colombia expansion (Jun 2026)
   { id: 'apshop',          name: 'APSHOP.VN',             url: 'https://apshop.vn',                            country: 'VN', currency: 'VND' },
   { id: 'noba',            name: 'Noba Racing Store',     url: 'https://nobaracingstore.com',                  country: 'CO', currency: 'COP' },
+  // Batch 14: New dealers (Jun 2026)
+  { id: 'pbtech',          name: 'PB Tech',               url: 'https://www.pbtech.com/pacific',               country: 'NZ', currency: 'NZD' },
+  { id: 'prosimtech',      name: 'ProSimTech',            url: 'https://www.prosimtech.com',                   country: 'PT', currency: 'EUR' },
 ];
 
 const PRODUCT_URLS = {
@@ -1290,6 +1293,49 @@ const PRODUCT_URLS = {
     'cm2-dash':     'https://nobaracingstore.com/products/pantalla-tactil-cm2',
     'multi-stalks': 'https://nobaracingstore.com/products/palancas-multifuncion',
     'clamp-truck':  'https://nobaracingstore.com/products/abrazadera-para-camiones',
+  },
+  // Batch 14: PB Tech (NZD, custom platform, via .com/pacific subdomain)
+  pbtech: {
+    'hgp-shifter':  'https://www.pbtech.com/pacific/product/GAMMZA39721/moza-racing-hgp-shifter',
+    'ks-wheel':     'https://www.pbtech.com/pacific/product/GAMMZA39752/moza-racing-ks-steering-wheel',
+    'tsw-wheel':    'https://www.pbtech.com/pacific/product/GAMMZA39943/moza-racing-tsw-truck-wheel',
+    'multi-stalks': 'https://www.pbtech.com/pacific/product/GAMMZA70551/moza-racing-multi-function-stalks',
+    'vision-gs':    'https://www.pbtech.com/pacific/product/GAMMZA70278/moza-racing-vgs-steering-wheel',
+    'r5-truck':     'https://www.pbtech.com/pacific/product/GAMMZA70667/moza-racing-truck-simulator-bundle',
+    'mtlp-panel':   'https://www.pbtech.com/pacific/product/GAMMZA70766/moza-racing-mtlp-panel',
+  },
+  // Batch 14: ProSimTech (EUR, PrestaShop)
+  prosimtech: {
+    'r3-bundle':    'https://www.prosimtech.com/en/sim-racing/315-moza-racing-r3-bundle.html',
+    'r5-bundle':    'https://www.prosimtech.com/en/racing-wheels/237-moza-racing-r5-bundle--0723497239493.html',
+    'r12-base':     'https://www.prosimtech.com/en/sim-racing/438-moza-racing-r12-direct-drive-wheel-base.html',
+    'r16-base':     'https://www.prosimtech.com/en/racing-wheels/437-moza-racing-r16-direct-drive-wheel-base--0743791914841.html',
+    'r21-base':     'https://www.prosimtech.com/en/racing-wheels/217-moza-racing-r21-direct-drive-wheel-base-0743791914926.html',
+    'esx-wheel':    'https://www.prosimtech.com/en/racing-wheels/440-moza-racing-esx-steering-wheel-rs052-0743791914933.html',
+    'ks-wheel':     'https://www.prosimtech.com/en/sim-racing/266-moza-racing-ks-steering-wheel.html',
+    'cs-v2p':       'https://www.prosimtech.com/en/racing-wheels/229-moza-racing-cs-v2p-steering-wheel-0723497239332.html',
+    'gs-v2p-wheel': 'https://www.prosimtech.com/en/racing-wheels/221-moza-racing-gs-steering-wheel-0743791914933.html',
+    'rs-wheel':     'https://www.prosimtech.com/en/racing-wheels/219-moza-racing-rs-steering-wheel.html',
+    'fsr2-wheel':   'https://www.prosimtech.com/en/racing-wheels/236-moza-racing-fsr2-steering-wheel-rs068.html',
+    'vision-gs':    'https://www.prosimtech.com/en/sim-racing/305-moza-racing-vgs-steering-wheel.html',
+    'srp-pedals':   'https://www.prosimtech.com/en/racing-pedals/232-moza-racing-sr-p-2-pedals-0723497239349.html',
+    'crp2-pedals':  'https://www.prosimtech.com/en/racing-pedals/311-moza-racing-crp2-load-cell-2-pedals.html',
+    'hgp-shifter':  'https://www.prosimtech.com/en/sim-racing/260-moza-racing-hgp-shifter.html',
+    'sgp-shifter':  'https://www.prosimtech.com/en/sim-racing/288-moza-racing-sgp-sequencial-shifter.html',
+    'handbrake':    'https://www.prosimtech.com/en/hand-brakes/246-moza-racing-hbp-handbrake.html',
+    'table-clamp':  'https://www.prosimtech.com/en/sim-racing/238-moza-racing-table-clamp-0723497239325.html',
+    'cm2-dash':     'https://www.prosimtech.com/en/sim-racing/347-moza-racing-cm2-digital-dash-0723497239417.html',
+    'quick-release':'https://www.prosimtech.com/en/sim-racing/234-moza-quick-release-adapter.html',
+    'universal-hub':'https://www.prosimtech.com/en/sim-racing/299-moza-universal-hub-kit.html',
+    'multi-stalks': 'https://www.prosimtech.com/en/sim-racing/349-moza-racing-multi-function-stalks-rs065.html',
+    'es-formula-mod':'https://www.prosimtech.com/en/racing-wheels/247-moza-racing-es-formula-wheel-rim.html',
+    'tsw-wheel':    'https://www.prosimtech.com/en/sim-racing/290-moza-racing-truck-wheel.html',
+    'z-axis':       'https://www.prosimtech.com/en/flight-sim/319-moza-racing-z-axis-module.html',
+    'ab9-base':     'https://www.prosimtech.com/en/flight-sim/316-moza-racing-ab9-ffb-base.html',
+    'ma3x-stick':   'https://www.prosimtech.com/en/flight-sim/317-moza-racing-ma3x-side-stick.html',
+    'mh16-stick':   'https://www.prosimtech.com/en/flight-sim/318-moza-racing-mh16-flightstick.html',
+    'flight-base-clamp':'https://www.prosimtech.com/en/flight-sim/320-moza-racing-flight-base-table-clamp.html',
+    'clamp-truck':  'https://www.prosimtech.com/en/sim-racing/314-moza-racing-truck-wheel-support.html',
   },
 };
 
