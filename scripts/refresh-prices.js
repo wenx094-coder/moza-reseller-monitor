@@ -50,7 +50,7 @@ function parsePrice(raw) {
   var s = String(raw).trim().replace(/\s+/g, ' ');
 
   // Try standard format first (with $ or £ prefix, comma as thousand sep)
-  var prefixMatch = s.match(/(?:\$|£|zł|R|kr|₩|₪|RM|₱|฿|Kč|NT\$|HK\$|S\$|MX\$|CLP\$|NZ\$|A\$|USD|CAD|AUD|NZD|SGD|HKD|CHF|AED|د\.إ|₫)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
+  var prefixMatch = s.match(/(?:\$|£|€|¥|zł|R|kr|₩|₪|RM|₱|฿|Kč|₹|NT\$|HK\$|S\$|MX\$|CLP\$|COL\$|NZ\$|A\$|JP¥|USD|CAD|AUD|NZD|SGD|HKD|CHF|AED|د\.إ|₫)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
   if (prefixMatch) {
     var rawNum = prefixMatch[1];
     // Detect format: if last separator is comma followed by 1-2 digits, it's European
@@ -315,7 +315,7 @@ async function main() {
           checkedAt: new Date().toISOString(),
         };
         var c = result.currency || currency;
-        var sym = c === 'EUR' ? '\u20AC' : c === 'GBP' ? '\u00A3' : c === 'INR' ? '\u20B9' : c === 'BRL' ? 'R$' : c === 'AUD' || c === 'CAD' ? 'A$' : c === 'SEK' ? 'kr' : c === 'DKK' ? 'kr' : c === 'NZD' ? 'NZ$' : c === 'PLN' ? 'zł' : c === 'SGD' ? 'S$' : c === 'HKD' ? 'HK$' : c === 'TWD' ? 'NT$' : c === 'KRW' ? '₩' : c === 'ILS' ? '₪' : c === 'MYR' ? 'RM' : c === 'MXN' ? 'MX$' : c === 'CLP' ? 'CLP$' : c === 'ZAR' ? 'R' : c === 'CHF' ? 'CHF' : c === 'PHP' ? '₱' : c === 'THB' ? '฿' : c === 'CZK' ? 'Kč' : c === 'AED' ? 'AED' : '$';
+        var sym = c === 'EUR' ? '\u20AC' : c === 'GBP' ? '\u00A3' : c === 'INR' ? '\u20B9' : c === 'JPY' ? '\u00A5' : c === 'BRL' ? 'R$' : c === 'AUD' || c === 'CAD' ? 'A$' : c === 'SEK' ? 'kr' : c === 'DKK' ? 'kr' : c === 'NZD' ? 'NZ$' : c === 'PLN' ? 'zł' : c === 'SGD' ? 'S$' : c === 'HKD' ? 'HK$' : c === 'TWD' ? 'NT$' : c === 'KRW' ? '₩' : c === 'ILS' ? '₪' : c === 'MYR' ? 'RM' : c === 'MXN' ? 'MX$' : c === 'CLP' ? 'CLP$' : c === 'ZAR' ? 'R' : c === 'CHF' ? 'CHF' : c === 'PHP' ? '₱' : c === 'THB' ? '฿' : c === 'CZK' ? 'Kč' : c === 'AED' ? 'AED' : c === 'VND' ? '₫' : c === 'COP' ? 'COL$' : '$';
         console.log('  OK ' + result.name + ': ' + sym + result.price + ' @ ' + retailerId);
         success++;
       } else {
@@ -340,7 +340,7 @@ async function main() {
             inStock: jsonResult.inStock !== false,
             checkedAt: new Date().toISOString(),
           };
-          var sym = jsonResult.currency === 'EUR' ? '\u20AC' : jsonResult.currency === 'GBP' ? '\u00A3' : jsonResult.currency === 'CHF' ? 'CHF' : jsonResult.currency === 'VND' ? '\u20AB' : jsonResult.currency === 'COP' ? 'COL$' : '$';
+          var sym = jsonResult.currency === 'EUR' ? '\u20AC' : jsonResult.currency === 'GBP' ? '\u00A3' : jsonResult.currency === 'CHF' ? 'CHF' : jsonResult.currency === 'JPY' ? '\u00A5' : jsonResult.currency === 'VND' ? '\u20AB' : jsonResult.currency === 'COP' ? 'COL$' : '$';
           console.log('  OK ' + jsonResult.name + ': ' + sym + jsonResult.price + ' @ ' + retailerId + ' (via .json)');
           success++;
         } else {
@@ -380,7 +380,7 @@ async function main() {
       var rname3 = r3 ? r3.name : rid3;
       var oldP = oldEntry ? oldEntry.price : '-';
       var newP = newEntry.price;
-      var sym3 = newEntry.currency === 'EUR' ? '\u20AC' : newEntry.currency === 'GBP' ? '\u00A3' : newEntry.currency === 'INR' ? '\u20B9' : newEntry.currency === 'BRL' ? 'R$' : newEntry.currency === 'AUD' || newEntry.currency === 'CAD' ? 'A$' : newEntry.currency === 'SEK' || newEntry.currency === 'DKK' ? 'kr' : newEntry.currency === 'NZD' ? 'NZ$' : newEntry.currency === 'PLN' ? 'z\u0142' : newEntry.currency === 'SGD' ? 'S$' : newEntry.currency === 'HKD' ? 'HK$' : newEntry.currency === 'TWD' ? 'NT$' : newEntry.currency === 'KRW' ? '\u20A9' : newEntry.currency === 'ILS' ? '\u20AA' : newEntry.currency === 'MYR' ? 'RM' : newEntry.currency === 'MXN' ? 'MX$' : newEntry.currency === 'CLP' ? 'CLP$' : newEntry.currency === 'ZAR' ? 'R' : newEntry.currency === 'CHF' ? 'CHF' : newEntry.currency === 'PHP' ? '\u20B1' : newEntry.currency === 'THB' ? '\u0E3F' : newEntry.currency === 'CZK' ? 'K\u010D' : newEntry.currency === 'AED' ? 'AED' : newEntry.currency === 'VND' ? '\u20AB' : newEntry.currency === 'COP' ? 'COL$' : '$';
+      var sym3 = newEntry.currency === 'EUR' ? '\u20AC' : newEntry.currency === 'GBP' ? '\u00A3' : newEntry.currency === 'INR' ? '\u20B9' : newEntry.currency === 'JPY' ? '\u00A5' : newEntry.currency === 'BRL' ? 'R$' : newEntry.currency === 'AUD' || newEntry.currency === 'CAD' ? 'A$' : newEntry.currency === 'SEK' || newEntry.currency === 'DKK' ? 'kr' : newEntry.currency === 'NZD' ? 'NZ$' : newEntry.currency === 'PLN' ? 'z\u0142' : newEntry.currency === 'SGD' ? 'S$' : newEntry.currency === 'HKD' ? 'HK$' : newEntry.currency === 'TWD' ? 'NT$' : newEntry.currency === 'KRW' ? '\u20A9' : newEntry.currency === 'ILS' ? '\u20AA' : newEntry.currency === 'MYR' ? 'RM' : newEntry.currency === 'MXN' ? 'MX$' : newEntry.currency === 'CLP' ? 'CLP$' : newEntry.currency === 'ZAR' ? 'R' : newEntry.currency === 'CHF' ? 'CHF' : newEntry.currency === 'PHP' ? '\u20B1' : newEntry.currency === 'THB' ? '\u0E3F' : newEntry.currency === 'CZK' ? 'K\u010D' : newEntry.currency === 'AED' ? 'AED' : newEntry.currency === 'VND' ? '\u20AB' : newEntry.currency === 'COP' ? 'COL$' : '$';
       var changeStr = oldEntry ? (newP > oldP ? '+$' + (newP - oldP).toFixed(2) : '-$' + (oldP - newP).toFixed(2)) : 'NEW';
       changeLines.push('| ' + name4 + ' | ' + rname3 + ' | ' + (oldEntry ? sym3 + oldP : '-') + ' | ' + sym3 + newP + ' | ' + changeStr + ' |');
       changeCount++;
@@ -440,7 +440,7 @@ async function main() {
       var r2 = RETAILERS.find(function(x) { return x.id === rid2; });
       var rname2 = r2 ? r2.name : rid2;
       var info2 = data.prices[pid3][rid2];
-        var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : info2.currency === 'SEK' ? 'kr' : info2.currency === 'DKK' ? 'kr' : info2.currency === 'NZD' ? 'NZ$' : info2.currency === 'PLN' ? 'zł' : info2.currency === 'SGD' ? 'S$' : info2.currency === 'HKD' ? 'HK$' : info2.currency === 'TWD' ? 'NT$' : info2.currency === 'KRW' ? '₩' : info2.currency === 'ILS' ? '₪' : info2.currency === 'MYR' ? 'RM' : info2.currency === 'MXN' ? 'MX$' : info2.currency === 'CLP' ? 'CLP$' : info2.currency === 'ZAR' ? 'R' : info2.currency === 'CHF' ? 'CHF' : info2.currency === 'PHP' ? '₱' : info2.currency === 'THB' ? '฿' : info2.currency === 'CZK' ? 'Kč' : info2.currency === 'AED' ? 'AED' : info2.currency === 'VND' ? '₫' : info2.currency === 'COP' ? 'COL$' : '$';
+        var sym2 = info2.currency === 'EUR' ? '\u20AC' : info2.currency === 'GBP' ? '\u00A3' : info2.currency === 'INR' ? '\u20B9' : info2.currency === 'JPY' ? '\u00A5' : info2.currency === 'BRL' ? 'R$' : info2.currency === 'AUD' || info2.currency === 'CAD' ? 'A$' : info2.currency === 'SEK' ? 'kr' : info2.currency === 'DKK' ? 'kr' : info2.currency === 'NZD' ? 'NZ$' : info2.currency === 'PLN' ? 'zł' : info2.currency === 'SGD' ? 'S$' : info2.currency === 'HKD' ? 'HK$' : info2.currency === 'TWD' ? 'NT$' : info2.currency === 'KRW' ? '₩' : info2.currency === 'ILS' ? '₪' : info2.currency === 'MYR' ? 'RM' : info2.currency === 'MXN' ? 'MX$' : info2.currency === 'CLP' ? 'CLP$' : info2.currency === 'ZAR' ? 'R' : info2.currency === 'CHF' ? 'CHF' : info2.currency === 'PHP' ? '₱' : info2.currency === 'THB' ? '฿' : info2.currency === 'CZK' ? 'Kč' : info2.currency === 'AED' ? 'AED' : info2.currency === 'VND' ? '₫' : info2.currency === 'COP' ? 'COL$' : '$';
       console.log('  ' + name3 + ': ' + sym2 + info2.price + ' @ ' + rname2 + msrpLine);
 
       if (msrp && info2.price > 0) {
@@ -472,6 +472,7 @@ async function main() {
         else if (info2.currency === 'AED') priceUsd = info2.price * 0.27;
         else if (info2.currency === 'VND') priceUsd = info2.price * 0.000041;
         else if (info2.currency === 'COP') priceUsd = info2.price * 0.00024;
+        else if (info2.currency === 'JPY') priceUsd = info2.price * 0.0069;
         else if (info2.currency === 'CHF') priceUsd = info2.price * 1.11;
 
         if (priceUsd < msrpUsd * 0.95) {
