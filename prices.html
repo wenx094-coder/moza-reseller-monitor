@@ -494,9 +494,9 @@ var SUBCATEGORY_MAP = {
 
 var CONTINENTS = [
   { key: 'north_america', label: 'North America', flag: '🌎', countries: ['US', 'CA', 'MX'] },
-  { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR', 'CL'] },
-  { key: 'europe', label: 'Europe', flag: '🌍', countries: ['GB', 'DE', 'IE', 'ES', 'FR', 'NL', 'SE', 'PL', 'AT', 'CH', 'IT', 'CZ', 'DK'] },
-  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN', 'SG', 'IL', 'JP', 'KR', 'MY', 'PH', 'TH', 'AE', 'HK', 'TW'] },
+  { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR', 'CL', 'CO', 'AR'] },
+  { key: 'europe', label: 'Europe', flag: '🌍', countries: ['GB', 'DE', 'IE', 'ES', 'FR', 'NL', 'SE', 'PL', 'AT', 'CH', 'IT', 'CZ', 'DK', 'PT', 'GR'] },
+  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN', 'SG', 'IL', 'JP', 'KR', 'MY', 'PH', 'TH', 'AE', 'HK', 'TW', 'VN'] },
   { key: 'oceania', label: 'Oceania', flag: '🌏', countries: ['AU', 'NZ'] },
   { key: 'africa', label: 'Africa', flag: '🌍', countries: ['ZA'] },
 ];
@@ -516,6 +516,9 @@ function countryFlag(code) {
   if (code === 'KR') return '🇰🇷'; if (code === 'MY') return '🇲🇾'; if (code === 'PH') return '🇵🇭';
   if (code === 'TH') return '🇹🇭'; if (code === 'AE') return '🇦🇪'; if (code === 'HK') return '🇭🇰';
   if (code === 'TW') return '🇹🇼'; if (code === 'ZA') return '🇿🇦';
+  if (code === 'PT') return '🇵🇹'; if (code === 'GR') return '🇬🇷';
+  if (code === 'VN') return '🇻🇳';
+  if (code === 'CO') return '🇨🇴'; if (code === 'AR') return '🇦🇷';
   return '';
 }
 
