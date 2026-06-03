@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -43,15 +43,24 @@ function extractPriceWithSelector(html, selectors) {
 async function scrapeUrl(browser, url, retailerId) {
   var context = null;
   try {
+    var isBestBuy = retailerId === 'bestbuy';
     context = await browser.newContext({
       userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
       locale: retailerId === 'kfire' ? 'pt-BR' : 'en-US',
+      viewport: { width: 1920, height: 1080 },
+      extraHTTPHeaders: isBestBuy ? { 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'en-US,en;q=0.5' } : {},
     });
     var page = await context.newPage();
     page.setDefaultTimeout(30000);
 
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
-    await page.waitForTimeout(3000);
+    if (isBestBuy) {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(function(){});
+      await page.waitForTimeout(5000);
+      try { await page.waitForSelector('.priceView-customer-price', { timeout: 8000 }); } catch(e) {}
+    } else {
+      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+      await page.waitForTimeout(3000);
+    }
 
     var html = await page.content();
     var title = await page.title();
@@ -130,6 +139,36 @@ async function scrapeUrl(browser, url, retailerId) {
       if (ccMatch) price = parseFloat(ccMatch[1].replace(/,/g, ''));
     }
 
+    // ElectronicsCrazy: WooCommerce custom theme, price in #Item_main_price or JSON-LD
+    if (!price && retailerId === 'electronicscrazy') {
+      var ecMatch = html.match(/"price"\s*:\s*"([0-9.]+)"/);
+      if (ecMatch) price = parseFloat(ecMatch[1]);
+      if (!price) {
+        var ecHtmlMatch = html.match(/Item_main_price[^>]*>[\s\S]{0,200}?[S$]\s*([0-9,.]+)/);
+        if (ecHtmlMatch) price = parseFloat(ecHtmlMatch[1].replace(/,/g, ''));
+      }
+    }
+
+    // Alternate: JS-rendered prices, look for JSON-LD or data-price attributes
+    if (!price && retailerId === 'alternate') {
+      var altJson = html.match(/"price"\s*:\s*"([0-9.]+)"/);
+      if (altJson) price = parseFloat(altJson[1]);
+      if (!price) {
+        var altMatch = html.match(/data-price[^>]*>\s*[^<]*?([0-9,.]+)/);
+        if (altMatch) price = parseFloat(altMatch[1].replace(/,/g, ''));
+      }
+    }
+
+    // PB Tech: custom .NET platform, uses sticky-price or font-size-28 selectors
+    if (!price && retailerId === 'pbtech') {
+      var pbMatch = html.match(/sticky-price[^>]*>[\s\S]{0,50}?\$\s*([0-9,.]+)/);
+      if (pbMatch) price = parseFloat(pbMatch[1].replace(/,/g, ''));
+      if (!price) {
+        pbMatch = html.match(/font-size-28[^>]*>[\s\S]{0,50}?\$\s*([0-9,.]+)/);
+        if (pbMatch) price = parseFloat(pbMatch[1].replace(/,/g, ''));
+      }
+    }
+
     await context.close();
     return { name: title, price: price, inStock: true };
 
@@ -166,6 +205,7 @@ async function main() {
   try {
     browser = await chromium.launch({
       headless: true,
+      executablePath: 'C:\\Users\\wenx0\\AppData\\Local\\ms-playwright\\chromium-1223\\chrome-win64\\chrome.exe',
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
     });
 

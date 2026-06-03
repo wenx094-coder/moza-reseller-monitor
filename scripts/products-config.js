@@ -65,6 +65,10 @@ const PRODUCTS = [
   { id: 'mrp-damper',   name: 'MRP Adjustable Damper',brand: 'Moza AS23' },
   { id: 'tqa',          name: 'TQA Throttle Module',  brand: 'Moza AS23' },
   { id: 'tqb',          name: 'TQB Throttle Module',  brand: 'Moza AS23' },
+  // Best Buy-specific accessories
+  { id: 'crp2-clutch',  name: 'CRP2 Load Cell Clutch Pedal', brand: 'Moza RS21' },
+  { id: 'crp2-perf-kit',name: 'CRP2 Pedal Performance Kit', brand: 'Moza RS21' },
+  { id: 'srp-lite-perf-kit', name: 'SR-P Lite Performance Kit', brand: 'Moza RS21' },
 ];
 
 const RETAILERS = [
@@ -1096,11 +1100,30 @@ const PRODUCT_URLS = {
   },
   // Batch 9: US major retailers (Jun 2026) — Best Buy (anti-bot, uses headless)
   bestbuy: {
-    'r3-bundle':    'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-of-force-for-windows-pedals-wheelbase-wheel-black/J3R84PHW67',
-    'r3-xbox':      'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-force-for-xbox-one-xbox-series-xs-and-pc-pedals-wheelbase-wheel-black/J3R84PHTFH',
-    'r5-bundle':    'https://www.bestbuy.com/product/moza-racing-r5-direct-drive-sim-racing-bundle-with-5-5nm-of-force-for-windows-pedals-wheelbase-steering-wheel-black/J3R84PHT5S',
-    'ks-wheel':     'https://www.bestbuy.com/product/moza-racing-ks-sim-racing-gt-style-steering-wheel-for-windows-black/J3R84PHTK7',
-    'hgp-shifter':  'https://www.bestbuy.com/product/moza-racing-hgp-sim-racing-stick-shifter-for-windows/J3R84PHWCQ',
+    'r3-bundle':      'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-of-force-for-windows-pedals-wheelbase-wheel-black/J3R84PHW67',
+    'r3-xbox':        'https://www.bestbuy.com/product/moza-racing-r3-direct-drive-sim-racing-bundle-with-3-9nm-force-for-xbox-one-xbox-series-xs-and-pc-pedals-wheelbase-wheel-black/J3R84PHTFH',
+    'r5-bundle':      'https://www.bestbuy.com/product/moza-racing-r5-direct-drive-sim-racing-bundle-with-5-5nm-of-force-for-windows-pedals-wheelbase-steering-wheel-black/J3R84PHT5S',
+    'r5-truck':       'https://www.bestbuy.com/product/moza-racing-truck-simulator-sim-racing-bundle-for-windows-pedals-wheelbase-steering-wheel-black/J3R84PHWPZ',
+    'r9-v3-base':     'https://www.bestbuy.com/product/moza-racing-r9-v3-direct-drive-sim-racing-wheelbase-for-windows-black/J3R84PHWHV',
+    'r12-base':       'https://www.bestbuy.com/product/moza-racing-r12-v2-direct-drive-sim-racing-wheelbase-for-windows-black/J3R84PHWT8',
+    'r21-ultra':      'https://www.bestbuy.com/product/moza-racing-r21-ultra-direct-drive-sim-racing-wheelbase-for-windows/J3R84PHWFY',
+    'r25-ultra':      'https://www.bestbuy.com/product/moza-racing-r25-ultra-direct-drive-sim-racing-wheelbase-for-windows/J3R84PHWFH',
+    'ks-wheel':       'https://www.bestbuy.com/product/moza-racing-ks-sim-racing-gt-style-steering-wheel-for-windows-black/J3R84PHTK7',
+    'cs-pro-wheel':   'https://www.bestbuy.com/product/moza-racing-cs-pro-sim-racing-steering-wheel-for-windows-black/J3R84PHWVQ',
+    'cs-v2p':         'https://www.bestbuy.com/product/moza-racing-cs-v2p-sim-racing-steering-wheel-for-windows-black/J3R84PHTW9',
+    'gs-v2p-wheel':   'https://www.bestbuy.com/product/moza-racing-gs-v2p-sim-racing-formula-steering-wheel-for-windows-black/J3R84PHTTZ',
+    'rs-wheel':       'https://www.bestbuy.com/product/moza-racing-rs-v2-sim-racing-steering-wheel-for-windows-black/J3R84PHTT6',
+    'fsr2-wheel':     'https://www.bestbuy.com/product/moza-racing-fsr-v2-formula-sim-racing-steering-wheel-for-windows-black/J3R84PHWG6',
+    'vision-gs':      'https://www.bestbuy.com/product/moza-vision-gs-sim-racing-steering-wheel-2-85-in-hd-touchscreen-72-programmable-inputs-aluminum-carbon-fiber-build-black/J3R84PHTKV',
+    'esx-wheel':      'https://www.bestbuy.com/product/moza-racing-esx-sim-racing-steering-wheel-for-xbox-one-xbox-series-xs-and-windows-black/J3R84PHTFY',
+    'hgp-shifter':    'https://www.bestbuy.com/product/moza-racing-hgp-sim-racing-stick-shifter-for-windows/J3R84PHWCQ',
+    'srp2-pedals':    'https://www.bestbuy.com/product/moza-racing-srp2-sim-racing-pedals-throttle-brake-for-windows-and-xbox/J3R84PHKCL',
+    'crp2-clutch':    'https://www.bestbuy.com/product/moza-racing-crp2-load-cell-clutch-pedal-for-windows/J3R84PHWGZ',
+    'crp2-perf-kit':  'https://www.bestbuy.com/product/moza-racing-crp2-sim-racing-pedal-performance-kit-for-windows/J3R84PHWYQ',
+    'srp-lite-perf-kit':'https://www.bestbuy.com/product/moza-racing-sr-p-lite-sim-racing-pedal-performance-kit-for-windows/J3R84PHW7X',
+    'ab9-base':       'https://www.bestbuy.com/product/moza-racing-ab9-ffb-flight-sim-stick-base-for-windows/J3R84PHW84',
+    'ab6-bundle':     'https://www.bestbuy.com/product/moza-racing-ab6-flight-simulator-bundle-for-windows-black/J3R84PHW5P',
+    'ay210-yoke':     'https://www.bestbuy.com/product/moza-racing-ay210-flight-sim-yoke-force-feedback-base-for-windows/J3R84PHWQW',
   },
   // Batch 9: Central Computers US (Magento, USD) — Jun 2026
   centralcomputer: {
@@ -1294,15 +1317,43 @@ const PRODUCT_URLS = {
     'multi-stalks': 'https://nobaracingstore.com/products/palancas-multifuncion',
     'clamp-truck':  'https://nobaracingstore.com/products/abrazadera-para-camiones',
   },
-  // Batch 14: PB Tech (NZD, custom platform, via .com/pacific subdomain)
+  // Batch 14: PB Tech (NZD, custom .NET platform)
+  // Use .com/pacific subdomain (no anti-bot, prices inc GST). .co.nz returns 403 for automated requests.
   pbtech: {
-    'hgp-shifter':  'https://www.pbtech.com/pacific/product/GAMMZA39721/moza-racing-hgp-shifter',
-    'ks-wheel':     'https://www.pbtech.com/pacific/product/GAMMZA39752/moza-racing-ks-steering-wheel',
-    'tsw-wheel':    'https://www.pbtech.com/pacific/product/GAMMZA39943/moza-racing-tsw-truck-wheel',
-    'multi-stalks': 'https://www.pbtech.com/pacific/product/GAMMZA70551/moza-racing-multi-function-stalks',
-    'vision-gs':    'https://www.pbtech.com/pacific/product/GAMMZA70278/moza-racing-vgs-steering-wheel',
-    'r5-truck':     'https://www.pbtech.com/pacific/product/GAMMZA70667/moza-racing-truck-simulator-bundle',
-    'mtlp-panel':   'https://www.pbtech.com/pacific/product/GAMMZA70766/moza-racing-mtlp-panel',
+    // Bundles
+    'r3-bundle':    'https://www.pbtech.com/pacific/product/GAMMZA70711',
+    'r3-xbox':      'https://www.pbtech.com/pacific/product/GAMMZA39738',
+    'r5-truck':     'https://www.pbtech.com/pacific/product/GAMMZA70667',
+    // Wheel Bases
+    'r12-base':     'https://www.pbtech.com/pacific/product/GAMMZA70827',
+    'r21-ultra':    'https://www.pbtech.com/pacific/product/GAMMZA71350',
+    'r25-ultra':    'https://www.pbtech.com/pacific/product/GAMMZA71343',
+    // Steering Wheels
+    'ks-wheel':     'https://www.pbtech.com/pacific/product/GAMMZA39752',
+    'ks-pro-wheel': 'https://www.pbtech.com/pacific/product/GAMMZA71282',
+    'cs-pro-wheel': 'https://www.pbtech.com/pacific/product/GAMMZA71329',
+    'gs-v2p-wheel': 'https://www.pbtech.com/pacific/product/GAMMZA39899',
+    'vision-gs':    'https://www.pbtech.com/pacific/product/GAMMZA70278',
+    'tsw-wheel':    'https://www.pbtech.com/pacific/product/GAMMZA39943',
+    'esx-wheel':    'https://www.pbtech.com/pacific/product/GAMMZA70360',
+    'es-formula-mod':'https://www.pbtech.com/pacific/product/GAMMZA39622',
+    // Pedals
+    'crp2-pedals':  'https://www.pbtech.com/pacific/product/GAMMZA70575',
+    'srp2-pedals':  'https://www.pbtech.com/pacific/product/GAMMZA71251',
+    // Shifters & Accessories
+    'hgp-shifter':  'https://www.pbtech.com/pacific/product/GAMMZA39721',
+    'sgp-shifter':  'https://www.pbtech.com/pacific/product/GAMMZA39936',
+    'multi-stalks': 'https://www.pbtech.com/pacific/product/GAMMZA70551',
+    'mtlp-panel':   'https://www.pbtech.com/pacific/product/GAMMZA70766',
+    'extension-rod':'https://www.pbtech.com/pacific/product/GAMMZA39875',
+    'quick-release':'https://www.pbtech.com/pacific/product/GAMMZA70470',
+    // Flight Sim
+    'ab9-base':     'https://www.pbtech.com/pacific/product/GAMMZA70568',
+    'ab6-bundle':   'https://www.pbtech.com/pacific/product/GAMMZA70957',
+    'mh16-stick':   'https://www.pbtech.com/pacific/product/GAMMZA70605',
+    'ay210-yoke':   'https://www.pbtech.com/pacific/product/GAMMZA70780',
+    'mtp-throttle': 'https://www.pbtech.com/pacific/product/GAMMZA70742',
+    'flight-base-clamp':'https://www.pbtech.com/pacific/product/GAMMZA70629',
   },
   // Batch 14: ProSimTech (EUR, PrestaShop)
   prosimtech: {
@@ -1460,6 +1511,10 @@ const MSRP_MAP = {
   'mrp-pedals':    499,
   'mfy-yoke':    219,
   'es-formula-mod':    59,
+  'r5-truck':      599,
+  'crp2-clutch':    99,
+  'crp2-perf-kit':  59,
+  'srp-lite-perf-kit': 39,
 };
 
 

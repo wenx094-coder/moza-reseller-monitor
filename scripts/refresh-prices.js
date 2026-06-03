@@ -279,6 +279,26 @@ function extractPrice(html, preferredCurrency, retailerId) {
     }
   }
 
+  // PB Tech: custom .NET platform, price in .sticky-price or .font-size-28
+  if (retailerId === 'pbtech') {
+    var pbPrice = null;
+    // Use sticky-price first (exact inc-GST price)
+    var pbSticky = $('.sticky-price').first();
+    if (pbSticky.length) {
+      pbPrice = parsePrice(pbSticky.text().trim());
+    }
+    // Fallback to .font-size-28 (rounded price)
+    if (pbPrice == null || pbPrice <= 0) {
+      var pbEl = $('.font-size-28').first();
+      if (pbEl.length) {
+        pbPrice = parsePrice(pbEl.text().trim());
+      }
+    }
+    if (pbPrice != null && pbPrice > 0) {
+      return { name: title, price: pbPrice, currency: preferredCurrency || 'NZD', inStock: true };
+    }
+  }
+
   return null;
 }
 
