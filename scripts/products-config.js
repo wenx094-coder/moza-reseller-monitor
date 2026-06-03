@@ -118,7 +118,7 @@ const RETAILERS = [
   { id: 'sdeal',           name: 'SDeal',                url: 'https://www.sdeal.com.my',               country: 'MY', currency: 'MYR' },
   { id: 'yoho',            name: 'YOHO 友和',             url: 'https://www.yohohongkong.com',           country: 'HK', currency: 'HKD' },
   { id: 'pchome',          name: 'PChome 24h',           url: 'https://24h.pchome.com.tw',              country: 'TW', currency: 'TWD' },
-  { id: 'delenordic',      name: 'DELE Nordic',          url: 'https://www.delenordic.com',             country: 'DK', currency: 'DKK' },
+  { id: 'delenordic',      name: 'DELE Nordic',          url: 'https://www.delenordic.com',             country: 'DK', currency: 'EUR' },
   // Batch 3: New dealers (May 2026)
   { id: 'simracer',        name: 'SimRacer Austria',      url: 'https://simracer.at',                          country: 'AT', currency: 'EUR' },
   { id: 'simultimate',     name: 'SimUltimate',            url: 'https://simultimate.ch',                      country: 'CH', currency: 'CHF' },
@@ -456,7 +456,7 @@ const PRODUCT_URLS = {
     'esx-wheel':    'https://gomotorsportsshop.com/products/moza-esx-steering-wheel',
     'ks-wheel':     'https://gomotorsportsshop.com/products/moza-ks-steering-wheel',
     'cs-wheel':     'https://gomotorsportsshop.com/products/moza-cs-v2p-steering-wheel',
-    'cs-pro-wheel': 'https://gomotorsportsshop.com/products/moza-cs-pro-steering-wheel',
+    // cs-pro-wheel: removed — URL points to "MOZA CS Pro Steering Wheel Paddle add on" ($45 add-on part, not the full wheel)
     'gs-v2p-wheel': 'https://gomotorsportsshop.com/products/moza-gs-v2p-gt-wheel',
     'fsr2-wheel':   'https://gomotorsportsshop.com/products/moza-fsr-formula-wheel',
     'vision-gs':    'https://gomotorsportsshop.com/products/moza-vision-gs-wheel',
@@ -473,7 +473,8 @@ const PRODUCT_URLS = {
     'ks-wheel':     'https://www.simracingpros.com/products/moza-ks-wheel-pre-order-estimated-arrival-early-august',
     'vision-gs':    'https://www.simracingpros.com/products/moza-vision-gs-wheel-pre-order',
     'srp-pedals':   'https://www.simracingpros.com/products/moza-sr-p-pedal-no-clutch',
-    'crp2-pedals':  'https://www.simracingpros.com/products/moza-crp2-load-cell-pedals',
+    // crp2-pedals: removed — .json returns $99 pre-order placeholder (MSRP $549)
+    // 'crp2-pedals':  'https://www.simracingpros.com/products/moza-crp2-load-cell-pedals',
     'hgp-shifter':  'https://www.simracingpros.com/products/moza-hgp-shifter-pre-order',
     'handbrake':    'https://www.simracingpros.com/products/moza-hbp-handbrake-pre-order',
     'table-clamp':  'https://www.simracingpros.com/products/moza-r9-table-clamp',
@@ -488,8 +489,8 @@ const PRODUCT_URLS = {
     'srp-pedals':   'https://www.racegear.eu/en/sim-racing-pedals/122-moza-sr-p-lite-clutch-pedal-rs19-0723497239486.html',
     'table-clamp':  'https://www.racegear.eu/en/accessories-for-steering-wheels/86-moza-r5r9-table-clamp-rs12-0723497239325.html',
   },
+  // electronicscrazy: srp-pedals removed (HTTP 404, product no longer listed)
   electronicscrazy: {
-    'srp-pedals':   'https://www.electronicscrazy.sg/moza-racing-rs111-sr-p-2-pedals-load-cell-sim-racing-pedal-set-with-adjustable-design/',
     'crp2-pedals':  'https://www.electronicscrazy.sg/moza-racing-crp2-pedal-set-rs066-3-pedal-system-for-sim-racing-pc/',
     'mtlp-panel':   'https://www.electronicscrazy.sg/moza-racing-as009-mtlp-panel-pro-sim-racing-multi-function-control-module/',
   },
@@ -1066,21 +1067,8 @@ const PRODUCT_URLS = {
     'tqa':          'https://www.gameshop.my/products/moza-tqa-throttle-module',
     'tqb':          'https://www.gameshop.my/products/moza-tqb-throttle-module',
   },
-  // Batch 8: PLE Computers AU (custom .NET platform, AUD) — May 2026
-  plecomau: {
-    'r5-bundle':    'https://www.ple.com.au/Products/663035/moza-r5-racing-simulator-bundle-55nm-direct-drive-wheel-pedals',
-    'r9-v3-base':   'https://www.ple.com.au/Products/663036/moza-r9-v3-direct-drive-wheel-base',
-    'r12-base':     'https://www.ple.com.au/Products/663037/moza-r12-v2-direct-drive-wheel-base-12nm',
-    'r16-base':     'https://www.ple.com.au/Products/663038/moza-r16-v2-direct-drive-wheel-base-16nm',
-    'r21-base':     'https://www.ple.com.au/Products/663039/moza-r21-v2-direct-drive-wheel-base-21nm',
-    'ks-wheel':     'https://www.ple.com.au/Products/663040/moza-ks-steering-wheel',
-    'srp-pedals':   'https://www.ple.com.au/Products/663041/moza-sr-p-pedal-set',
-    'crp2-pedals':  'https://www.ple.com.au/Products/663042/moza-crp2-pedal-set',
-    'hgp-shifter':  'https://www.ple.com.au/Products/663043/moza-hgp-shifter',
-    'handbrake':    'https://www.ple.com.au/Products/663044/moza-hbp-handbrake',
-    'table-clamp':  'https://www.ple.com.au/Products/663045/moza-table-clamp',
-    'ab6-bundle':   'https://www.ple.com.au/Products/663046/moza-ab6-force-feedback-flight-simulator',
-  },
+  // PLE Computers: all 12 product URLs removed (HTTP 404 — PLE may have dropped MOZA or changed site platform)
+  // plecomau: { },
   // Batch 8: Simpanzee UAE (WooCommerce, AED) — May 2026
   simpanzee: {
     'r3-xbox':      'https://simpanzee.com/product/moza-r3-bundle-for-xbox/',
