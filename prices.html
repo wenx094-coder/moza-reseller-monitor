@@ -429,7 +429,7 @@ var RETAILERS = {
   computerlounge: { name: 'Computer Lounge', country: 'NZ', currency: 'NZD' },
   gameshopmy: { name: 'GameShop Malaysia', country: 'MY', currency: 'MYR' },
   plecomau: { name: 'PLE Computers', country: 'AU', currency: 'AUD' },
-  simpanzee: { name: 'Simpanzee', country: 'AE', currency: 'AED' },
+  simpanzee: { name: 'Simpanzee', country: 'PK', currency: 'PKR' },
   bestbuy: { name: 'Best Buy', country: 'US', currency: 'USD' },
   centralcomputer: { name: 'Central Computers', country: 'US', currency: 'USD' },
   mediak: { name: 'Mediak', country: 'PL', currency: 'PLN' },
@@ -498,7 +498,7 @@ var CONTINENTS = [
   { key: 'north_america', label: 'North America', flag: '🌎', countries: ['US', 'CA', 'MX'] },
   { key: 'south_america', label: 'South America', flag: '🌎', countries: ['BR', 'CL', 'CO', 'AR'] },
   { key: 'europe', label: 'Europe', flag: '🌍', countries: ['GB', 'DE', 'IE', 'ES', 'FR', 'NL', 'SE', 'PL', 'AT', 'CH', 'IT', 'CZ', 'DK', 'PT', 'GR'] },
-  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN', 'SG', 'IL', 'JP', 'KR', 'MY', 'PH', 'TH', 'AE', 'HK', 'TW', 'VN'] },
+  { key: 'asia', label: 'Asia', flag: '🌏', countries: ['IN', 'SG', 'IL', 'JP', 'KR', 'MY', 'PH', 'TH', 'AE', 'HK', 'TW', 'VN', 'PK'] },
   { key: 'oceania', label: 'Oceania', flag: '🌏', countries: ['AU', 'NZ'] },
   { key: 'africa', label: 'Africa', flag: '🌍', countries: ['ZA'] },
 ];
@@ -516,7 +516,7 @@ function countryFlag(code) {
   if (code === 'AU') return '🇦🇺'; if (code === 'NZ') return '🇳🇿'; if (code === 'IN') return '🇮🇳';
   if (code === 'SG') return '🇸🇬'; if (code === 'IL') return '🇮🇱'; if (code === 'JP') return '🇯🇵';
   if (code === 'KR') return '🇰🇷'; if (code === 'MY') return '🇲🇾'; if (code === 'PH') return '🇵🇭';
-  if (code === 'TH') return '🇹🇭'; if (code === 'AE') return '🇦🇪'; if (code === 'HK') return '🇭🇰';
+  if (code === 'TH') return '🇹🇭'; if (code === 'AE') return '🇦🇪'; if (code === 'PK') return '🇵🇰'; if (code === 'HK') return '🇭🇰';
   if (code === 'TW') return '🇹🇼'; if (code === 'ZA') return '🇿🇦';
   if (code === 'PT') return '🇵🇹'; if (code === 'GR') return '🇬🇷';
   if (code === 'VN') return '🇻🇳';
@@ -584,6 +584,7 @@ function currencySymbol(currency) {
   if (currency === 'THB') return '\u0E3F';
   if (currency === 'CZK') return 'K\u010D';
   if (currency === 'AED') return 'AED';
+  if (currency === 'PKR') return 'Rs';
   if (currency === 'JPY') return '\u00A5';
   if (currency === 'VND') return '\u20AB';
   if (currency === 'COP') return 'COL$';
