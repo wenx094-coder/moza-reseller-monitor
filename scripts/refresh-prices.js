@@ -50,7 +50,7 @@ function parsePrice(raw) {
   var s = String(raw).trim().replace(/\s+/g, ' ');
 
   // Try standard format first (with $ or £ prefix, comma as thousand sep)
-  var prefixMatch = s.match(/(?:\$|£|€|¥|zł|R|kr|₩|₪|RM|₱|฿|Kč|₹|NT\$|HK\$|S\$|MX\$|CLP\$|COL\$|NZ\$|A\$|JP¥|USD|CAD|AUD|NZD|SGD|HKD|CHF|AED|د\.إ|₫)?\s*([0-9]{1,3}(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
+  var prefixMatch = s.match(/(?:\$|£|€|¥|zł|R|kr|₩|₪|RM|₱|฿|Kč|₹|NT\$|HK\$|S\$|MX\$|CLP\$|COL\$|NZ\$|A\$|JP¥|USD|CAD|AUD|NZD|SGD|HKD|CHF|AED|د\.إ|₫|₨)?\s*([0-9]+(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
   if (prefixMatch) {
     var rawNum = prefixMatch[1];
     // Detect format: if last separator is comma followed by 1-2 digits, it's European
@@ -241,6 +241,7 @@ function extractPrice(html, preferredCurrency, retailerId) {
     '.product__price',
     '.sale-price',
     '.price-item',
+    '.current-price .price',
   ];
 
   // Ricmotech: "Your Price:" followed by price
