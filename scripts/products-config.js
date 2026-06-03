@@ -139,7 +139,7 @@ const RETAILERS = [
   { id: 'computerlounge',   name: 'Computer Lounge',        url: 'https://computerlounge.co.nz',                country: 'NZ', currency: 'NZD' },
   { id: 'gameshopmy',       name: 'GameShop Malaysia',      url: 'https://www.gameshop.my',                    country: 'MY', currency: 'MYR' },
   { id: 'plecomau',         name: 'PLE Computers',          url: 'https://www.ple.com.au',                     country: 'AU', currency: 'AUD' },
-  { id: 'simpanzee',        name: 'Simpanzee',              url: 'https://simpanzee.com',                      country: 'PK', currency: 'PKR' },
+  { id: 'simpanzee',        name: 'Simpanzee',              url: 'https://simpanzee.com',                      country: 'AE', currency: 'AED' },
   // Batch 9: US major retailers (Jun 2026)
   { id: 'bestbuy',          name: 'Best Buy',               url: 'https://www.bestbuy.com',                    country: 'US', currency: 'USD' },
   { id: 'centralcomputer',  name: 'Central Computers',      url: 'https://www.centralcomputer.com',             country: 'US', currency: 'USD' },

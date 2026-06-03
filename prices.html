@@ -391,8 +391,8 @@ var RETAILERS = {
   electronicscrazy: { name: 'ElectronicsCrazy', country: 'SG', currency: 'SGD' },
   demontweeks: { name: 'Demon Tweeks', country: 'GB', currency: 'GBP' },
   advancedsimracing: { name: 'Advanced Sim Racing', country: 'CA', currency: 'CAD' },
-  maxgaming: { name: 'MaxGaming', country: 'SE', currency: 'EUR' },
-  simline: { name: 'Simline', country: 'PL', currency: 'EUR' },
+  maxgaming: { name: 'MaxGaming', country: 'SE', currency: 'SEK' },
+  simline: { name: 'Simline', country: 'PL', currency: 'PLN' },
   simracewebshop: { name: 'SimRace Webshop', country: 'NL', currency: 'EUR' },
   gamergeardirect: { name: 'Gamer Gear Direct', country: 'AU', currency: 'AUD' },
   player1simgear: { name: 'Player1 Sim Gear', country: 'AU', currency: 'AUD' },
@@ -463,6 +463,7 @@ var BRAND_MAP = {
   'cm2-dash': 'Moza RS21', 'quick-release': 'Moza RS21', 'multi-stalks': 'Moza RS21',
   'z-axis': 'Moza RS21', 'extension-rod': 'Moza RS21', 'clamp-truck': 'Moza RS21',
   'cs-v2p': 'Moza RS21', 'lambo-revuelto': 'Moza RS21',
+  'crp2-clutch': 'Moza RS21', 'crp2-perf-kit': 'Moza RS21', 'srp-lite-perf-kit': 'Moza RS21',
   // MOZA Flight (飞模)
   'ab6-bundle': 'Moza AS23', 'ab9-base': 'Moza AS23', 'mhg-stick': 'Moza AS23',
   'mh16-stick': 'Moza AS23', 'ma3x-stick': 'Moza AS23', 'ay210-yoke': 'Moza AS23',
@@ -490,6 +491,7 @@ var SUBCATEGORY_MAP = {
   'sgp-shifter': 'accessories', 'universal-hub': 'accessories', 'cm2-dash': 'accessories',
   'quick-release': 'accessories', 'multi-stalks': 'accessories', 'z-axis': 'accessories',
   'extension-rod': 'accessories', 'clamp-truck': 'accessories',
+  'crp2-clutch': 'pedal', 'crp2-perf-kit': 'accessories', 'srp-lite-perf-kit': 'accessories',
 };
 
 var CONTINENTS = [
@@ -522,7 +524,39 @@ function countryFlag(code) {
   return '';
 }
 
-var PRODUCTS = {};
+var PRODUCTS = {
+  'r3-bundle': 'R3 Bundle', 'r3-xbox': 'R3 Bundle Xbox',
+  'r5-bundle': 'R5 Bundle', 'r9-bundle': 'R9 Bundle', 'r5-truck': 'R5 Truck Sim Bundle',
+  'r3-base': 'R3 Wheel Base', 'r5-base': 'R5 Wheel Base', 'r7-base': 'R7 Wheel Base',
+  'r9-base': 'R9 Wheel Base', 'r9-v3-base': 'R9 V3 Wheel Base',
+  'r11-base': 'R11 Wheel Base', 'r12-base': 'R12 Wheel Base',
+  'r16-base': 'R16 Wheel Base', 'r21-base': 'R21 Wheel Base',
+  'r21-ultra': 'R21 Ultra Wheel Base', 'r25-ultra': 'R25 Ultra Wheel Base',
+  'es-wheel': 'ES Steering Wheel', 'esx-wheel': 'ESX Steering Wheel',
+  'ks-wheel': 'KS Steering Wheel', 'ks-pro-wheel': 'KS Pro Steering Wheel',
+  'cs-wheel': 'CS Steering Wheel', 'cs-pro-wheel': 'CS Pro Steering Wheel',
+  'cs-v2p': 'CS V2P Steering Wheel', 'gs-v2p-wheel': 'GS V2P Steering Wheel',
+  'gs-wheel': 'GS Steering Wheel', 'rs-wheel': 'RS Steering Wheel',
+  'fsr2-wheel': 'FSR2 Formula Wheel', 'vision-gs': 'Vision GS Wheel',
+  'tsw-wheel': 'TSW Truck Steering Wheel', 'lambo-revuelto': 'Lambo Revuelto Wheel',
+  'srp-lite': 'SR-P Lite Pedals', 'srp-pedals': 'SR-P Pedals',
+  'crp-pedals': 'CRP Pedals', 'crp2-pedals': 'CRP2 Pedals', 'srp2-pedals': 'SRP2 Load Cell Pedals',
+  'hgp-shifter': 'HGP Shifter', 'sgp-shifter': 'SGP Sequential Shifter',
+  'handbrake': 'Handbrake', 'table-clamp': 'Table Clamp',
+  'es-formula-mod': 'ES Formula Wheel Mod', 'universal-hub': 'Universal Hub Kit',
+  'cm2-dash': 'CM2 Racing Dash', 'quick-release': 'Quick Release Adapter',
+  'multi-stalks': 'Multi-Function Stalks', 'z-axis': 'Z-Axis Module',
+  'extension-rod': 'Extension Rod', 'clamp-truck': 'Clamp for Truck Wheel',
+  'crp2-clutch': 'CRP2 Load Cell Clutch Pedal', 'crp2-perf-kit': 'CRP2 Pedal Performance Kit',
+  'srp-lite-perf-kit': 'SR-P Lite Performance Kit',
+  'ab6-bundle': 'AB6 Flight Simulator', 'ab9-base': 'AB9 FFB Base',
+  'mhg-stick': 'MHG Flightstick', 'mh16-stick': 'MH16 Flightstick',
+  'ma3x-stick': 'MA3X Side Stick', 'ay210-yoke': 'AY210 FFB Yoke Bundle',
+  'mtq-throttle': 'MTQ Throttle Quadrant', 'mtp-throttle': 'MTP Throttle',
+  'mtlp-panel': 'MTLP Panel', 'mrp-pedals': 'MRP Rudder Pedals',
+  'mfy-yoke': 'MFY Flight Yoke', 'flight-base-clamp': 'Flight Base Clamp',
+  'mrp-damper': 'MRP Adjustable Damper', 'tqa': 'TQA Throttle Module', 'tqb': 'TQB Throttle Module',
+};
 var data = null;
 var selectedRetailer = 'all';
 var selectedBrand = 'all';

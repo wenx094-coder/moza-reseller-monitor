@@ -53,6 +53,18 @@ function parsePrice(raw) {
   var prefixMatch = s.match(/(?:\$|£|€|¥|zł|R|kr|₩|₪|RM|₱|฿|Kč|₹|NT\$|HK\$|S\$|MX\$|CLP\$|COL\$|NZ\$|A\$|JP¥|USD|CAD|AUD|NZD|SGD|HKD|CHF|AED|د\.إ|₫|₨)?\s*([0-9]+(?:[.,][0-9]{3})*(?:[.,][0-9]+)?)/);
   if (prefixMatch) {
     var rawNum = prefixMatch[1];
+    // CLP, ARS, some LATAM: dot (.) is thousand separator, e.g. "$619.900" = 619900
+    // Detect: no comma, dot followed by 3+ digits
+    if (rawNum.indexOf(',') < 0) {
+      var lastDot = rawNum.lastIndexOf('.');
+      if (lastDot >= 0) {
+        var afterDot = rawNum.substring(lastDot + 1);
+        if (afterDot.length >= 3) {
+          // Dot is thousand separator, not decimal
+          return parseInt(rawNum.replace(/\./g, ''), 10);
+        }
+      }
+    }
     // Detect format: if last separator is comma followed by 1-2 digits, it's European
     var lastComma = rawNum.lastIndexOf(',');
     var lastDot = rawNum.lastIndexOf('.');
@@ -229,11 +241,24 @@ function extractPrice(html, preferredCurrency, retailerId) {
 
   var title = $('h1').first().text().trim() || $('title').first().text().trim();
 
+  // Simracingstore (WooCommerce CLP): prefer last .woocommerce-Price-amount (sale price)
+  if (retailerId === 'simracingstore') {
+    var srPrices = $('.price .woocommerce-Price-amount.amount');
+    if (srPrices.length > 1) {
+      var srEl = srPrices.last();
+      var srP = parsePrice(srEl.text().trim().replace(/\s+/g, ' '));
+      if (srP != null && srP > 0) {
+        return { name: title, price: srP, currency: 'CLP', inStock: true };
+      }
+    }
+  }
+
   // Retailer-specific selectors
   var selectors = [
     '.special-price',
     '.current-price',
     '.product-price',
+    '.price ins .woocommerce-Price-amount',
     '.price_wrapper',
     '[itemprop="price"]',
     '[data-price]',
@@ -276,6 +301,20 @@ function extractPrice(html, preferredCurrency, retailerId) {
       var ecPrice = parsePrice(ecText);
       if (ecPrice != null && ecPrice > 0) {
         return { name: title, price: ecPrice, currency: preferredCurrency || 'USD', inStock: true };
+      }
+    }
+  }
+
+  // Simustop: Tienda Nube platform, price in #price_display data attribute (cents)
+  if (retailerId === 'simustop') {
+    var spEl = $('#price_display');
+    if (spEl.length) {
+      var spPrice = spEl.attr('data-product-price');
+      if (spPrice) {
+        var p = parseFloat(spPrice) / 100;
+        if (p > 0) {
+          return { name: title, price: p, currency: preferredCurrency || 'USD', inStock: true };
+        }
       }
     }
   }
