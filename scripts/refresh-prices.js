@@ -112,6 +112,36 @@ function fetchJson(url) {
   });
 }
 
+function fetchWooCommerceJson(apiUrl) {
+  return new Promise(function(resolve) {
+    var mod = apiUrl.indexOf('https') === 0 ? https : http;
+    var req = mod.get(apiUrl, { timeout: 10000, headers: { 'User-Agent': 'Mozilla/5.0' } }, function(res) {
+      var d = '';
+      res.on('data', function(c) { d += c; });
+      res.on('end', function() {
+        if (res.statusCode === 200) {
+          try {
+            var j = JSON.parse(d);
+            if (j && j.prices && j.prices.price) {
+              var price = parseFloat(j.prices.price);
+              var minorUnit = j.prices.currency_minor_unit || 2;
+              price = price / Math.pow(10, minorUnit);
+              resolve({
+                name: j.name,
+                price: price,
+                currency: j.prices.currency_code || 'ILS',
+                inStock: j.is_in_stock === true,
+              });
+            } else resolve(null);
+          } catch(e) { resolve(null); }
+        } else resolve(null);
+      });
+    });
+    req.on('error', function() { resolve(null); });
+    req.setTimeout(10000, function() { req.destroy(); resolve(null); });
+  });
+}
+
 function extractPrice(html, preferredCurrency, retailerId) {
   var $ = cheerio.load(html);
 
@@ -279,8 +309,20 @@ async function main() {
       var currency = retailer ? retailer.currency : 'USD';
       var result = null;
 
+      // For WooCommerce Store API URLs, try /wp-json/wc/store/v1/products/{id} first
+      if (url.indexOf('/wp-json/wc/store/v1/products/') >= 0) {
+        for (var ri = 0; ri < 3; ri++) {
+          if (ri > 0) await delay(2000);
+          var wooResult = await fetchWooCommerceJson(url);
+          if (wooResult) {
+            result = wooResult;
+            break;
+          }
+        }
+      }
+
       // For Shopify stores, try .json endpoint first (most reliable)
-      if (url.indexOf('/products/') >= 0) {
+      if (!result && url.indexOf('/products/') >= 0) {
         for (var ri = 0; ri < 3; ri++) {
           if (ri > 0) await delay(2000);
           var jsonResult = await fetchJson(url);

@@ -1337,6 +1337,62 @@ const PRODUCT_URLS = {
     'flight-base-clamp':'https://www.prosimtech.com/en/flight-sim/320-moza-racing-flight-base-table-clamp.html',
     'clamp-truck':  'https://www.prosimtech.com/en/sim-racing/314-moza-racing-truck-wheel-support.html',
   },
+  // Batch 15: simsolution.co.il (ILS, WooCommerce Store API)
+  simsolution: {
+    // Bundles
+    'r3-bundle':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123650',
+    'r3-xbox':      'https://www.simsolution.co.il/wp-json/wc/store/v1/products/121940',
+    'r5-bundle':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118727',
+    'r5-truck':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123645',
+    'r9-bundle':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123241',
+    'ab6-bundle':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125136',
+    // Wheelbases
+    'r9-v3-base':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118573',
+    'r12-base':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/120770',
+    'r21-base':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118629',
+    'r25-ultra':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125131',
+    // Steering Wheels
+    'ks-wheel':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/120752',
+    'ks-pro-wheel': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125530',
+    'cs-v2p':       'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118655',
+    'cs-pro-wheel': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125536',
+    'gs-v2p-wheel': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118666',
+    'rs-wheel':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118659',
+    'fsr2-wheel':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118675',
+    'esx-wheel':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123160',
+    'tsw-wheel':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/121436',
+    // Pedals
+    'srp-pedals':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118646',
+    'crp2-pedals':  'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123065',
+    'mrp-pedals':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125524',
+    // Shifters & Handbrake
+    'hgp-shifter':  'https://www.simsolution.co.il/wp-json/wc/store/v1/products/120127',
+    'sgp-shifter':  'https://www.simsolution.co.il/wp-json/wc/store/v1/products/121347',
+    'handbrake':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/120135',
+    // Accessories
+    'table-clamp':  'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118696',
+    'cm2-dash':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123850',
+    'quick-release':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118716',
+    'universal-hub':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/119664',
+    'extension-rod':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118712',
+    'multi-stalks': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/124386',
+    'es-formula-mod':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/119669',
+    'z-axis':       'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122684',
+    // Flight
+    'ab9-base':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122665',
+    'mh16-stick':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122670',
+    'ma3x-stick':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122679',
+    'mhg-stick':    'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125142',
+    'mfy-yoke':     'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123824',
+    'ay210-yoke':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123819',
+    'mtp-throttle': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123828',
+    'mtlp-panel':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/123833',
+    'mtq-throttle': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125148',
+    'tqa':          'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125158',
+    'tqb':          'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125153',
+    'flight-base-clamp':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122693',
+    'mrp-damper':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125560',
+  },
 };
 
 function buildUrlEntries() {
