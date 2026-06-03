@@ -1499,11 +1499,8 @@ const MSRP_MAP = {
   'mrp-pedals':    499,
   'mfy-yoke':    219,
   'es-formula-mod':    59,
-  'r5-truck':      599,
-  'crp2-clutch':    99,
-  'crp2-perf-kit':  59,
-  'srp-lite-perf-kit': 39,
 };
+
 
 
 
