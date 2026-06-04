@@ -76,7 +76,7 @@ const RETAILERS = [
   { id: 'microcenter', name: 'Micro Center',      url: 'https://www.microcenter.com',     country: 'US', currency: 'USD' },
   { id: 'simmotion-eu',name: 'Sim-Motion EU',     url: 'https://eu.sim-motion.com',       country: 'DE', currency: 'EUR' },
   { id: 'simmotion-us',name: 'Sim-Motion US',     url: 'https://us.sim-motion.com',       country: 'US', currency: 'USD' },
-  { id: 'tracksvr',    name: 'TracksVR',          url: 'https://tracksvr.com',            country: 'IE', currency: 'USD' },
+  { id: 'tracksvr',    name: 'TracksVR',          url: 'https://tracksvr.com',            country: 'CA', currency: 'CAD' },
   { id: 'apexsim',     name: 'Apex Sim Racing',   url: 'https://www.apexsimracing.com',   country: 'US', currency: 'USD' },
   { id: 'ricmotech',   name: 'Ricmotech',         url: 'https://ricmotech.com',           country: 'US', currency: 'USD' },
   { id: 'gtomega',     name: 'GT Omega',          url: 'https://gtomegaracing.com',       country: 'GB', currency: 'GBP' },

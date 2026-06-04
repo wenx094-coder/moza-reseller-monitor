@@ -12,7 +12,7 @@ const DEALER_INSTAGRAM_HANDLES = {
   focussimracing: { name: 'Focus Sim Racing', location: 'US (Santa Clarita, CA)', country: 'US' },
   simmotionus: { name: 'Sim-Motion', location: 'US (nationwide shipping)', country: 'US' },
   // gomotorsportsshop: { name: 'GO Motorsports', location: 'US (nationwide shipping)', country: 'US' }, // NO Instagram account found
-  tracksvr: { name: 'TracksVR', location: 'US (nationwide shipping)', country: 'US' },
+  tracksvr: { name: 'TracksVR', location: 'Canada (nationwide shipping)', country: 'CA' },
   'noxgaming.ca': { name: 'NOX Gaming', location: 'Canada (Quebec)', country: 'CA' },
   vipcbuilder: { name: 'VI PC Builder & Games', location: 'Canada (Vancouver Island)', country: 'CA' },
   pitlanesimracing: { name: 'Pit Lane Sim Racing', location: 'US (nationwide shipping)', country: 'US' },
