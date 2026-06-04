@@ -80,7 +80,7 @@ const RETAILERS = [
   { id: 'apexsim',     name: 'Apex Sim Racing',   url: 'https://www.apexsimracing.com',   country: 'US', currency: 'USD' },
   { id: 'ricmotech',   name: 'Ricmotech',         url: 'https://ricmotech.com',           country: 'US', currency: 'USD' },
   { id: 'gtomega',     name: 'GT Omega',          url: 'https://gtomegaracing.com',       country: 'GB', currency: 'GBP' },
-  { id: 'pagnian',     name: 'Pagnian',           url: 'https://pagnian.com.au',          country: 'AU', currency: 'AUD' },
+  { id: 'pagnian',     name: 'Pagnian',           url: 'https://pagnianimports.com.au',   country: 'AU', currency: 'AUD' },
   { id: 'abruzzi',     name: 'Abruzzi',           url: 'https://www.abruzzi-official.co.uk', country: 'GB', currency: 'GBP' },
   { id: 'vr-hub',      name: 'Virtual Racing Hub', url: 'https://www.virtualracinghub.com', country: 'IN', currency: 'INR' },
   { id: 'noxgaming',   name: 'NOX Gaming',        url: 'https://noxgaming.ca',            country: 'CA', currency: 'CAD' },
@@ -213,6 +213,8 @@ const PRODUCT_URLS = {
     'srp-pedals': 'https://us.sim-motion.com/products/moza-racing-srp-pedals',
     'hgp-shifter': 'https://us.sim-motion.com/products/moza-racing-hgp-shifter',
     'handbrake': 'https://us.sim-motion.com/products/moza-racing-hbp-handbrake',
+    // MOZA Flight
+    'ab9-base':     'https://us.sim-motion.com/products/moza-flight-ab9-base',
   },
   ricmotech: {
     'r12-base': 'https://www.ricmotech.com/moza-r12-.html',
@@ -270,6 +272,12 @@ const PRODUCT_URLS = {
     'hgp-shifter': 'https://www.gtomega.co.uk/products/moza-racing-hgp-shifter',
     'handbrake': 'https://www.gtomega.co.uk/products/moza-racing-hbp-handbrake',
     'table-clamp': 'https://www.gtomega.co.uk/products/r9-table-clamp',
+    // MOZA Flight
+    'ab9-base':     'https://www.gtomega.co.uk/products/moza-flight-ab9-base',
+    'mh16-stick':   'https://www.gtomega.co.uk/products/moza-flight-mh16-flightstick',
+    'mtp-throttle': 'https://www.gtomega.co.uk/products/moza-flight-mtp-throttle-panel',
+    'mtq-throttle': 'https://www.gtomega.co.uk/products/moza-mtq-throttle-panel',
+    'mtlp-panel':   'https://www.gtomega.co.uk/products/moza-flight-mtp-take-off-panel',
   },
   apexsim: {
     'r3-bundle':    'https://www.apexsimracing.com/products/moza-racing-pc-sim-racing-bundle-3-9nm',
@@ -351,6 +359,9 @@ const PRODUCT_URLS = {
     'hgp-shifter': 'https://pagnianimports.com.au/products/moza-hgp-shifter',
     'handbrake': 'https://pagnianimports.com.au/products/moza-hbp-handbrake',
     'table-clamp': 'https://pagnianimports.com.au/products/moza-table-clamp-for-r9-wheel-base',
+    // MOZA Flight
+    'ab6-bundle':   'https://pagnianimports.com.au/products/moza-ab6-flight-simulator',
+    'mh16-stick':   'https://pagnianimports.com.au/products/moza-mh16-flightstick',
   },
   'vr-hub': {
     'r3-bundle': 'https://www.virtualracinghub.com/products/moza-r3-bundle',
@@ -615,21 +626,6 @@ const PRODUCT_URLS = {
     'hgp-shifter':  'https://www.alternate.de/MOZA/HGP-Shifter-Schalthebel/html/product/1912700',
     'handbrake':    'https://www.alternate.de/MOZA/HBP-Handbrake-Handbremse/html/product/1912696',
     'table-clamp':  'https://www.alternate.de/MOZA/Table-Clamp-Halterung/html/product/1912694',
-  },
-  // MOZA Flight (飞模) product URLs
-  gtomega: {
-    'ab9-base':     'https://www.gtomega.co.uk/products/moza-flight-ab9-base',
-    'mh16-stick':   'https://www.gtomega.co.uk/products/moza-flight-mh16-flightstick',
-    'mtp-throttle': 'https://www.gtomega.co.uk/products/moza-flight-mtp-throttle-panel',
-    'mtq-throttle': 'https://www.gtomega.co.uk/products/moza-mtq-throttle-panel',
-    'mtlp-panel':   'https://www.gtomega.co.uk/products/moza-flight-mtp-take-off-panel',
-  },
-  pagnian: {
-    'ab6-bundle':   'https://pagnianimports.com.au/products/moza-ab6-flight-simulator',
-    'mh16-stick':   'https://pagnianimports.com.au/products/moza-mh16-flightstick',
-  },
-  'simmotion-us': {
-    'ab9-base':     'https://us.sim-motion.com/products/moza-flight-ab9-base',
   },
   // Batch 2: Shopify stores
   speednation: {

@@ -205,7 +205,6 @@ async function main() {
   try {
     browser = await chromium.launch({
       headless: true,
-      executablePath: 'C:\\Users\\wenx0\\AppData\\Local\\ms-playwright\\chromium-1223\\chrome-win64\\chrome.exe',
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
     });
 

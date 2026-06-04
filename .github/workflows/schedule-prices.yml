@@ -1,4 +1,4 @@
-name: Scrape Prices (Daily)
+name: Scrape Prices
 on:
   schedule:
     - cron: '0 6,18 * * *'

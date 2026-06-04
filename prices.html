@@ -568,7 +568,7 @@ function currencySymbol(currency) {
   if (currency === 'PLN') return 'z\u0142';
   if (currency === 'INR') return '\u20B9';
   if (currency === 'BRL') return 'R$';
-  if (currency === 'SEK' || currency === 'DKK') return 'kr';
+  if (currency === 'SEK') return 'kr';
   if (currency === 'NZD') return 'NZ$';
   if (currency === 'SGD') return 'S$';
   if (currency === 'HKD') return 'HK$';
@@ -576,14 +576,12 @@ function currencySymbol(currency) {
   if (currency === 'KRW') return '\u20A9';
   if (currency === 'ILS') return '\u20AA';
   if (currency === 'MYR') return 'RM';
-  if (currency === 'MXN') return 'MX$';
   if (currency === 'CLP') return 'CLP$';
   if (currency === 'ZAR') return 'R';
   if (currency === 'CHF') return 'CHF';
   if (currency === 'PHP') return '\u20B1';
   if (currency === 'THB') return '\u0E3F';
   if (currency === 'CZK') return 'K\u010D';
-  if (currency === 'AED') return 'AED';
   if (currency === 'PKR') return 'Rs';
   if (currency === 'JPY') return '\u00A5';
   if (currency === 'VND') return '\u20AB';
@@ -595,7 +593,9 @@ function currencySymbol(currency) {
 
 function timeAgo(dateStr) {
   if (!dateStr) return '';
-  var diff = Date.now() - new Date(dateStr).getTime();
+  var t = new Date(dateStr).getTime();
+  if (isNaN(t)) return '';
+  var diff = Date.now() - t;
   var min = Math.floor(diff / 60000);
   if (min < 1) return 'just now';
   if (min < 60) return min + 'm ago';
@@ -635,10 +635,11 @@ function getProductPrices() {
 
 function getLowestPrice(entries) {
   if (!entries || entries.length === 0) return null;
-  var lowest = entries[0];
-  // Skip $0 prices
+  var lowest = null;
   for (var i = 0; i < entries.length; i++) {
-    if (entries[i].info.price > 0) { lowest = entries[i]; break; }
+    if (entries[i].info.price > 0 && (!lowest || entries[i].info.price < lowest.info.price)) {
+      lowest = entries[i];
+    }
   }
   return lowest;
 }
@@ -668,6 +669,7 @@ function renderRetailerFilters() {
   var html = '<button class="retailer-pill ' + (selectedRetailer === 'all' ? 'active' : '') + '" onclick="selectedRetailer=\'all\';render()">All</button>';
   var seen = {};
   for (var pid in (data ? data.prices : {})) {
+    if (!data.prices[pid]) continue;
     for (var rid in data.prices[pid]) {
       if (!seen[rid]) {
         seen[rid] = true;
@@ -694,7 +696,6 @@ function convertToUsd(price, currency) {
   if (currency === 'INR') return price * 0.012;
   if (currency === 'BRL') return price * 0.19;
   if (currency === 'SEK') return price * 0.093;
-  if (currency === 'DKK') return price * 0.145;
   if (currency === 'NZD') return price * 0.61;
   if (currency === 'SGD') return price * 0.74;
   if (currency === 'HKD') return price * 0.128;
@@ -702,14 +703,12 @@ function convertToUsd(price, currency) {
   if (currency === 'KRW') return price * 0.00072;
   if (currency === 'ILS') return price * 0.27;
   if (currency === 'MYR') return price * 0.21;
-  if (currency === 'MXN') return price * 0.055;
   if (currency === 'CLP') return price * 0.0011;
   if (currency === 'ZAR') return price * 0.055;
   if (currency === 'CHF') return price * 1.11;
   if (currency === 'PHP') return price * 0.017;
   if (currency === 'THB') return price * 0.028;
   if (currency === 'CZK') return price * 0.043;
-  if (currency === 'AED') return price * 0.27;
   if (currency === 'JPY') return price * 0.0069;
   if (currency === 'VND') return price * 0.000041;
   if (currency === 'COP') return price * 0.00024;
@@ -731,7 +730,7 @@ function render() {
   var alerts = 0;
   var retailerSet = {};
 
-  var productIds = Object.keys(data.prices);
+  var productIds = Object.keys(data.prices || {});
   document.getElementById('statProducts').textContent = productIds.length;
 
   var alertCount = 0;
