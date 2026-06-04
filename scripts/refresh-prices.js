@@ -234,13 +234,46 @@ function extractPrice(html, preferredCurrency, retailerId) {
   var title = $('h1').first().text().trim() || $('title').first().text().trim();
 
   // Simracingstore (WooCommerce CLP): prefer last .woocommerce-Price-amount (sale price)
+  // CLP uses dot as thousand separator, no decimals; WooCommerce may truncate trailing zeros ("619.900" → "619.9")
   if (retailerId === 'simracingstore') {
     var srPrices = $('.price .woocommerce-Price-amount.amount');
     if (srPrices.length > 1) {
       var srEl = srPrices.last();
-      var srP = parsePrice(srEl.text().trim().replace(/\s+/g, ' '));
+      var srText = srEl.text().trim().replace(/\s+/g, ' ');
+      var hasDot = srText.indexOf('.') >= 0;
+      // Strip all dots: CLP has no decimals, dots are always thousand separators
+      var srP = parsePrice(srText.replace(/\./g, ''));
       if (srP != null && srP > 0) {
+        // If original had a dot and stripped result < 100000, WooCommerce may have truncated ".900" to ".9"
+        if (hasDot && srP < 100000) srP = srP * 100;
         return { name: title, price: srP, currency: 'CLP', inStock: true };
+      }
+      // Also try single-price scenario (no strikethrough)
+      if (srPrices.length === 1) {
+        var srP2 = parsePrice(srPrices.first().text().trim().replace(/\s+/g, ' ').replace(/\./g, ''));
+        if (srP2 != null && srP2 > 0) {
+          if (hasDot && srP2 < 100000) srP2 = srP2 * 100;
+          return { name: title, price: srP2, currency: 'CLP', inStock: true };
+        }
+      }
+    }
+  }
+
+  // GGK Simracing (WooCommerce THB): prefer .woocommerce-Price-amount.amount elements
+  if (retailerId === 'ggksimracing') {
+    var ggkPrices = $('.woocommerce-Price-amount.amount');
+    if (ggkPrices.length > 1) {
+      var ggkEl = ggkPrices.last();
+      var ggkP = parsePrice(ggkEl.text().trim().replace(/\s+/g, ' '));
+      if (ggkP != null && ggkP > 0) {
+        return { name: title, price: ggkP, currency: 'THB', inStock: true };
+      }
+    }
+    // Fallback: single price element
+    if (ggkPrices.length === 1) {
+      var ggkP2 = parsePrice(ggkPrices.first().text().trim().replace(/\s+/g, ' '));
+      if (ggkP2 != null && ggkP2 > 0) {
+        return { name: title, price: ggkP2, currency: 'THB', inStock: true };
       }
     }
   }
@@ -348,10 +381,17 @@ async function main() {
   console.log('Fetching ' + entries.length + ' product pages...');
   var success = 0;
 
+  var HEADLESS_ONLY = ['demontweeks', 'overclockersuk'];
+
   for (var e = 0; e < entries.length; e++) {
     var url = entries[e].url;
     var retailerId = entries[e].retailerId;
     var productId = entries[e].productId;
+
+    if (HEADLESS_ONLY.indexOf(retailerId) >= 0) {
+      console.log('  -- ' + productId + ' @ ' + retailerId + ' (headless-only, skipped)');
+      continue;
+    }
 
     // Rate limiting delay between requests
     if (e > 0) await delay(1500);
