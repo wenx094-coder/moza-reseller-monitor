@@ -1,7 +1,7 @@
 name: Scrape Prices
 on:
   schedule:
-    - cron: '0 6,18 * * *'
+    - cron: '0 0,12 * * *'
   workflow_dispatch:
 
 permissions:

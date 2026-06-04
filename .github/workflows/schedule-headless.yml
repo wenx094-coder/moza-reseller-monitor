@@ -1,7 +1,7 @@
 name: Scrape Headless Prices
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 permissions:
