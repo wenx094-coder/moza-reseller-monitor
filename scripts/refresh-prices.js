@@ -375,6 +375,27 @@ async function main() {
   var data = loadData();
   var entries = buildUrlEntries();
 
+  // Purge stale data: remove entries for retailers/products no longer in PRODUCT_URLS
+  var validKeys = {};
+  for (var ei = 0; ei < entries.length; ei++) {
+    if (!validKeys[entries[ei].productId]) validKeys[entries[ei].productId] = {};
+    validKeys[entries[ei].productId][entries[ei].retailerId] = true;
+  }
+  var purged = 0;
+  for (var pid in (data.prices || {})) {
+    for (var rid in data.prices[pid]) {
+      if (!validKeys[pid] || !validKeys[pid][rid]) {
+        delete data.prices[pid][rid];
+        purged++;
+      }
+    }
+    // Remove empty product entries
+    if (data.prices[pid] && Object.keys(data.prices[pid]).length === 0) {
+      delete data.prices[pid];
+    }
+  }
+  if (purged > 0) console.log('Purged ' + purged + ' stale price entries (removed from config).');
+
   // Deep clone old prices for change detection
   var oldPrices = JSON.parse(JSON.stringify(data.prices || {}));
 
