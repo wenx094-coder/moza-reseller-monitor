@@ -885,7 +885,7 @@ const PRODUCT_URLS = {
     'hgp-shifter':  'https://guidegamingkits.com/product/moza-hgp-shifter-%e0%b9%80%e0%b8%81%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b9%8c-8-speed-7r-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c%e0%b9%84/',
     'sgp-shifter':  'https://guidegamingkits.com/product/moza-racing-sgp-sequential-shifter-%e0%b9%80%e0%b8%81%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b9%8c-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c-1/',
     'handbrake':    'https://guidegamingkits.com/product/moza-racing-hbp-handbrake-%e0%b9%80%e0%b8%9a%e0%b8%a3%e0%b8%84%e0%b8%a1%e0%b8%b7%e0%b8%ad-analog-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c/',
-    'table-clamp':  'https://guidegamingkits.com/product/moza-yoke-table-clamp-%e0%b9%81%e0%b8%84%e0%b8%a5%e0%b8%a1%e0%b8%9b%e0%b9%8c%e0%b8%a2%e0%b8%b6%e0%b8%94%e0%b9%82%e0%b8%95%e0%b9%8a%e0%b8%b0%e0%b8%aa%e0%b8%b3%e0%b8%ab%e0%b8%a3%e0%b8%b1/',
+    // table-clamp: removed — URL pointed to Yoke Table Clamp (AY210 flight), not standard R5/R9 table clamp
     // MOZA Flight
     'ab9-base':     'https://guidegamingkits.com/product/moza-ab9-base/',
     'mh16-stick':   'https://guidegamingkits.com/product/moza-mh16-flightstick-flight-sim-grip-%e0%b9%82%e0%b8%a5%e0%b8%ab%e0%b8%b0-27-%e0%b8%9b%e0%b8%b8%e0%b9%88%e0%b8%a1-%e0%b9%81%e0%b8%ae%e0%b8%97-8%e2%80%91%e0%b8%97%e0%b8%b4%e0%b8%a8-alumi/',
