@@ -497,7 +497,7 @@ const PRODUCT_URLS = {
     'ks-wheel':     'https://www.racegear.eu/en/steering-wheels/123-moza-ks-steering-wheel-for-pc-rs047-0723497239752.html',
     'cs-wheel':     'https://www.racegear.eu/en/steering-wheels/153-moza-cs-v2p-steering-wheel-rs057-0723497239905.html',
     'fsr2-wheel':   'https://www.racegear.eu/en/steering-wheels/200-moza-fsr2-280mm-formula-wheel-with-touchscreen-rs068-demo-6973137270599.html',
-    'srp-pedals':   'https://www.racegear.eu/en/sim-racing-pedals/122-moza-sr-p-lite-clutch-pedal-rs19-0723497239486.html',
+    'srp-lite':     'https://www.racegear.eu/en/sim-racing-pedals/122-moza-sr-p-lite-clutch-pedal-rs19-0723497239486.html',
     'table-clamp':  'https://www.racegear.eu/en/accessories-for-steering-wheels/86-moza-r5r9-table-clamp-rs12-0723497239325.html',
   },
   // electronicscrazy: srp-pedals removed (HTTP 404, product no longer listed)
