@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech', 'simustop'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -166,6 +166,17 @@ async function scrapeUrl(browser, url, retailerId) {
       if (!price) {
         pbMatch = html.match(/font-size-28[^>]*>[\s\S]{0,50}?\$\s*([0-9,.]+)/);
         if (pbMatch) price = parseFloat(pbMatch[1].replace(/,/g, ''));
+      }
+    }
+
+    // SIMUSTOP (Tienda Nube): JSON-LD contains all category products (wrong), use .js-price-display instead
+    // Price format: "$675.00 USD"
+    if (retailerId === 'simustop') {
+      var simuMatch = html.match(/js-price-display[^>]*>\s*[^$]*\$?\s*([0-9,.]+)/);
+      if (simuMatch) price = parseFloat(simuMatch[1].replace(/,/g, ''));
+      if (!price) {
+        simuMatch = html.match(/js-price-container[^>]*>[\s\S]{0,200}?\$?\s*([0-9,.]+)/);
+        if (simuMatch) price = parseFloat(simuMatch[1].replace(/,/g, ''));
       }
     }
 
