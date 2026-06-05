@@ -881,7 +881,7 @@ const PRODUCT_URLS = {
     'vision-gs':    'https://guidegamingkits.com/product/moza-vision-gs-wheel-streering-%e0%b8%88%e0%b8%ad%e0%b8%a2%e0%b8%9e%e0%b8%a7%e0%b8%87%e0%b8%a1%e0%b8%b2%e0%b8%a5%e0%b8%b1%e0%b8%a2/',
     'tsw-wheel':    'https://guidegamingkits.com/product/moza-racing-tsw-truck-wheel-%e0%b8%9e%e0%b8%a7%e0%b8%87%e0%b8%a1%e0%b8%b2%e0%b8%a5%e0%b8%b1%e0%b8%a2%e0%b8%a3%e0%b8%96%e0%b8%9a%e0%b8%a3%e0%b8%a3%e0%b8%97%e0%b8%b8%e0%b8%81-%e0%b9%83%e0%b8%8a%e0%b9%89/',
     'srp-pedals':   'https://guidegamingkits.com/product/moza-sr-p-double-pedals/',
-    'crp2-pedals':  'https://guidegamingkits.com/product/moza-racing-crp-clutch-pedal-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c%e0%b9%84%e0%b8%97%e0%b8%a2-1-%e0%b8%9b%e0%b8%b5/',
+    // crp2-pedals: removed — URL pointed to CRP clutch pedal (add-on), not full CRP2 set
     'hgp-shifter':  'https://guidegamingkits.com/product/moza-hgp-shifter-%e0%b9%80%e0%b8%81%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b9%8c-8-speed-7r-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c%e0%b9%84/',
     'sgp-shifter':  'https://guidegamingkits.com/product/moza-racing-sgp-sequential-shifter-%e0%b9%80%e0%b8%81%e0%b8%b5%e0%b8%a2%e0%b8%a3%e0%b9%8c-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c-1/',
     'handbrake':    'https://guidegamingkits.com/product/moza-racing-hbp-handbrake-%e0%b9%80%e0%b8%9a%e0%b8%a3%e0%b8%84%e0%b8%a1%e0%b8%b7%e0%b8%ad-analog-%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b1%e0%b8%99%e0%b8%a8%e0%b8%b9%e0%b8%99%e0%b8%a2%e0%b9%8c/',

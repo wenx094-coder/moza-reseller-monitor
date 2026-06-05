@@ -214,6 +214,27 @@ function extractPrice(html, preferredCurrency, retailerId) {
           for (var j = 0; j < offers.length; j++) {
             if (best) return;
             var offer = offers[j];
+            // Some stores (e.g. SimUltimate.ch) use priceSpecification array instead of direct price
+            var pSpecs = offer.priceSpecification;
+            if (pSpecs) {
+              var specs = Array.isArray(pSpecs) ? pSpecs : [pSpecs];
+              for (var si = 0; si < specs.length; si++) {
+                if (best) return;
+                var spec = specs[si];
+                if (spec.price && spec.price > 0 && (!spec.priceType || spec.priceType.indexOf('Strikethrough') < 0)) {
+                  var p = parsePrice(spec.price);
+                  if (p != null) {
+                    best = {
+                      name: item.name,
+                      price: p,
+                      currency: spec.priceCurrency || preferredCurrency || 'USD',
+                      inStock: !offer.availability || offer.availability.toLowerCase().indexOf('instock') >= 0,
+                    };
+                    return;
+                  }
+                }
+              }
+            }
             var price = parsePrice(offer.price);
             if (price != null && price > 0) {
               best = {
