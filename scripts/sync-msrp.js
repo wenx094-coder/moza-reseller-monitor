@@ -9,6 +9,7 @@ const HANDLE_MAP = {
   'r3-racing-bundle-pc': 'r3-bundle',
   'r3-racing-bundle-xbox': 'r3-xbox',
   'r5-racing-bundle': 'r5-bundle',
+  'trucking-bundle': 'r5-truck',
   'r9-wheelbase': 'r9-v3-base',
   'r12-wheelbase': 'r12-base',
   'r21-ultra': 'r21-ultra',
@@ -97,7 +98,7 @@ async function main() {
   const after = config.substring(msrpEnd);
 
   const lines = ['const MSRP_MAP = {'];
-  const rs21 = ['r3-bundle','r3-xbox','r5-bundle','r9-bundle','r9-v3-base','r12-base','r16-base','r21-base','r21-ultra','r25-ultra','es-wheel','esx-wheel','ks-wheel','ks-pro-wheel','cs-wheel','cs-pro-wheel','cs-v2p','gs-v2p-wheel','rs-wheel','fsr2-wheel','vision-gs','srp-lite','srp-pedals','crp-pedals','crp2-pedals','hgp-shifter','handbrake','table-clamp','cm2-dash','quick-release','universal-hub','multi-stalks','sgp-shifter','tsw-wheel','z-axis','extension-rod','clamp-truck','srp2-pedals','lambo-revuelto'];
+  const rs21 = ['r3-bundle','r3-xbox','r5-bundle','r5-truck','r9-bundle','r9-v3-base','r12-base','r16-base','r21-base','r21-ultra','r25-ultra','es-wheel','esx-wheel','ks-wheel','ks-pro-wheel','cs-wheel','cs-pro-wheel','cs-v2p','gs-v2p-wheel','rs-wheel','fsr2-wheel','vision-gs','srp-lite','srp-pedals','crp-pedals','crp2-pedals','hgp-shifter','handbrake','table-clamp','cm2-dash','quick-release','universal-hub','multi-stalks','sgp-shifter','tsw-wheel','z-axis','extension-rod','clamp-truck','srp2-pedals','lambo-revuelto'];
   const flight = ['ab6-bundle','ab9-base','mhg-stick','mh16-stick','ma3x-stick','ay210-yoke','mtq-throttle','mtp-throttle','mtlp-panel','mrp-pedals','mfy-yoke','es-formula-mod'];
 
   for (const pid of rs21) {

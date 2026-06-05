@@ -1446,6 +1446,7 @@ const MSRP_MAP = {
   'r3-bundle':    439,
   'r3-xbox':    499,
   'r5-bundle':    609,
+  'r5-truck':    759,
   'r9-bundle':    799,
   'r9-v3-base':    499,
   'r12-base':    649,
