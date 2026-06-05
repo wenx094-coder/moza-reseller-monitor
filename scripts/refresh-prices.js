@@ -236,7 +236,7 @@ function extractPrice(html, preferredCurrency, retailerId) {
   // Simracingstore (WooCommerce CLP): prefer last .woocommerce-Price-amount (sale price)
   // CLP uses dot as thousand separator, no decimals; WooCommerce may truncate trailing zeros ("619.900" → "619.9")
   if (retailerId === 'simracingstore') {
-    var srPrices = $('.price .woocommerce-Price-amount.amount');
+    var srPrices = $('.summary.entry-summary .price .woocommerce-Price-amount.amount');
     if (srPrices.length > 1) {
       var srEl = srPrices.last();
       var srText = srEl.text().trim().replace(/\s+/g, ' ');
@@ -459,7 +459,7 @@ async function main() {
         }
       }
 
-      if (result && result.price > 0) {
+      if (result && result.price > 1) {
         if (!data.prices[productId]) data.prices[productId] = {};
         data.prices[productId][retailerId] = {
           price: result.price,
@@ -485,7 +485,7 @@ async function main() {
           jsonResult = await fetchJson(url);
           if (jsonResult) break;
         }
-        if (jsonResult && jsonResult.price > 0) {
+        if (jsonResult && jsonResult.price > 1) {
           if (!data.prices[productId]) data.prices[productId] = {};
           data.prices[productId][retailerId] = {
             price: jsonResult.price,
