@@ -170,10 +170,14 @@ async function scrapeUrl(browser, url, retailerId) {
     }
 
     // SIMUSTOP (Tienda Nube): JSON-LD contains all category products (wrong), use .js-price-display instead
-    // Price format: "$675.00 USD"
-    if (retailerId === 'simustop') {
-      var simuMatch = html.match(/js-price-display[^>]*>\s*[^$]*\$?\s*([0-9,.]+)/);
-      if (simuMatch) price = parseFloat(simuMatch[1].replace(/,/g, ''));
+    // Tienda Nube stores price in data attribute (cents), extract data-price and divide by 100
+    if (!price && retailerId === 'simustop') {
+      var simuMatch = html.match(/js-price-display[^>]*data-price="?([0-9]+)"?[^>]*>/);
+      if (simuMatch) price = parseFloat(simuMatch[1]) / 100;
+      if (!price) {
+        simuMatch = html.match(/js-price-display[^>]*>\s*[^$]*?\$?\s*([0-9,.]+)/);
+        if (simuMatch) price = parseFloat(simuMatch[1].replace(/,/g, ''));
+      }
       if (!price) {
         simuMatch = html.match(/js-price-container[^>]*>[\s\S]{0,200}?\$?\s*([0-9,.]+)/);
         if (simuMatch) price = parseFloat(simuMatch[1].replace(/,/g, ''));
