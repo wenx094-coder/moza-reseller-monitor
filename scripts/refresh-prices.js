@@ -280,6 +280,18 @@ function extractPrice(html, preferredCurrency, retailerId) {
     }
   }
 
+  // Simulator Cave (Elementor + WooCommerce ZAR): use elementor price widget
+  if (retailerId === 'simulatorcave') {
+    var scPrices = $('.elementor-widget-woocommerce-product-price .woocommerce-Price-amount');
+    if (scPrices.length > 0) {
+      var scEl = scPrices.last();
+      var scP = parsePrice(scEl.text().trim().replace(/\s+/g, ' '));
+      if (scP != null && scP > 0) {
+        return { name: title, price: scP, currency: 'ZAR', inStock: true };
+      }
+    }
+  }
+
   // GGK Simracing (WooCommerce THB): prefer .woocommerce-Price-amount.amount elements
   if (retailerId === 'ggksimracing') {
     var ggkPrices = $('.woocommerce-Price-amount.amount');
