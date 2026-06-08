@@ -726,7 +726,7 @@ const PRODUCT_URLS = {
     'rs-wheel':     'https://simultimate.ch/produkt/moza-rs-v2-steering-wheel/',
     'fsr2-wheel':   'https://simultimate.ch/produkt/moza-fsr2-formula-wheel/',
     'vision-gs':    'https://simultimate.ch/produkt/moza-vision-gs-wheel/',
-    'srp-pedals':   'https://simultimate.ch/produkt/moza-srp2-brake-throttle/',
+    // 'srp-pedals':   'https://simultimate.ch/produkt/moza-srp2-brake-throttle/', // SRP2 brake+throttle, not SRP pedals
     'crp2-pedals':  'https://simultimate.ch/produkt/moza-crp2-pedalset/',
     'hgp-shifter':  'https://simultimate.ch/produkt/moza-hgp-h-shifter/',
     'handbrake':    'https://simultimate.ch/produkt/moza-hbp-handbrake/',
@@ -1080,7 +1080,7 @@ const PRODUCT_URLS = {
     'es-formula-mod':'https://simpanzee.com/product/moza-es-formula-wheel-mod/',
     'universal-hub':'https://simpanzee.com/product/moza-universal-mounting-plate/',
     'clamp-truck':  'https://simpanzee.com/product/moza-clamp-for-trucking-wheel/',
-    'multi-stalks': 'https://simpanzee.com/product/multi-function-stalks-adapter-plate/',
+    // 'multi-stalks': 'https://simpanzee.com/product/multi-function-stalks-adapter-plate/', // adapter plate, not stalks
   },
   // Batch 9: US major retailers (Jun 2026) — Best Buy (anti-bot, uses headless)
   bestbuy: {
@@ -1185,7 +1185,7 @@ const PRODUCT_URLS = {
     'tqa':          'https://gameline.ph/products/moza-tqa-throttle-module-as016',
     'mtq-throttle': 'https://gameline.ph/products/moza-mtq-throttle-panel-as014',
     'ab6-bundle':   'https://gameline.ph/products/moza-ab6-flight-simulator-as017',
-    'mtp-throttle': 'https://gameline.ph/products/moza-mtp-take-off-landing-panel-as009',
+    // 'mtp-throttle': 'https://gameline.ph/products/moza-mtp-take-off-landing-panel-as009', // add-on panel, not MTP throttle
   },
   // Batch 11: Greece expansion (Jun 2026) — SIM Gear Greece (OpenCart, EUR)
   simgear: {
@@ -1410,7 +1410,7 @@ const PRODUCT_URLS = {
     'quick-release':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118716',
     'universal-hub':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/119664',
     'extension-rod':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/118712',
-    'multi-stalks': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/124386',
+    // 'multi-stalks': 'https://www.simsolution.co.il/wp-json/wc/store/v1/products/124386', // adapter, not stalks
     'es-formula-mod':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/119669',
     'z-axis':       'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122684',
     // Flight
@@ -1479,7 +1479,7 @@ const MSRP_MAP = {
   'sgp-shifter':    179,
   'tsw-wheel':    349,
   'z-axis':    129,
-  'extension-rod':    169,
+    'extension-rod':    139,
   'clamp-truck':    69,
   'srp2-pedals':    219,
   'lambo-revuelto':    549,
