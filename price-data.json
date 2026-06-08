@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-08T06:57:09.627Z",
+  "lastUpdated": "2026-06-08T07:45:58.253Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -107,12 +107,12 @@
         "checkedAt": "2026-06-08T04:34:40.263Z"
       },
       "alternate": {
-        "price": 309,
+        "price": 34900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/R9-V3-Wheel-Base-Lenkradbasis/html/product/100121863",
-        "name": "R9 V3 Wheel Base, Lenkradbasis",
+        "name": "MOZA R9 V3 Wheel Base, Lenkradbasis schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:13.260Z"
+        "checkedAt": "2026-06-08T07:16:18.870Z"
       },
       "simufy": {
         "price": 399.99,
@@ -184,7 +184,7 @@
         "url": "https://www.racegear.eu/en/wheelbases/150-moza-r9-v3-direct-drive-wheelbase-rs080-6973137270810.html",
         "name": "Moza R9 V3 direct drive wheelbase RS080",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:25:21.211Z"
+        "checkedAt": "2026-06-08T07:14:57.162Z"
       },
       "simracer": {
         "price": 309,
@@ -280,7 +280,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-r9-v3-direct-drive-wheel-base-mzars080/",
         "name": "Buy Moza R9 V3 Wheel Base - RS080 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:25.336Z"
+        "checkedAt": "2026-06-08T07:18:48.342Z"
       },
       "mediak": {
         "price": 1489,
@@ -291,12 +291,12 @@
         "checkedAt": "2026-06-08T05:21:18.862Z"
       },
       "simustop": {
-        "price": 675,
+        "price": 627.75,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/base-moza-r9-v3/",
         "name": "BASE MOZA R9 V3 - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:38:57.101Z"
+        "checkedAt": "2026-06-08T07:29:31.839Z"
       },
       "simgear": {
         "price": 360.63,
@@ -421,12 +421,12 @@
         "checkedAt": "2026-06-08T04:34:53.216Z"
       },
       "alternate": {
-        "price": 349,
+        "price": 34900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/KS-Pro-Steering-Wheel-Austausch-Lenkrad/html/product/100177838",
-        "name": "KS Pro Steering Wheel, Austausch-Lenkrad",
+        "name": "MOZA KS Pro Steering Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:23.454Z"
+        "checkedAt": "2026-06-08T07:16:54.434Z"
       },
       "simufy": {
         "price": 349.99,
@@ -498,7 +498,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-ks-pro-steering-wheel-mzars095/",
         "name": "Buy Moza KS Pro Steering Wheel - RS095 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:58.910Z"
+        "checkedAt": "2026-06-08T07:19:23.611Z"
       },
       "mediak": {
         "price": 1489,
@@ -607,12 +607,12 @@
         "checkedAt": "2026-06-08T04:32:53.720Z"
       },
       "alternate": {
-        "price": 369,
+        "price": 39900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/GS-V2P-GT-Wheel-Microfiber-Leather-Austausch-Lenkrad/html/product/100032058",
-        "name": "GS V2P GT Wheel Microfiber Leather, Austausch-Lenkrad",
+        "name": "MOZA GS V2P GT Wheel Microfiber Leather, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:31.101Z"
+        "checkedAt": "2026-06-08T07:17:20.215Z"
       },
       "simufy": {
         "price": 429.99,
@@ -897,12 +897,12 @@
         "checkedAt": "2026-06-08T04:34:55.074Z"
       },
       "alternate": {
-        "price": 349,
+        "price": 34900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/CS-Pro-Steering-Wheel-Austausch-Lenkrad/html/product/100177828",
-        "name": "CS Pro Steering Wheel, Austausch-Lenkrad",
+        "name": "MOZA CS Pro Steering Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:28.343Z"
+        "checkedAt": "2026-06-08T07:17:11.914Z"
       },
       "simufy": {
         "price": 349.99,
@@ -974,7 +974,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-cs-pro-steering-wheel-mzars093/",
         "name": "Buy Moza CS Pro Steering Wheel - RS093 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:50.574Z"
+        "checkedAt": "2026-06-08T07:19:15.007Z"
       },
       "mediak": {
         "price": 1489,
@@ -1123,12 +1123,12 @@
         "checkedAt": "2026-06-08T04:34:31.070Z"
       },
       "alternate": {
-        "price": 379,
+        "price": 39900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/CRP2-Load-Cell-Gaspedal-plus-Bremse-Pedale/html/product/100077820",
-        "name": "CRP2 Load Cell (Gaspedal + Bremse), Pedale",
+        "name": "MOZA CRP2 Load Cell (Gaspedal + Bremse), Pedale schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:45.355Z"
+        "checkedAt": "2026-06-08T07:18:04.252Z"
       },
       "simufy": {
         "price": 399.99,
@@ -1200,7 +1200,7 @@
         "url": "https://www.electronicscrazy.sg/moza-racing-crp2-pedal-set-rs066-3-pedal-system-for-sim-racing-pc/",
         "name": "MOZA Racing CRP2 Racing Pedal (RS066) | Premium Load Cell Sim Racing Pedal Set | Buy in Singapore",
         "inStock": true,
-        "checkedAt": "2026-06-08T04:30:47.566Z"
+        "checkedAt": "2026-06-08T07:15:52.671Z"
       },
       "simracer": {
         "price": 379,
@@ -1280,7 +1280,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-crp2-load-cell-sim-racing-pedals-mzars066/",
         "name": "Buy Moza CRP2 Load Cell Sim Racing Pedals - RS066 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:30:07.264Z"
+        "checkedAt": "2026-06-08T07:19:32.227Z"
       },
       "mediak": {
         "price": 1699,
@@ -1291,12 +1291,12 @@
         "checkedAt": "2026-06-08T05:23:18.445Z"
       },
       "simustop": {
-        "price": 629,
+        "price": 584.97,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/pedales-moza-crp2/",
         "name": "PEDALES MOZA CRP2 - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:30.975Z"
+        "checkedAt": "2026-06-08T07:30:05.935Z"
       },
       "simgear": {
         "price": 412.3,
@@ -1437,12 +1437,12 @@
         "checkedAt": "2026-06-08T04:34:56.897Z"
       },
       "alternate": {
-        "price": 159,
+        "price": 15900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/HGP-Shifter-Schalthebel/html/product/1912700",
-        "name": "HGP Shifter, Schalthebel",
+        "name": "MOZA HGP Shifter, Schalthebel schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:51.823Z"
+        "checkedAt": "2026-06-08T07:18:13.364Z"
       },
       "simufy": {
         "price": 159.99,
@@ -1610,7 +1610,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-hgp-shifter-mzars039/",
         "name": "Buy Moza HGP Shifter - RS039 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:30:15.730Z"
+        "checkedAt": "2026-06-08T07:19:41.100Z"
       },
       "apexsim": {
         "price": 129.99,
@@ -1629,12 +1629,12 @@
         "checkedAt": "2026-06-08T05:23:34.580Z"
       },
       "simustop": {
-        "price": 235,
+        "price": 218.55,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/palanca-moza-hgp-mf46a/",
         "name": "PALANCA MOZA HGP - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:39.806Z"
+        "checkedAt": "2026-06-08T07:30:15.384Z"
       },
       "simgear": {
         "price": 164.3,
@@ -1775,12 +1775,12 @@
         "checkedAt": "2026-06-08T04:34:58.716Z"
       },
       "alternate": {
-        "price": 109,
+        "price": 10900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/HBP-Handbrake-Handbremse/html/product/1912696",
-        "name": "HBP Handbrake, Handbremse",
+        "name": "MOZA HBP Handbrake, Handbremse schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:54.329Z"
+        "checkedAt": "2026-06-08T07:18:22.299Z"
       },
       "simufy": {
         "price": 109.99,
@@ -1948,7 +1948,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-hpb-handbrake-mzars31/",
         "name": "Buy Moza HBP Handbrake - RS31 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:30:24.150Z"
+        "checkedAt": "2026-06-08T07:19:49.830Z"
       },
       "apexsim": {
         "price": 99,
@@ -1967,12 +1967,12 @@
         "checkedAt": "2026-06-08T05:23:47.686Z"
       },
       "simustop": {
-        "price": 159,
+        "price": 147.87,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/freno-de-mano-moza-hbp/",
         "name": "FRENO DE MANO MOZA HBP - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:48.582Z"
+        "checkedAt": "2026-06-08T07:30:23.969Z"
       },
       "apshop": {
         "price": 2599000,
@@ -2211,12 +2211,12 @@
         "checkedAt": "2026-06-08T04:34:48.970Z"
       },
       "alternate": {
-        "price": 729,
+        "price": 79900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/R21-Ultra-DD-Lenkradbasis/html/product/100167208",
-        "name": "R21 Ultra DD, Lenkradbasis",
+        "name": "MOZA R21 Ultra DD, Lenkradbasis schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:18.461Z"
+        "checkedAt": "2026-06-08T07:16:36.694Z"
       },
       "simufy": {
         "price": 769.99,
@@ -2530,7 +2530,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-r3-racing-wheel-and-pedal-for-pc-mzars074/",
         "name": "Buy Moza R3 Racing Wheel And Pedal For PC - RS074 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:16.947Z"
+        "checkedAt": "2026-06-08T07:18:39.546Z"
       },
       "apexsim": {
         "price": 279,
@@ -2546,15 +2546,15 @@
         "url": "https://www.centralcomputer.com/moza-rs053-r3-racing-wheel-and-pedals-black.html",
         "name": "Moza RS053 R3 Racing Wheel and Pedals Black",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:37:57.956Z"
+        "checkedAt": "2026-06-08T07:28:52.500Z"
       },
       "simustop": {
-        "price": 545,
+        "price": 506.85,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/moza-r3-bundle/",
         "name": "MOZA R3 BUNDLE - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:38:40.216Z"
+        "checkedAt": "2026-06-08T07:29:14.224Z"
       },
       "apshop": {
         "price": 7499000,
@@ -2679,12 +2679,12 @@
         "checkedAt": "2026-06-08T04:34:38.381Z"
       },
       "alternate": {
-        "price": 399,
+        "price": 41900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/R5-Bundle-Lenkrad/html/product/1912680",
-        "name": "R5 Bundle, Lenkrad",
+        "name": "MOZA R5 Bundle, Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:10.906Z"
+        "checkedAt": "2026-06-08T07:16:10.103Z"
       },
       "simufy": {
         "price": 439.99,
@@ -2764,7 +2764,7 @@
         "url": "https://www.racegear.eu/en/wheelbases/83-moza-r5-bundle-for-pc-rs20-0723497239493.html",
         "name": "Moza R5 bundle for PC RS20",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:24:57.779Z"
+        "checkedAt": "2026-06-08T07:14:32.857Z"
       },
       "simracer": {
         "price": 389,
@@ -2883,16 +2883,16 @@
         "currency": "USD",
         "url": "https://www.centralcomputer.com/moza-rs20-r5-bundle-racing-simulator.html",
         "name": "Moza RS20 R5 Bundle Racing Simulator",
-        "inStock": false,
-        "checkedAt": "2026-06-07T17:32:43.421Z"
+        "inStock": true,
+        "checkedAt": "2026-06-08T07:29:03.563Z"
       },
       "simustop": {
-        "price": 679,
+        "price": 631.47,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/moza-r5-bundle/",
         "name": "MOZA R5 BUNDLE - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:38:48.720Z"
+        "checkedAt": "2026-06-08T07:29:23.290Z"
       },
       "simgear": {
         "price": 443.3,
@@ -3057,12 +3057,12 @@
         "checkedAt": "2026-06-08T04:34:42.130Z"
       },
       "alternate": {
-        "price": 439,
+        "price": 43900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/R12-V2-Wheel-Base-Lenkradbasis/html/product/100121864",
-        "name": "R12 V2 Wheel Base, Lenkradbasis",
+        "name": "MOZA R12 V2 Wheel Base, Lenkradbasis schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:15.672Z"
+        "checkedAt": "2026-06-08T07:16:27.697Z"
       },
       "simufy": {
         "price": 469.99,
@@ -3230,7 +3230,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-r12-v2-direct-drive-wheel-base-mzars081/",
         "name": "Buy Moza R12 V2 Wheel Base - RS081 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:33.758Z"
+        "checkedAt": "2026-06-08T07:18:56.986Z"
       },
       "mediak": {
         "price": 1819,
@@ -3387,12 +3387,12 @@
         "checkedAt": "2026-06-08T04:34:51.378Z"
       },
       "alternate": {
-        "price": 239,
+        "price": 23900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/KS-Steering-Wheel-Austausch-Lenkrad/html/product/100003165",
-        "name": "KS Steering Wheel, Austausch-Lenkrad",
+        "name": "MOZA KS Steering Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:20.774Z"
+        "checkedAt": "2026-06-08T07:16:45.760Z"
       },
       "simufy": {
         "price": 249.99,
@@ -3472,7 +3472,7 @@
         "url": "https://www.racegear.eu/en/steering-wheels/123-moza-ks-steering-wheel-for-pc-rs047-0723497239752.html",
         "name": "Moza KS steering wheel for PC RS047",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:25:29.638Z"
+        "checkedAt": "2026-06-08T07:15:06.460Z"
       },
       "simracer": {
         "price": 229,
@@ -3595,12 +3595,12 @@
         "checkedAt": "2026-06-08T05:22:06.137Z"
       },
       "simustop": {
-        "price": 429,
+        "price": 398.97,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/volante-moza-ks/",
         "name": "VOLANTE MOZA KS - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:05.574Z"
+        "checkedAt": "2026-06-08T07:29:40.372Z"
       },
       "apshop": {
         "price": 7369000,
@@ -3717,12 +3717,12 @@
         "checkedAt": "2026-06-08T04:34:23.080Z"
       },
       "alternate": {
-        "price": 234.99,
+        "price": 24900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/CS-V2P-Steering-Wheel-Austausch-Lenkrad/html/product/100032059",
-        "name": "CS V2P Steering Wheel, Austausch-Lenkrad",
+        "name": "MOZA CS V2P Steering Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:25.844Z"
+        "checkedAt": "2026-06-08T07:17:03.106Z"
       },
       "son-video": {
         "price": 249,
@@ -3754,7 +3754,7 @@
         "url": "https://www.racegear.eu/en/steering-wheels/153-moza-cs-v2p-steering-wheel-rs057-0723497239905.html",
         "name": "Moza CS V2P steering wheel RS057",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:25:37.768Z"
+        "checkedAt": "2026-06-08T07:15:15.320Z"
       },
       "simracer": {
         "price": 239,
@@ -3818,7 +3818,7 @@
         "url": "https://www.demon-tweeks.com/uk/moza-cs-v2p-sim-racing-steering-wheel-mzars057/",
         "name": "Buy Moza CS V2P Steering Wheel - RS057 | Demon Tweeks",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:29:42.130Z"
+        "checkedAt": "2026-06-08T07:19:06.229Z"
       },
       "mediak": {
         "price": 1059,
@@ -3829,12 +3829,12 @@
         "checkedAt": "2026-06-08T05:22:18.318Z"
       },
       "simustop": {
-        "price": 455,
+        "price": 423.15,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/volante-moza-cs-v2p/",
         "name": "VOLANTE MOZA CS V2P - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:14.420Z"
+        "checkedAt": "2026-06-08T07:29:49.141Z"
       }
     },
     "rs-wheel": {
@@ -3911,12 +3911,12 @@
         "checkedAt": "2026-06-08T04:32:56.965Z"
       },
       "alternate": {
-        "price": 389,
+        "price": 38900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/RS-V2-Steering-Wheel-Austausch-Lenkrad/html/product/1912674",
-        "name": "RS V2 Steering Wheel, Austausch-Lenkrad",
+        "name": "MOZA RS V2 Steering Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:37.533Z"
+        "checkedAt": "2026-06-08T07:17:38.365Z"
       },
       "simufy": {
         "price": 399.99,
@@ -4177,12 +4177,12 @@
         "checkedAt": "2026-06-08T04:34:29.026Z"
       },
       "alternate": {
-        "price": 119.9,
+        "price": 13900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/SR-P-Pedal-Set-of-2-Pedale/html/product/1912677",
-        "name": "SR-P Pedal Set of 2, Pedale",
+        "name": "MOZA SR-P Pedal Set of 2, Pedale schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:43.014Z"
+        "checkedAt": "2026-06-08T07:17:55.433Z"
       },
       "simufy": {
         "price": 159.99,
@@ -4345,12 +4345,12 @@
         "checkedAt": "2026-06-08T05:23:00.754Z"
       },
       "simustop": {
-        "price": 679,
+        "price": 429,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/pedales-moza-sr-p/",
         "name": "srp-pedals",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:22.518Z"
+        "checkedAt": "2026-06-08T07:29:57.377Z"
       },
       "simgear": {
         "price": 143.63,
@@ -4382,7 +4382,7 @@
         "url": "https://www.overclockers.co.uk/moza-racing-sr-p-load-cell-two-pedal-set-throttle-and-brake-black-rs11-gc-00a-mr.html",
         "name": "MOZA Racing SR-P Load Cell Two Pedal Set Throttle and Brake - Black | OcUK",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:31:09.633Z"
+        "checkedAt": "2026-06-08T07:21:41.371Z"
       }
     },
     "fsr2-wheel": {
@@ -4528,15 +4528,15 @@
         "url": "https://www.racegear.eu/en/steering-wheels/200-moza-fsr2-280mm-formula-wheel-with-touchscreen-rs068-demo-6973137270599.html",
         "name": "Moza FSR 2 Formula Wheel | 4.3\" Touchscreen & 6 Paddles | RaceGear.eu",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:25:45.867Z"
+        "checkedAt": "2026-06-08T07:15:24.121Z"
       },
       "alternate": {
-        "price": 599,
+        "price": 69900,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/FSR2-Formula-Wheel-Austausch-Lenkrad/html/product/100077819",
-        "name": "FSR2 Formula Wheel, Austausch-Lenkrad",
+        "name": "MOZA FSR2 Formula Wheel, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:40.309Z"
+        "checkedAt": "2026-06-08T07:17:46.878Z"
       },
       "simracer": {
         "price": 583,
@@ -4733,12 +4733,12 @@
         "checkedAt": "2026-06-08T04:33:05.937Z"
       },
       "alternate": {
-        "price": 134.9,
+        "price": 13490,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/ESX-Steering-Wheel-fuer-Xbox-Austausch-Lenkrad/html/product/100032057",
-        "name": "ESX Steering Wheel für Xbox, Austausch-Lenkrad",
+        "name": "MOZA ESX Steering Wheel für Xbox, Austausch-Lenkrad schwarz",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:31:34.851Z"
+        "checkedAt": "2026-06-08T07:17:29.438Z"
       },
       "simufy": {
         "price": 115.69,
@@ -4959,12 +4959,12 @@
         "checkedAt": "2026-06-08T04:34:07.947Z"
       },
       "alternate": {
-        "price": 45,
+        "price": 4500,
         "currency": "EUR",
         "url": "https://www.alternate.de/MOZA/Table-Clamp-Halterung/html/product/1912694",
-        "name": "Table Clamp, Halterung",
+        "name": "MOZA Table Clamp, Halterung schwarz, MOZA R5, R9 und R12",
         "inStock": true,
-        "checkedAt": "2026-06-08T06:32:00.893Z"
+        "checkedAt": "2026-06-08T07:18:30.824Z"
       },
       "simufy": {
         "price": 44.99,
@@ -5020,7 +5020,7 @@
         "url": "https://www.racegear.eu/en/accessories-for-steering-wheels/86-moza-r5r9-table-clamp-rs12-0723497239325.html",
         "name": "Moza R5/R9 table clamp RS12",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:26:02.069Z"
+        "checkedAt": "2026-06-08T07:15:41.759Z"
       },
       "simracer": {
         "price": 45,
@@ -5111,12 +5111,12 @@
         "checkedAt": "2026-06-08T04:24:16.624Z"
       },
       "simustop": {
-        "price": 98,
+        "price": 91.14,
         "currency": "USD",
         "url": "https://simustop.com.ar/productos/moza-table-clamp/",
         "name": "MOZA TABLE CLAMP - Comprar en SIMUSTOP",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:39:57.373Z"
+        "checkedAt": "2026-06-08T07:30:32.818Z"
       },
       "simgear": {
         "price": 50.63,
@@ -6138,7 +6138,7 @@
         "url": "https://www.racegear.eu/en/sim-racing-pedals/122-moza-sr-p-lite-clutch-pedal-rs19-0723497239486.html",
         "name": "Moza SR-P lite clutch pedal RS19",
         "inStock": true,
-        "checkedAt": "2026-06-08T03:25:53.911Z"
+        "checkedAt": "2026-06-08T07:15:32.827Z"
       }
     },
     "es-wheel": {
@@ -7865,7 +7865,7 @@
     "sgp-shifter": 179,
     "tsw-wheel": 349,
     "z-axis": 129,
-    "extension-rod": 169,
+    "extension-rod": 139,
     "clamp-truck": 69,
     "srp2-pedals": 219,
     "lambo-revuelto": 549,
