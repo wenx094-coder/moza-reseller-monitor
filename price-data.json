@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-08T06:32:00.893Z",
+  "lastUpdated": "2026-06-08T06:57:09.627Z",
   "prices": {
     "r9-v3-base": {
       "simmotion-eu": {
@@ -4264,14 +4264,6 @@
         "inStock": true,
         "checkedAt": "2026-06-08T04:39:22.245Z"
       },
-      "simultimate": {
-        "price": 599.95,
-        "currency": "CHF",
-        "url": "https://simultimate.ch/produkt/moza-srp2-brake-throttle/",
-        "name": "MOZA® SRP2 Brake & Throttle",
-        "inStock": true,
-        "checkedAt": "2026-06-08T04:40:54.666Z"
-      },
       "focussimracing": {
         "price": 129,
         "currency": "USD",
@@ -5499,14 +5491,6 @@
         "name": "Przepustnica Moza MTP AS008",
         "inStock": true,
         "checkedAt": "2026-06-08T05:25:33.184Z"
-      },
-      "gameline": {
-        "price": 8095,
-        "currency": "PHP",
-        "url": "https://gameline.ph/products/moza-mtp-take-off-landing-panel-as009",
-        "name": "Moza MTP Take-off Landing Panel [AS009]",
-        "inStock": true,
-        "checkedAt": "2026-06-08T05:26:20.647Z"
       },
       "apshop": {
         "price": 15999000,
@@ -7234,14 +7218,6 @@
         "inStock": true,
         "checkedAt": "2026-06-08T05:12:07.749Z"
       },
-      "simpanzee": {
-        "price": 7751,
-        "currency": "PKR",
-        "url": "https://simpanzee.com/product/multi-function-stalks-adapter-plate/",
-        "name": "MOZA Multi-function Stalks Adapter Plate",
-        "inStock": true,
-        "checkedAt": "2026-06-08T05:15:26.784Z"
-      },
       "apexsim": {
         "price": 199,
         "currency": "USD",
@@ -7289,14 +7265,6 @@
         "name": "Moza Racing Multi-function Stalks RS065",
         "inStock": true,
         "checkedAt": "2026-06-08T06:00:10.647Z"
-      },
-      "simsolution": {
-        "price": 159,
-        "currency": "ILS",
-        "url": "https://www.simsolution.co.il/wp-json/wc/store/v1/products/124386",
-        "name": "מתאם לידיות שליטה לבסיסי הגה צד שלישי Moza Multi Function",
-        "inStock": false,
-        "checkedAt": "2026-06-08T06:02:02.104Z"
       }
     },
     "z-axis": {
