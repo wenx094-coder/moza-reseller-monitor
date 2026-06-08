@@ -312,8 +312,8 @@ function extractPrice(html, preferredCurrency, retailerId) {
   }
 
   // Retailer-specific selectors
+  // Note: .special-price is intentionally last — it often matches cross-sell/related products, not the main product
   var selectors = [
-    '.special-price',
     '.current-price',
     '.product-price',
     '.price ins .woocommerce-Price-amount',
@@ -325,6 +325,7 @@ function extractPrice(html, preferredCurrency, retailerId) {
     '.sale-price',
     '.price-item',
     '.current-price .price',
+    '.special-price',
   ];
 
   // Ricmotech: "Your Price:" followed by price
