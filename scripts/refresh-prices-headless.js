@@ -71,9 +71,9 @@ async function scrapeUrl(browser, url, retailerId) {
     if (jsonLd) {
       try {
         var json = JSON.parse(jsonLd[1]);
-        var graph = json['@graph'] || [json];
-        for (var i = 0; i < graph.length; i++) {
-          var item = graph[i];
+        var items = json['@graph'] || (Array.isArray(json) ? json : [json]);
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
           if (item['@type'] === 'Product' && item.offers) {
             var offers = Array.isArray(item.offers) ? item.offers : [item.offers];
             for (var j = 0; j < offers.length; j++) {
@@ -150,6 +150,7 @@ async function scrapeUrl(browser, url, retailerId) {
     }
 
     // Alternate: JS-rendered prices, look for JSON-LD or data-price attributes
+    // Note: prices may be stored in cents (e.g., 34900 = €349.00), divide by 100
     if (!price && retailerId === 'alternate') {
       var altJson = html.match(/"price"\s*:\s*"([0-9.]+)"/);
       if (altJson) price = parseFloat(altJson[1]);
@@ -157,6 +158,9 @@ async function scrapeUrl(browser, url, retailerId) {
         var altMatch = html.match(/data-price[^>]*>\s*[^<]*?([0-9,.]+)/);
         if (altMatch) price = parseFloat(altMatch[1].replace(/,/g, ''));
       }
+    }
+    if (price && retailerId === 'alternate' && price > 100 && price % 1 === 0) {
+      price = price / 100;
     }
 
     // PB Tech: custom .NET platform, uses sticky-price or font-size-28 selectors
