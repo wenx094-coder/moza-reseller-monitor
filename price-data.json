@@ -2862,14 +2862,6 @@
         "inStock": true,
         "checkedAt": "2026-06-08T05:11:24.059Z"
       },
-      "microcenter": {
-        "price": 37,
-        "currency": "USD",
-        "url": "https://www.microcenter.com/product/682583/moza-r5-direct-drive-sim-racing-bundle",
-        "name": "Moza R5 Direct Drive Sim Racing Bundle - Micro Center",
-        "inStock": true,
-        "checkedAt": "2026-06-08T03:19:09.635Z"
-      },
       "apexsim": {
         "price": 399,
         "currency": "USD",

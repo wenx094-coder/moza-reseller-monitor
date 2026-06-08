@@ -159,10 +159,6 @@ const RETAILERS = [
 ];
 
 const PRODUCT_URLS = {
-  microcenter: {
-    'r5-bundle': 'https://www.microcenter.com/product/682583/moza-r5-direct-drive-sim-racing-bundle',
-    'r12-base':  'https://www.microcenter.com/product/682588/moza-r12-direct-drive-wheel-base',
-  },
   'simmotion-eu': {
     'r9-v3-base': 'https://eu.sim-motion.com/moza-r9-v3-wheel-base',
     'ks-pro-wheel': 'https://eu.sim-motion.com/moza-ks-pro-steering-wheel',
