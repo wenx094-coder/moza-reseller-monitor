@@ -1475,7 +1475,7 @@ const MSRP_MAP = {
   'sgp-shifter':    179,
   'tsw-wheel':    349,
   'z-axis':    129,
-    'extension-rod':    139,
+  'extension-rod':    169,
   'clamp-truck':    69,
   'srp2-pedals':    219,
   'lambo-revuelto':    549,
@@ -1493,6 +1493,7 @@ const MSRP_MAP = {
   'mfy-yoke':    219,
   'es-formula-mod':    59,
 };
+
 
 
 
