@@ -678,7 +678,7 @@ const PRODUCT_URLS = {
     'hgp-shifter':  'https://www.sdeal.com.my/moza-racing/moza-racing-hgp-cnc-8-speed-shifter',
     'handbrake':    'https://www.sdeal.com.my/moza-racing/moza-hbp-loadcell-handbrake',
     'srp-pedals':   'https://www.sdeal.com.my/moza-racing/moza-srp-pedal-clutch',
-    'crp2-pedals':  'https://www.sdeal.com.my/moza-racing/moza-racing-crp-v2-alloy-loadcell-pedals',
+    'crp2-pedals':  'https://www.sdeal.com.my/moza-racing/moza-r16-crp-racing-pedals',
   },
   // Batch 3: New dealers (May 2026)
   simracer: {
