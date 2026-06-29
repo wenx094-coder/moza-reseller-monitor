@@ -436,7 +436,7 @@ async function main() {
   console.log('Fetching ' + entries.length + ' product pages...');
   var success = 0;
 
-  var HEADLESS_ONLY = ['demontweeks', 'overclockersuk', 'simustop'];
+  var HEADLESS_ONLY = ['demontweeks', 'overclockersuk', 'simustop', 'alternate', 'noxgaming'];
 
   for (var e = 0; e < entries.length; e++) {
     var url = entries[e].url;

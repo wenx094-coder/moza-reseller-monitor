@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech', 'simustop'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech', 'simustop', 'noxgaming'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -149,8 +149,7 @@ async function scrapeUrl(browser, url, retailerId) {
       }
     }
 
-    // Alternate: JS-rendered prices, look for JSON-LD or data-price attributes
-    // Note: prices may be stored in cents (e.g., 34900 = €349.00), divide by 100
+    // Alternate: JSON-LD stores price in EUR (e.g., "price":"309.0"), no divide-by-100 needed
     if (!price && retailerId === 'alternate') {
       var altJson = html.match(/"price"\s*:\s*"([0-9.]+)"/);
       if (altJson) price = parseFloat(altJson[1]);
@@ -158,9 +157,6 @@ async function scrapeUrl(browser, url, retailerId) {
         var altMatch = html.match(/data-price[^>]*>\s*[^<]*?([0-9,.]+)/);
         if (altMatch) price = parseFloat(altMatch[1].replace(/,/g, ''));
       }
-    }
-    if (price && retailerId === 'alternate' && price > 100 && price % 1 === 0) {
-      price = price / 100;
     }
 
     // PB Tech: custom .NET platform, uses sticky-price or font-size-28 selectors

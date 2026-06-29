@@ -514,7 +514,6 @@ const PRODUCT_URLS = {
     'gs-v2p-wheel': 'https://www.advancedsimracing.com/products/moza-gs-gt-wheel',
     'rs-wheel':     'https://www.advancedsimracing.com/products/moza-rs-wheel',
     'fsr2-wheel':   'https://www.advancedsimracing.com/products/moza-racing-fsr2-formula-wheel',
-    'vision-gs':    'https://www.advancedsimracing.com/products/moza-racing-vision-gs-steering-wheel',
     'esx-wheel':    'https://www.advancedsimracing.com/products/moza-racing-esx-wheel-for-xbox',
     'srp-pedals':   'https://www.advancedsimracing.com/products/moza-racing-srp-pedals',
     'crp2-pedals':  'https://www.advancedsimracing.com/products/moza-racing-crp-2-pedals',
