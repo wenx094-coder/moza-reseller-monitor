@@ -1452,9 +1452,9 @@ const MSRP_MAP = {
   'es-wheel':    99,
   'esx-wheel':    199,
   'ks-wheel':    349,
-  'ks-pro-wheel':    476,
+  'ks-pro-wheel':    459,
   'cs-wheel':    249,
-  'cs-pro-wheel':    476,
+  'cs-pro-wheel':    459,
   'cs-v2p':    399,
   'gs-v2p-wheel':    549,
   'rs-wheel':    549,
@@ -1492,6 +1492,7 @@ const MSRP_MAP = {
   'mfy-yoke':    219,
   'es-formula-mod':    59,
 };
+
 
 
 
