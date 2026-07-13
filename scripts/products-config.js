@@ -1489,9 +1489,10 @@ const MSRP_MAP = {
   'mtp-throttle':    469,
   'mtlp-panel':    219,
   'mrp-pedals':    499,
-  'mfy-yoke':    187,
+  'mfy-yoke':    186,
   'es-formula-mod':    59,
 };
+
 
 
 
