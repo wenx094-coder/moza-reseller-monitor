@@ -69,6 +69,9 @@ const PRODUCTS = [
   { id: 'crp2-clutch',  name: 'CRP2 Load Cell Clutch Pedal', brand: 'Moza RS21' },
   { id: 'crp2-perf-kit',name: 'CRP2 Pedal Performance Kit', brand: 'Moza RS21' },
   { id: 'srp-lite-perf-kit', name: 'SR-P Lite Performance Kit', brand: 'Moza RS21' },
+  // Newegg-specific products (Jul 2026)
+  { id: 'r12-v2-base',  name: 'R12 V2 Wheel Base',     brand: 'Moza RS21' },
+  { id: 'porsche-wheel',name: 'Porsche Mission R Wheel',brand: 'Moza RS21' },
 ];
 
 const RETAILERS = [
@@ -156,6 +159,8 @@ const RETAILERS = [
   // Batch 14: New dealers (Jun 2026)
   { id: 'pbtech',          name: 'PB Tech',               url: 'https://www.pbtech.com/pacific',               country: 'NZ', currency: 'NZD' },
   { id: 'prosimtech',      name: 'ProSimTech',            url: 'https://www.prosimtech.com',                   country: 'PT', currency: 'EUR' },
+  // Batch 15: US major retailer (Jul 2026)
+  { id: 'newegg',          name: 'Newegg',                url: 'https://www.newegg.com',                       country: 'US', currency: 'USD' },
 ];
 
 const PRODUCT_URLS = {
@@ -1423,6 +1428,22 @@ const PRODUCT_URLS = {
     'flight-base-clamp':'https://www.simsolution.co.il/wp-json/wc/store/v1/products/122693',
     'mrp-damper':   'https://www.simsolution.co.il/wp-json/wc/store/v1/products/125560',
   },
+  // Batch 15: Newegg (US)
+  newegg: {
+    'r3-xbox':      'https://www.newegg.com/p/N82E16874961028',
+    'r5-bundle':    'https://www.newegg.com/p/N82E16874961042',
+    'r12-base':     'https://www.newegg.com/p/232-0173-00013',
+    'r12-v2-base':  'https://www.newegg.com/p/N82E16874961031',
+    'r16-base':     'https://www.newegg.com/p/N82E16874961006',
+    'r21-ultra':    'https://www.newegg.com/p/N82E16874961044',
+    'ks-wheel':     'https://www.newegg.com/p/N82E16874961017',
+    'ks-pro-wheel': 'https://www.newegg.com/p/N82E16874961046',
+    'gs-v2p-wheel': 'https://www.newegg.com/p/N82E16874961007',
+    'rs-wheel':     'https://www.newegg.com/p/232-0173-00020',
+    'crp2-pedals':  'https://www.newegg.com/p/N82E16874961015',
+    'srp2-pedals':  'https://www.newegg.com/p/N82E16879940001',
+    'porsche-wheel':'https://www.newegg.com/p/N82E16874961047',
+  },
 };
 
 function buildUrlEntries() {
@@ -1478,6 +1499,9 @@ const MSRP_MAP = {
   'clamp-truck':    69,
   'srp2-pedals':    219,
   'lambo-revuelto':    549,
+  // Newegg-specific (Jul 2026)
+  'r12-v2-base':    649,
+  'porsche-wheel':    999,
   // MOZA Flight (飞模)
   'ab6-bundle':    549,
   'ab9-base':    699,

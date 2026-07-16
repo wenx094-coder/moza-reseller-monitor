@@ -4,7 +4,7 @@ const path = require('path');
 const { PRODUCTS, RETAILERS, MSRP_MAP } = require('./products-config');
 
 const DATA_PATH = path.join(__dirname, '..', 'price-data.json');
-const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech', 'simustop', 'noxgaming'];
+const BLOCKED_RETAILERS = ['microcenter', 'kfire', 'demontweeks', 'overclockersuk', 'bestbuy', 'centralcomputer', 'electronicscrazy', 'alternate', 'thegamesmen', 'racegear', 'pbtech', 'simustop', 'noxgaming', 'newegg'];
 
 function loadData() {
   try { return JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8')); } catch { return { lastUpdated: null, prices: {}, msrp: {} }; }
@@ -156,6 +156,16 @@ async function scrapeUrl(browser, url, retailerId) {
       if (!price) {
         var altMatch = html.match(/data-price[^>]*>\s*[^<]*?([0-9,.]+)/);
         if (altMatch) price = parseFloat(altMatch[1].replace(/,/g, ''));
+      }
+    }
+
+    // Newegg: price in JSON-LD or price-current class
+    if (!price && retailerId === 'newegg') {
+      var neJson = html.match(/"price"\s*:\s*"([0-9.]+)"/);
+      if (neJson) price = parseFloat(neJson[1]);
+      if (!price) {
+        var neMatch = html.match(/price-current[^>]*>[\s\S]{0,100}?\$\s*([0-9,.]+)/);
+        if (neMatch) price = parseFloat(neMatch[1].replace(/,/g, ''));
       }
     }
 
