@@ -113,6 +113,33 @@ const BRANDS = {
 
 const client = new ApifyClient({ token: TOKEN });
 
+const MIN_BALANCE_USD = 2.0;
+const ESTIMATED_COST_PER_RUN = 0.30;
+
+async function checkBalance() {
+  try {
+    const tokenInfo = await client.token().get();
+    const balanceUsd = tokenInfo.plan?.remainingUsd ?? tokenInfo.remainingUsd ?? null;
+    if (balanceUsd !== null) {
+      console.log(`[refresh-data] Apify balance: $${balanceUsd.toFixed(2)}`);
+      console.log(`[refresh-data] Estimated run cost: $${ESTIMATED_COST_PER_RUN.toFixed(2)}`);
+      if (balanceUsd < ESTIMATED_COST_PER_RUN) {
+        console.error(`[refresh-data] BALANCE TOO LOW ($${balanceUsd.toFixed(2)} < $${ESTIMATED_COST_PER_RUN}). Skipping run.`);
+        return false;
+      }
+      if (balanceUsd < MIN_BALANCE_USD) {
+        console.warn(`[refresh-data] WARNING: Balance below $${MIN_BALANCE_USD} threshold. Consider reducing frequency.`);
+      }
+      return true;
+    }
+    console.log('[refresh-data] Could not retrieve balance, proceeding anyway...');
+    return true;
+  } catch (err) {
+    console.warn('[refresh-data] Could not check balance:', err.message, '- proceeding anyway...');
+    return true;
+  }
+}
+
 function detectBrands(post) {
   const text = ((post.text || post.caption || '') + ' ' + (post.displayUrl || '')).toLowerCase();
   const found = [];
@@ -169,6 +196,12 @@ async function sleep(ms) {
 
 async function run() {
   console.log('[refresh-data] Starting Instagram data refresh...');
+
+  const balanceOk = await checkBalance();
+  if (!balanceOk) {
+    console.log('[refresh-data] Run skipped due to insufficient Apify balance.');
+    process.exit(0);
+  }
 
   const usernames = Object.keys(DEALER_INSTAGRAM_HANDLES);
   const directUrls = usernames.map(u => `https://www.instagram.com/${u}/`);
