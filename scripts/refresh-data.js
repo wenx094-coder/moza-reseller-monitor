@@ -141,7 +141,7 @@ async function checkBalance() {
 }
 
 function detectBrands(post) {
-  const text = ((post.text || post.caption || '') + ' ' + (post.displayUrl || '')).toLowerCase();
+  const text = (post.text || post.caption || '').toLowerCase();
   const found = [];
   for (const [id, brand] of Object.entries(BRANDS)) {
     for (const kw of brand.keywords) {
