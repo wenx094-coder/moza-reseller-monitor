@@ -2138,14 +2138,6 @@
         "inStock": true,
         "checkedAt": "2026-08-18T00:43:16.757Z"
       },
-      "noxgaming": {
-        "price": 1,
-        "currency": "CAD",
-        "url": "https://www.noxgaming.ca/product/moza-r21-v2-direct-drive-wheelbase/",
-        "name": "MOZA R21 V2 Direct Drive Wheelbase | NOX Gaming",
-        "inStock": true,
-        "checkedAt": "2026-08-17T02:22:53.719Z"
-      },
       "abruzzi": {
         "price": 699,
         "currency": "GBP",
@@ -2371,14 +2363,6 @@
         "name": "Moza Racing R3 XBox Sim Racing Bundle",
         "inStock": true,
         "checkedAt": "2026-08-18T00:42:54.424Z"
-      },
-      "noxgaming": {
-        "price": 1,
-        "currency": "CAD",
-        "url": "https://www.noxgaming.ca/product/moza-r3-bundle-steering-wheel-pedals-wheelbase-xbox-pc/",
-        "name": "MOZA R3 Bundle for Xbox & PC (Wheel, Base, Pedals) | NOX Gaming",
-        "inStock": true,
-        "checkedAt": "2026-08-17T02:22:21.387Z"
       },
       "gtomega": {
         "price": 329,
@@ -6173,14 +6157,6 @@
         "name": "MOZA ES Steering Wheel",
         "inStock": false,
         "checkedAt": "2026-07-26T02:35:20.263Z"
-      },
-      "apshop": {
-        "price": 0,
-        "currency": "VND",
-        "url": "https://apshop.vn/products/vo-lang-moza-standalone-es-steering-wheel",
-        "name": "Vành Vô Lăng MOZA ES – Nhập Môn Đua Xe Chuẩn Chỉnh",
-        "inStock": true,
-        "checkedAt": "2026-06-02T19:35:47.649Z"
       }
     },
     "r3-xbox": {

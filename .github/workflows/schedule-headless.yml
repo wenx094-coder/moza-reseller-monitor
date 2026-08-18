@@ -1,11 +1,15 @@
 name: Scrape Headless Prices
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '30 1 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: price-scraper
+  cancel-in-progress: false
 
 jobs:
   scrape:
@@ -17,7 +21,13 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci --omit=dev
+      - uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}
       - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
       - name: Refresh headless prices
         run: node scripts/refresh-prices-headless.js

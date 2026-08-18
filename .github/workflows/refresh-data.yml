@@ -2,7 +2,7 @@ name: Refresh Data
 
 on:
   schedule:
-    - cron: '0 0 */3 * *'
+    - cron: '30 0 */3 * *'
   workflow_dispatch:
 
 permissions:
@@ -18,8 +18,6 @@ jobs:
           node-version: 20
       - run: npm ci --omit=dev
         working-directory: .
-        env:
-          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
       - run: node scripts/refresh-data.js
         working-directory: .
         env:
@@ -28,7 +26,6 @@ jobs:
           git config user.name "moza-monitor-bot"
           git config user.email "bot@moza-reseller-monitor"
           git add data.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-refresh data $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: auto-refresh data $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
-
