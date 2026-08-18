@@ -591,7 +591,7 @@ const PRODUCT_URLS = {
     'cs-wheel':     'https://p1simgear.com.au/products/moza-cs-steering-wheel',
     'cs-pro-wheel': 'https://p1simgear.com.au/products/moza-cs-pro-steering-wheel',
     'fsr2-wheel':   'https://p1simgear.com.au/products/moza-fsr-v2-formula-wheel',
-    'srp-pedals':   'https://p1simgear.com.au/products/moza-srp-pedals',
+    'srp-pedals':   'https://p1simgear.com.au/products/moza-srp-set-of-2-pedals-no-clutch',
     'crp2-pedals':  'https://p1simgear.com.au/products/moza-crp2-pedals',
     'hgp-shifter':  'https://p1simgear.com.au/products/moza-hgp-shifter',
     'handbrake':    'https://p1simgear.com.au/products/moza-hbp-handbrake',

@@ -332,14 +332,6 @@
         "inStock": true,
         "checkedAt": "2026-08-18T00:41:53.252Z"
       },
-      "noxgaming": {
-        "price": 150,
-        "currency": "CAD",
-        "url": "https://www.noxgaming.ca/product/moza-ks-pro-steering-wheel/",
-        "name": "MOZA KS Pro Steering Wheel | NOX Gaming",
-        "inStock": true,
-        "checkedAt": "2026-08-17T02:23:25.142Z"
-      },
       "apexsim": {
         "price": 329,
         "currency": "USD",
@@ -823,14 +815,6 @@
         "name": "Moza CS Pro Steering Wheel",
         "inStock": true,
         "checkedAt": "2026-08-18T00:42:28.074Z"
-      },
-      "noxgaming": {
-        "price": 150,
-        "currency": "CAD",
-        "url": "https://www.noxgaming.ca/product/moza-cs-pro-round-sim-racing-steering-wheel/",
-        "name": "MOZA CS Pro Round Sim Racing Steering Wheel | NOX Gaming",
-        "inStock": true,
-        "checkedAt": "2026-08-17T02:23:09.660Z"
       },
       "apexsim": {
         "price": 329,
@@ -4143,14 +4127,6 @@
         "name": "MOZA SR-P Pedals",
         "inStock": true,
         "checkedAt": "2026-08-18T00:53:36.823Z"
-      },
-      "player1simgear": {
-        "price": 1347,
-        "currency": "AUD",
-        "url": "https://p1simgear.com.au/products/moza-srp-pedals",
-        "name": "Australia's Widest Range of Sim Racing & Flight Simulation Gear",
-        "inStock": true,
-        "checkedAt": "2026-08-18T00:54:06.510Z"
       },
       "alternate": {
         "price": 114.9,
