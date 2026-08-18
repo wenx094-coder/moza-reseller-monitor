@@ -1511,12 +1511,12 @@ const MSRP_MAP = {
   'mrp-pedals':    499,
   'mfy-yoke':    189,
   'es-formula-mod':    59,
-  // MOZA Flight (飞模) — accessories
   'tqa':    39,
   'tqb':    39,
   'mrp-damper':    65,
   'flight-base-clamp':    59,
 };
+
 
 
 
