@@ -1230,7 +1230,6 @@ const PRODUCT_URLS = {
     'r21-ultra':    'https://apshop.vn/products/de-vo-lang-moza-r21-ultra-21nm',
     'r25-ultra':    'https://apshop.vn/products/de-vo-lang-moza-r25-ultra-true-torque-25nm',
     // Steering Wheels
-    'es-wheel':     'https://apshop.vn/products/vo-lang-moza-standalone-es-steering-wheel',
     'esx-wheel':    'https://apshop.vn/products/vo-lang-moza-esx-steering-wheel-for-xbox',
     'ks-wheel':     'https://apshop.vn/products/vo-lang-moza-ks-steering-wheel',
     'ks-pro-wheel': 'https://apshop.vn/products/vanh-vo-lang-moza-ks-pro-steering-wheel',
@@ -1512,6 +1511,11 @@ const MSRP_MAP = {
   'mrp-pedals':    499,
   'mfy-yoke':    189,
   'es-formula-mod':    59,
+  // MOZA Flight (飞模) — accessories
+  'tqa':    39,
+  'tqb':    39,
+  'mrp-damper':    65,
+  'flight-base-clamp':    59,
 };
 
 

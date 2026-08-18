@@ -51,6 +51,10 @@ const HANDLE_MAP = {
   'mtlp-panel': 'mtlp-panel',
   'mrp-rudder-pedals': 'mrp-pedals',
   'mfy-yoke': 'mfy-yoke',
+  'tqa-throttle-module': 'tqa',
+  'tqb-throttle-module': 'tqb',
+  'mrp-adjustable-damper': 'mrp-damper',
+  'flight-base-table-clamp': 'flight-base-clamp',
 };
 
 function fetchJSON(url) {
@@ -99,7 +103,7 @@ async function main() {
 
   const lines = ['const MSRP_MAP = {'];
   const rs21 = ['r3-bundle','r3-xbox','r5-bundle','r5-truck','r9-bundle','r9-v3-base','r12-base','r16-base','r21-base','r21-ultra','r25-ultra','es-wheel','esx-wheel','ks-wheel','ks-pro-wheel','cs-wheel','cs-pro-wheel','cs-v2p','gs-v2p-wheel','rs-wheel','fsr2-wheel','vision-gs','srp-lite','srp-pedals','crp-pedals','crp2-pedals','hgp-shifter','handbrake','table-clamp','cm2-dash','quick-release','universal-hub','multi-stalks','sgp-shifter','tsw-wheel','z-axis','extension-rod','clamp-truck','srp2-pedals','lambo-revuelto'];
-  const flight = ['ab6-bundle','ab9-base','mhg-stick','mh16-stick','ma3x-stick','ay210-yoke','mtq-throttle','mtp-throttle','mtlp-panel','mrp-pedals','mfy-yoke','es-formula-mod'];
+  const flight = ['ab6-bundle','ab9-base','mhg-stick','mh16-stick','ma3x-stick','ay210-yoke','mtq-throttle','mtp-throttle','mtlp-panel','mrp-pedals','mfy-yoke','es-formula-mod','tqa','tqb','mrp-damper','flight-base-clamp'];
 
   for (const pid of rs21) {
     lines.push(`  '${pid}':    ${newMsrp[pid] !== undefined ? newMsrp[pid] : getExistingMsrp(config, pid)},`);

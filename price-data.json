@@ -7864,7 +7864,11 @@
     "clamp-truck": 69,
     "r5-truck": 759,
     "cs-v2p": 359,
-    "lambo-revuelto": 549
+    "lambo-revuelto": 549,
+    "tqa": 39,
+    "tqb": 39,
+    "mrp-damper": 65,
+    "flight-base-clamp": 59
   },
   "brands": {
     "r3-bundle": "Moza RS21",

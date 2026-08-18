@@ -244,8 +244,17 @@ async function run() {
     const ownerUsername = item.ownerUsername || item.username || '';
     if (!ownerUsername || !DEALER_INSTAGRAM_HANDLES[ownerUsername]) continue;
 
+    const formatted = formatPost(item);
+    if (formatted.timestamp) {
+      const postAge = Date.now() - new Date(formatted.timestamp).getTime();
+      const MAX_AGE = 30 * 24 * 60 * 60 * 1000;
+      if (postAge > MAX_AGE) {
+        console.log(`[refresh-data] Skipping stale post (${Math.floor(postAge / 86400000)}d old): ${formatted.url}`);
+        continue;
+      }
+    }
     if (!grouped[ownerUsername]) grouped[ownerUsername] = [];
-    grouped[ownerUsername].push(formatPost(item));
+    grouped[ownerUsername].push(formatted);
   }
 
   const result = {
